@@ -1,6 +1,6 @@
 <?php
 /*
- V2.12 12 June 2002 (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
+ V2.31 20 Aug 2002  (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -9,8 +9,8 @@
   Original version derived from Alberto Cerezal (acerezalp@dbnet.es) - DBNet Informatica & Comunicaciones. 
   08 Nov 2000 jlim - Minor corrections, removing mysql stuff
   09 Nov 2000 jlim - added insertid support suggested by "Christopher Kings-Lynne" <chriskl@familyhealth.com.au>
-                    jlim - changed concat operator to || and data types to MetaType to match documented pgsql types 
-	     	see http://www.postgresql.org/devel-corner/docs/postgres/datatype.htm  
+					jlim - changed concat operator to || and data types to MetaType to match documented pgsql types 
+		 	see http://www.postgresql.org/devel-corner/docs/postgres/datatype.htm  
   22 Nov 2000 jlim - added changes to FetchField() and MetaTables() contributed by "raser" <raser@mail.zen.com.tw>
   27 Nov 2000 jlim - added changes to _connect/_pconnect from ideas by "Lennie" <leen@wirehub.nl>
   15 Dec 2000 jlim - added changes suggested by Additional code changes by "Eric G. Werk" egw@netguide.dk. 
@@ -21,8 +21,8 @@
 class ADODB_postgres64 extends ADOConnection{
 	var $databaseType = 'postgres64';
 	var $dataProvider = 'postgres';
-    var $hasInsertID = true;
-    var $_resultid = false;
+	var $hasInsertID = true;
+	var $_resultid = false;
   	var $concat_operator='||';
 	var $metaTablesSQL = "select tablename from pg_tables where tablename not like 'pg_%' order by 1";
 	var $isoDates = true; // accepts dates in ISO format
@@ -85,18 +85,35 @@ SELECT tablename FROM pg_tables WHERE tablename NOT LIKE 'pg_%' ORDER BY 1"
 	function _insertid($pKeyCol, $table) {
 		$lastId = -1;
 		$oid = pg_getlastoid($this->_resultid);
+		if (!$pKeyCol) {
+			$query = 'SELECT ic.relname AS index_name, bc.relname AS tab_name, 
+															ta.attname AS column_name, 
+															i.indisunique AS unique_key, 
+															i.indisprimary AS primary_key 
+															FROM pg_class bc, pg_class ic, pg_index i, pg_attribute ta, pg_attribute ia 
+															WHERE bc.oid = i.indrelid AND ic.oid = i.indexrelid 
+															AND ia.attrelid = i.indexrelid AND ta.attrelid = bc.oid 
+															AND bc.relname = \'' . $table . '\' AND ta.attrelid = i.indrelid 
+															AND ta.attnum = i.indkey[ia.attnum-1] AND i.indisprimary = \'t\' ';
+			$qId = $this->_query($query,"");
+			$rs = new ADORecordSet_postgres64($qId);
+			$rs->Init();
+			$pKeyCol = $rs->Fields('column_name');
+			
+		}
+		//echo "select ".$pKeyCol." from ".$table." where oid = ".$oid;
 		$qId = $this->_query("select ".$pKeyCol." from ".$table." where oid = ".$oid);
-		$rs = new ADORecordSet_postgres($qId);
+		$rs = new ADORecordSet_postgres64($qId);
 		$rs->Init();
 		$lastId = $rs->Fields(0);
 		return $lastId;
-    }
+	}
 
 // I get this error with PHP before 4.0.6 - jlim
 // Warning: This compilation does not support pg_cmdtuples() in d:/inetpub/wwwroot/php/adodb/adodb-postgres.inc.php on line 44
    function _affectedrows()
    {
-       return pg_cmdtuples($this->_resultid);      
+	   return pg_cmdtuples($this->_resultid);	  
    }
 
 	
@@ -159,8 +176,7 @@ SELECT tablename FROM pg_tables WHERE tablename NOT LIKE 'pg_%' ORDER BY 1"
 		@pg_exec("commit"); 
 		return( $realblob ); 
 	} 
-
-
+	
 	function POSTGRESTypes($type) {
 		switch (strtoupper($type)) {
 		case 'CHAR':
@@ -207,8 +223,15 @@ SELECT tablename FROM pg_tables WHERE tablename NOT LIKE 'pg_%' ORDER BY 1"
 			return 'float';
 		}
     }
-	// converts table names to lowercase 
-    function &MetaColumns($table) 
+	function OffsetDate($dayFraction,$date=false)
+	{		
+		if (!$date) $date = $this->sysDate;
+		return "($date+interval'$dayFraction days')";
+	}
+	
+
+	// converts field names to lowercase 
+	function &MetaColumns($table) 
 	{
 	global $ADODB_FETCH_MODE;
 	
@@ -229,7 +252,7 @@ SELECT tablename FROM pg_tables WHERE tablename NOT LIKE 'pg_%' ORDER BY 1"
 				// LEFT JOIN would have been much more elegant, but postgres does 
 				// not support OUTER JOINS. So here is the clumsy way.
 				
-				$ADODB_FETCH_MODE = ADODB_FETCH_NUM;
+				$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
 				
 				$rskey = $this->Execute(sprintf($this->metaKeySQL,($table)));
 				// fetch all result in once for performance.
@@ -258,7 +281,7 @@ SELECT tablename FROM pg_tables WHERE tablename NOT LIKE 'pg_%' ORDER BY 1"
 						$rsdef->MoveNext();
 					}
 				} else {
-					print "==> SQL => " . $sql . "\n";
+					ADOConnection::outp( "==> SQL => " . $sql);
 				}
 				unset($rsdef);
 			}
@@ -309,9 +332,9 @@ SELECT tablename FROM pg_tables WHERE tablename NOT LIKE 'pg_%' ORDER BY 1"
 	 {
 	 	$arr = array();
 	  	$sql="select datname from pg_database";
-	    $rs = $this->Execute($sql);
+		$rs = $this->Execute($sql);
 		if (!$rs) return false;
-	    while (!$rs->EOF) {
+		while (!$rs->EOF) {
 			$arr[] = $rs->fields[0];
 			$rs->MoveNext();
 		}
@@ -326,16 +349,16 @@ SELECT tablename FROM pg_tables WHERE tablename NOT LIKE 'pg_%' ORDER BY 1"
 	// 	$db->Connect("host=host1 user=user1 password=secret port=4341");
 	// 	$db->Connect('host1','user1','secret');
 	function _connect($str,$user='',$pwd='',$db='')
-	{           
+	{		   
 		if ($user || $pwd || $db) {
-           	if ($str)  {
+		   	if ($str)  {
 			 	$host = split(":", $str);
 				if ($host[0]) $str = "host=$host[0]";
 				else $str = 'localhost';
 				if (isset($host[1])) $str .= " port=$host[1]";
 			}
-           		if ($user) $str .= " user=".$user;
-           		if ($pwd)  $str .= " password=".$pwd;
+		   		if ($user) $str .= " user=".$user;
+		   		if ($pwd)  $str .= " password=".$pwd;
 			if ($db)   $str .= " dbname=".$db;
 		}
 		
@@ -345,7 +368,7 @@ SELECT tablename FROM pg_tables WHERE tablename NOT LIKE 'pg_%' ORDER BY 1"
 		// Interakt
 		$this->_setLocale($locale);
 		// Interakt
-                return true;
+				return true;
 	}
 	
 	// returns true or false
@@ -356,14 +379,14 @@ SELECT tablename FROM pg_tables WHERE tablename NOT LIKE 'pg_%' ORDER BY 1"
 	function _pconnect($str,$user='',$pwd='',$db='', $locale='')
 	{
 		if ($user || $pwd || $db) {
-           		if ($str)  {
+		   		if ($str)  {
 			 	$host = split(":", $str);
 				if ($host[0]) $str = "host=$host[0]";
 				else $str = 'localhost';
 				if (isset($host[1])) $str .= " port=$host[1]";
 			}
-           		if ($user) $str .= " user=".$user;
-           		if ($pwd)  $str .= " password=".$pwd;
+		   		if ($user) $str .= " user=".$user;
+		   		if ($pwd)  $str .= " password=".$pwd;
 			if ($db)   $str .= " dbname=".$db;
 		}//print $str;
 		$this->_connectionID = pg_pconnect($str);
@@ -377,10 +400,10 @@ SELECT tablename FROM pg_tables WHERE tablename NOT LIKE 'pg_%' ORDER BY 1"
 	}
 
 	// returns queryID or false
-	function _query($sql,$inputarr)
-	{	
-		$this->_resultid= pg_Exec($this->_connectionID,$sql);
-                return $this->_resultid;
+	function _query($sql,$inputarr='')
+	{
+				$this->_resultid= pg_Exec($this->_connectionID,$sql);
+				return $this->_resultid;
 	}
 	
 
@@ -389,7 +412,12 @@ SELECT tablename FROM pg_tables WHERE tablename NOT LIKE 'pg_%' ORDER BY 1"
 	{
 		if (empty($this->_connectionID)) $this->_errorMsg = @pg_errormessage();
 		else $this->_errorMsg = @pg_errormessage($this->_connectionID);
-	    return $this->_errorMsg;
+		return $this->_errorMsg;
+	}
+	
+	function ErrorNo()
+	{
+		return (strlen($this->ErrorMsg())) ? -1 : 0;
 	}
 
 	// returns true or false
@@ -516,7 +544,7 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 		/* Use associative array to get fields array */
 	function Fields($colname)
 	{
-		if ($this->fetchMode != PGSQL_NUM) return @$this->fields[$colname];
+		if ($this->fetchMode != PGSQL_NUM) return @unescapeQuotes($this->fields[$colname]);
 		
 		if (!$this->bind) {
 			$this->bind = array();
@@ -525,7 +553,7 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 				$this->bind[($o->name)] = $i;
 			}
 		}
-		 return $this->fields[$this->bind[($colname)]];
+		 return unescapeQuotes($this->fields[$this->bind[($colname)]]);
 	}
 
 	function &FetchField($fieldOffset = 0) 
@@ -572,52 +600,53 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 	function MetaType($t,$len=-1,$fieldobj=false)
 	{
 		switch (strtoupper($t)) {
-	            case 'CHAR':
-	            case 'CHARACTER':
-	            case 'VARCHAR':
-	            case 'NAME':
+				case 'CHAR':
+				case 'CHARACTER':
+				case 'VARCHAR':
+				case 'NAME':
 		   		case 'BPCHAR':
-	                if ($len <= $this->blobSize) return 'C';
+					if ($len <= $this->blobSize) return 'C';
 				
-	            case 'TEXT':
-	                return 'X';
+				case 'TEXT':
+					return 'X';
 		
-		    	case 'IMAGE': // user defined type
-		    	case 'BLOB': // user defined type
-	            case 'BIT':	// This is a bit string, not a single bit, so don't return 'L'
-	            case 'VARBIT':
-		    	case 'BYTEA':
-	                return 'B';
-	            
-	            case 'BOOL':
-	            case 'BOOLEAN':
-	                return 'L';
+				case 'IMAGE': // user defined type
+				case 'BLOB': // user defined type
+				case 'BIT':	// This is a bit string, not a single bit, so don't return 'L'
+				case 'VARBIT':
+				case 'BYTEA':
+					return 'B';
 				
-	            case 'DATE':
-	            	return 'D';
-	            
-	            case 'TIME':
-	            case 'DATETIME':
-	            case 'TIMESTAMP':
-	            	return 'T';
-	            
-	            case 'SMALLINT': 
-	            case 'BIGINT': 
-	            case 'INTEGER': 
-	            case 'INT8': 
-	            case 'INT4':
-	            case 'INT2':
-	            	if (isset($fieldobj) &&
+				case 'BOOL':
+				case 'BOOLEAN':
+					return 'L';
+				
+				case 'DATE':
+					return 'D';
+				
+				case 'TIME':
+				case 'DATETIME':
+				case 'TIMESTAMP':
+				case 'TIMESTAMPTZ':
+					return 'T';
+				
+				case 'SMALLINT': 
+				case 'BIGINT': 
+				case 'INTEGER': 
+				case 'INT8': 
+				case 'INT4':
+				case 'INT2':
+					if (isset($fieldobj) &&
 				empty($fieldobj->primary_key) && empty($fieldobj->unique)) return 'I';
 				
-	            case 'OID':
-	            case 'SERIAL':
-	            	return 'R';
+				case 'OID':
+				case 'SERIAL':
+					return 'R';
 				
-	             default:
-	             	return 'N';
-	        }
+				 default:
+				 	return 'N';
+			}
 	}
-
+	
 }
 ?>

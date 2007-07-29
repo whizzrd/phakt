@@ -105,7 +105,7 @@
         exit;
     }
 
-   function addReplaceParam($KT_Url,$param,$value){
+   function addReplaceParam($KT_Url,$param,$value=""){
       $sep = (strpos($KT_Url, '?') == false)?"?":"&";
       $value = KT_descape($value);
       if(eregi("$param=[^&]*",$KT_Url)){
@@ -195,15 +195,20 @@
         return $outdate;
     }
     
-    function KT_redir($url) {
-        if (preg_match("#^/#", $url)) {
-            global $HTTP_SERVER_VARS;
-            $url = "http://".$HTTP_SERVER_VARS["HTTP_HOST"].$url;
-        } else if (!preg_match("#^[a-z]+://#", $url)) {
-            global $HTTP_SERVER_VARS;
-            $url = "http://".$HTTP_SERVER_VARS["HTTP_HOST"].(preg_replace("#/[^/]*$#", "/", $HTTP_SERVER_VARS["PHP_SELF"])).$url;
-        }
-        header("Location: ".$url);
-        exit;
-    }
+		function KT_redir($url) {
+			global $HTTP_SERVER_VARS;
+			$protocol = "http://";;
+			if ($HTTP_SERVER_VARS['HTTPS'] == "on") {
+				$protocol = "https://";;
+			}
+			if (preg_match("#^/#", $url)) {
+				//$url = "http://".$HTTP_SERVER_VARS["HTTP_HOST"].$url;
+				$url = $protocol.$HTTP_SERVER_VARS["HTTP_HOST"].$url;
+			} else if (!preg_match("#^[a-z]+://#", $url)) {
+				//$url = "http://".$HTTP_SERVER_VARS["HTTP_HOST"].(preg_replace("#/[^/]*$#";, "/", $HTTP_SERVER_VARS["PHP_SELF"])).$url;
+				$url = $protocol.$HTTP_SERVER_VARS["HTTP_HOST"].(preg_replace("#/[^/]*$#", "/", $HTTP_SERVER_VARS["PHP_SELF"])).$url;
+			}
+			header("Location: ".$url);
+			exit;
+		}
 ?>

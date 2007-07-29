@@ -106,7 +106,6 @@ function generateDynamicSourceBindings(sourceName)
     {
       bindingsArray.push(bindingsAndTypeArray[i]);
     }
-      
     retList = getDataSourceBindingList(bindingsArray, DATASOURCELEAF_FILENAME, false, "Recordset.htm");
   }
   

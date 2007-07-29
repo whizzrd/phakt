@@ -1,6 +1,6 @@
 <?php
 /* 
-V2.12 12 June 2002 (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
+V2.31 20 Aug 2002  (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. 
@@ -25,7 +25,7 @@ class ADODB_odbc extends ADOConnection {
 	var $hasAffectedRows = true;
 	var $binmode = ODBC_BINMODE_RETURN;
 	//var $longreadlen = 8000; // default number of chars to return for a Blob/Long field
-	var $_bindInputArray = false;    
+	var $_bindInputArray = false;	
 	var $curmode = SQL_CUR_USE_DRIVER; // See sqlext.h, SQL_CUR_DEFAULT == SQL_CUR_USE_DRIVER == 2L
 	var $_genSeqSQL = "create table %s (id integer)";
 	var $_autocommit = true;
@@ -116,21 +116,21 @@ class ADODB_odbc extends ADOConnection {
 		$this->_connectionID = odbc_pconnect($argDSN,$argUsername,$argPassword,$this->curmode);
 		$this->_errorMsg = $php_errormsg;
 		
-		//if ($this->_connectionID) odbc_autocommit($this->_connectionID,true);
+		if ($this->_connectionID && $this->autoRollback) @odbc_rollback($this->_connectionID);
 		return $this->_connectionID != false;
 	}
 
 	function BeginTrans()
-	{      
+	{	  
 		$this->_autocommit = false;
-        return odbc_autocommit($this->_connectionID,false);
+		return odbc_autocommit($this->_connectionID,false);
 	}
 	
 	function CommitTrans($ok=true) 
 	{ 
 		if (!$ok) return $this->RollbackTrans();
 		$this->_autocommit = true;
-        $ret = odbc_commit($this->_connectionID);
+		$ret = odbc_commit($this->_connectionID);
 		odbc_autocommit($this->_connectionID,true);
 		return $ret;
 	}
@@ -138,7 +138,7 @@ class ADODB_odbc extends ADOConnection {
 	function RollbackTrans()
 	{
 		$this->_autocommit = true;
-        $ret = odbc_rollback($this->_connectionID);
+		$ret = odbc_rollback($this->_connectionID);
 		odbc_autocommit($this->_connectionID,true);
 		return $ret;
 	}
@@ -170,23 +170,23 @@ class ADODB_odbc extends ADOConnection {
 /*
 / SQL data type codes /
 #define	SQL_UNKNOWN_TYPE	0
-#define SQL_CHAR            1
-#define SQL_NUMERIC         2
-#define SQL_DECIMAL         3
-#define SQL_INTEGER         4
-#define SQL_SMALLINT        5
-#define SQL_FLOAT           6
-#define SQL_REAL            7
-#define SQL_DOUBLE          8
+#define SQL_CHAR			1
+#define SQL_NUMERIC		 2
+#define SQL_DECIMAL		 3
+#define SQL_INTEGER		 4
+#define SQL_SMALLINT		5
+#define SQL_FLOAT		   6
+#define SQL_REAL			7
+#define SQL_DOUBLE		  8
 #if (ODBCVER >= 0x0300)
-#define SQL_DATETIME        9
+#define SQL_DATETIME		9
 #endif
-#define SQL_VARCHAR        12
+#define SQL_VARCHAR		12
 
 / One-parameter shortcuts for date/time data types /
 #if (ODBCVER >= 0x0300)
-#define SQL_TYPE_DATE      91
-#define SQL_TYPE_TIME      92
+#define SQL_TYPE_DATE	  91
+#define SQL_TYPE_TIME	  92
 #define SQL_TYPE_TIMESTAMP 93
 */
 	function ODBCTypes($t)
@@ -195,28 +195,31 @@ class ADODB_odbc extends ADOConnection {
 		case 1:	
 		case 12:
 		case 0:
-			return 'char';
+			return 'C';
 		case -1: //text
-			return 'varchar';
+			return 'X';
 		case -4: //image
-			return 'blob';
+			return 'B';
+				
 		case 91:
 		case 11:
-			return 'date';
+			return 'D';
+			
 		case 92:
-			return 'time';
 		case 93:
-		case 9:	return 'timestamp';
+		case 9:	return 'T';
 		case 4:
 		case 5:
 		case -6:
-			return 'integer';
+			return 'I';
+			
 		case -11: // uniqidentifier
 			return 'R';
 		case -7: //bit
-			return 'boolean';
+			return 'L';
+		
 		default:
-			return 'float';
+			return 'N';
 		}
 	}
 	
@@ -339,10 +342,10 @@ class ADODB_odbc extends ADOConnection {
 		return $ret;
 	}
 
-    function _affectedrows()
-    {
-            return  odbc_num_rows($this->_queryID);
-    }
+	function _affectedrows()
+	{
+			return  odbc_num_rows($this->_queryID);
+	}
 	
 }
 	
@@ -382,7 +385,7 @@ class ADORecordSet_odbc extends ADORecordSet {
 	/* Use associative array to get fields array */
 	function Fields($colname)
 	{
-		if ($this->fetchMode & ADODB_FETCH_ASSOC) return $this->fields[$colname];
+		if ($this->fetchMode & ADODB_FETCH_ASSOC) return unescapeQuotes($this->fields[$colname]);
 		if (!$this->bind) {
 			$this->bind = array();
 			for ($i=0; $i < $this->_numOfFields; $i++) {
@@ -391,7 +394,7 @@ class ADORecordSet_odbc extends ADORecordSet {
 			}
 		}
 
-		 return $this->fields[$this->bind[($colname)]];
+		 return unescapeQuotes($this->fields[$this->bind[($colname)]]);
 	}
 	
 		

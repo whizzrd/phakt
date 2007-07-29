@@ -1,6 +1,6 @@
 <?php
 /* 
-V2.12 12 June 2002 (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
+V2.31 20 Aug 2002  (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. 
@@ -69,6 +69,7 @@ class ADODB_DB2 extends ADODB_odbc {
 	var $concat_operator = 'CONCAT';
 	var $sysDate = 'CURRENT DATE';
 	var $sysTimeStamp = 'CURRENT TIMESTAMP';
+	var $ansiOuter = true;
 	//var $curmode = SQL_CUR_USE_ODBC;
 	
 	function ADODB_DB2()

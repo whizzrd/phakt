@@ -4,7 +4,7 @@ function dumpVar(obj) {
 	tm = "";
 	if (typeof(obj) == "object") {
 		for (i in obj) {
-			tm += i + "=>" + dumpVar(obj[i]) + "\n";
+			tm += i + ":{" + dumpVar(obj[i]) + "}\n";
 		}
 		return tm;
 	} 
@@ -183,6 +183,7 @@ function dwscripts_applySB(paramObj, sbObj, sbName)
     {
       // add the group changes to the docEdits queue
       dwscripts.queueDocEditsForGroup(groupName, paramObj, sbObj);
+			
 
       // Commit all scheduled edits
       dwscripts.applyDocEdits();
@@ -1942,7 +1943,6 @@ function extGroup_queueDocEdits(groupName, paramObj, sbObj)
   }
   else
   {
-    //walk the list of participants
     var partNames = extGroup.getParticipantNames(groupName);
     for (var i=0; i < partNames.length; i++)
     {
@@ -2759,7 +2759,6 @@ function extPart_queueDocEdits(groupName, partName, paramObj, sbObj)
   {
     location = paramObj.MM_location;
   }
-
   // Check that we have an insert location and insert text. Also check that we
   //   have a prior node, or we have insert text. If we do not have a prior node
   //   and have no insert text, the participant should be ignored. This may happen
@@ -3020,7 +3019,6 @@ function extPart_queueDocEdits(groupName, partName, paramObj, sbObj)
         break;
       }
 
-
       var priorNodeSegment = null;
       var existingNodeSegment = null;
       var updateNodeSegment = null;
@@ -3102,7 +3100,6 @@ function extPart_queueDocEdits(groupName, partName, paramObj, sbObj)
           }
 
         }
-
         //if we found both an existingNode and a node to update, choose the exact match
         if (existingNodeSegment && updateNodeSegment) {
           updateNodeSegment = null;
@@ -3606,6 +3603,7 @@ function extPart_parametersMatch(partName, partListA, partListB)
     paramNames.push(nodeParamName);
   }  
 
+	
   // call extUtils.parametersMatch with the specific list of parameter names to check
   retVal = extUtils.parametersMatch(partListA, partListB, paramNames);
 
@@ -3666,7 +3664,6 @@ function extPart_updateExistingNodeSegment(partName, existingNodeSegment, paramO
       //add edit to docEdits
       extPart.queueDocEdit(partName, updateText, existingNodeSegment, foundWeight, null, optionFlags);
     } else { //replace the existing node
-
       if (extPart.DEBUG) alert("replacing existing node: " + partName);
 
       //get text to insert and replace all parameters
@@ -6837,6 +6834,18 @@ function extUtils_parametersMatch(params1, params2, paramsToMatchArg)
                    );
           if (retVal)
           {
+						//copy the array in new variables (this prevent modifying them)
+						var tmPar1 = params1[param].slice(0);
+						var tmPar2 = params2[param].slice(0);
+						//back to the original MX algorithm
+						tmPar1.sort();
+						tmPar2.sort();
+            for (var j = 0; retVal && j < tmPar2.length; ++j)
+            {
+              if (tmPar2[j] != tmPar1[j])
+                retVal = false;
+            }
+						/*
             params2[param].sort();
             params1[param].sort();
             for (var j = 0; retVal && j < params2[param].length; ++j)
@@ -6844,6 +6853,7 @@ function extUtils_parametersMatch(params1, params2, paramsToMatchArg)
               if (params2[param][j] != params1[param][j])
                 retVal = false;
             }
+						*/
           }
 
           //if any parameter doesn't match, break

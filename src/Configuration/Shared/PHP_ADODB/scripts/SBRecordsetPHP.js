@@ -682,23 +682,23 @@ function SBRecordsetPHP_getSQLForRecordsetBindings()
   var sqlParams = new Array();
   var sql = this.getDatabaseCall(sqlParams);
 
-//alert("getSQLForRecordsetBindings:" + sql);
 
   // To keep the fix minimized, we do it for simple SQL Statement only.
 
   var sqlObj = new SQLStatement(sql); 
   var tempSQL = sqlObj.getStatementForMMDB(); 
 
-  //alert(tempSQL);
-
+	/*
   if (tempSQL)
   {
     sql = tempSQL;
   }
   else
   {
-    sql = this.replaceParamsWithVals(sql, sqlParams);
+		sql = this.replaceParamsWithVals(sql, sqlParams);
   }
+  */
+	sql = this.replaceParamsWithVals(sql, sqlParams);
 
   return sql;
 }

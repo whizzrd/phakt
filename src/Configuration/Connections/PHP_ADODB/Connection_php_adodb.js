@@ -170,7 +170,7 @@ function applyConnection()
     connParams.cname = dwscripts.trim(CONN_NAME_OBJ.value);
     connParams.hostname = dwscripts.trim(HOST_NAME_OBJ.value);
     connParams.username = dwscripts.trim(USERNAME_OBJ.value);
-    connParams.password = PASSWORD_OBJ.value;
+    connParams.password = escapeForDoubleQuotes(PASSWORD_OBJ.value);
     connParams.databasename = dwscripts.trim(DB_TYPE_OBJ.object.options[DB_TYPE_OBJ.object.selectedIndex].value)+":"+dwscripts.trim(DB_NAME_OBJ.value);
     connParams.filename = "Connection_php_adodb.htm";
     connParams.dbtype = DB_TYPE_OBJ.object.options[DB_TYPE_OBJ.object.selectedIndex].value;
@@ -262,7 +262,7 @@ function inspectConnection(connParams)
   }
   //DB_TYPE_OBJ.object.value = ((typeof(connParams.databasename) == "undefined") ? "mysql" : connParams.databasename.replace(/:.*$/, ""));
   USERNAME_OBJ.value = connParams.username;
-  PASSWORD_OBJ.value = connParams.password;
+  PASSWORD_OBJ.value = unescapeForDoubleQuotes(connParams.password);
 
   // Set design-time connect radio button
   if (CONN_TYPE_OBJ != null)

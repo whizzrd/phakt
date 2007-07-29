@@ -46,3 +46,40 @@ function copyNewerFiles(adodbKit,adodbRoot){
 	  }
   }
 }
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   escapeForDoubleQuotes
+//
+// DESCRIPTION:
+//	 escape the ",$ and \ from a string
+//
+// ARGUMENTS:
+//		text - string - unescaped string
+//
+// RETURNS:
+//   string - escaped string
+//--------------------------------------------------------------------
+function escapeForDoubleQuotes(text) {
+	var tmp = text.replace(/(\\|"|\$)/g,"\\$1");
+	return tmp;
+}
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   unescapeForDoubleQuotes
+//
+// DESCRIPTION:
+//	 unescape the ",$ and \ from a string
+//
+// ARGUMENTS:
+//		text - string - escaped string
+//
+// RETURNS:
+//   string - unescaped string
+//--------------------------------------------------------------------
+function unescapeForDoubleQuotes(text) {
+	var tmp = text.replace(/\\(\\|"|\$)/g,"$1");
+	return tmp;
+}

@@ -19,7 +19,7 @@ class ADODBConnection {
 		
 		if ($DB) {
 			$DBType = preg_replace("/:.*$/", "", $DB);
-			$DB = preg_replace("/^.*:/", "", $DB);
+			$DB = preg_replace("/^.*?:/", "", $DB);
 		} else {
 			$DBType = "";
 		}
@@ -34,7 +34,7 @@ class ADODBConnection {
 		if ($DB) {
 			$this->database = $DB;
 		} elseif (ereg("db=([^;]+);",   $ConnectionString, $ret)) {
-			$this->database = preg_replace("/^.*:/", "", $ret[1]);
+			$this->database = preg_replace("/^.*?:/", "", $ret[1]);
 		}
 		
 		if ($UID) {

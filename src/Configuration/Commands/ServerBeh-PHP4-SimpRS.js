@@ -219,6 +219,7 @@ function initializeUI()
   _ColumnList.initializeUI();
   _FilterColumn.initializeUI();
   _FilterOperator.initializeUI();
+	//alertAttr(dwscripts.getParameterTypeArray())
   _FilterParameter.initializeUI(dwscripts.getParameterTypeArray(), dwscripts.getParameterTypeArray());
   _FilterParameterValue.initializeUI();
   _SortColumn.initializeUI();

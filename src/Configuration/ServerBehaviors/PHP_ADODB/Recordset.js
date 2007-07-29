@@ -55,7 +55,8 @@ function findServerBehaviors()
 				}			}
 		}
   }
-  
+
+	writeAttr(sbList,"Record.out");
   return sbList;
 }
 
