@@ -1,0 +1,7 @@
+<participant version="5.0">
+  <insertText location="afterSelection">
+    <![CDATA[ 
+Records <?php echo (min($startRow_@@RecordsetName@@ + 1, $totalRows_@@RecordsetName@@)) ?> to <?php echo min($startRow_@@RecordsetName@@ + $maxRows_@@RecordsetName@@, $totalRows_@@RecordsetName@@) ?> from <?php echo $totalRows_@@RecordsetName@@ ?> 
+    ]]>
+  </insertText>
+</participant>

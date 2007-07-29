@@ -1,0 +1,123 @@
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<HTML>
+<HEAD>
+<!--  Copyright 2001-2002 Macromedia, Inc. All rights reserved. -->
+
+<TITLE>ADODB Connection</TITLE>
+
+<SCRIPT SRC="../../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/UltraDev/Scripts/connectionCmn.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/UltraDev/Scripts/sbManager.js"></SCRIPT>
+<SCRIPT SRC="../Connection_php_adodb.js"></SCRIPT>
+<SCRIPT SRC="../Connection_common.js"></SCRIPT>
+
+</HEAD>
+
+<BODY onLoad="initializeUI()">
+
+<form NAME="theForm" ACTION="">
+  <table border=0>
+    <tr>
+      <td align="right" valign="baseline" nowrap>Connection Name:</td>
+      <td align="left" colspan="2">
+        <input type="text" style="width:160px" name="ConnectionName">
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr>
+      <td align="right" valign="baseline" nowrap>Database Type:</td>
+      <td align="left" colspan="2">
+        <select name="dbtype" style="width:160px" onChange="KT_dbtypeChanged()">
+          <option value="postgres7">PostgreSQL 7.x</option>
+          <option value="access">Access</option>
+          <option value="mysql">MySQL</option>
+          <option value="mysqlt">MaxSQL(MySQL transact)</option>
+          <option value="oci8">Oracle OCI 8</option>
+          <option value="oracle">Oracle non OCI</option>
+          <option value="mssql">MsSQL</option>
+          <option value="ado">ADO</option>
+          <option value="odbc">ODBC</option>
+          <option value="postgres">Postgres 6.5</option>
+          <option value="sybase">Sybase</option>
+          <option value="ibase">Interbase</option>
+          <option value="vfp">Visual Fox</option>
+          <option value="fbsql">Frontbase</option>
+        </select>
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr>
+      <td align="right" valign="baseline" nowrap>Database Server:</td>
+      <td align="left" colspan="2">
+        <input type="text" style="width:160px" name="HostName">
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr>
+      <td align="right" valign="baseline" nowrap>User Name:</td>
+      <td align="left" colspan="2">
+        <input type="text" style="width:160px" name="UserName">
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr>
+      <td>
+        <div align="right">Password:</div>
+      </td>
+      <td align="left" colspan="2">
+        <input type="password" style="width:160px" name="Password">
+      </td>
+    </tr>
+	 <tr>
+      <td align="right" valign="baseline" nowrap>Database:</td>
+      <td align="left" valign="baseline">
+        <input type="text" style="width:160px" name="DatabaseName">
+      </td>
+      <td align="left">
+        <input type="button" name="DB_button" value="Select..." onClick="selectDatabase()">
+      </td>
+    </tr>
+    <tr align="left" valign="bottom"> 
+      <td  width="126" align="right">Date locale:</td>
+      <td width="94"> 
+        <select name="locale" style="width:160px">
+			<option value="none">None</option>
+			<option value="Us">English(Y-m-d)</option>
+			<option value="EUS">English(m-d-Y)</option>
+			<option value="En">English(d-m-Y)</option>
+			<option value="Fr">French(d-m-Y)</option>
+			<option value="Ro">Romanian(d-m-Y)</option>
+			<option value="Ge">German(d.m.Y)</option>
+			<option value="It">Italian(d-m-Y)</option>
+        </select>
+      </td>
+	</tr>
+	<tr>
+      <td align="right" width="94">Messages locale:</td>
+      <td align="left" height="35" width="198"> 
+        <select name="msglocale" style="width:160px">
+          <option value="En">English</option>
+          <option value="Fr">French</option>
+          <option value="Ro">Romanian</option>
+  		  <option value="Ge">German</option>
+		  <option value="It">Italian</option>
+        </select>
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" valign="bottom"  width="126">Connection type</td>
+      <td align="left" colspan="3" valign="bottom"> 
+        <select name="ctype" style="width:160px">
+          <option value="C">Connection</option>
+          <option value="P">Permanent connection</option>
+        </select>
+      </td>
+    </tr>
+    <mmParams>
+    </mmParams>
+   </table>
+</form>
+&nbsp;<br>
+</BODY>
+</HTML>

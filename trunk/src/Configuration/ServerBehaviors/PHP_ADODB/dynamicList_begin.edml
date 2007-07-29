@@ -1,0 +1,11 @@
+<participant>
+	<quickSearch><![CDATA[while]]></quickSearch>
+	<insertText location="lastChildOfNode" nodeParamName="selectNode"><![CDATA[
+<?php
+  while(!$@@rsName@@->EOF){
+?>
+]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="rsName" isOptional="false" limitSearch="all"><![CDATA[/while\(!\$([^\r\n]*?)->\s*EOF\)\{(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+</participant>

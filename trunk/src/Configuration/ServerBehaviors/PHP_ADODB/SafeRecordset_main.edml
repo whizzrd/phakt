@@ -1,0 +1,28 @@
+<participant version="6.0">
+	<insertText location="aboveHTML+50"><![CDATA[<?php
+//Start Safe Recordset
+<@ loop (@@Variable@@, @@DefaultValue@@, @@RuntimeValue@@) @>
+$@@Variable@@__@@RecordsetName@@ = '@@DefaultValue@@';
+if (isset(@@RuntimeValue@@)) {
+  $@@Variable@@__@@RecordsetName@@ = @@RuntimeValue@@;
+}
+<@ endloop @>
+if (!isset($KT_error)) {
+  $KT_error = false;
+}
+if(isset($KT_FormState) && $KT_FormState == "NEW") $KT_error = true;
+if (!$KT_error) {
+  $query_@@RecordsetName@@ = <@ if (@@SQLVariableList@@) @>sprintf(<@ endif @>"@@SQLStatement@@"<@ if (@@SQLVariableList@@) @>, @@SQLVariableList@@)<@ endif @>;
+  $@@RecordsetName@@ = $@@ConnectionName@@->SelectLimit($query_@@RecordsetName@@) or die($@@ConnectionName@@->ErrorMsg());
+  $totalRows_@@RecordsetName@@ = $@@RecordsetName@@->RecordCount();
+} else {
+  $@@RecordsetName@@ = &$KT_fakeRs;
+}
+//End Safe Recordset
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="MM_loop1,RecordsetName,SQLStatement,SQLVariableList,ConnectionName" isOptional="false" limitSearch="all"><![CDATA[/\/\/Start Safe Recordset(?:\r\n|\r(?!\n)|\n)[ \t]*((?:\$[^\r\n]*__[^\r\n]* = '[^\r\n]*';(?:\r\n|\r(?!\n)|\n)[ \t]*if \(isset\([^\r\n]*\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$[^\r\n]*__[^\r\n]* = [^\r\n]*;(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*)*?)if \(!isset\(\$KT_error\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$KT_error = false;(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*if\(isset\(\$KT_FormState\) && \$KT_FormState == "NEW"\) \$KT_error = true;(?:\r\n|\r(?!\n)|\n)[ \t]*if \(!\$KT_error\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$query_([^\r\n]*?) = (?:sprintf\()?"([^\r\n]*?)"(?:, ([^\r\n]*?)\))?;(?:\r\n|\r(?!\n)|\n)[ \t]*\$[^\r\n]*? = \$([^\r\n]*?)->\s*SelectLimit\(\$query_[^\r\n]*?\) or die\(\$[^\r\n]*?->\s*ErrorMsg\(\)\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$totalRows_[^\r\n]*? = \$[^\r\n]*?->\s*RecordCount\(\);(?:\r\n|\r(?!\n)|\n)[ \t]*\} else \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$[^\r\n]*? = &\$KT_fakeRs;(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*\/\/End Safe Recordset(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+		<searchPattern paramNames="Variable,DefaultValue,RuntimeValue" limitSearch="@@MM_loop1@@" isOptional="true" searchType="multiple"><![CDATA[/\$([^\r\n]*?)__[^\r\n]*? = '([^\r\n]*?)';(?:\r\n|\r(?!\n)|\n)[ \t]*if \(isset\(([^\r\n]*?)\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$[^\r\n]*?__[^\r\n]*? = [^\r\n]*?;(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>if(isset($KT_FormState)</quickSearch>
+</participant>

@@ -1,0 +1,12 @@
+<participant>
+	<quickSearch><![CDATA[MoveFirst();]]></quickSearch>
+	<insertText location="lastChildOfNode" nodeParamName="selectNode"><![CDATA[<?php
+    $@@rsName@@->MoveNext();
+  }
+  $@@rsName@@->MoveFirst();
+?>
+]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="rsName" isOptional="false" limitSearch="all"><![CDATA[/\$([^\r\n]*?)->\s*MoveNext\(\);(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*\$[^\r\n]*?->\s*MoveFirst\(\);(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+</participant>
