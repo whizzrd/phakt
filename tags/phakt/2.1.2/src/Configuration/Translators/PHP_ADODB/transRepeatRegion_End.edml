@@ -1,0 +1,13 @@
+<participant name="transRepeatRegion_End">
+  <translator>
+    <searchPatterns>
+      <searchPattern><![CDATA[/\$([^\r\n]*?)->\s*MoveNext\(\);(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+      <searchPattern requiredLocation="leading" paramNames="rs"><![CDATA[/while \(!\$([^\r\n]*?)->\s*EOF\) \{(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+    </searchPatterns>
+    <translations>
+      <translation whereToSearch="directive" translationType="tabbed region end">
+        <closeTag>MM_REPEATEDREGION</closeTag>
+      </translation>
+    </translations>
+  </translator>
+</participant>

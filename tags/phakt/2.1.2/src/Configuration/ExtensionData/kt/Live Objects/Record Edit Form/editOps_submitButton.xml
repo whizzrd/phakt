@@ -1,0 +1,10 @@
+<participant>
+<!-- PHP_ADODB ---------------------------------------------------------->
+  <implementation serverModel="PHP_ADODB">
+     <insertText location="afterSelection">
+<![CDATA[
+  <input type="submit" value="@@buttonText@@">
+]]>
+     </insertText>
+  </implementation>
+</participant>

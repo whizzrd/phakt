@@ -1,0 +1,7 @@
+<group name="MasterDetail" version="5.0" dataSource="Recordset.htm">
+  <groupParticipants>
+    <groupParticipant name="Functions_block"/>
+    <groupParticipant name="MasterPage_main" partType="option" />
+    <groupParticipant name="moveTo_keepParams"/>
+  </groupParticipants>
+</group>
