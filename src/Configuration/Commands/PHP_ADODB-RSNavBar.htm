@@ -1,0 +1,58 @@
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<!-- MENU-LOCATION=NONE -->
+<!-- Copyright 2002 InterAKT Online. All rights reserved. -->
+
+
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+
+<HTML>
+<HEAD>
+<SCRIPT SRC="../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+
+<SCRIPT src="../Shared/UltraDev/Scripts/sbManager.js"></SCRIPT>
+<SCRIPT SRC="../Shared/MM/Scripts/CMN/UI.js"></SCRIPT>
+<SCRIPT SRC="../Shared/MM/Scripts/CMN/string.js"></SCRIPT>
+<SCRIPT SRC="../Shared/MM/Scripts/CMN/DOM.js"></SCRIPT>
+<SCRIPT SRC="../Shared/MM/Scripts/CMN/file.js"></SCRIPT>
+<SCRIPT SRC="../Shared/MM/Scripts/CMN/displayHelp.js"></SCRIPT>
+<SCRIPT SRC="../Shared/MM/Scripts/CMN/localText.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/UltraDev/Scripts/ssClasses.js"></SCRIPT>
+<SCRIPT SRC="../Shared/UltraDev/Scripts/ssDocManager.js"></SCRIPT>
+<SCRIPT SRC="../Shared/UltraDev/Scripts/ssCmnElements.js"></SCRIPT>
+<SCRIPT SRC="PHP_ADODB-RSNavBar.js"></SCRIPT>
+
+<TITLE>Recordset Navigation Bar</TITLE>
+</HEAD>
+
+<BODY onLoad="initializeUI()">
+<form name="theForm">
+    <DIV ALIGN="center">
+      <TABLE BORDER=0>
+        <TR>
+          <TD ALIGN="right" VALIGN="baseline" NOWRAP>
+            Recordset:</TD>
+          <TD VALIGN="baseline" NOWRAP>
+            <SELECT NAME="Recordset" STYLE="width:230px">
+              <OPTION SELECTED>*** no Recordsets found</OPTION>
+            </SELECT>
+          </TD>
+        </TR>
+		<TR>
+		  <TD height="1" colspan="2"></TD>
+		</TR>
+		<TR>
+		  <TD ALIGN="right" NOWRAP>Display Using:</TD>
+		  <TD ALIGN="left"> <INPUT TYPE="radio" NAME="DisplayType" value="Text" CHECKED> Text</TD>
+		 </TR>
+		 <TR>
+		   <TD></TD>
+		   <TD ALIGN="left"><INPUT TYPE="radio" NAME="DisplayType" value="Images"> Images</TD>
+		</TR>
+      </TABLE>
+    </DIV>
+</form>
+</BODY>
+</HTML>

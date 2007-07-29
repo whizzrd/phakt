@@ -1,0 +1,600 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<style type="text/css">
+<!--
+ul.index, li.index {
+	width: 100%;
+	padding: 0pt;
+	margin: 0px;
+	list-style-position: outside;
+	font-family: "Courier New", Courier, mono;
+	white-space: pre;
+}
+-->
+</style>
+</HEAD>
+<BODY>
+<A name=1></a><b>PHAkt 2.0 reference</b> <br>
+<b>PHAkt 2 MX Reference Manual</b><br>
+-version 2.0 -<br>
+1<br>
+<hr>
+<p><A name=2></a><b>PHAkt 2.0 reference</b> <br>
+  <br>
+<UL class="index">
+  <li>1.INTRODUCTION. . . . . . . <a href="#3">3</a></li>
+  <li>2.PREREQUISITES . . . . . . <a href="#4">4</a></li>
+  <li>3.PROJECT CREATION. . . . . <a href="#4">4</a></li>
+  <li>4.DATABASE CREATION . . . . <a href="#4">4</a></li>
+  <li>5.SEARCH FUNCTION . . . . . <a href="#5">5</a></li>
+  <li>6.RESULTS PAGE. . . . . . . <a href="#6">6</a></li>
+  <li>6.1.BEST PRACTICE . . . . . <a href="#10">10</a></li>
+  <li>7.INSERT FORM . . . . . . . <a href="#11">11</a></li>
+  <li>7.1.BEST PRACTICE . . . . . <a href="#12">12</a></li>
+  <li>8.DELETE RECORD . . . . . . <a href="#13">13</a></li>
+  <li>9.UPDATE FORM . . . . . . . <a href="#14">14</a></li>
+  <li>10.LOGIN FORM . . . . . . . <a href="#16">16</a></li>
+  <li>11.DYNAMIC ITEMS. . . . . . <a href="#17">17</a></li>
+  <li>12.MISCELLANEOUS. . . . . . <a href="#17">17</a></li>
+</UL>
+<br>
+</p>
+<hr>
+<A name=3></a><b>PHAkt 2.0 reference</b> <br>
+<b>1. Introduction<br>
+Dreamweaver MX </b>offers the practical way to the user for create dynamic websites
+in a WYSWYG interface very comfortably. As<br>
+starting with the last version, it also supports PHP as a new server model, but
+only supports the MySQL database server.<br>
+Continuing our efforts for PHAkt 1 (PHP support in Dreamweaver Ultradev 4), we
+have created the only alternative Server Model<br>
+for Dreamweaver MX, PHAkt 2 MX. It allows database driven website development
+with ease, adding new server behaviors over<br>
+the original PHP_MySQL server model and allowing connection to multiple databases. <br>
+The main advantages of <b>&quot;PHAkt 2&quot;</b> over &quot;PHP_MySQL&quot; are:<br>
+- Support for multiple databases in a transparent way<br>
+- Support for MySQL, PostgreSQL and MsSQL date locales<br>
+- User authentication Server Behaviors<br>
+- Master/Detail Server Behaviors<br>
+- Go to detail Page Server behaviors<br>
+- Improved code generation (all reusable code is kept in a functions.inc.php
+file)<br>
+- Multiple and extensible recordset support.<br>
+- IIS and Apache 2 support by using absolute HTTP redirects.<br>
+This extension uses the ADOdb extension (Active Data Objects for generic Database
+connectivity from PHP), a database connection<br>
+library for PHP, which allows connection to a lot of databases, similar with
+the Microsoft's ADO library. Among others, the<br>
+following databases are supported: MySQL, PostgreSOL, Interbase, Oracle, Ms SQL
+7, Foxpro, ACCESS, ADO, Sybase and<br>
+ODBC. <br>
+As a prerequisite for the creation of dynamic websites with <b>&quot;PHAkt 2&quot;</b>,
+the following software is necessary: <br>
+Windows 95-2000<br>
+http://www.microsoft.com<br>
+or<br>
+MAC OS<br>
+http://www.apple.com<br>
+Dreamweaver MX<br>
+http://www.macromedia.com/<br>
+The DWMX Extension <b>&quot;PHAkt 2&quot;</b><br>
+http://www.interakt.ro/products/PHAkt/<br>
+Web Server e.g. Omnihttpd <br>
+http://www.omnicron.ab.ca/httpd <br>
+http://www.apache.org<br>
+Mysql database (ATS version)<br>
+http://www.mysql.com <br>
+PostgreSQL database<br>
+http://www.postgresql.com<br>
+optionally phpmyadmin<br>
+http://www.phpwizard.net <br>
+We have set up a complex discussion groups for PHAkt related problems at http://www.interakt.ro/products/bbs/?prodId=0<br>
+Various resources offer extensions based on <b>&quot;PHAkt 2&quot;</b>, e.g.
+Massimo's php Form analysis. (check: http://www.udzone.com/).<br>
+There are also some very good connection tutorials for PHAkt usable for PHAkt:<br>
+http://www.udzone.com/index.asp?TypeId=2&amp;CatId=398 <br>
+Now let's start. We will create a small dynamic web application which contains
+a search function, a login system, a data query, an<br>
+insert, a delete and an update page. The whole is presented as small project
+in ten steps, to help you learn something useful. The web<br>
+application will manipulate an employee list, and you will find the finished
+application in the attached archive.<br>
+To be able to fully understand this tutorial you need in any case a certain knowledge
+of the software we use. One should know how<br>
+to create dynamic web pages using Dreamweaver MX and the appropriate Server Behaviors,
+or a rough knowledge of how a web<br>
+application server and the database operate. A more detailed guidance would make
+this tutorial way too complicated, but you can<br>
+always look in the Dreamweaver help, as PHAkt 2 GUI is very similar with PHP_MySQL's
+one.<br>
+At the end of this tutorial you should be able to publish your project on a public
+site. In practice the adjustments made here are not<br>
+portable, and you might encounter problems especially with the file and database
+access rights. This tutorial will not deal with this<br>
+issues, but further help can be found at: http://www.mysql.com/doc/. Database
+connection security is however a very important issue<br>
+and should be taken seriously. <br>
+We will also not deal with the database fundamental mode of operation and configuration,
+that could be done here too far. We<br>
+assume this knowledge is already available. All methodologies described starting
+from point 2 can be transferred to a large extent<br>
+3<br>
+<hr>
+<A name=4></a><IMG src="PHAkt 2.0 Quick Reference Manual-4_1.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+also to the work with Dreamweaver MX &amp; the ASP Server Model.<br>
+All the files generated in this tutorial are present in the tutorial.zip file
+that is located in the same archive as this document. The<br>
+database creation script is also available in the archive, to ease the database
+creation. However, you will have to configure your site<br>
+and connection to suit your real configuration,<br>
+The current bugs in PHAkt 2 are available online at 'PHAkt bug tracker' located
+at http://www.interakt.ro/products/bt/<br>
+<b>2.Prerequisites</b><br>
+Install Macromedia Dreamweaver MX, a suitable web server with PHP 4.0.3pl1 minimum
+support (we use here the very stable and<br>
+fast Apache web server, other programs of this kind are available (IIS, OmniHttps)),
+Mysql and the Dreamweaver extension<br>
+<b>&quot;PHAkt2&quot;</b>. To manage the MySQL database we use the &quot;phpmyadmin&quot; web
+tool, which has to be installed in the server root folder<br>
+(htdocs). <br>
+We will not supply installation guidance of the related products here, please
+use their provided Readme files or on-line resources.<br>
+First of all, you have to start with a correctly configured site. Name your site <i>phakt</i>. <br>
+<b>3.Project creation<br>
+</b>Create in the general folder of the Web Servers (htdocs) a directory with
+the name &quot;phakt&quot;. Create in Dreamweaver a new project,<br>
+and we'll call it from now on &quot;phakt&quot;.<br>
+Now create 6 empty files in the site root : <i>menu.php </i>, <i>update.php</i>, <i>search.php</i>, <i>list.php</i>, <i>input.php </i>, <i>delete.php</i>.
+In <i>menu.php </i>create<br>
+links to the other files.<br>
+To enable PHP support, please select the Server Model to PHP_ADODB (in the Testing
+server section).<br>
+You also have to correctly configure the rest of the sections in the site administration
+wizard.<br>
+<b>Important note</b> : In order to correctly test the generated pages, don't
+forget to upload on the server the new pages you are creating.<br>
+You also have to upload on the server the "adodb" and "includes" folders.<br>
+<b>4.Database creation<br>
+</b>Make sure that the MySQL server is started then load &quot;phpmyadmin&quot; in
+the browser. Create a new database with name &quot;phakt&quot;. <br>
+The first table contains simple people information, while second table serves
+as dynamic menu on the page, in order to enable to the<br>
+user given values. The third table contains the access data for the Login area.<br>
+4<br>
+<hr>
+<A name=5></a><IMG src="PHAkt 2.0 Quick Reference Manual-5_1.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+<b>employees</b>_<b>emp</b>: id_emp(primary key, auto_increment), firstname_emp
+(varchar(100)), lastname_emp (varchar(100)), address _emp<br>
+(Text), code_emp (mediumint), email_emp (varchar(100)), phon_emp (varchar(40)),
+fax_emp (varchar(40)), childreno_emp(int),<br>
+marital_emp (int). <br>
+<b>marital_mar</b>: id_mar (primary key, auto_increment), status_mar (varchar(100))
+that will contain: single, married, divorced,<br>
+separated, radio_mar (tinyint) with the values 1 and 0, and checkbox_mar (tinyint)
+with the values 1 and 0. <br>
+<b>users_usr</b>: id_usr (primary key, auto_increment), username_usr (varchar(16)),
+password_usr (varchar(16)). <br>
+Please find below a database visual representation (generated with our commercial
+product QuB).<br>
+We use a naming convention to be able to manage the database fields with ease,
+and this consists in adding to each table name an<br>
+underscore and then a short name (3 letters), that will be also added in the
+fields name. As you can see from the picture, all<br>
+employees have a marital status, so we have created a foreign key to the marital_mar
+table.<br>
+To easily create the database, run the create_db.sql script from the tutorial
+folder in phpMyAdmin.<br>
+<b>5.Search function<br>
+</b>We will start by creating a search function, that will have as input an employees'
+name, code and address and which will send those<br>
+information to list.php.<br>
+Its role is to create a lookup by name, code and address. Open the 'search.php'
+file and create a form containing three text input<br>
+fields named 'name', 'code' and 'address', and also a Submit and a RESET Button.
+Make the form action is 'list.php' and its method is<br>
+&quot;POST&quot;.<br>
+5<br>
+<hr>
+<A name=6></a><IMG src="PHAkt 2.0 Quick Reference Manual-6_1.jpg"><br>
+<IMG src="PHAkt 2.0 Quick Reference Manual-6_2.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+<b>6.Results page<br>
+</b>We have to create now a search result page, that will filter the employees
+table after the sent parameters. Open the &quot;list.php&quot; file. We<br>
+will create a connection in the first place, that will instruct the generated
+pages to connect to the database. In the Application panel,<br>
+the Databases tab, click on the <b>+</b> sign then create a new <b>ADODB Connection</b>.
+Fill the form as described below:<br>
+- Connection name: Name of the connection e.g. 'phaktconn'- Connection type:
+Type of the connection (permanent connection or<br>
+normal connection)<br>
+- Database type: Give the type of the database e.g. MySQL<br>
+- Database server: Indicate the database host name: if you operate locally then
+put &quot;localhost &quot; <br>
+- User name: the name of the user that is allowed to connect to the databases<br>
+- Password : the user's password<br>
+- Database name: the name of the database e.g. <b>phakt </b>(note that after
+filling all the textfields correctly, you can click on the select<br>
+button and select the database name from the list with the name of all databases).<br>
+- Date locale: the format of the locale date (English, French, etc.)<br>
+This option brings the use of formatted date display to recordsets: in Insert/Update
+forms the date input can now be made according<br>
+to your locale settings (e.g. '01-19-2002' for english, '19-01-2002' for french).
+If the database server doesn't accept local dates, this<br>
+functionality is emulated by PHAkt<b> </b>through use of regular expressions.<br>
+- Messages locale: The language of some displayed messages<br>
+- Connection type : this will make the generated code connect to the database
+using Pconnect or Connect (Pconnect is the best<br>
+connection type, but it's not supported by all Internet Service Providers)<br>
+6<br>
+<hr>
+<A name=7></a><IMG src="PHAkt 2.0 Quick Reference Manual-7_1.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+Test the connection by clicking on the 'Test' button to check if the database
+binding is working properly. Then click OK, and some<br>
+new folders will be created in your site root. They are "Connections" (the connection
+files are kept here), "adodb" (the ADOdb<br>
+related files are stored here) and "includes" (where functions.inc.php, the file
+that contains all reusable PHAkt2 functions is kept).<br>
+In the Application panel, Binding tab, create a new recordset. As name for the
+recordset indicate &quot;rsEmployees&quot;. As connection<br>
+select 'phaktconn'.<br>
+In the recordset name right side there is a supplemental menu that allows you
+to select the recordset subtype: <i>Safe</i> enables a "better"<br>
+error handling of the recordset through the use of KT_error variable (a catching
+of the recordset errors) for Insert/Update actions. If<br>
+"Standard" is choosen, the default PHAkt 2 recordset is used.<br>
+Select the table <b>employees_emp</b> now and click on the Button &quot;Advanced&quot;,
+to be able to create an advanced SQL statement to filter<br>
+the fields. Fill the SQL textarea with the following SQL statement: <br>
+SELECT * FROM employees_emp WHERE firstname_emp like '%MMColParam1%' and code_emp
+like '%MMColParam2%' and<br>
+address_emp like '%MMColParam3%'<br>
+Fill the field Variables as shown below: <br>
+<b>Name </b><br>
+<b>Default VALUE </b><br>
+<b>Run-Time VALUE </b><br>
+MMColParam1<br>
+'%'<br>
+$HTTP_POST_VARS[&quot;name&quot;] <br>
+MMColParam2<br>
+'%'<br>
+$HTTP_POST_VARS[&quot;code&quot;] <br>
+MMColPararn3<br>
+'%'<br>
+$HTTP_POST_VARS[&quot;address&quot;] <br>
+7<br>
+<hr>
+<A name=8></a><IMG src="PHAkt 2.0 Quick Reference Manual-8_1.jpg"><br>
+<IMG src="PHAkt 2.0 Quick Reference Manual-8_2.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+With this SQL statement the desired filtered resultset is obtained. The described
+syntax defines the SQL variables obtained from a<br>
+form. The result of the filtering depends, of course, on your personal conditions
+written in the HTML form.<br>
+<b>Tip: </b>If you want to use another variables as filters, use the 'Simple'
+mode for creating recordsets, and use the 'Filter' inputs to<br>
+customize your filter: the field to be filtered. In the next input, the operator
+to be applied to the expression (=,&lt;,&gt;, etc), the type of<br>
+variable used in the expression (URL GET variable, Form variable, cookie, etc.)
+and finally the name of the variable to be used.<br>
+Let's continue with the recordset result display. In the &quot;list.php&quot; file
+create now a table with two lines (one for the headings and one<br>
+for the information) and twelve columns. From the 'Bindings' tab, expand the
+recordset you've just created, drag-and-drop the<br>
+recordset fields in each of the cells from the second line of the table, and
+fill the cell above with the name of the field. In the last two<br>
+columns of the second row write "Update" and "Delete". We'll transform those
+two cells in links to the corresponding pages in the<br>
+following sections. Save the file.<br>
+Test the filtering by loading in a browser the 'search.php' file, but only after
+you have inserted some records in the <br>
+<b>employees_emp</b><br>
+table. Note that only the first line of the recordset is displayed, and not all
+the lines that match the filter.<br>
+In order to view all the records that match a specific filter, with a maximum
+number of records, we have to create a &quot;Repeat Region&quot;.<br>
+Select the second line of the table (this can be easily done by a single click
+in the left side of the row) then from the 'Server<br>
+Behaviors' tab add the 'Repeat Region' behavior. Insert the number of records
+to be displayed (e.g. 5) , then click 'OK'. Test again the<br>
+filtering. Notice that the specified number of records is now shown (or all the
+records, depending what you've selected in the 'Repeat<br>
+Region' dialog-box).<br>
+To be able to navigate between the recordset records (if the results don't fit
+in the repeat region), we'll create a navigation bar. With<br>
+the &quot;Recordset Paging" Server Behaviors you have the possibility to navigate
+in the filtered records. Click on the 'Recordset<br>
+Paging/Move to Previous Page', and select the recordset you've created then click
+'OK'. A 'Previous' link will appear. Do the same for<br>
+8<br>
+<hr>
+<A name=9></a><IMG src="PHAkt 2.0 Quick Reference Manual-9_1.jpg"><br>
+<IMG src="PHAkt 2.0 Quick Reference Manual-9_2.jpg"><br>
+<IMG src="PHAkt 2.0 Quick Reference Manual-9_3.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+the 'Move to Next Record'. A 'Next' link will appear. <br>
+Because the "Previous" and "Next" links does not have to be shown when there
+are no supplemental records to show, we'll use the<br>
+&quot;Show Region&quot; Server Behaviors to display the 'Previous' and 'Next'
+links depending on a real need. For example, the 'Previous'<br>
+button must be shown only if the current Page is not the first page, and the
+'Next' button must be shown only if there are other record<br>
+pages to be shown. To add those Server Behaviors over the Previous and Next links,
+simply select the desired area then click in the<br>
+&quot;Server Behaviors&quot; menu on &quot; Show Region submenu&quot; and select
+the appropriate condition (Show if not First Page" and "Show if<br>
+not Last Page".<br>
+<b>Tip: </b>In the upper menu &quot;Insert&quot; you'll see a tab called Application.
+Clicking on it will present you the application objects that you<br>
+can use to automatize some of your tasks. You can click in "Recordset Navigation
+Bar" to automatically create a navigation bar.<br>
+Simply indicate there the appropriate recordset and determine whether it is to
+create links or use images for the. The buttons First,<br>
+Previous, etc are created. If you use images, the pictures are created automatically. <br>
+Because usually you will create lists with only a subset of the information shown
+(for example our list should have contained only<br>
+the first name and the last name of the employee), it's a good practice to create
+a link from the list to the real detail page, where all<br>
+record information is shown.<br>
+In order to display record details, create first a file named "detail.php&quot; with
+containing a recordset that filters the employees_emp<br>
+table after the id_emp parameter received as URL Parameter. This will load in
+the recordset a specific records from the<br>
+employees_emp table. Drag the fields from the recordset on the screen.<br>
+9<br>
+<hr>
+<A name=10></a><IMG src="PHAkt 2.0 Quick Reference Manual-10_1.jpg"><br>
+<IMG src="PHAkt 2.0 Quick Reference Manual-10_2.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+In the "list.php" page, select the field id_emp from the second table row, then
+and in the menu 'Server Behaviors' the option &quot;Go To<br>
+Detail Page &quot;. You'll find there transfer parameters to the detail page.
+Select the target, the recordset, the column of the recordset to<br>
+be used, and the modality of passing the existing parameters: as URL or as Form.
+For a very good reason the column should contain<br>
+values which uniquely identify the selected record (generally a key used as index,
+an ID). See the screenshot below for detailed<br>
+configuration information.<br>
+Please analyze the detail.php page from the tutorial for more details on this
+topic.<br>
+<i><b>6.1. Best practice<br>
+</b></i>PHAkt 2 already has a features to create a result page including a navigation
+border and a detail page very fast. The basic condition is<br>
+that to create your recordset yourself. After you create it (you can start with
+a simple recordset on the employees_emp table), click in<br>
+the menu &quot;Application&quot; tab on &quot;Master/Detail Set&quot;. A form
+will be shown, please fill it as instructed below: <br>
+<b>- Recordset: </b>Indicate the record set to use. <br>
+<b>- Master Page Fields:</b> Select which fields to be added in the List page.<br>
+<b>- Link to Detail From:</b> Field used for linking the Master and the Detail
+Page<br>
+<b>- Pass Unique Key:</b> A unique value identifying the record (generally an
+ID, a unique key)<br>
+<b>- Show:</b> Number of records to be displayed in the Mater Page's list. (all
+or a specified number)<br>
+<b>- Detail Page Name:</b> The name of the Detail Page<br>
+<b>- Detail Page Fields:</b> Specify which fields to be displayed in the Detail
+page..<br>
+After clicking on 'OK' the appropriate Master &amp; Detail pages are generated.<br>
+You can find the generated pages in the tutorial zip, the md/ folder.<br>
+10<br>
+<hr>
+<A name=11></a><IMG src="PHAkt 2.0 Quick Reference Manual-11_1.jpg"><br>
+<IMG src="PHAkt 2.0 Quick Reference Manual-11_2.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+<b>7. Insert Form<br>
+</b>We'll continue by creating an insert form, to allow us to add records in
+the <b>employees_emp</b> table.<br>
+Open the &quot;input.php&quot; file . Add text input fields for all table field
+and, set their names exactly the same as the columns in the<br>
+<b>employees_emp</b> table. Don't forget to add the Submit and Reset buttons.
+For the <b>marital_emp</b> field, don't insert a textfield, but a<br>
+List/Menu named &quot;marital_emp&quot;. Create a recordset named <b>rsMar</b> that
+loads all fields from the <b>marital_mar</b> table ordered by the<br>
+<b>status_mar</b> field. Use the already created connection &quot;phaktconn&quot;.<br>
+The inserted List/Menu &quot;marital_emp&quot; will be loaded with records from
+the rsMar recordset. Select it , the from the &quot;Servers<br>
+Behaviors&quot; &quot;Dynamic Form Elements&quot; click &quot;Dynamic List/Menu&quot;.
+Select the recordset &quot;rsMar&quot;, to display data from the<br>
+'marital_mar'. Select the field you want to represent the data displayed in the
+List/Menu, and the field you want to designate the<br>
+values actually to be inserted (Label and Value).<br>
+Click now in the &quot;Server Behaviors &quot; menu on &quot;Insert Record&quot;.
+A new window will appear, please fill the widgets as instructed<br>
+11<br>
+<hr>
+<A name=12></a><IMG src="PHAkt 2.0 Quick Reference Manual-12_1.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+below:<br>
+- <b>From</b>: Gives the name of the form containing the data to be inserted.<br>
+- <b>Connection</b>: the connection to the database.<br>
+- <b>Insert Table</b>: Specifies the table to insert into<br>
+- <b>After Inserting Go to</b>: Sets the page to be displayed after the insert
+is made.<br>
+- <b>Columns</b>: Sets the column in which the corresponding form element is
+stored.<br>
+- <b>Value</b>: specify the form input element that will be stored in the selected
+table column<br>
+- <b>Submit as</b>: Sets the type in which data from the corresponding form element
+is stored (text, date, number, etc.).<br>
+Test the page you've just created by calling the document over the web server
+or the menu and input some data. Call the data list and<br>
+check whether the insert took place. <br>
+<i><b>7.1. Best practice<br>
+</b></i>PHAkt 2 already has a feature implemented, that can create an Insert
+Form in a very efficient way. Click on the Application tab in<br>
+the upper panel, then click on the &quot;Record Insertion Form&quot;. A window
+will be opened, into which you must input the following: <br>
+<b>- Connection</b>: Indicates the connection, e.g. 'phaktconn'<br>
+<b>- Table: </b>Indicate the table to insert into<br>
+<b>- After Inserting Go to:</b> Indicate the page that will be loaded after the
+insert is made<br>
+<b>- Form Fields:</b> Allow you to specify which fields will be part of the form<br>
+<b>- Label: </b>Indicates the name of the corresponding field. <br>
+<b>- Display As</b>: Sets the format in which the data is to be displayed.<br>
+<b>- Submit As</b>: Sets the format in which the data is stored in the table.<br>
+<b>- Default Value</b>: Sets a default value for the corresponding field. This
+value can be static, or originate from a database.<br>
+For the <b>marital_emp</b> field you have to create a special form field type
+that is a Menu type. Set the Display As field as Menu, then<br>
+configure the Menu as shown below.<br>
+12<br>
+<hr>
+<A name=13></a><IMG src="PHAkt 2.0 Quick Reference Manual-13_1.jpg"><br>
+<IMG src="PHAkt 2.0 Quick Reference Manual-13_2.jpg"><br>
+<IMG src="PHAkt 2.0 Quick Reference Manual-13_3.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+The final Record Insertion Form can be seen in the input1.php file.<br>
+After clicking on 'OK' the input form is generated.<br>
+<b>8.Delete Record<br>
+</b>According to the same principle as the Input Record, a Delete Record can
+also be produced. Open the list.php file, select the<br>
+"Delete" text in the right cells of the table, then add a Go To Detail Page Server
+Behavior.<br>
+13<br>
+<hr>
+<A name=14></a><IMG src="PHAkt 2.0 Quick Reference Manual-14_1.jpg"><br>
+<IMG src="PHAkt 2.0 Quick Reference Manual-14_2.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+Then open the &quot;delete.php&quot; file. <br>
+Click now in the &quot;Server Behaviors&quot; menu on &quot;Delete Record&quot;.
+A popup window will appear and you have to configure it as<br>
+following: <br>
+<b>- First Check if variable is defined: </b>Leave this as the "Primary Key Value"<br>
+<b>- Connection</b>: Give here the connection to the database e.g. 'phaktconn''.<br>
+<b>- Table</b>: Set the table from to delete from<br>
+<b>- Primary Key Column</b>: Set the column that designates the unique key for
+the records in the table, and also indicate id this values is<br>
+numeric.<br>
+<b>- Primary Key Value: </b>Specify how the parameter will be passed to this
+form (in our case it's an URL parameter named id_emp).<br>
+<b>- After Inserting Go to</b>: Sets the page to be displayed after the delete
+is made.<br>
+Test your Delete Record feature by clicking on the Delete link in the list.php
+page.<br>
+<b>9.Update Form<br>
+</b>To be able to update records from the employees_emp table, we'll have to
+create an Update Record file. Create an empty<br>
+"update.php" file. Open the list.php file, select the "Update" text in the right
+cells of the table, then add a Go To Detail Page Server<br>
+Behavior.<br>
+Open the update.php file, then create a recordset <b>rsEmp</b> that filters the <b>employees_emp</b> table
+on the id_emp URL Parameter. Also<br>
+create a recordset <b>rsMar</b>, that loads all the fields from the <b>marital_mar</b> table
+ordered by <b>status_mar</b>.<br>
+We'll create directly a Record Update form. From the Application tab in the Insert
+panel (upper region), click on the Record Update<br>
+Form button. A window will be opened, please configure it as instructed below.<br>
+<b>- Connection: </b>Indicates the connection, e.g. 'phaktconn'<br>
+<b>- Table to Update</b>: Indicates the database table, whose data should be
+updated (employees_emp).<br>
+<b>- Select Record From</b>: Indicate the recordset of the data which can be
+updated (in our case rsEmp)<br>
+<b>- Unique Key Column</b>: Indicates a field that uniquely identifies a row
+in a table (generally an unique ID, a key)<br>
+14<br>
+<hr>
+<A name=15></a><IMG src="PHAkt 2.0 Quick Reference Manual-15_1.jpg"><br>
+<IMG src="PHAkt 2.0 Quick Reference Manual-15_2.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+<b>- After Updating Go To</b>: Indicates a page, which is to be opened, after
+the data is updated <br>
+<b>- Form Fields</b>: Used to map the form fields with the table fields.<br>
+<b>- Label</b>: Sets the names (labels) of the corresponding field. <br>
+<b>- Display As</b>: Sets the format in which the data is to be displayed.<br>
+<b>- Submit As</b>: Sets the format in which the data is to be stored in the
+table.<br>
+Please note that the marital_emp field will be generated in a menu created from
+database (rsMar). See the Insert Record explanations<br>
+above for more details.<br>
+After clicking on 'OK' the update form is generated. <br>
+The generated form will look like in the figure below:<br>
+15<br>
+<hr>
+<A name=16></a><IMG src="PHAkt 2.0 Quick Reference Manual-16_1.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+<b>10. Login Form<br>
+</b>The Authentication Server Behaviors are completely implemented and with <b>&quot;PHAkt2&quot;</b> you
+have the possibility to easily create a<br>
+database based Login. Create a new file named &quot;failed.php&quot;, to show
+the user that its login attempt failed. Create a new document<br>
+named &quot;login.php&quot; and open it in Dreamweaver MX. Add in a new form
+two textfields, and set their names to &quot;username&quot; and<br>
+'password'. The later can also be defined as password field, to mask the password
+characters.<br>
+Click now in the menu &quot;Server Behaviors&quot; on &quot;User Authentication&quot; -&gt; 'Log
+In User'. A window will appear, please configure it as<br>
+instructed below:<br>
+- <b>Get Input From Form</b>: Name of the form used for log in (see above) <br>
+- <b>Username Field</b>: The name of the field for the user name ("username")<br>
+- <b>Password Field</b>: The name of the field for the password ("password")<br>
+- <b>Validate Using Connection</b>: Name of the connection to the database e.g.
+'phaktconn' <br>
+- <b>Table</b>: The table with the access data in the database e.g. <b>users</b>_<b>usr</b><br>
+- <b>Username Column</b>: Column with entries of the user names in the database
+("username_usr")<br>
+- <b>Password Column</b>: Column with entries of the passwords in the database
+("password_usr")<br>
+- <b>If Log In Succeeds, Go To</b>: Page to be opened if the Login attempt runs
+successfully (e.g. &quot;list.php&quot;)<br>
+- <b>If Log In Fails, Go To</b>: Page to be opened if the Login attempt fails
+(e.g.&quot;failed.php&quot;)<br>
+- <b>Restrict Access Based O</b>n: Indicates here whether the Login attempt is
+to be checked on the basis by user names and password, or<br>
+whether the Login is to be based additionally on a group affiliation (here it
+is however necessary to create in the database an<br>
+additional column in which the appropriate groups the individual Users are assigned,
+and indicate this column in DWMX).<br>
+To really protect the site pages, you have to add the Restrict Access to Page
+Server Behavior to all and every page (excepting of<br>
+course login.php).<br>
+To create a logout link, select a link, click in the menu on &quot;Server Behaviors&quot; --&gt; &quot;User
+Authentication&quot; -&gt; &quot;Logout User&quot;. A dialog-<br>
+box will open where you specify whether the logout takes place by clicking on
+a link or on page load, and the page to be displayed<br>
+after the logout (generally the login page).<br>
+16<br>
+<hr>
+<A name=17></a><IMG src="PHAkt 2.0 Quick Reference Manual-17_1.jpg"><br>
+<b>PHAkt 2.0 reference</b> <br>
+<b>11. Dynamic items<br>
+</b>We'll continue by creating a new page, independent of the rest of the site.
+The goal is to see how we ca use dynamic form elements.<br>
+Create a new document named 'dynamic.php'. Add a RadioButton named 'radio' and
+a Checkbox named 'checkbox'. Add a recordset<br>
+named &quot;<b>rsDyn</b>&quot;, as source for the inputs, select again the well-known
+connection &quot;phaktconn&quot;. Set the recordset to load it's values<br>
+from the <b>marital_mar</b> table.<br>
+Select the Checkbox and click in the &quot;Server Behaviors&quot; menu on &quot;Dynamic
+Form Elements&quot; - &quot;Dynamic Check Box&quot;. A dialog will<br>
+appear, where you set the name of the Checkbox to be dynamized, the condition
+to check the Checkbox to ('Check If' ... 'Equals To'<br>
+condition). If you click of the 'lightning' button, you can easily select the
+field from the recordset that enters in the condition. If you<br>
+have more Checkboxes, repeat the procedure for each of them.<br>
+The procedure for the RadioButton is quite similar, and it will not be discussed
+further.<br>
+Thus you can very easily create Dynamic RadioButtons, CheckBoxes, depending on
+the values from a database.<br>
+<b>12. Miscellaneous</b><br>
+<b>&quot;PHAkt2&quot;</b> also offers some very useful auxiliary functions.<br>
+Weekly, PHAkt connects to the InterAKT web site (the complete address is<br>
+'http://www.interakt.ro/demo/Krysalis/webapps/update/index.php?KTURL=information.pxp&amp;prodId=0')
+to retrieve its current<br>
+version number and therefore to inform you if an update is available. This action
+is performed weekly, only from the Dreamweaver<br>
+MX pages containing PHAkt recordsets.<br>
+You can add a Recordset Navigation Status form Application tab in the Insert
+panel, that will display the numbers of the records<br>
+displayed(e.g. records 1-5 from 10). You have only to select the recordset used.<br>
+That should be all. For supplemental information, don't forget to check http://www.interakt.ro/products/PHAkt/
+for updates.<br>
+17<br>
+<hr>
+</BODY>
+</HTML>

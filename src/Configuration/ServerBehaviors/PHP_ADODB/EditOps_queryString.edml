@@ -1,0 +1,10 @@
+<participant version="6.0">
+	<insertText location="aboveHTML+28"><![CDATA[<?php
+// build the form action
+$editFormAction = $HTTP_SERVER_VARS['PHP_SELF'] . (isset($HTTP_SERVER_VARS['QUERY_STRING']) ? "?" . $HTTP_SERVER_VARS['QUERY_STRING'] : "");
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="" isOptional="false" limitSearch="all"><![CDATA[/\/\/ build the form action(?:\r\n|\r(?!\n)|\n)[ \t]*\$editFormAction = \$HTTP_SERVER_VARS\['PHP_SELF'\] \. \(isset\(\$HTTP_SERVER_VARS\['QUERY_STRING'\]\)* \? \(*"\?" \. \$HTTP_SERVER_VARS\['QUERY_STRING'\]\)* : ""\)*;(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>(isset($HTTP_SERVER_VARS['QUERY_STRING'])</quickSearch>
+</participant>
