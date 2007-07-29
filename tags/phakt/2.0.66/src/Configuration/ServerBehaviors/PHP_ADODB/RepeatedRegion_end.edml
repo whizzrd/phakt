@@ -1,0 +1,10 @@
+<participant version="6.0">
+	<insertText location="afterSelection"><![CDATA[<?php
+    $@@RecordsetName@@->MoveNext();
+  }
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="RecordsetName" isOptional="false" limitSearch="all"><![CDATA[/\$([^\r\n]*?)->\s*MoveNext\(\);(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>MoveNext();</quickSearch>
+</participant>

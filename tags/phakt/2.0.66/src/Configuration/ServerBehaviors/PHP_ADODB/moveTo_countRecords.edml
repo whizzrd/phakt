@@ -1,0 +1,37 @@
+<participant>
+     <quickSearch><![CDATA[_total]]></quickSearch>
+     <insertText location="aboveHTML+75">
+<![CDATA[
+<%
+// *** Recordset Stats: if we don't know the record count, manually count them
+
+if ($@@rsName@@_total == -1) {
+
+  // count the total records by iterating through the recordset
+  while(!$@@rsName@@->EOF) {
+    $@@rsName@@_total++;
+    $@@rsName@@->MoveNext();
+  }
+
+  // reset the cursor to the beginning
+  $@@rsName@@->MoveFirst();
+
+  // set the number of rows displayed on this page
+  if ($@@rsName@@_numRows < 0 || $@@rsName@@_numRows > $@@rsName@@_total) {
+    $@@rsName@@_numRows = $@@rsName@@_total;
+  }
+
+  // set the first and last displayed record
+  $@@rsName@@_last  = min($@@rsName@@_first + $@@rsName@@_numRows - 1, $@@rsName@@_total);
+  $@@rsName@@_first = min($@@rsName@@_first, $@@rsName@@_total);
+}
+%>
+]]>
+     </insertText>
+     <searchPatterns whereToSearch="directive">
+       <searchPattern paramNames="rsName"><![CDATA[/\b\$(\w+)_total\+\+;/]]></searchPattern>
+     </searchPatterns>
+     <updatePatterns>
+       <updatePattern paramName="rsName"><![CDATA[/(\W)\$\w+(_total|_numRows|_first|_last|->EOF|->MoveNext|->MoveFirst)/g]]></updatePattern>
+     </updatePatterns>
+</participant>

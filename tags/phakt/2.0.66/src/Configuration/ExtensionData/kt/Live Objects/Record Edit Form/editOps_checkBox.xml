@@ -1,0 +1,10 @@
+<participant>
+<!-- PHP_ADODB ---------------------------------------------------------->
+  <implementation serverModel="PHP_ADODB">
+     <insertText location="afterSelection">
+<![CDATA[
+  <input type="checkbox" name="@@fieldName@@" value=1 @@checked@@>
+]]>
+     </insertText>
+  </implementation>
+</participant>

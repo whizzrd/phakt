@@ -1,0 +1,8 @@
+<participant version="6.0">
+	<quickSearch><![CDATA[$MM_keep]]></quickSearch>
+	<insertText location="nodeAttribute+HREF" nodeParamName="linkNode"><![CDATA[@@url@@?<?php echo $MM_keep@@keepType@@ ?>]]></insertText>
+	<searchPatterns whereToSearch="tag+A">
+		<searchPattern paramNames="url,keepType" isOptional="false" limitSearch="attribute+HREF"><![CDATA[/([^\r\n]*?)\?\s*<\?php echo \$MM_keep(\w*?) \?>/i]]></searchPattern>
+	</searchPatterns>
+	<delete deleteType="tagOnly" />
+</participant>

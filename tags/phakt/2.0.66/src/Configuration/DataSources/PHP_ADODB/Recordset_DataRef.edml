@@ -1,0 +1,7 @@
+<participant>
+   <quickSearch><![CDATA[->Fields]]></quickSearch>
+   <insertText location="replaceSelection"><![CDATA[<?php echo $@@sourceName@@->Fields('@@bindingName@@'); ?>]]></insertText>
+   <searchPatterns whereToSearch="directive">
+     <searchPattern paramNames="sourceName,bindingName"><![CDATA[/\$(\w+)->Fields\(['|"](\w+)['|"]\)/i]]></searchPattern>
+   </searchPatterns>  
+</participant>
