@@ -11,7 +11,7 @@
 	$MM_@@cname@@_HOSTNAME = "@@hostname@@";
 	$MM_@@cname@@_DATABASE = "@@databasename@@";
 	$MM_@@cname@@_DBTYPE   = preg_replace("/:.*$/", "", $MM_@@cname@@_DATABASE);
-	$MM_@@cname@@_DATABASE = preg_replace("/^.*:/", "", $MM_@@cname@@_DATABASE);
+	$MM_@@cname@@_DATABASE = preg_replace("/^.*?:/", "", $MM_@@cname@@_DATABASE);
 	$MM_@@cname@@_USERNAME = "@@username@@";
 	$MM_@@cname@@_PASSWORD = "@@password@@";
 	$MM_@@cname@@_LOCALE = "@@locale@@";
@@ -99,6 +99,9 @@
 			$HTTP_POST_VARS = updateMagicQuotes($HTTP_POST_VARS);
 			$HTTP_COOKIE_VARS = updateMagicQuotes($HTTP_COOKIE_VARS);
 		}
+	}
+	if (!isset($HTTP_SERVER_VARS['REQUEST_URI'])) {
+		$HTTP_SERVER_VARS['REQUEST_URI'] = $PHP_SELF;
 	}
 ?>
 ]]>

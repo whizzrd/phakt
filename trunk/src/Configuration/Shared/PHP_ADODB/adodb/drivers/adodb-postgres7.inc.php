@@ -1,6 +1,6 @@
 <?php
 /*
- V2.12 12 June 2002 (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
+ V2.31 20 Aug 2002  (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -16,7 +16,8 @@ include_once(ADODB_DIR."/drivers/adodb-postgres64.inc.php");
 class ADODB_postgres7 extends ADODB_postgres64 {
 	var $databaseType = 'postgres7';	
 	var $hasLimit = true;	// set to true for pgsql 6.5+ only. support pgsql/mysql SELECT * FROM TABLE LIMIT 10
-
+	var $ansiOuter = true;
+	
 	function ADODB_postgres7() 
 	{
 		
@@ -26,19 +27,12 @@ class ADODB_postgres7 extends ADODB_postgres64 {
 	// which makes obsolete the LIMIT limit,offset syntax
 	 function &SelectLimit($sql,$nrows=-1,$offset=-1,$inputarr=false,$arg3=false,$secs2cache=0) 
 	 {
-		if ($offset>=0 || $nrows>=0) {
-			$offsetStr = ($offset >= 0) ? " OFFSET $offset" : ''; //theirs
-			$limitStr  = ($nrows >= 0)  ? " LIMIT $nrows" : ''; //theirs
-
-			$sql = preg_replace("/\s*LIMIT\s*[0-9,]*\s*/i", " ", $sql);
-			$sql = preg_replace("/\s*OFFSET\s*[0-9,]*\s*/i", " ", $sql);
-			
-			$sql .= $limitStr.$offsetStr;
-		}
+	  $offsetStr = ($offset >= 0) ? " OFFSET $offset" : '';
+	  $limitStr  = ($nrows >= 0)  ? " LIMIT $nrows" : '';
 	  return $secs2cache ?
-	   $this->CacheExecute($secs2cache,$sql,$inputarr,$arg3)
+	   $this->CacheExecute($secs2cache,$sql."$limitStr$offsetStr",$inputarr,$arg3)
 	  :
-	   $this->Execute($sql,$inputarr,$arg3);
+	   $this->Execute($sql."$limitStr$offsetStr",$inputarr,$arg3);
 	 }
  
  	// 10% speedup to move MoveNext to child class

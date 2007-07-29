@@ -79,7 +79,7 @@ function canInsertObject()
   var errMsgStr = "";
   if (dwscripts.getRecordsetNames().length == 0) 
   { 
-    errMsgStr = MM.MSG_NeedRecordsetForObject;
+    errMsgStr = dwscripts.sprintf(MM.MSG_NeedRecordsetForObject, dwscripts.getRecordsetDisplayName());
   }
 
   if (errMsgStr)

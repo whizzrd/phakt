@@ -571,9 +571,9 @@ function getParameterTypeArray(bRemoveEnteredVal)
   // Make a copy of MM.LABEL_PHP_Param_Types. We may need to alter it and we
   //   don't want to affect the original array.
   var paramTypes = new Array();
-  for (var i = 0; i < MM.LABEL_PHP_Param_Types.length; ++i)
+  for (var i = 0; i < MM.KT_LABEL_PHP_Param_Types.length; ++i)
   {
-    paramTypes.push(MM.LABEL_PHP_Param_Types[i]);
+    paramTypes.push(MM.KT_LABEL_PHP_Param_Types[i]);
   }
 
   if (bRemoveEnteredVal)
@@ -608,24 +608,28 @@ function getParameterCodeFromType(paramType, paramNameOrValue, paramDefault)
 
   switch(paramType)
   {
-    case MM.LABEL_PHP_Param_Types[0]:
+    case MM.KT_LABEL_PHP_Param_Types[0]:
       runtimeVal = "$HTTP_GET_VARS['" + paramNameOrValue + "']";
       nameVal = runtimeVal;
       break;
-    case MM.LABEL_PHP_Param_Types[1]:
+    case MM.KT_LABEL_PHP_Param_Types[1]:
       runtimeVal = "$HTTP_POST_VARS['" + paramNameOrValue + "']";
       nameVal = runtimeVal;
       break;
-    case MM.LABEL_PHP_Param_Types[2]:
+    case MM.KT_LABEL_PHP_Param_Types[2]:
       runtimeVal = "$HTTP_COOKIE_VARS['" + paramNameOrValue + "']";
       nameVal = runtimeVal;
       break;
-    case MM.LABEL_PHP_Param_Types[3]:
+    case MM.KT_LABEL_PHP_Param_Types[3]:
       runtimeVal = "$HTTP_SESSION_VARS['" + paramNameOrValue + "']";
       nameVal = runtimeVal;
       break;
-    case MM.LABEL_PHP_Param_Types[4]:
+    case MM.KT_LABEL_PHP_Param_Types[4]:
       runtimeVal = "$HTTP_SERVER_VARS['" + paramNameOrValue + "']";
+      nameVal = runtimeVal;
+      break;
+    case MM.KT_LABEL_PHP_Param_Types[5]:
+      runtimeVal = paramNameOrValue;
       nameVal = runtimeVal;
       break;
   }

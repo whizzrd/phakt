@@ -1,6 +1,6 @@
 <?php
 /*
-V2.12 12 June 2002 (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
+V2.31 20 Aug 2002  (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -17,8 +17,9 @@ if (! defined("_ADODB_MYSQL_LAYER")) {
 
 class ADODB_mysql extends ADOConnection {
 	var $databaseType = 'mysql';
-    var $hasInsertID = true;
-    var $hasAffectedRows = true;	
+	var $dataProvider = 'mysql';
+	var $hasInsertID = true;
+	var $hasAffectedRows = true;	
 	var $metaTablesSQL = "SHOW TABLES";	
 	var $metaColumnsSQL = "SHOW COLUMNS FROM %s";
 	var $fmtTimeStamp = "'Y-m-d H:i:s'";
@@ -35,15 +36,15 @@ class ADODB_mysql extends ADOConnection {
 	{			
 	}
 	
-    function _insertid()
-    {
-            return mysql_insert_id($this->_connectionID);
-    }
-    
-    function _affectedrows()
-    {
-            return mysql_affected_rows($this->_connectionID);
-    }
+	function _insertid()
+	{
+			return mysql_insert_id($this->_connectionID);
+	}
+	
+	function _affectedrows()
+	{
+			return mysql_affected_rows($this->_connectionID);
+	}
   
  	// See http://www.mysql.com/doc/M/i/Miscellaneous_functions.html
 	// Reference on Last_Insert_ID on the recommended way to simulate sequences
@@ -83,6 +84,7 @@ class ADODB_mysql extends ADOConnection {
 	}
 
 	// returns concatenated string
+	// much easier to run "mysqld --ansi" or "mysqld --sql-mode=PIPES_AS_CONCAT" and use || operator
 	function Concat()
 	{
 		$s = "";
@@ -97,9 +99,15 @@ class ADODB_mysql extends ADOConnection {
 		}*/
 		
 		// suggestion by andrew005@mnogo.ru
-	        $s = implode(',',$arr); 
+		$s = implode(',',$arr); 
 		if (strlen($s) > 0) return "CONCAT($s)";
 		else return '';
+	}
+	
+	function OffsetDate($dayFraction,$date=false)
+	{		
+		if (!$date) $date = $this->sysDate;
+		return "from_unixtime(unix_timestamp($date)+($dayFraction)*24*3600)";
 	}
 	
 	// returns true or false
@@ -204,15 +212,10 @@ class ADODB_mysql extends ADOConnection {
 	// parameters use PostgreSQL convention, not MySQL
 	function &SelectLimit($sql,$nrows=-1,$offset=-1,$inputarr=false, $arg3=false,$secs=0)
 	{
-		if ($offset>=0 || $nrows>=0) {
-			$offsetStr =($offset>=0) ? " LIMIT $offset,$nrows" : ' LIMIT $nrows'; //theirs
-			
-			$sql = preg_replace("/\s*LIMIT\s*[0-9,]*\s*/i", " ", $sql);
-			
-			$sql .= $offsetStr;
-		}
-		return ($secs) ? $this->CacheExecute($secs,$sql,$inputarr,$arg3)
-			: $this->Execute($sql,$inputarr,$arg3);
+		$offsetStr =($offset>=0) ? "$offset," : '';
+		
+		return ($secs) ? $this->CacheExecute($secs,$sql." LIMIT $offsetStr$nrows",$inputarr,$arg3)
+			: $this->Execute($sql." LIMIT $offsetStr$nrows",$inputarr,$arg3);
 		
 	}
 	
@@ -229,7 +232,7 @@ class ADODB_mysql extends ADOConnection {
 	{
 		if (empty($this->_connectionID)) $this->_errorMsg = @mysql_error();
 		else $this->_errorMsg = @mysql_error($this->_connectionID);
-	    return $this->_errorMsg;
+		return $this->_errorMsg;
 	}
 	
 	/*	Returns: the last error number from previous database operation	*/	
@@ -374,7 +377,7 @@ class ADORecordSet_mysql extends ADORecordSet{
 	{	
 	
 		if ($fieldOffset != -1) {
-			$o =  mysql_fetch_field($this->_queryID, $fieldOffset);
+			$o = @mysql_fetch_field($this->_queryID, $fieldOffset);
 			$f = @mysql_field_flags($this->_queryID,$fieldOffset);
 			$o->max_length = @mysql_field_len($this->_queryID,$fieldOffset); // suggested by: Jim Nicholson (jnich@att.com)
 			//$o->max_length = -1; // mysql returns the max length less spaces -- so it is unrealiable
@@ -408,13 +411,13 @@ class ADORecordSet_mysql extends ADORecordSet{
 				if ($this->fields[$colname]) {
 			    return KT_ADOconvertDate($this->fields[$colname],"%Y-%m-%d %H:%M:%S", $this->fmtDate);
 				} else { 
-					return $this->fields[$colname]; 
+					return @unescapeQuotes($this->fields[$colname]); 
 				} 
 			}
 			setlocale (LC_TIME, "C");
 		}
 		// Interakt
-		return $this->fields[$colname];
+		return @unescapeQuotes($this->fields[$colname]);
 	} else if (!$this->bind) {
 			$this->bind = array();
 			for ($i=0; $i < $this->_numOfFields; $i++) {
@@ -422,7 +425,7 @@ class ADORecordSet_mysql extends ADORecordSet{
 				$this->bind[($o->name)] = $i;
 			}
 		}
-		 return $this->fields[$this->bind[($colname)]];
+		 return unescapeQuotes($this->fields[$this->bind[($colname)]]);
 	}
 	
 	function _seek($row)

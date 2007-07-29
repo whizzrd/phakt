@@ -38,12 +38,11 @@ function findServerBehaviors()
   } else {
     sbList = dwscripts.findSBs(MM.LABEL_TitleGoToRelated);
   }
-  
   for (var i=0; i < sbList.length; i++) {
     //set the family attribute
     sbList[i].family = "moveTo";
   }
-  
+		
   return sbList;
 }
 
@@ -142,6 +141,7 @@ function applyServerBehavior(sbObj)
 
   if (!errStr)
     errStr = linkNode.applyServerBehavior(sbObj, paramObj);
+		
     
   if (!errStr) {
     var keepURL = OPT_KEEPURL.checked;
@@ -151,7 +151,6 @@ function applyServerBehavior(sbObj)
     else if (keepForm) paramObj.keepType = "Form";
     else paramObj.keepType = "None";
   }
-
   if (!errStr)
     dwscripts.applySB(paramObj, sbObj);
 

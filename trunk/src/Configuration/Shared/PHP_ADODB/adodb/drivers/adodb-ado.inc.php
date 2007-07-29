@@ -1,6 +1,6 @@
 <?php
 /* 
-V2.12 12 June 2002 (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
+V2.31 20 Aug 2002  (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. 
@@ -8,7 +8,7 @@ Set tabs to 4 for best viewing.
   
   Latest version is available at http://php.weblogs.com/
   
-    Microsoft ADO data driver. Requires ADO. Works only on MS Windows.
+	Microsoft ADO data driver. Requires ADO. Works only on MS Windows.
 */
   define("_ADODB_ADO_LAYER", 1 );
 /*--------------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ class ADODB_ado extends ADOConnection {
 	var $fmtTimeStamp = "'Y-m-d, h:i:sA'";
 	var $replaceQuote = "''"; // string to use to replace quotes
 	var $dataProvider = "ado";	
-    var $hasAffectedRows = true;
+	var $hasAffectedRows = true;
 	var $adoParameterType = 201; // 201 = long varchar, 203=long wide varchar, 205 = long varbinary
 	var $_affectedRows = false;
 	var $_thisTransactions;
@@ -30,18 +30,18 @@ class ADODB_ado extends ADOConnection {
 	var $_cursor_location = 3; // 2=adUseServer, 3 = adUseClient;
 	var $_lock_type = -1;
 	var $_execute_option = -1;
-                      
+					  
 	
 	function ADODB_ado() 
 	{ 	
 	}
 
 	
-    function _affectedrows()
-    {
-            return $this->_affectedRows;
-    }
-    
+	function _affectedrows()
+	{
+			return $this->_affectedRows;
+	}
+	
 	// you can also pass a connection string like this:
 	//
 	// $DB->Connect('USER ID=sa;PASSWORD=pwd;SERVER=mangrove;DATABASE=ai',false,false,'SQLOLEDB');
@@ -72,7 +72,7 @@ class ADODB_ado extends ADOConnection {
 		if ($argUsername) $argHostname .= ";$u=$argUsername";
 		if ($argPassword)$argHostname .= ";$p=$argPassword";
 		
-		if ($this->debug) print "<p>Host=".$argHostname."<BR>version=$dbc->version</p>";
+		if ($this->debug) ADOConnection::outp( "Host=".$argHostname."<BR>\n version=$dbc->version");
 		// @ added below for php 4.0.1 and earlier
 		@$dbc->Open((string) $argHostname);
 		
@@ -214,7 +214,7 @@ class ADODB_ado extends ADOConnection {
 		/*
 			$rs =  new COM('ADODB.Recordset');
 			if ($rs) {
-				$rs->Open ($sql, $dbc, $this->_cursor_type,$this->_lock_type, $this->_execute_option);            				
+				$rs->Open ($sql, $dbc, $this->_cursor_type,$this->_lock_type, $this->_execute_option);							
 			}
 		*/
 		if ($dbc->Errors->Count > 0) return false;
@@ -291,9 +291,9 @@ class ADORecordSet_ado extends ADORecordSet {
 	var $dataProvider = "ado";	
 	var $_tarr = false; // caches the types
 	var $_flds; // and field objects
-    var $canSeek = true;
+	var $canSeek = true;
   	var $hideErrors = true;
-	      
+		  
 	function ADORecordSet_ado(&$id)
 	{
 	global $ADODB_FETCH_MODE;
@@ -324,7 +324,7 @@ class ADORecordSet_ado extends ADORecordSet {
 	/* Use associative array to get fields array */
 	function Fields($colname)
 	{
-		if ($this->fetchMode & ADODB_FETCH_ASSOC) return $this->fields[$colname];
+		if ($this->fetchMode & ADODB_FETCH_ASSOC) return unescapeQuotes($this->fields[$colname]);
 		if (!$this->bind) {
 			$this->bind = array();
 			for ($i=0; $i < $this->_numOfFields; $i++) {
@@ -333,7 +333,7 @@ class ADORecordSet_ado extends ADORecordSet {
 			}
 		}
 		
-		 return $this->fields[$this->bind[($colname)]];
+		 return unescapeQuotes($this->fields[$this->bind[($colname)]]);
 	}
 
 		
@@ -347,23 +347,23 @@ class ADORecordSet_ado extends ADORecordSet {
 	}
 	
 	
-     // should only be used to move forward as we normally use forward-only cursors
+	 // should only be used to move forward as we normally use forward-only cursors
 	function _seek($row)
 	{
-       $rs = $this->_queryID; 
-        // absoluteposition doesn't work -- my maths is wrong ?
-        //    $rs->AbsolutePosition->$row-2;
-        //    return true;
-        if ($this->_currentRow > $row) return false;
-        @$rs->Move((integer)$row - $this->_currentRow-1); //adBookmarkFirst
+	   $rs = $this->_queryID; 
+		// absoluteposition doesn't work -- my maths is wrong ?
+		//	$rs->AbsolutePosition->$row-2;
+		//	return true;
+		if ($this->_currentRow > $row) return false;
+		@$rs->Move((integer)$row - $this->_currentRow-1); //adBookmarkFirst
 		return true;
 	}
 	
 /*
 	OLEDB types
 	
-     enum DBTYPEENUM
-    {	DBTYPE_EMPTY	= 0,
+	 enum DBTYPEENUM
+	{	DBTYPE_EMPTY	= 0,
 	DBTYPE_NULL	= 1,
 	DBTYPE_I2	= 2,
 	DBTYPE_I4	= 3,
@@ -527,7 +527,7 @@ class ADORecordSet_ado extends ADORecordSet {
 				$this->fields[] = false;
 				break;
 			case 6: // currency is not supported properly;
-				print '<br><b>'.$f->Name.': currency type not supported by PHP</b><br>';
+				ADOConnection::outp( '<b>'.$f->Name.': currency type not supported by PHP</b>');
 				$this->fields[] = (float) $f->value;
 				break;
 			default:
@@ -556,4 +556,81 @@ class ADORecordSet_ado extends ADORecordSet {
 
 }
 
+/*
+ID:			   18253
+ Updated by:	   mkools@euronet.nl
+ Reported By:	  mkools@euronet.nl
+ Status:		   Bogus
+ Bug Type:		 COM related
+ Operating System: Windows 2000 Pro SP2
+ PHP Version:	  4.2.1
+ New Comment:
+
+You were right, my code was wrong indeed. I did $VRows = new VARIANT();
+and then called the Execute function with &$VRows .. and that did work.
+But when I searched for a solution on the web, no site suggested this
+solution. Is it perhaps because of it's changed in version 4.2.1? Or is
+all the other code wrong too then?
+But many thanks!
+
+
+Previous Comments:
+------------------------------------------------------------------------
+
+[2002-07-17 18:48:01] phanto@php.net
+
+your code is wrong, try 
+
+$Vrows = new VARIANT();
+<..>
+
+$Vrows->value will most likely -1 then as almost no ADODB provider
+returns the right count.
+
+alternatively you can try using $this->QueryResult->RecordCount
+
+harald
+
+------------------------------------------------------------------------
+
+[2002-07-09 19:11:13] mkools@euronet.nl
+
+Forgot this in the original post: The queries itself do seem to work
+fine, so it's only the affectedrows which isn't working.
+
+------------------------------------------------------------------------
+
+[2002-07-09 19:09:42] mkools@euronet.nl
+
+I'm currently in the process of writing a wrapper class to connect
+through ADO with an MS Access database. The whole class works, except
+for one thing: I can't get the amound of affected records of an insert,
+update or delete statement.
+What I have now is this:
+	$Vrows = new VARIANT( 0, VT_I4|VT_BYREF);
+	$this->QueryResult = @$this->Link->Execute( $inQuery, $Vrows);
+	$this->AffectedRows = $Vrows->value;
+
+Explaination: QueryResult will be my RecordSet, Link is the ADO
+Connection object, inQuery is the query itself and AffectedRows will
+hold the amount of affected records by the query.
+But this seems to return the value 7779424 in all cases (even with
+select statements).
+The second things I've tried is:
+	$this->QueryResult = @$this->Link->Execute( $inQuery,
+&$this->AffectedRows);
+
+But that doesn't do anything with the AffectedRows variable. It keeps
+holding the value of what I put in it previously (I default it to -1).
+Is this a bug, or am I doing things totally wrong? I found the latter
+syntax on some other places on the web, so either those aren't working
+either or I'm forgetting something...
+
+------------------------------------------------------------------------
+
+
+-- 
+Edit this bug report at http://bugs.php.net/?id=18253&edit=1
+
+*/
 ?>
