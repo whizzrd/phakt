@@ -59,11 +59,7 @@ class ADODB_postgres64 extends ADOConnection{
 	// Interakt
 	function _insertid($pKeyCol, $table) {
 		$lastId = -1;
-		if (version_compare(phpversion(),'4.2.0','>=')) {
-			$oid = pg_last_oid($this->_resultid);
-		} else {
-			$oid = pg_getlastoid($this->_resultid);
-		}
+		$oid = pg_getlastoid($this->_resultid);
 		if (!$pKeyCol) {
 			$query = 'SELECT ic.relname AS index_name, bc.relname AS tab_name, 
 															ta.attname AS column_name, 
@@ -413,8 +409,8 @@ class ADODB_postgres64 extends ADOConnection{
 	{
 	global $ADODB_PHPVER;
 		if ($ADODB_PHPVER >= 0x4300) {
-			//if (!empty($this->_resultid)) $this->_errorMsg = @pg_result_error($this->_resultid);
-			if (!empty($this->_connectionID)) $this->_errorMsg = @pg_last_error($this->_connectionID);
+			if (!empty($this->_resultid)) $this->_errorMsg = @pg_result_error($this->_resultid);
+			else if (!empty($this->_connectionID)) $this->_errorMsg = @pg_last_error($this->_connectionID);
 			else $this->_errorMsg = @pg_last_error();
 		} else {
 			if (empty($this->_connectionID)) $this->_errorMsg = @pg_errormessage();

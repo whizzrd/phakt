@@ -613,8 +613,9 @@ class ADORecordset_mssql extends ADORecordSet {
 	// speedup
 	function MoveNext() 
 	{
-		if (!$this->EOF) {
-			$this->exfields = $this->fields;//INTERAKT
+		if (!$this->EOF) {		
+			//INTERAKT
+			$this->exfields = $this->fields;
 			$this->_currentRow++;
 			if ($this->fetchMode & ADODB_FETCH_ASSOC) {
 			global $ADODB_mssql_dtconvert_assoc;

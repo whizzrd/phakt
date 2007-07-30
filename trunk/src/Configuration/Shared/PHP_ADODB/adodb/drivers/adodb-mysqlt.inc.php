@@ -64,7 +64,6 @@ class ADORecordSet_mysqlt extends ADORecordSet_mysql{
 	{
 		if (!$this->EOF) {		
 			$this->_currentRow++;
-			$this->exfields = $this->fields;//INTERKAT
 			// using & below slows things down by 20%!
 			$this->fields = @mysql_fetch_array($this->_queryID,$this->fetchMode);
 			

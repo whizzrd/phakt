@@ -59,24 +59,16 @@ KT_keepParams('id_usr');
 <?php } // Show if recordset empty ?>
 
 <table width="100%" border="0">
-  <tr>
-		<th>ID</th>
-		<th>Username</th>
-		<th>Password</th>
-		<th>Level</th>
-		<th>&nbsp</th>
-		<th>&nbsp</th>
-	</tr>
   <?php
   while (!$rsUsers->EOF) {
 ?>
-	<tr> 
-    <td align="center"><?php echo $rsUsers->Fields('id_usr'); ?></td>
-    <td align="center"><?php echo $rsUsers->Fields('username_usr'); ?></td>
-    <td align="center"><?php echo $rsUsers->Fields('password_usr'); ?></td>
-    <td align="center"><?php echo $rsUsers->Fields('level_usr'); ?></td>
-    <td align="center"><A HREF="update.php?<?php echo $MM_keepNone . (($MM_keepNone!="")?"&":"") . "id_usr=" . urlencode($rsUsers->Fields('id_usr')) ?>">Edit</A></td>
-    <td align="center"><A HREF="delete.php?<?php echo $MM_keepNone . (($MM_keepNone!="")?"&":"") . "id_usr=" . urlencode($rsUsers->Fields('id_usr')) ?>">Delete</A></td>
+  <tr> 
+    <td><?php echo $rsUsers->Fields('id_usr'); ?></td>
+    <td><?php echo $rsUsers->Fields('username_usr'); ?></td>
+    <td><?php echo $rsUsers->Fields('password_usr'); ?></td>
+    <td><?php echo $rsUsers->Fields('level_usr'); ?></td>
+    <td><A HREF="update.php?<?php echo $MM_keepNone . (($MM_keepNone!="")?"&":"") . "id_usr=" . urlencode($rsUsers->Fields('id_usr')) ?>">Edit</A></td>
+    <td><A HREF="delete.php?<?php echo $MM_keepNone . (($MM_keepNone!="")?"&":"") . "id_usr=" . urlencode($rsUsers->Fields('id_usr')) ?>">Delete</A></td>
   </tr>
   <?php
     $rsUsers->MoveNext();
@@ -88,7 +80,7 @@ KT_keepParams('id_usr');
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td align="center"><a href="insert.php">Add User</a></td>
+    <td><a href="insert.php">Add</a></td>
   </tr>
 </table>
 
@@ -108,7 +100,7 @@ KT_keepParams('id_usr');
       <?php } // Show if not last page ?></td>
   </tr>
 </table>
-<p align="left"><a href="logout.php">Logout</a></p>
+<p align="right"><a href="logout.php">Logout</a></p>
 </body>
 </html>
 <?php

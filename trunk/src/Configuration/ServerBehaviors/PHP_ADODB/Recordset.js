@@ -47,15 +47,13 @@ function findServerBehaviors()
 		}
 		//fill specific parameters for every rsType
 		for (var j = 0;j < MM.rsTypes.length;j++) {
-			if (MM.rsTypes[j].serverModel == dw.getDocumentDOM().serverModel.getServerName()) {
-				domCommand = dw.getDocumentDOM(dw.getConfigurationPath() + "/Commands/" + MM.rsTypes[j].command); 
-				if (domCommand) {
-					windowCommand = domCommand.parentWindow;
-					if (windowCommand.fillAditionalParameters) {
-						windowCommand.fillAditionalParameters(sbList[i]);
-						//writeAttr(sbList[i],"Record.out" + i);
-					}				}
-			}
+	    domCommand = dw.getDocumentDOM(dw.getConfigurationPath() + "/Commands/" + MM.rsTypes[j].command); 
+			if (domCommand) {
+				windowCommand = domCommand.parentWindow;
+				if (windowCommand.fillAditionalParameters) {
+					windowCommand.fillAditionalParameters(sbList[i]);
+					//writeAttr(sbList[i],"Record.out" + i);
+				}			}
 		}
   }
 	//writeAttr(sbList,"Record.out");

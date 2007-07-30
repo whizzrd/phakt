@@ -70,7 +70,7 @@ KT_redir($KT_redirectLoginFailed);
   <p>Username: 
     <input name="username" type="text" maxlength="8" id="username">
   </p>
-  <p>Password:&nbsp
+  <p> Password: 
     <input name="password" type="text" maxlength="8" id="password">
   </p>
   <p>

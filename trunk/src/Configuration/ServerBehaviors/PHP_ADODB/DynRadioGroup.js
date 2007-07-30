@@ -56,7 +56,7 @@ function findServerBehaviors()
   var searchPatt = extPart.getSearchPatterns(PART_CHECKED_ATTR);
   var quickSearch = extPart.getQuickSearch(PART_CHECKED_ATTR);
   var currPart, currRadio, currSB, currGroup, i, j, nRadios, aMatch;
-	
+
   for (i=0;i<nGroups;i++) // traverse through groups
   {
     currSB = null;
@@ -73,7 +73,7 @@ function findServerBehaviors()
         // to existing server behavior object
         if (currSB==null)
         {
-          currSB = new ServerBehavior('DynRadioGroup');
+          currSB = new ServerBehavior();
           currSB.setTitle(MM.LABEL_DynamicRadioGroupTitle + " (" + currRadio.name + ")");
           currSB.ordinalOfGroup = i;
         }
