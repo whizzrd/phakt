@@ -1,0 +1,469 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><HTML>
+<HEAD>
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<A name=1></a><IMG src="Building a dynamic website using Dreamweaver MX and PHAkt-1_1.jpg"><br>
+<b>Building a dynamic </b><br>
+<b>website using </b><br>
+<b>Dreamweaver MX and </b><br>
+<b>PHAkt</b><br>
+version 1.0.2<br>
+<hr>
+<A name=2></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<b>Table of Contents</b><br>
+<b>Overview....................................................................................................................................................3</b><br>
+<b>Setting up the workplace........................................................................................................................3</b><br>
+<b>Prerequisites......................................................................................................................................................3<br>Our configuration..............................................................................................................................................3<br>Installing PHAkt.................................................................................................................................................3<br>The PostgreSQL database...............................................................................................................................3</b><br>
+<b>Development stage..................................................................................................................................5</b><br>
+<b>Configuring the site in Dreamweaver MX.....................................................................................................5<br>Connecting to the database............................................................................................................................8</b><br>
+<b>Using PHAkt...........................................................................................................................................11</b><br>
+<b>Managing users...............................................................................................................................................11</b><br>
+<b>Implementing the contact management............................................................................................23</b><br>
+<b>Conclusion..............................................................................................................................................32</b><br>
+<b>Appendix 1 : References......................................................................................................................33</b><br>
+<b>Appendix 2:: Configuring PosgreSQL on Windows.......................................................................33</b><br>
+<b>Installing PostgreSQL....................................................................................................................................33</b><br>
+<b>Appendix 3:: PHAkt improvements over the PHP_MySQL server model...................................34</b><br>
+<b>Appendix 4:: Tutorial files....................................................................................................................34</b><br>
+http://www.interakt.ro<br>
+Page 2<br>
+<hr>
+<A name=3></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<b>Overview</b><br>
+InterAKT is  a software development company specialized in designing software tools for web development.<br>
+One of their most successful tool is PHAkt, a GPL Server Model for Dreamweaver MX, allowing visual PHP<br>development. PHAkt is the only alternative server model for Dreamweaver MX and makes some improvements<br>over the original PHP_MySQL server model that ships with Dreamweaver MX.<br>
+In this tutorial, we will create a password protected dynamic site that will permit contact management for a client's<br>employees. This tutorial will demonstrate how Dreamweaver MX can be used to create database driven websites,<br>using PostgreSQL as database and PHP as the scripting language.<br>
+We recommend PostgreSQL as a professional database for all websites. We have choosen it because of its large,<br>professional feature set. There are other GPL databases on the market that you can use and the portions of this<br>tutorial that deal with PHAkt and Dreamweaver MX will remain unchanged.<br>
+<b>Setting up the workplace</b><br>
+<b>Prerequisites</b><br>
+To complete this tutorial, you will need Dreamweaver MX installed on a Windows or MAC platform; the PHAkt<br>2.x extension; direct, FTP or share access to an Apache (you can also use other webservers like IIS, PWS or<br>OmniHTTPd)/PHP webserver (we recommend PHP 4.0.6 and above), access to a PostgreSQL server and<br>phpPgAdmin, a web tool used to manage PostgreSQL databases, installed and configured on the web server<br>(phpPgAdmin is). For a complete list of references to all those products, please consult the references section in<br>Appendix 1.<br>
+All the screenshots in this tutorial are made with Dreamweaver MX running on a Windows XP Home Edition. <br>
+During this tutorial will use some formatting conventions for some text elements having significant importance<br>for the application presented: <i>file name</i> ­ italic, <b>folder name</b> bold, <b>recordset name</b> bold, <b><i>field name</b></i> bold italic.<br>
+<b>Our configuration</b><br>
+We have created this tutorial on a computer  configured as follows:<br>
+Web server: Apache 1.3.24 with Server Root in <b>c:/www/</b> located on the same computer as Dreamweaver MX<br>
+PHP ­ 4.2.1 located in <b>C:\php4\</b> and configured as a CGI module to Apache.<br>
+PostgreSQL 7.2.1 compiled with Cygwin, which is located in <b>C:\Cygwin\</b>. In the Cygwin bash, PostgreSQL is<br>installed in <b>/usr/local/pgsql/</b> and the databases are stored in /usr/local/pgsql/data/<br>
+In this tutorial, we'll refer to the PostgreSQL server address as <b>pgserver</b>, and the web server address as<br><b>webserver</b>. In our specific case, they will both be on the localhost.<br>
+<b>Installing PHAkt</b><br>
+PHAkt<br>
+can<br>
+be<br>
+downloaded<br>
+from<br>
+the<br>
+Macromedia<br>
+Exchange,<br>
+at<br>
+http://dynamic.macromedia.com/bin/MM/exchange/extension_detail.jsp?extOid=338683.<br>
+Unzip the downloaded file into a new folder and you will find the whole software package, including the<br>README files and the MXP files to install into Dreamweaver MX. Read the README for the latest information<br>that may effect your install, then open Dreamweaver MX and select Command ­ Manage Commands to open the<br>Extension Manager then install the <b>phakt-2.0.60.mxp</b> extension.<br>
+Please remember that in the Windows 'NT' series (this includes NT, 2000 and XP), the extensions are installed for<br>each user individually, so if one of your colleagues has some extensions installed in his copy of Dreamweaver<br>MX in his workspace, you will not see them. You need to install a copy into each user's workspace if you have<br>multiple users on the same computer.<br>
+<b>The PostgreSQL database</b><br>
+We'll assume that you have the PostgreSQL server up and running on the localhost. (for more detailed instructions<br>
+http://www.interakt.ro<br>
+Page 3<br>
+<hr>
+<A name=4></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+on how you can install and start PostgreSQL on a Windows (NT/2000/XP) server, please read Appendix 2).<br>
+You will have to use the phpPgAdmin web interface to create a database named phakt_mx and then execute the<br>SQL script (phakt_mx.sql) located in this tutorial attached files. <br>
+<i>Figure 1 Creating the phakt_mx database</i><br>
+<i>Figure 2 Executing the phakt_mx.sql file</i><br>
+The database contains two tables : users_usr and contacts_con. We use a naming convention to be able to manage<br>the database fields with ease, and this consists in adding to each table name an underscore and then a short name<br>(3 letters), that will be also added in the fields name. <br>
+http://www.interakt.ro<br>
+Page 4<br>
+<hr>
+<A name=5></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 3 Visual representation of phakt_mx database</i><br>
+The table users_usr is used to store the users that will be able to log in the system, and the table contacts_con<br>which refers, or links to, the users_usr table with a link called a foreign key <b><i>idusr_con</b></i>. The contacts_con table<br>will keep the contact information for each user.<br>
+We have created unique id's for both tables, <b><i>id_usr </b></i>and <b><i>id_con </b></i>which both the SERIAL type , and this is a good<br>practice when it comes to designing normalized tables, because the SERIAL types will automatically create<br>unique integer identifiers for each record in a table, making it very easy to find and update.<br>
+<b>Development stage</b><br>
+First of all you have to create the site folders, both named '<b>pgsql</b>'. One of those folders will be the work folder on<br>the local machine, while the other will be created on the web server public directory. In our case we have created a<br>pgsql folder in the <b>'C:\Work\Test\' </b>folder and another one in the <b>'C:\www\iakt\' </b>folder that is the root folder<br>ofour web server. Now start Dreamweaver MX and create a new site from the Site menu, the New site submenu.<br>
+<b>Configuring the site in Dreamweaver MX</b><br>
+When you choose to create New Site in Macromedia Dreamweaver, if the <b>Basic </b>configuration tab is shown, click<br>on the Advanced tab.<br>
+The screenshots in this tutorial are made from our machines and you may have to adapt them to your own actual<br>configuration.<br>
+<b>Local Info</b><br>
+The information requested in the <b>Local info </b>section is about the local configuration settings that you will use<br>during the development process. Begin by naming your site <b>'pgsql' </b>in the Site Name field. Set the Local Root<br>Folder to <b>'C:\Work\Test\pgsql\' </b>(or to the folder where you are going to be storing the files you are going to<br>work on) Set the HTTP Address field to the actual URL of your site , in our case, the HTTP address will be<br>http://localhost/pgsql/.<br>
+http://www.interakt.ro<br>
+Page 5<br>
+<hr>
+<A name=6></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 4 Setting Up the Local Paths</i><br>
+<b>Remote Info</b><br>
+In the <b>Remote info </b>section of the dialog you will have to indicate the connection type used to upload the files on<br>the production server and the actual path to the remote computer. You can also select to automatically upload files<br>on the server on save, which can be very useful and will save you a lot of 'Ctrl+Shift+U' key presses. If you are<br>working in a team, you might also choose to activate the Check In/Check Out support that will help multiple users<br>not to edit the same file at the same time.<br>
+<i>Figure 5 Setting up the Remote Info Section</i><br>
+<b>Testing Server</b><br>
+The Testing Server section refers to the type of connection and protocol used to connect to a test server. An http<br>
+http://www.interakt.ro<br>
+Page 6<br>
+<hr>
+<A name=7></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+address and a physical address are also required.<br>
+Please note that correctly configuring the testing sever is very important for your site to function. Because all the<br>database information is loaded by uploading and executing PHP scripts on the testing server, you have to carefully<br>configure this screen.<br>
+Please also note that you have to set the sever model for your site to PHP_ADODB (PHAkt 2 MX server model).<br>If you select the built-in PHP server model you will only be able to connect to mySQL databases and you will<br>have significantly fewer features than you will with the PHAkt server model. <br>
+<i>Figure 6 Setting up the Testing Server</i><br>
+<b>Cloaking and Design Notes</b><br>
+Site cloaking enables you to exclude folders and file types in a site from operations such as Get or Put. You can<br>cloak individual folders of file types, but not individual files.<br>
+Design Notes are notes that you create for a file. The Design Notes are associated with the file they describe, but<br>stored in a separate file. You can use Design Notes to keep track of extra file information associated with your<br>documents, such as image source-filenames and comments on file status.<br>
+<b>Site Map Layout and File View Columns</b><br>
+The purpose of Site Map Layout dialog box is to customize the appearance of your sitemap. You can specify the<br>home page, the number of columns to display, decide whether the icon labels display the filename or the page<br>title, and whether to show hidden and dependent files. <br>
+This configuration section has the role to make changes to the file view columns in the Site panel. You can change<br>the order of columns, add a new column, or delete a column.<br>
+<b>Site folder structure</b><br>
+This tutorial relies on a simple file structure with a root folder called <b>pgsql </b>where all the files will be stored. We<br>will create two sections in the website, one for the site administrator, and one for the site users. The site<br>administrator will be able to manage users, and the users will be able to manage their contacts. We will create the<br><b>admin </b>folder in the root folder, and we'll store here the files used to manage the users. We will also create here<br>the <b>contacts</b> folder, where we'll put the files for contact management.<br>
+http://www.interakt.ro<br>
+Page 7<br>
+<hr>
+<A name=8></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+When you create the connection in Dreamweaver MX, PHAkt will create and upload the <b>Connections </b>folder<br>containing a file describing the connection parameters and the <b>adodb </b>folder which contains all ADOdb<br>components. PHAkt will also create an <b>includes </b>folder containing functions.inc.php, the file that contains most<br>common used functions.<br>
+Create an new file <i>index.php </i>in your site's root using the Dreamweaver MX. This can be done by selecting the<br>folder in which you want to create a new file or a child folder and then use the mouse right button. Open the<br><i>index.php</i> file by double clicking on it in the Files panel.<br>
+<i>Figure 7 Creating a New File</i><br>
+<b>Connecting to the database</b><br>
+First of all, we should check that the correct Document Type is selected for the current document. To do that go in<br>the Edit Menu and choose Preferences. In the configuration window that will appear you have to chose PHP4, in<br>the New Document tag, as the default document type.<br>
+<i>Figure 8 Setting the New Document Type</i><br>
+To make sure that PHP4 is selected as the document type, check the file contents, it should have a comment<br>stating 'PHP ADODB document - made with PHAkt 2.0.60' or the current PHAkt version. In case this comment is<br>not present within your page code, you should change your document type as seen in the prevoius image.<br>
+http://www.interakt.ro<br>
+Page 8<br>
+<hr>
+<A name=9></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 9 Made with PHAkt Comment</i><br>
+To create a connection go to the Databases tag from the Application panel, push the <b>'+'</b> button and select 'ADODB<br>connection'. <br>
+<i>Figure 10 Creating an ADODB Connection</i><br>
+The connection configuration window will appear like in the picture below (actually this picture shown the<br>completed connection)<br>
+http://www.interakt.ro<br>
+Page 9<br>
+<hr>
+<A name=10></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 11 Configuring an ADODB connection</i><br>
+You will have to fill out some fields describing the connection to be created. In the <i>Connection Name </i>field will<br>contain the name of the connection used for this application: <b>test</b>, the <i>Database Type </i>will specify the type of the<br>database server which in our case is <b>PostgreSQL 7.x</b>, the database server requires the computer name or IP<br>address of the machine running the database server described above, in our case is <b>localhost</b>. You will also have<br>to specify an <b>User Name</b>, in our case <b>Administrator and</b> a password - <b>phakt.</b><br>
+After you set up all those parameters, you can click on the Select button, and a list of all possible databases will be<br>shown.<br>
+<i>Figure 12 Selecting a database</i><br>
+Select the desired database, <b>phakt_mx, </b>which you created when you set up PostgreSQL earlier in the tutorial, and<br>then press OK. The database Locales Fields will decide the date format (Ex. m-d-Y or d-m-Y), the messages<br>locales and the type of database connection which can be '<b>connection</b>' (a standard connection that expires once<br>you leave the page) or '<b>permanent connection</b>' (it uses the PHP pconnect() function to create a persistent<br>connection). Having permanent connections could dramatically increase your performance, as connecting to some<br>databases (especially postgreSQL), is very cost consuming so it's very wise to use a connection pool to serve your<br>dynamic pages.<br>
+Click <b>OK</b> and you will have a new connection stored in the <i>test.php</i> file created in the Connections folder.<br>
+http://www.interakt.ro<br>
+Page 10<br>
+<hr>
+<A name=11></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<b>Using PHAkt</b><br>
+The following pages will show you how to use many of the improved functionalities in PHAkt to create a<br>complex dynamic website. Don't forget, to be able to see the page running on the server, you have to upload it<br>there by using <b>Ctrl+Shift+U</b>.<br>
+<b>Managing users</b><br>
+To manage the users, we'll create 4 separate pages with PHAkt2, with the purposes of listing the users, adding<br>new users, editing a user's profile and deleting a user. These files will be stored in a separate folder named <b>admin<br></b>placed in your site root folder (pgsql). Then create the <b>admin/</b><i>index.php </i>file that will contain the list of users. To<br>do that select the folder in which you want to create the file and use the mouse right button.Open this file and<br>create a <b>rsUsers</b> recordset by clicking on <b>'+'</b> in the Bindings tab of the Application panel.<br>
+<i>Figure 13 Creating a Recordset</i><br>
+Fill the interface as shown in the figure, then click <b>OK</b>. <br>
+<i>Figure 14 Configuring the rsUsers Recordset</i><br>
+You have to select a database connection to a database, the database table that contains the information you need<br>
+http://www.interakt.ro<br>
+Page 11<br>
+<hr>
+<A name=12></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+(PHAkt will automatically load the table list once you have selected the connection), and the table fields to be<br>displayed. The name of the newly created recordset will appear in the display window of the application panel. <br>
+Then create a table with 6 columns and 2 rows and drag the <b>rsUsers </b>fields from the Bindings Panel to the table<br>columns, as seen in the figure below. Write the texts 'Edit' and 'Delete' in the last columns of the first row.<br>
+<i>Figure 15Creating the Users List Table</i><br>
+We will now add a repeated region to show multiple rows from the database table on the screen. Select the first<br>table row by clicking in it's left side (or by clicking inside a cell then selecting TR from the tag selector located in<br>the Dreamweaver MX status bar), then select Repeat Region after clicking <b>'+' </b>in the Server Behaviors tab of the<br>Application panel. <br>
+<i>Figure 16 Configuring a Repeated Region</i><br>
+Click OK and you'll notice that the repeat region was added to the page. You have to also add a navigation bar<br>that will allow you to navigate between the recordset pages if there are more then 10 records in the table. This can<br>be done easily by positioning the cursor in the outer right section of the table, then selecting the Application tab in<br>the Insert panel , then clicking on the Recordset Navigation Bar button. <br>
+<i>Figure 17 Repeated Region Layout In Macromedia</i><br>
+http://www.interakt.ro<br>
+Page 12<br>
+<hr>
+<A name=13></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+Select the 'Text' radio button, then press OK.<br>
+<i>Figure 18 Configuring a Navigation Bar</i><br>
+Your page should look like this:<br>
+<i>Figure 19 Users List Page Preview</i><br>
+Save the file by clicking on <b>Ctrl+S</b> or selecting <b>Save</b> from the File menu.<br>
+Now we need to handle the case when the users_usr table will be empty. At the top of the page above the table<br>where the data is supposed to be returned, write a warning message that the data set returned is empty. Select the<br>text you just entered and add a Show If Recordset Is Empty Server Behavior on the page.<br>
+http://www.interakt.ro<br>
+Page 13<br>
+<hr>
+<A name=14></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 20 Creating a Show  If Region</i><br>
+The table page will look like this:<br>
+<i>Figure 21Page Preview with the Show If Region</i><br>
+http://www.interakt.ro<br>
+Page 14<br>
+<hr>
+<A name=15></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+We'll continue by creating an Insert Record Server Behavior, that will allow us to add records in the users_usr<br>table. Create a new file and save it as <i>insert.php </i>in the <b>admin </b>folder. In the index page where you are working,<br>add a new link in the lower right cell of the username list table to the <i>insert.php </i>file. This can be done by writing<br>'Add' in the table, then selecting the text, right clicking on it, then select <b>Make Link </b>and a file browser dialog<br>will be shown. Select the <i>insert.php</i> file and click OK.<br>
+Now edit the <i>insert.php</i> file, then click on the <b>Record Insertion Form</b> from the <b>Insert</b> panel, <b>Application</b>  tab.<br>
+<i>Figure 22Creating a Record Insertion Form</i><br>
+Fill the form as show above. You should note that the <b><i>id_usr </b></i>field is 'Text' and this means that it will not be<br>editable when we'll add a new record. The <i>index.php </i>file referred in the above window, is the PHP file placed in<br>the <b>admin</b> folder. Click OK and a new form will be created.<br>
+We'll continue now by testing our configuration. To do this, we'll select the site root in the File panel, Site tab,<br>then click on the Upload button. We are doing this because PHAkt generated PHP files require some other files to<br>be uploaded on the server, and uploading only some of the files will generate errors.<br>
+Click Yes when Dreamweaver MX asks you if you want to upload the entire site.<br>
+Now start your browser and point it to http://localhost/pgsql/admin/. You should see a page like the one pictured<br>below. As you can see, because the recordset is empty, the warning message will be shown.<br>
+http://www.interakt.ro<br>
+Page 15<br>
+<hr>
+<A name=16></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 23 Browser Preview of the Application</i><br>
+Click on the Add link, then fill the username and password fields with admin/admin, the level field with 10 and<br>then press the Insert Record button.<br>
+<i>Figure 24 Using the Insert Form</i><br>
+Next we'll create the <i>update.php </i>and <i>delete.php </i>files in the <b>admin </b>folder, , then edit them and add the Update<br>Record and Delete Record server behaviors. We will have to pass a URL parameter to each of the pages we<br>created when we link to them so we should establish now that the parameter will be called <b><i>id_usr</b></i>.<br>
+Let's see how the Update Record SB will be added to the page. Open the <i>update.php </i>file. Create a recordset<br>named <b>rsUser</b>, select the users_usr table and set the filter for it as <b><i>id_usr </b></i>from the database equals the URL<br>parameter <b><i>id_usr</b></i>. The recordset dialog should look like in the figure below.<br>
+http://www.interakt.ro<br>
+Page 16<br>
+<hr>
+<A name=17></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 25 Creating the rsUser Recordset</i><br>
+Then add a Record Update form to the page, and configure it as in the figure below. As you can see, we have<br>chosen to redirect to <b>admin</b>/<i>index.php </i>after updating an user. Press Ctrl+Shift+U or use the Site Panel to upload<br>the page to the server.<br>
+<i>Figure 26 Creating a Record Update Form</i><br>
+Now we'll have to modify the <b>admin</b>/<i>index.php </i>page, and to make the Edit text in the right column load the record<br>update page. Select the Edit text, then add the <b>Go to Detail Page</b> Server Behavior.<br>
+http://www.interakt.ro<br>
+Page 17<br>
+<hr>
+<A name=18></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 27 Creating a Go To Detail Server Behavior</i><br>
+Configure the link to pass the <b><i>id_usr</b></i> URL parameter to the <i>update.php</i> page, then click OK.<br>
+You have now a fully functional insert/update list, and we'll continue with implementing the delete record feature,<br>as shown below. <br>
+Edit the <i>delete.php </i>page and add a Delete Record behavior as shown in the figure below. The <i>index.php </i>page<br>referred in the figure is the <b>admin</b>/<i>index.php </i>file. As we'll see later, because PosgreSQL is such a powerful<br>database, if a deleted user had a contact list, it will be automatically deleted when the user will be deleted. This is<br>called a 'cascaded delete' and in our case saved you a great deal of programming time.<br>
+<i>Figure 28 Creating a Delete Record Server Behavior</i><br>
+Now edit the <b>admin</b>/<i>index.php </i>file, select the 'Delete' text and add a 'Go To Detail Page' Server Behavior that will<br>pass the <b><i>id_usr</b></i> parameter to the <i>delete.php</i> page.<br>
+http://www.interakt.ro<br>
+Page 18<br>
+<hr>
+<A name=19></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 29 Go to Detail Page - delete.php</i><br>
+Click OK, save the files and test your Edit/Delete features from the <b>admin</b>/<i>index.php</i> page.<br>
+All it rest to is the authentication module for this site administration section. In the <b>admin </b>folder, create two files<br>named <b><i>login.php</b></i> and <b><i>logout.php</b></i>.<br>
+Edit each file you have in the <b>admin </b>folder (exculding <i>login.php </i>and <i>logout.php</i>) and add a Restrict Access To<br>Page Server Behavior.<br>
+<i>Figure 30 Creating a Restrict Access to Page</i><br>
+Allow access only to the level 10 users and choose to redirect towards the <b>admin</b>/<i>login.php</i> file.<br>
+Now open the <i>login.php </i>file and add a form containing two text fields and a submit button. The fields names will<br>be username and respectively password, while the Max Chars property for each field will be set to 8. Don't forget<br>to define the password field as being a password type field.<br>
+http://www.interakt.ro<br>
+Page 19<br>
+<hr>
+<A name=20></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 31 Configuring a Restrict Access to Page</i><br>
+<i>Figure 32 Editing the Properties of aTextfield </i><br>
+Now go to the Server Behavior tag in the Application panel and add a User Authentication/Log In User server<br>behavior.<br>
+<i>Figure 33 Creating a Log In User Server Behavior</i><br>
+Now open the <b>admin</b>/<i>index.php</i> file and create a link to the logout page. Save the file and upload the site.<br>
+Play a little with your small but functional web application from a browser. It should perform well, as PHAkt code<br>was tested by many users all over the world.<br>
+Before passing to the next section of the tutorial, please create the user <b>phakt </b>with the password <b>user</b>, as those<br>will be used as default information below.<br>
+http://www.interakt.ro<br>
+Page 20<br>
+<hr>
+<A name=21></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<b>Implementing the contact management</b><br>
+We'll continue our tutorial by adding new features in the application that will allow authenticated users to view<br>and manage a contact list. First of all, we'll create files called <i>index.php</i>, <i>insert.php</i>, <i>update.php </i>and <i>delete.php </i>in<br>the <b>contacts</b> folder.<br>
+<b>User authentication</b><br>
+To implement the user authentication, we'll create, in the <b>contacts </b>folder, a login and logout page, named<br><i>login.php</i> and <i>logout.php</i>. <br>
+In the <i>login.php </i>page create a simple HTML form on the page, containing two text fields named username and<br>password, and a submit button. To change the name of a text field, you have to click on it then modify it's name in<br>the properties panel. Also set the Max Chars parameters to 8 for both the username and the password. Note: the<br>password field should have the propetrty password turn on. (Alexandru ­ why limit it to 8? Best to tell a user why<br>they are doing this.<br>
+<i>Figure 34 User Login Page Layout in Macromedia</i><br>
+Then add the User Authentication/Log In User Server Behavior on the page, and configure the behavior as seen in<br>the picture below:<br>
+http://www.interakt.ro<br>
+Page 21<br>
+<hr>
+<A name=22></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 35 Login User Server Behavior - Contacts Section</i><br>
+In this behavior, we pass a supplemental URL parameter named failed when the login fails, to be able to show a<br>warning message. To do this, we'll have to switch to code view, because PHAkt does not come with a Server<br>Behavior that allows you to create conditional regions.<br>
+Add a simple PHP '<b>if</b>' code, that will check if the failed parameter is set like in the picture below. <br>
+<i>Figure 36 Inserting an Error Message</i><br>
+The login user code we have added in the <i>login.php </i>page does the authentication, then stores the username (from<br>the <b><i>username_usr</b></i> table fields) in the KT_Username session variable. We will use this session variable to filter the<br>records from the contacts table for the currently logged in user.<br>
+Because all the rest of the pages will need the user id, and not the username (because the contacts_con page is<br>
+http://www.interakt.ro<br>
+Page 22<br>
+<hr>
+<A name=23></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+linked to the users_usr page with the id), we'll manually add some code that will store the user id in a session<br>variable. The best place to add this code is below the '// Add code here if you want to do something if login<br>succeeded' line in the login user server behavior, which is there especially to allow you to add any code you may<br>need like this.<br>
+We will manually create a recordset and keep the user id in the 'userID' session variable.<br>
+<i>Figure 37 Adding a Recordset Manually</i><br>
+We will have to protect all the pages from the <b>contacts </b>folder (excepting <i>login.php </i>and <i>logout.php</i>), by opening<br>them then adding the User authentication/Restrict access to page Server Behavior. This operation is mandatory for<br>the pages to function correctly, as the PHP session is started in this code block, and if it is not present, the session<br>variables will be unavailable.<br>
+<i>Figure 38 Restrict Acces To Page - Contacts Section</i><br>
+Open the <i>logout.php</i> file and insert the User authentication/Logout user server behavior.<br>
+<i>Figure 39 Logout User Server Behaviour</i><br>
+<b>Now upload the whole contacts folder on the server. </b><br>
+Next, in the <b>contacts</b>/<i>index.php </i>file, create the recordset that contains the contacts for the current user. To do that,<br>click on the '<b>+</b>' button from the Server Behavior tag in the Application panel and configure it like is shown in the<br>
+http://www.interakt.ro<br>
+Page 23<br>
+<hr>
+<A name=24></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+picture below:<br>
+<i>Figure 40 Configuring the rsContacts Recordset</i><br>
+As you can see from the screenshot, we are filtering the results from the contacts_con table after the user id. That<br>means that all the contacts that have the <b><i>idusr_con </b></i>field equal with the id of the current user will be displayed<br>(<b><i>idusr_con</b></i> is the id of the current user).<br>
+The next step will be the creation of an Master/Detail Server Behavior that will handle the contacts administration<br>for the current user. To do that click on the Master/Detail button from the Application Tab  in the Insert panel. The<br>configuration options are shown in the picture below:<br>
+http://www.interakt.ro<br>
+Page 24<br>
+<hr>
+<A name=25></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 41 Creating a Master Detail Page Set</i><br>
+PHAkt will create a table containing a repeated region containing the Master Page Fields that you have specified<br>in the configuration window. Also a navigation bar and a position menu will be created. The detail.php file will<br>also be created and it will contain a table displaying all the Detail Page Fields that you have specified in the<br>Master Detail Configaration window.<br>
+<i>Figure 42 User Contacts List Page Layout in Dreamweaver</i><br>
+As you can see at this moment we don't have any possibility to insert, edit or delete a record. These features have<br>to be added separatly along with a logout link or button.<br>
+http://www.interakt.ro<br>
+Page 25<br>
+<hr>
+<A name=26></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+First we'll create table having one row and two columns. This table will contain the link to the <i>insert.php </i>and<br><i>logout.php </i>files that will handle the insert and the logout features. In the first column, write 'Add new record' ,<br>select the text and create a link to the <i>insert.php </i>file using the mouse right button. In this file we'll add an Insert<br>Record Form that will allow us  to add contacts to this user contact list.<br>
+<i>Figure 43 Creating a Record Insertion Form - Contacts Section</i><br>
+As the image shows, we'll configure the <b><i>idusr_con </b></i>to be a hidden field and it will be initialized with<br>$HTTP_SESSION_VARS['userId'], that means that will contain the id of the currently logged in user. Press OK,<br>save the file and go back to the <b>contacts</b>/<i>index.php</i>.<br>
+Write 'logout' in the right table column, select the text and create a link to the <i>logout.php</i> file.<br>
+To include the Edit and Delete features you will have to add two columns to the table containing the user contacts.<br>To add a column go in the last table field and use the mouse right button like is shown in the below picture:<br>
+http://www.interakt.ro<br>
+Page 26<br>
+<hr>
+<A name=27></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 44 Table Insert Rows or Columns</i><br>
+The configuration window that appears will require the number of columns and their position refered to the<br>current column:<br>
+<i>Figure 45 Insert Columns After the Current Column</i><br>
+Select the last two fields from the first row and, using the mouse right button merge these two cells and then write<br>'Actions' in the resulting cell. In the two cells placed below, write 'Edit' and, respectively, 'Delete'<b>.</b><br>
+Now seltect the &quot;<b>Delete</b>&quot; text and create a link that will point to the <b><i>delete.php </b></i>file that you have just created.<br>When creating the link you pass as an URL parameter the current record id. This is done by using the<br>&quot;<b>Parameters</b>&quot; button in the &quot;<b>Create Link</b>&quot; configuration window. Set the parameter name to be &quot;<b>id_con</b>&quot; and<br>choose it's value from the &quot;<i>RsContacts</i>&quot; recordset.<br>
+Now edit the <i>delete.php </i>file and add a Delete Record Server Behavior. Configure this sever behavior like follows<br>(the index.pxp referred in the one placed in the <b>contacts</b> folder):<br>
+http://www.interakt.ro<br>
+Page 27<br>
+<hr>
+<A name=28></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 46 Creating the Contacts Delete Record</i><br>
+Save the file and upload it to the server.<br>
+To create the edit feature select the &quot;<b>Edit</b>&quot; text and create a link poiting to the &quot;update.php&quot; file and that will pass<br>the URL parameter &quot;<b><i>id_con</b></i>&quot;.<br>
+Edit the <i>update.php </i>file and create a <b>rsContact </b>recordset that will use a filter after the <b><i>id_usr </b></i>variable that is<br>passed as an URL parameter:<br>
+<i>Figure 47 Creating the rsContact Recordset</i><br>
+Then add, from the Application tab in the Insert Panel a Record Update Form:<br>
+http://www.interakt.ro<br>
+Page 28<br>
+<hr>
+<A name=29></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 48 Creating the Contacts Record Update Form</i><br>
+Save the file and upload the contact folder on the server.<br>
+You should have a ready to use web application.<br>
+<i>Figure 49 User Login Page - Contact Section</i><br>
+You can see in the above picture the user login page in the Contacts section of our web application, including the<br>Error Message that was manually inserted in the application. <br>
+This is a screenshot from the user contact list page:<br>
+http://www.interakt.ro<br>
+Page 29<br>
+<hr>
+<A name=30></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<i>Figure 50 Contacts List Page</i><br>
+You will be able to update or delete a contact or to add a new one like presented in the picture below:<br>
+<i>Figure 51 Contacts Insert Page</i><br>
+http://www.interakt.ro<br>
+Page 30<br>
+<hr>
+<A name=31></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<b>Conclusion</b><br>
+Even if the designed application have some flaws, as we didn't protected the admin section, we didn't set<br>maximum values for the text fields, we don't check text fields for required values, we don't ask for confirmation<br>on delete, we didn't name our HTML pages (they are all called Untitled), we don't check the values in the<br>submitted forms, this tutorial is a very powerful example of how developers can use Dreamweaver MX and<br>PHAkt2 to easily create a web application.<br>
+The current implementation of the PHAkt2 server model has a lot of improvements over the original<br>PHP_MySQL server model of Macromedia MX. PHAkt2 includes advanced support for user authentication<br>functions, Master/Detail server behaviors or Go to Detail Page server behavior.<br>
+Moreover, PHAkt2 can connect to over 13 database servers by using ADOdb as the database connection layer.<br>ADOdb supports MySQL, Oracle, Microsoft SQL Server, Sybase, Sybase SQL Anywhere, Informix, PostgreSQL,<br>FrontBase, Interbase (Firebird and Borland variants), Foxpro, Access, ADO and ODBC.<br>
+To allow developers to create real database driven websites, InterAKT has developed a more complex version of<br>PHAkt2, named ImpAKT. This product includes a powerful collection of server behaviors and commands that<br>will help developers save time and money when developing complex PHP applications.<br>
+http://www.interakt.ro<br>
+Page 31<br>
+<hr>
+<A name=32></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+<b>Appendix 1 : References</b><br>
+Macromedia Dreamweaver MX <br>
+http://www.macromedia.com/<br>
+InterAKT PHAkt <br>
+http://www.interakt.ro/products/PHAkt/<br>
+Apache<br>
+http://www.apache.org/<br>
+PHP website<br>
+http://www.php.net/<br>
+PostgreSQL <br>
+http://www.postgresql.com/<br>
+phpPgAdmin website<br>
+http://phppgadmin.sourceforge.net/<br>
+Cygnus website<br>
+http://www.cygwin.com/<br>
+<b>Appendix 2:: Configuring PosgreSQL on Windows.</b><br>
+<b>Installing PostgreSQL</b><br>
+If you don't have a preconfigured PostgreSQL serverup and running, you will have to install the database server<br>on your own. We won't enter in all the details here, because the installation docs on PostgreSQL's site are<br>exhaustive, but we'll present a quick way of installing PostgreSQL on a Windows NT (2000, XP) computer.<br>PostgreSQL works on Windows because the Cygnus group has emulated all Linux APIs on windows, making a<br>lot of Unix products portable on the Windows platform.<br>
+1. Installing from scratch<br>
+Go to the Cygwin website ( www.cygwin.com ) and click on the 'Install  now!' link. Save the setup.exe file<br>somewhere on your harddrive.<br>
+Launch it, choose Next-&gt;Install from internet-&gt;Next-&gt;Next<br>
+You will see a list of packages. Also select packages 'postgresql' and 'bzip2'. The rest of necessary packages<br>are already selected<br>
+After installation you must also download cygipc from this mirror:<br>
+http://www.neuro.gatech.edu/users/cwilson/cygutils/cygipc/index.html , and place the file in the / directory of<br>the cygwin installation (usually c:\cygwin)<br>
+ execute the following commands in order to unzip the file to the '/usr/local' directory<br>
+&gt; cd /<br>
+&gt; bunzip -c &lt;path-to-archive&gt;/foo.tar.bz2  | tar xvf -<br>
+Execute the following commands, exactly as follows (all commands are lowercase): <br>
+<b>ipc-daemon&amp;</b><br>
+This will start the ipc process on your computer. IPC is responsible for providing shared memory support as the<br>SHM system in Linux, because Windows does not include this feature, but PostgreSQL needs it.<br>
+<b>initdb</b><br>
+This will create the database named template1 in the /usr/local/pgsql/data/ folder. You will be also informed that<br>the default user that has the right to connect to the database (in our case the user is 'Administrator').<br>
+<b>Note </b>: If you try to initialize the database without having the ipc-daemon server running, the postmaster process<br>will block and no error messages will be shown!<br>
+<b>Note </b>: It is recommended to use the <b>-W </b>option for <b>initdb </b>(prompts the user or a password, usually the defult user<br>for a postgres installation is Administrator)<br>
+<b>Note </b>: The <b>-D [path]</b> option  is used for the database path, which must be a valid directory on you harddrive<br>
+<b>Note</b> :  If you receive errors about not finding the command interpretor 'sh' when running <br>
+With a text editor, edit the file c:\cygwin\usr\local\pgsql\data\postgresql.conf and add a new line <br>
+tcpip_socket = true <br>
+http://www.interakt.ro<br>
+Page 32<br>
+<hr>
+<A name=33></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+(no # signs are allowed at a line start, as # lines are comments for PostgreSQL initialization file)<br>
+<b>pg_ctl start</b><br>
+This command will start the PosgreSQL server. Some debug information will be print out, you can safely ignore<br>it.<br>
+<b>psql template1</b><br>
+You will connect to the template1 database and you will be able to execute SQL commands.<br>
+Execute the following command: <br>
+create user Administrator with password 'phakt' createuser createdb<br>
+This will tell postgres to create a new database user named Administrator user that has the right to create other<br>databases and other users and sets the password to phakt.<br>
+To exit psql,  type <b>exit</b> and hit return.<br>
+PostgreSQL is be started now and you will also be able to execute all commands on your server.<br>
+To restart PostgreSQL next time you start your computer after the initial installation, you follow the same steps,<br>start a bash session, start the <b>ipc-daemon </b>then issue the <b>pg_ctl start</b> command.<br>
+<b>Note </b>: If you try to start PostgreSQL without having the ipc-daemon server running, the postmaster process will<br>block and no error messages will be shown while the processor will be occupied 100% by a postmaster instance!<br>
+<b>Important note</b>: Because the PostgreSQL server Windows integration is yet pretty primitive, especially regarding<br>the system reboot (shutting down Windows will not always shut down PostgreSQL correctly), sometimes the<br>PostgreSQL pid file (a file that indicates that the server is running) won't be deleted, and the next time you'll try to<br>start the server you'll receive an error message similar to the message below:<br>
+<i><b>$ Found a pre-existing shared memory block (ID 0) still in use.</b></i><br>
+<i><b>If you're sure there are no old backends still running,</b></i><br>
+<i><b>remove the shared memory block with ipcrm(1), or just</b></i><br>
+<i><b>delete &quot;/usr/local/pgsql/data//postmaster.pid&quot;.</b></i><br>
+To correct this problem (first of all make sure you have no real postmaster.exe process running by executing <b>ps<br>-aux</b><br>
+from<br>
+the<br>
+bash<br>
+prompt),<br>
+simply<br>
+remove<br>
+the<br>
+.pid<br>
+file<br>
+by<br>
+executing<br>
+the<br>
+<b>rm</b><br>
+<b>/usr/local/pgsql/data/postmaster.pid </b>command.<br>
+The default security will be set for PostgreSQL to allow connection from the localhost only. If you want to set up<br>different permissions from another servers, you will have to edit the pg_hba.conf located in the<br>/usr/local/pgsql/data/ folder.<br>
+<b>Appendix 3:: PHAkt improvements over the PHP_MySQL server<br>model</b><br>
+ <br>
+Support for multiple databases in a transparent way<br>
+ <br>
+Support for MySQL, PostgreSQL and MsSQL date locales<br>
+ <br>
+User authentication Server Behaviors<br>
+ <br>
+Master/Detail Server Behaviors<br>
+ <br>
+Go to detail Page Server behaviors<br>
+ <br>
+Improved code generation (all reusable code is kept in functions.inc.php)<br>
+ <br>
+Apache2 header redirect support (in Apache 2 on Windows, relative redirects don't work anymore)<br>
+<b>Appendix 4:: Tutorial files</b><br>
+1.SQL to create the database<br>
+http://www.interakt.ro<br>
+Page 33<br>
+<hr>
+<A name=34></a>Building a dynamic website using Dreamweaver MX and PHAkt<br>
+2.completed site zipped<br>
+http://www.interakt.ro<br>
+Page 34<br>
+<hr>
+<A name=35></a><b>Copyrights and Trademarks</b><br>
+Copyright - 2000-2003 by InterAKT Online, SRL.<br>
+All Rights Reserved. This tutorial is subject to copyright protection.<br>
+PHAkt, ImpAKT, NeXTensio, QuB, Transaction Engine are trademarks of InterAKT.<br>
+All other trademarks are acknowledged as the property of their respective owners.<br>
+This document and the product to which it pertains are distributed under licenses<br>
+restricting their use, copying, distribution, and decompilation. No part of this document or<br>
+of the associated product may be reproduced in any form by any means without prior<br>
+written authorization of InterAKT Online, except when presenting only a summary of the<br>
+tutorial and then linking to the InterAKT website.<br>
+DOCUMENTATION IS PROVIDED &quot;AS IS&quot; AND ALL EXPRESS OR IMPLIED<br>
+CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY<br>
+IMPLIEDWARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR<br>
+PURPOSE OR NON-INFRINGEMENT, ARE DISCLAIMED, EXCEPT TO THE<br>
+EXTENT THAT SUCH DISCLAIMERS ARE HELD TO BE LEGALLY INVALID.<br>
+Send comments and suggestions to products@interakt.ro.<br>
+<hr>
+</BODY>
+</HTML>

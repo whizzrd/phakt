@@ -1,0 +1,39 @@
+<participant version="6.0">
+	<insertText location="aboveHTML+50"><![CDATA[<?php
+// begin Recordset
+<@ if (@@PageSize@@) @>
+$maxRows_@@RecordsetName@@ = @@PageSize@@;
+$pageNum_@@RecordsetName@@ = @@StartRecord@@;
+if (isset($HTTP_GET_VARS['pageNum_@@RecordsetName@@'])) {
+  $pageNum_@@RecordsetName@@ = $HTTP_GET_VARS['pageNum_@@RecordsetName@@'];
+}
+$startRow_@@RecordsetName@@ = $pageNum_@@RecordsetName@@ * $maxRows_@@RecordsetName@@;
+<@ endif @>
+<@ loop (@@Variable@@, @@DefaultValue@@, @@RuntimeValue@@) @>
+$@@Variable@@__@@RecordsetName@@ = '@@DefaultValue@@';
+if (isset(@@RuntimeValue@@)) {
+  $@@Variable@@__@@RecordsetName@@ = @@RuntimeValue@@;
+}
+<@ endloop @>
+$query_@@RecordsetName@@ = <@ if (@@SQLVariableList@@) @>sprintf(<@ endif @>"@@SQLStatement@@"<@ if (@@SQLVariableList@@) @>, @@SQLVariableList@@)<@ endif @>;
+<@ if (@@PageSize@@) @>
+$@@RecordsetName@@ = $@@ConnectionName@@->SelectLimit($query_@@RecordsetName@@, $maxRows_@@RecordsetName@@, $startRow_@@RecordsetName@@) or die($@@ConnectionName@@->ErrorMsg());
+if (isset($HTTP_GET_VARS['totalRows_@@RecordsetName@@'])) {
+  $totalRows_@@RecordsetName@@ = $HTTP_GET_VARS['totalRows_@@RecordsetName@@'];
+} else {
+  $all_@@RecordsetName@@ = $@@ConnectionName@@->SelectLimit($query_@@RecordsetName@@) or die($@@ConnectionName@@->ErrorMsg());
+  $totalRows_@@RecordsetName@@ = $all_@@RecordsetName@@->RecordCount();
+}
+$totalPages_@@RecordsetName@@ = (int)(($totalRows_@@RecordsetName@@-1)/$maxRows_@@RecordsetName@@);
+<@ else @>
+$@@RecordsetName@@ = $@@ConnectionName@@->SelectLimit($query_@@RecordsetName@@) or die($@@ConnectionName@@->ErrorMsg());
+$totalRows_@@RecordsetName@@ = $@@RecordsetName@@->RecordCount();
+<@ endif @>
+// end Recordset
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="PageSize,StartRecord,MM_loop1,RecordsetName,SQLStatement,SQLVariableList,ConnectionName,ConnectionName" isOptional="false" limitSearch="all"><![CDATA[/\/\/ begin Recordset(?:\r\n|\r(?!\n)|\n)[ \t]*(?:\$maxRows_[^\r\n]*? = ([^\r\n]*?);(?:\r\n|\r(?!\n)|\n)[ \t]*\$pageNum_[^\r\n]*? = ([^\r\n]*?);(?:\r\n|\r(?!\n)|\n)[ \t]*if \(isset\(\$HTTP_GET_VARS\['pageNum_[^\r\n]*?'\]\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$pageNum_[^\r\n]*? = \$HTTP_GET_VARS\['pageNum_[^\r\n]*?'\];(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*\$startRow_[^\r\n]*? = \$pageNum_[^\r\n]*? \* \$maxRows_[^\r\n]*?;(?:\r\n|\r(?!\n)|\n)[ \t]*)?((?:\$[^\r\n]*__[^\r\n]* = '[^\r\n]*';(?:\r\n|\r(?!\n)|\n)[ \t]*if \(isset\([^\r\n]*\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$[^\r\n]*__[^\r\n]* = [^\r\n]*;(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*)*?)\$query_([^\r\n]*?) = (?:sprintf\()?"([^\r\n]*?)"(?:, ([^\r\n]*?)\))?;(?:\r\n|\r(?!\n)|\n)[ \t]*(?:\$[^\r\n]*? = \$([^\r\n]*?)->\s*SelectLimit\(\$query_[^\r\n]*?, \$maxRows_[^\r\n]*?, \$startRow_[^\r\n]*?\) or die\(\$[^\r\n]*?->\s*ErrorMsg\(\)\);(?:\r\n|\r(?!\n)|\n)[ \t]*if \(isset\(\$HTTP_GET_VARS\['totalRows_[^\r\n]*?'\]\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$totalRows_[^\r\n]*? = \$HTTP_GET_VARS\['totalRows_[^\r\n]*?'\];(?:\r\n|\r(?!\n)|\n)[ \t]*\} else \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$all_[^\r\n]*? = \$[^\r\n]*?->\s*SelectLimit\(\$query_[^\r\n]*?\) or die\(\$[^\r\n]*?->\s*ErrorMsg\(\)\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$totalRows_[^\r\n]*? = \$all_[^\r\n]*?->\s*RecordCount\(\);(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*\$totalPages_[^\r\n]*? = \(int\)\(\(\$totalRows_[^\r\n]*?-1\)\/\$maxRows_[^\r\n]*?\);(?:\r\n|\r(?!\n)|\n)[ \t]*|\$[^\r\n]*? = \$([^\r\n]*?)->\s*SelectLimit\(\$query_[^\r\n]*?\) or die\(\$[^\r\n]*?->\s*ErrorMsg\(\)\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$totalRows_[^\r\n]*? = \$[^\r\n]*?->\s*RecordCount\(\);(?:\r\n|\r(?!\n)|\n)[ \t]*)\/\/ end Recordset(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+		<searchPattern paramNames="Variable,DefaultValue,RuntimeValue" limitSearch="@@MM_loop1@@" isOptional="true" searchType="multiple"><![CDATA[/\$([^\r\n]*?)__[^\r\n]*? = '([^\r\n]*?)';(?:\r\n|\r(?!\n)|\n)[ \t]*if \(isset\(([^\r\n]*?)\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$[^\r\n]*?__[^\r\n]*? = [^\r\n]*?;(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>Recordset</quickSearch>
+</participant>
