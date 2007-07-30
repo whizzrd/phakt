@@ -463,7 +463,8 @@ class ADORecordSet_mysql extends ADORecordSet{
 	{
 		if (!$this->EOF) {		
 			$this->_currentRow++;
-			$this->exfields = $this->fields;//INTERKAT
+			//INTERAKT
+			$this->exfields = $this->fields;
 			$this->fields = @mysql_fetch_array($this->_queryID,$this->fetchMode);
 			
 			if (is_array($this->fields)) return true;

@@ -17,8 +17,6 @@ function findRs(){
 			tm.type = recordsets[i].type;
 			tm.command = recordsets[i].command;
 			tm.priority = recordsets[i].priority;
-			tm.saveUI = recordsets[i].saveUI;
-			tm.preferedName = recordsets[i].preferedName;
 			tm.subTypes = getSubTypes(recordsets[i]);
 			MM.rsTypes.push(tm);
 		}

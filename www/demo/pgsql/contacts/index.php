@@ -63,11 +63,11 @@ KT_keepParams('idusr_con');
 </head>
 
 <body>
-<table border="1" align="center" width="70%">
+<table border="1" align="center">
   <tr> 
-    <th>ID</th>
-    <th>Firstname</th>
-    <th>Lastname</th>
+    <th>id_con</th>
+    <th>firstname_con</th>
+    <th>lastname_con</th>
     <th colspan="2">Action</th>
   </tr>
   <?php

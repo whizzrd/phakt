@@ -10,7 +10,7 @@
 //   the UI implementations and mediates switches between the UIs.
 //   Note: this class documentation uses 'SBRecordset' to refer to your recordset
 //   subclass of SBDatabaseCall.
-//   Interakt modications:
+//   Interakt mofications:
 //		Overwrite display and onClickSwitchUI methods to support multiple recordsets
 //
 // PUBLIC PROPERTIES:
@@ -44,8 +44,6 @@ recordsetDialog.displayTestDialog = recordsetDialog_displayTestDialog;
 recordsetDialog.searchByCommand = recordsetDialog_searchByCommand;
 recordsetDialog.searchByType = recordsetDialog_searchByType;
 recordsetDialog.searchDisplayableRecordset = recordsetDialog_searchDisplayableRecordset;
-
-recordsetDialog.findPreferedType = recordsetDialog_findPreferedType;
 
 // CLASS CONSTANTS
 // Availabe recordset UI actions. 
@@ -94,7 +92,7 @@ function recordsetDialog_display(priorSBRecordset) {
 	if ((currentCmd = recordsetDialog.searchByCommand(cmdFilename)) < 0) {
 		cmdFilename = MM.rsTypes[0].command;
 		currentCmd = 0;
-  }
+	}
 
 	
   var newSBRecordset = priorSBRecordset.makeEditableCopy();
@@ -109,14 +107,13 @@ function recordsetDialog_display(priorSBRecordset) {
          && uiAction != recordsetDialog.UI_ACTION_OK
         ) 
   {
-
     // Note newSBRecordset will be updated using pass by reference.
     uiAction = dwscripts.callCommand(cmdFilename, newSBRecordset);
 		//alert(uiAction);
 		if (uiAction == null) {
-        // User cancelled. In case user clicked the 'X' button, set uiAction to
-        //   cancelled since it won't be set.
-        uiAction = recordsetDialog.UI_ACTION_CANCEL;
+			// User cancelled. In case user clicked the 'X' button, set uiAction to
+			//   cancelled since it won't be set.
+      uiAction = recordsetDialog.UI_ACTION_CANCEL;
  		} else {
 			//if uiAction is positive it points to an rs type in MM.rsTypes
 			if (uiAction >= 0) {
@@ -304,13 +301,10 @@ function recordsetDialog_getCommandDialogPref(cmdFilenameDefault)
 
 function recordsetDialog_setCommandDialogPref(cmdFilename)
 {
-	var cIdx = recordsetDialog.searchByCommand(cmdFilename);
-	if ((cIdx > -1) && (MM.rsTypes[cIdx].saveUI)) {
-		dw.setPreferenceString(recordsetDialog.CMD_FILENAME_PREF_SECTION, 
-													 recordsetDialog.CMD_FILENAME_PREF_KEY, 
-													 cmdFilename
-													);  
-	}
+  dw.setPreferenceString(recordsetDialog.CMD_FILENAME_PREF_SECTION, 
+                         recordsetDialog.CMD_FILENAME_PREF_KEY, 
+                         cmdFilename
+                        );  
 }
 
 //--------------------------------------------------------------------
@@ -424,44 +418,14 @@ function recordsetDialog_searchByType(stype) {
 //   the new rs type index, -1 otherwise
 //--------------------------------------------------------------------
 function recordsetDialog_searchDisplayableRecordset(SBRecordset,currentIndex) {
-	var cIdx = recordsetDialog.findPreferedType(SBRecordset);
-	if (cIdx == -1) {
-		cIdx = currentIndex;
-	}
-	if (dw.getDocumentDOM().serverModel.getServerName() == MM.rsTypes[cIdx].serverModel) {
-		if (recordsetDialog.canDialogDisplayRecordset(MM.rsTypes[cIdx].command, SBRecordset)) {	
-			return cIdx;
+	if (dw.getDocumentDOM().serverModel.getServerName() == MM.rsTypes[currentIndex].serverModel) {
+		if (recordsetDialog.canDialogDisplayRecordset(MM.rsTypes[currentIndex].command, SBRecordset)) {	
+			return currentIndex;
 		}
 	}
 	for (ii = 0;ii < MM.rsTypes.length;ii++) {
 		if (dw.getDocumentDOM().serverModel.getServerName() == MM.rsTypes[ii].serverModel) {
 			if (recordsetDialog.canDialogDisplayRecordset(MM.rsTypes[ii].command, SBRecordset)) {
-				return ii;
-			}
-		}
-	}
-	return -1;
-}
-
-
-//--------------------------------------------------------------------
-// FUNCTION:
-//   findPreferedType
-//
-// DESCRIPTION:
-//	Search the global variable MM.rsTypes for a rs type that has as
-//	prefered type the SBRecordset.name
-//
-// ARGUMENTS:
-//	SBRecordset - the SBRecordset object 
-//
-// RETURNS:
-//   the position count of the rs element, -1 otherwise
-//--------------------------------------------------------------------
-function recordsetDialog_findPreferedType(SBRecordset) {
-	for (ii = 0; ii < MM.rsTypes.length;ii++) {
-		if (dw.getDocumentDOM().serverModel.getServerName() == MM.rsTypes[ii].serverModel) {
-			if ((SBRecordset.name) && (MM.rsTypes[ii].preferedName == SBRecordset.name)) {
 				return ii;
 			}
 		}

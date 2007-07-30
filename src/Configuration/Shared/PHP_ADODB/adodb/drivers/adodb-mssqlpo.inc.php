@@ -42,7 +42,6 @@ class ADORecordset_mssqlpo extends ADORecordset_mssql {
 	function MoveNext() 
 	{
 		if (!$this->EOF) {		
-			$this->exfields = $this->fields;//INTERAKT
 			$this->_currentRow++;
 			if ($this->fetchMode & ADODB_FETCH_ASSOC) {
 			global $ADODB_mssql_has_datetimeconvert;

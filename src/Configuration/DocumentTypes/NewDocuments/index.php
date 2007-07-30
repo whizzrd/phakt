@@ -1,4 +1,4 @@
-<?php //PHP ADODB document - made with PHAkt 2.4.0?>
+<?php //PHP ADODB document - made with PHAkt 2.2.0?>
 <HTML>
 <HEAD>
 <TITLE>Untitled Document</TITLE>

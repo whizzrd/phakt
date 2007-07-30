@@ -150,7 +150,7 @@ function decodeDynamicExpression(expression)
     }
     else
     {
-      retVal = "<?php echo " + expression + " ?>";
+      retVal = "<?php " + expression + " ?>";
     }
   }
 
@@ -604,7 +604,7 @@ function getParameterCodeFromType(paramType, paramNameOrValue, paramDefault)
 {
   var runtimeVal = dwscripts.sprintf(MM.MSG_UnknownParamType, paramType);
   var nameVal = "";
-  var defaultVal = "-1";
+  var defaultVal = "1";
 
   switch(paramType)
   {

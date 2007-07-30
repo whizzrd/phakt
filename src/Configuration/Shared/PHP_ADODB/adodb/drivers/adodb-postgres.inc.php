@@ -56,7 +56,7 @@ class ADORecordSet_postgres extends ADORecordSet_postgres64{
 	{
 		if (!$this->EOF) {		
 			$this->_currentRow++;
-			$this->exfields = $this->fields;//INTERKAT
+			
 			$f = @pg_fetch_array($this->_queryID,$this->_currentRow,$this->fetchMode);
 			
 			if (is_array($f)) {

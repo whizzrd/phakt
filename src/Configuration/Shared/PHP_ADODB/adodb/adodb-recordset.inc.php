@@ -157,7 +157,8 @@
 	{
 		if (!$this->EOF) {
 			$this->_currentRow++;
-			$this->exfields = $this->fields;//INTERAKT
+			//INTERAKT
+			$this->exfields = $this->fields;
 			if ($this->_fetch()) return true;
 		}
 		$this->EOF = true;
