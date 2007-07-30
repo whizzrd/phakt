@@ -1,0 +1,11 @@
+<participant>
+<!-- PHP_ADODB ---------------------------------------------------------->
+  <implementation serverModel="PHP_ADODB">
+     <insertText location="afterSelection">
+<![CDATA[
+  <option value="@@optionVal@@" @@selected@@>@@optionText@@</option>
+
+]]>
+     </insertText>
+  </implementation>
+</participant>
