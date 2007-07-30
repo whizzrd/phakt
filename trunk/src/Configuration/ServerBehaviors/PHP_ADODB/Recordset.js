@@ -47,16 +47,18 @@ function findServerBehaviors()
 		}
 		//fill specific parameters for every rsType
 		for (var j = 0;j < MM.rsTypes.length;j++) {
-	    domCommand = dw.getDocumentDOM(dw.getConfigurationPath() + "/Commands/" + MM.rsTypes[j].command); 
-			if (domCommand) {
-				windowCommand = domCommand.parentWindow;
-				if (windowCommand.fillAditionalParameters) {
-					sbList[i] = windowCommand.fillAditionalParameters(sbList[i]);
-				}			}
+			if (MM.rsTypes[j].serverModel == dw.getDocumentDOM().serverModel.getServerName()) {
+				domCommand = dw.getDocumentDOM(dw.getConfigurationPath() + "/Commands/" + MM.rsTypes[j].command); 
+				if (domCommand) {
+					windowCommand = domCommand.parentWindow;
+					if (windowCommand.fillAditionalParameters) {
+						windowCommand.fillAditionalParameters(sbList[i]);
+						//writeAttr(sbList[i],"Record.out" + i);
+					}				}
+			}
 		}
   }
-
-	writeAttr(sbList,"Record.out");
+	//writeAttr(sbList,"Record.out");
   return sbList;
 }
 
@@ -109,10 +111,13 @@ function canApplyServerBehavior(sbObj)
 
 function applyServerBehavior(priorSBRecordset)
 {
+  var sbObj;
   var paramObj = new Object();
   var errStr = "";
+  
 
-  var sbObj = priorSBRecordset;
+	//alertAttr(priorSBRecordset.getParameters());
+	sbObj	= priorSBRecordset;
   if (!sbObj)
   {
     sbObj = new SBRecordsetPHP();

@@ -65,7 +65,6 @@ function findDynamicSources()
       retList.push(new DataSource(sbObjs[i].getTitle(), RECORDSET_FILENAME, true, "Recordset.htm", sbObjs[i].getRecordsetName()));
     }
   }
-
   return retList;
 }
 
@@ -88,6 +87,9 @@ function findDynamicSources()
 
 function generateDynamicSourceBindings(sourceName)
 {
+	//~ var allSBObjs = dw.serverBehaviorInspector.getServerBehaviors();
+	//~ writeAttr(allSBObjs,"SBs.out");
+	//~ alert(sourceName);
   var retList = new Array();
 	//alert(sourceName);
   var sbObjs = dwscripts.getServerBehaviorsByTitle(sourceName);
@@ -97,7 +99,7 @@ function generateDynamicSourceBindings(sourceName)
     var sbObj = sbObjs[0];
     
     var bindingsArray = new Array();
-
+		
     //Try to retrieve the information from database
     var bindingsAndTypeArray = sbObj.getRecordsetBindings();
 
@@ -108,7 +110,6 @@ function generateDynamicSourceBindings(sourceName)
     }
     retList = getDataSourceBindingList(bindingsArray, DATASOURCELEAF_FILENAME, false, "Recordset.htm");
   }
-  
   return retList;
 }
 

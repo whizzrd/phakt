@@ -87,7 +87,7 @@ function applyRSNavigation() {
   var sbObj = null;
 
   //create new, empty custom group
-  var customGroup = new Group();
+  //var customGroup = new Group();
 
   //Open the 4 existing Move To group files we are borrowing from
 //  for(i=0;i<moveToFirstGroup.participants.length;i++){
@@ -99,19 +99,19 @@ function applyRSNavigation() {
   var moveToLastGroup = new Group("MoveToLastPage");
   
   //get "directive" participants from Move To groups and add to customGroup
-  customGroup.addParticipants(moveToFirstGroup.getParticipants("aboveHTML"));
-  customGroup.addParticipants(moveToPrevGroup.getParticipants("aboveHTML"));
-  customGroup.addParticipants(moveToNextGroup.getParticipants("aboveHTML"));
-  customGroup.addParticipants(moveToLastGroup.getParticipants("aboveHTML"));
+  //customGroup.addParticipants(moveToFirstGroup.getParticipants("aboveHTML"));
+  //customGroup.addParticipants(moveToPrevGroup.getParticipants("aboveHTML"));
+  //customGroup.addParticipants(moveToNextGroup.getParticipants("aboveHTML"));
+  //customGroup.addParticipants(moveToLastGroup.getParticipants("aboveHTML"));
 
 
   if (DEBUG) debugMsg += "\nAdded all directive participants from Move To, a total of "+customGroup.participants.length;
 
 
-  var customPart;
+  //var customPart;
 
-  customPart = new Participant("rsNav_Table");
-  customGroup.addParticipants(Array(customPart));   
+  //customPart = new Participant("rsNav_Table");
+  //customGroup.addParticipants(Array(customPart));   
 
   //Get the groups handling the Show Regions for first and last record.
   var showRegion_firstRecord = new Group("ShowIfNotFirstPage");
@@ -188,7 +188,12 @@ function applyRSNavigation() {
   //Apply everything to the page
   MM.setBusyCursor();
   fixUpInsertionPoint();
-  customGroup.apply(paramObj,sbObj);
+	
+	queueParticipantsByLocation("MoveToFirstPage","aboveHTML",paramObj);
+ 	dwscripts.queueDocEditsForParticipant("rsNav_Table",paramObj);
+  dwscripts.applyDocEdits();
+
+  //customGroup.apply(paramObj,sbObj);
   MM.clearBusyCursor();
 
 }
@@ -255,4 +260,16 @@ function CopyTheFiles(source, destination)
     bCopyFlag = false;
   }
 
+}
+
+/*
+given a group name and a location we take all the participants that have the specified location 
+ and we queued them in DocEdits
+*/
+function queueParticipantsByLocation(grName,location,paramObj) {
+	var i,partNames;
+	partNames = extGroup.getParticipantNames(grName,location);
+	for (i = 0;i < partNames.length;i++) {
+		dwscripts.queueDocEditsForParticipant(partNames[i],paramObj);
+	}
 }

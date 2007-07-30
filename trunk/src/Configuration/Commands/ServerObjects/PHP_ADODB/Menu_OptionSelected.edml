@@ -1,5 +1,5 @@
 <participant version="5.0">
   <insertText>
-		  <![CDATA[<?php if (!(strcmp(@@DefaultSelected@@, @@ItemValue@@))) {echo "SELECTED";} ?>]]>
+		  <![CDATA[<?php if (!(strcmp(@@ItemValue@@, @@DefaultSelected@@))) {echo "SELECTED";} ?>]]>
   </insertText>
 </participant>
