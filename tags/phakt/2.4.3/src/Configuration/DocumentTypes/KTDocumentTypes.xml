@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<documenttypes xmlns:MMString="http://www.macromedia.com/schemes/data/string/">
+	<documenttype id="PHP_ADODB" servermodel="PHP ADODB" internaltype="Dynamic" winfileextension="php,php3,php4,phtml" macfileextension="php,php3" file="index.php">
+		<TITLE>
+			<MMString:loadString id="ktdocumenttypes_1" />
+		</TITLE>
+		<description>
+			<MMString:loadString id="ktdocumenttypes_2" />
+		</description>
+	</documenttype>
+	<documenttype id="DWTemplate_PHP_ADODB" internaltype="DWTemplate" dynamicid="PHP_ADODB" winfileextension="dwt.php" macfileextension="dwt.php" file="index.dwt.php">
+		<TITLE>
+			<MMString:loadString id="ktdocumenttypes_3" />
+		</TITLE>
+		<description>
+			<MMString:loadString id="ktdocumenttypes_4" /> 
+		</description>
+	</documenttype>
+</documenttypes>

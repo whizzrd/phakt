@@ -1,0 +1,9 @@
+<participant>
+     <quickSearch><![CDATA[_]]></quickSearch>
+     <insertText location="replaceSelection">
+<![CDATA[<?php echo($@@rsName@@_@@bindingName@@)?>]]>
+     </insertText>
+     <searchPatterns whereToSearch="directive">
+       <searchPattern paramNames="rsName,bindingName"><![CDATA[/<\?php echo\s*\(\s*\b\$(\w+)_(first|last|total)\s*\)\s*\?>/]]></searchPattern>
+     </searchPatterns>
+</participant>

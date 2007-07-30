@@ -1,0 +1,92 @@
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+
+<HTML>
+<HEAD>
+
+<SCRIPT>
+// Copyright 2001-2002 Macromedia, Inc. All rights reserved.
+var HELP_DOC = MM.HELP_ssGoToDetailPage;
+var PROP_TYPE = "goToDetailPage";
+</SCRIPT>
+
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/RecordsetMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/RecordsetColumnMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/TagMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/TextField.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="Go To Page.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/ssDocManager.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/ssCmnElements.js"></SCRIPT>
+
+</HEAD>
+
+<BODY onLoad="initializeUI()">
+  <FORM NAME="theForm" ACTION="">
+    <TABLE>
+      <TR>
+        <TD ALIGN="right" VALIGN="baseline" NOWRAP>Link:</TD>
+        <TD VALIGN="baseline" NOWRAP>
+          <SELECT NAME="linkNode" STYLE="width:210px" onChange="updateUI('linkNode')">
+            <OPTION SELECTED>*** No Link Found</OPTION>
+          </SELECT>
+        </TD>
+      </TR>
+      <TR>
+        <TD ALIGN="right" VALIGN="baseline" NOWRAP>Detail Page:</TD>
+        <TD VALIGN="baseline" NOWRAP>
+          <input name="url" type="text" style="width:210px">
+          <input type="button" value="Browse..." onClick="dwscripts.browseFile(document.url, true);focus(this)">
+        </TD>
+      </TR>
+      <tr><td height="1"></td></tr>
+      <TR>
+        <TD ALIGN="right" VALIGN="baseline" NOWRAP>Pass URL Parameter:</TD>
+        <TD VALIGN="baseline" NOWRAP>
+          <INPUT NAME="paramName" TYPE="text" VALUE="id" style="width:110px"> Set to the Value Of
+        </TD>
+      </TR>
+      <TR>
+        <TD></TD>
+        <TD ALIGN="left" VALIGN="baseline" NOWRAP>
+          <TABLE>
+            <TR>
+              <TD ALIGN="right" VALIGN="baseline" NOWRAP>Recordset:</TD>
+              <TD VALIGN="baseline">
+                  <select name="rs" style="width:150px" onChange="updateUI('rs')">
+                    <option selected></option>
+                  </select>
+              </TD>
+            </TR>
+            <tr><td height="1"></td></tr>
+            <TR>
+              <TD ALIGN="right" VALIGN="baseline" NOWRAP>Column:</TD>
+              <TD VALIGN="baseline">
+                  <select name="col" style="width:150px" onChange="updateUI('col')">
+                    <option selected></option>
+                  </select>
+              </TD>
+            </TR>
+         </TABLE>
+      </TR>
+      <tr><td height="1"></td></tr>
+      <TR>
+        <TD ALIGN="right" NOWRAP>Pass Existing Parameters:</TD>
+        <TD NOWRAP>
+          <input type="checkbox" name="keepURL" checked>URL Parameters
+        </TD>
+      </TR>
+      <tr><td height="1"></td></tr>
+      <TR>
+        <TD ALIGN="right" NOWRAP>&nbsp;</TD>
+        <TD NOWRAP>
+          <input type="checkbox" name="keepForm" checked>Form Parameters
+        </TD>
+      </TR>
+    </TABLE>
+  </FORM>
+</BODY>
+</HTML>

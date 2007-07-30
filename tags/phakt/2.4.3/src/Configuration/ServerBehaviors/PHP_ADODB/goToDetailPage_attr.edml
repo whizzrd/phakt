@@ -1,0 +1,8 @@
+<participant version="6.0">
+	<quickSearch><![CDATA[!="")?"&":"")]]></quickSearch>
+	<insertText location="nodeAttribute+HREF" nodeParamName="linkNode"><![CDATA[@@url@@?<?php echo $MM_keep@@keepType@@ . (($MM_keep@@keepType@@!="")?"&":"") . "@@paramName@@=" . urlencode($@@rs@@->Fields('@@col@@')) ?>]]></insertText>
+	<searchPatterns whereToSearch="tag+A">
+		<searchPattern paramNames="url,keepType,paramName,rs,col" isOptional="false" limitSearch="attribute+HREF"><![CDATA[/([^\r\n]*?)\?\s*<\?php echo \$MM_keep([^\r\n]*?) \. \(\(\$MM_keep[^\r\n]*?!=""\)\?"&":""\) \. "([^\r\n]*?)=" \. urlencode\(\$([^\r\n]*?)->\s*Fields\('([^\r\n]*?)'\)\) \?>/i]]></searchPattern>
+	</searchPatterns>
+	<delete deleteType="tagOnly" />
+</participant>

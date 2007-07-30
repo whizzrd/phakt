@@ -1,0 +1,31 @@
+<!-- This file contains all the menus for Dreamweaver. -->
+<!-- The main menu bar is located at the end of this file -->
+
+<!-- WARNING: DO NOT CHANGE ANY ID ATTRIBUTES ASSOCIATED WITH MENU ITEMS. -->
+<!-- Changing IDs will make it impossible for other developers to locate -->
+<!-- menu items for installation purposes. -->
+
+<shortcutlist app="ultradev" id="DWConnectionsContext">
+	<shortcut key="Cmd+I"   	domRequired="false"		enabled="insertEnabled(dw.databasePalette.getSelectedNode());" command="clickedInsert(dw.databasePalette.getSelectedNode());" id="DWShortcuts_ServerComponent_Insert" />
+	<shortcut key="Del"				domRequired="false"   enabled="(dw.databasePalette.getSelectedNode() != null && (dw.databasePalette.getSelectedNode().objectType=='Connection'))" command="clickedDelete();"  id="DWShortcuts_ServerComponent_Delete" /> 	
+</shortcutlist>
+
+<menubar name="" app="ultradev" id="DWConnectionsContext">
+    <menu name="" id="DWContext_Connections">
+        <menuitem name="Edit Connection..."  enabled="(dw.databasePalette.getSelectedNode() != null && (dw.databasePalette.getSelectedNode().objectType=='Connection'))" command="clickedEdit();"	 id="DWContext_Connections_EditConnection" />
+        <menuitem name="Duplicate Connection..."  enabled="(dw.databasePalette.getSelectedNode() != null && (dw.databasePalette.getSelectedNode().objectType=='Connection'))" command="clickedDuplicate();"	 id="DWContext_Connections_DuplicateConnection" />
+        <menuitem name="Delete Connection..."  enabled="(dw.databasePalette.getSelectedNode() != null && (dw.databasePalette.getSelectedNode().objectType=='Connection'))" command="clickedDelete();"	 id="DWContext_Connections_DeleteConnection" />
+        <menuitem name="Test Connection..." enabled="(dw.databasePalette.getSelectedNode() != null && (dw.databasePalette.getSelectedNode().objectType=='Connection'))" command="clickedTest();"	 id="DWContext_Connections_TestConnection" />
+		<separator/>
+		<menuitem name="_View Data..." command="clickedViewData();" enabled="(dw.databasePalette.getSelectedNode() != null && (dw.databasePalette.getSelectedNode().objectType=='Table' || dw.databasePalette.getSelectedNode().objectType=='View'))" id="DWContext_Tables_ViewData" />
+		<separator/>
+		<menuitem name="Insert"    	domRequired="false"		enabled="insertEnabled(dw.databasePalette.getSelectedNode());" command="clickedInsert(dw.databasePalette.getSelectedNode());" id="DWShortcuts_ServerComponent_Insert" />
+		<menuitem name="Refresh"  command="dw.databasePalette.refresh()"	 id="DWContext_Connections_TestConnection" />
+    </menu>
+</menubar>
+
+<menubar name="" app="ultradev" id="DWConnectionsChoosersContext">
+    <menu name="" id="DWContext_ConnectionsChooser">
+		<menuitem dynamic name="Choosers"	app="ultradev" file="Menus/MM/DB_Connections.htm" id="DWContext_Connections_Chooser_List" />
+    </menu>
+</menubar>
