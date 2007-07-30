@@ -66,13 +66,16 @@ class ADODBConnection {
 				$this->database = "template1";
 			}
 		}
+		ob_start();
     if($this->dbtype == "access" || $this->dbtype == "odbc"){
       $this->connectionId = $this->connection->Connect($this->database, $this->username,$this->password);
-    } else if($this->dbtype == "ibase") {
+    } else if(($this->dbtype == "ibase") or ($this->dbtype == "firebird")) {
       $this->connectionId = $this->connection->Connect($this->hostname.":".$this->database,$this->username,$this->password);
     } else {
       $this->connectionId = $this->connection->Connect($this->hostname,$this->username,$this->password,$this->database);
     }
+		$connectionError = ob_get_contents();
+		ob_end_clean();
 
 		if ($this->connectionId) {
 			$this->isOpen = true;
@@ -85,9 +88,12 @@ class ADODBConnection {
 				$error_message = "Unable to Establish Connection to " . $this->hostname . " for user " . $this->username ;
 			}
 			
-			echo("<ERRORS><ERROR><DESCRIPTION>" . $error_message . "</DESCRIPTION></ERROR></ERRORS>");
-
+			echo("<ERRORS>");
+			echo("<ERROR><DESCRIPTION>" . $error_message . "</DESCRIPTION></ERROR>");
+			echo("<ERROR><DESCRIPTION>" . $connectionError . "</DESCRIPTION></ERROR>");
+			echo("</ERRORS>");
 			$this->isOpen = false;
+			exit;
 		}	
 	}
 
@@ -150,12 +156,17 @@ class ADODBConnection {
 	{
 		$TableName = utf8_decode($TableName);
 		$xmlOutput = "";
-		$result = $this->connection->MetaColumns($TableName) or die("<ERRORS><ERROR Identification=\"" . $this->connection->ErrorNo() .
-		   "\"><DESCRIPTION>" . $this->connection->ErrorNo() . " " . $this->connection->ErrorMsg() . "</DESCRIPTION></ERROR></ERRORS>");
-
-		
-		if ($result)
-		{
+		$result = $this->connection->MetaColumns($TableName);
+		if (!$result) {
+			$errStr = $this->connection->ErrorMsg();
+			if ($errStr == "") {
+				$errStr = "Unable to retrive column information of table " . $TableName;
+			}
+			echo "<ERRORS>";
+			echo "<ERROR><DESCRIPTION>".$errStr."</DESCRIPTION></ERROR>";
+			echo "</ERRORS>";
+			exit;
+		} else {
 			$xmlOutput = "<RESULTSET><FIELDS>";
 
 			// Columns are referenced by index, so Schema and
@@ -210,11 +221,17 @@ class ADODBConnection {
 		}
 				
 		$xmlOutput = "";
-		$result = $this->connection->Execute($aStatement) or die("<ERRORS><ERROR Identification=\"" . $this->connection->ErrorNo() .
-		   "\"><DESCRIPTION>" . $this->connection->ErrorNo() . " " . $this->connection->ErrorMsg() . "</DESCRIPTION></ERROR></ERRORS>");
-		
-		if ($result)
-		{
+		$result = $this->connection->Execute($aStatement);
+		if (!$result) {
+			$errorMsg = $this->connection->ErrorMsg();
+			if ($errorMsg == "") {
+				$errorMsg = "Error executing query: " . $aStatement;
+			}
+			echo "<ERRORS>";
+			echo "<ERROR><DESCRIPTION>" . $errorMsg . "</DESCRIPTION></ERROR>";
+			echo "</ERRORS>";
+			exit;
+		} else {
 			$xmlOutput = "<RESULTSET><FIELDS>";
 
 			$fieldCount = $result->FieldCount();
@@ -289,8 +306,11 @@ class ADODBConnection {
 
 	function HandleException()
 	{
-		return "<ERRORS><ERROR Identification=\"" . $this->connection->ErrorNo() .
-			   "\"><DESCRIPTION>". $this->connection->ErrorNo() . " " . $this->connection->ErrorMsg() . "</DESCRIPTION></ERROR></ERRORS>";
+		$errorMsg = $this->connection->ErrorMsg();
+		if ($errorMsg == "") {
+			$errorMsg = "Unable to establish connection to the server!";
+		}
+		return "<ERRORS><ERROR><DESCRIPTION>" . $errorMsg . "</DESCRIPTION></ERROR></ERRORS>";
 	}
 
 	function GetDatabaseList()
@@ -311,12 +331,15 @@ class ADODBConnection {
 	function GetPrimaryKeysOfTable($TableName)
 	{
 		$xmlOutput = "";
-		$result = $this->connection->MetaColumns($TableName) or die("<ERRORS><ERROR Identification=\"" . $this->connection->ErrorNo() .
-		   "\"><DESCRIPTION>" . $this->connection->ErrorNo() . " " . $this->connection->ErrorMsg() . "</DESCRIPTION></ERROR></ERRORS>");
-		
-		
-		if ($result)
-		{
+		$result = $this->connection->MetaColumns($TableName);
+		if (!$result) {
+			$errorMsg = $this->connection->ErrorMsg();
+			if ($errorMsg == "") {
+				$errorMsg = "Unable to get primary key of table " . $TableName;
+			}
+			echo "<ERRORS><ERROR><DESCRIPTION>" . $errorMsg . "</DESCRIPTION></ERROR></ERRORS>";
+			exit;
+		} else {
 			$xmlOutput = "<RESULTSET><FIELDS>";
 
 			// Columns are referenced by index, so Schema and

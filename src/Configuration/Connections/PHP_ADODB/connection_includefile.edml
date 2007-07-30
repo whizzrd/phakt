@@ -61,7 +61,7 @@
 			$MM_@@cname@@_LOCALE);
 		} else $@@cname@@->Connect($MM_@@cname@@_DATABASE, $MM_@@cname@@_USERNAME,$MM_@@cname@@_PASSWORD, 
 			$MM_@@cname@@_LOCALE);
-	} else if($MM_@@cname@@_DBTYPE == "ibase") {
+	} else if (($MM_@@cname@@_DBTYPE == "ibase") or ($MM_@@cname@@_DBTYPE == "firebird")) {
 		if($MM_@@cname@@_CTYPE == "P"){
 			$@@cname@@->PConnect($MM_@@cname@@_HOSTNAME.":".$MM_@@cname@@_DATABASE,$MM_@@cname@@_USERNAME,$MM_@@cname@@_PASSWORD);
 		} else $@@cname@@->Connect($MM_@@cname@@_HOSTNAME.":".$MM_@@cname@@_DATABASE,$MM_@@cname@@_USERNAME,$MM_@@cname@@_PASSWORD);
@@ -101,7 +101,7 @@
 		}
 	}
 	if (!isset($HTTP_SERVER_VARS['REQUEST_URI'])) {
-		$HTTP_SERVER_VARS['REQUEST_URI'] = $PHP_SELF;
+		$HTTP_SERVER_VARS['REQUEST_URI'] = $HTTP_SERVER_VARS['PHP_SELF'];
 	}
 ?>
 ]]>

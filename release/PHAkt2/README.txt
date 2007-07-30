@@ -2,8 +2,8 @@ This is PHAkt 2 MX final version.
 
 -------------------------------------------------------------------------------
 PHAkt 2 MX - PHP server model for Dreamweaver MX
-Copyright (C) 2001,2002  Interakt Online - phakt@interakt.ro
------ version 2.1.2 ------
+Copyright (C) 2001,2003  InterAKT Online - phakt@interakt.ro
+----- version 2.4.3 ------
 http://www.interakt.ro/products/PHAkt/
 -------------------------------------------------------------------------------
 
@@ -26,9 +26,11 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 -------------------------------------------------------------------------------
 
 README.txt              				- this file
-phakt-2_1_2.mxp         				- the Macromedia extension file
+phakt-2_4_3.mxp         				- the Macromedia extension file
 LICENSE.txt              				- the GPL license
 ChangeLog.txt           				- List of fixes, additions
+Install.txt                     - the install guide
+Update.txt                      - the updade guide
 
 -------------------------------------------------------------------------------
 
