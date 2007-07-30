@@ -1,0 +1,10 @@
+<participant>
+<!-- PHP_ADODB ---------------------------------------------------------->
+  <implementation serverModel="PHP_ADODB">
+     <insertText location="afterSelection">
+<![CDATA[
+  <input type="hidden" name="@@fieldName@@" value="@@fieldVal@@" size="32">
+]]>
+     </insertText>
+  </implementation>
+</participant>
