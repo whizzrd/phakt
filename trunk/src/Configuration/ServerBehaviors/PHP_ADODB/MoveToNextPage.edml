@@ -1,4 +1,4 @@
-<group name="MoveToNextPage" version="6.0" serverBehavior="MoveToNextPage.htm" dataSource="Recordset.htm">
+<group name="MoveToNextPage" version="6.0" serverBehavior="MoveToNext.htm" dataSource="Recordset.htm">
 	<groupParticipants selectParticipant="MoveToNextPage_link">
 		<groupParticipant name="MoveToNextPage_link" partType="identifier" />
 		<groupParticipant name="MoveTo_queryString" partType="member" />

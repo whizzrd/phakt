@@ -93,7 +93,7 @@ function generateDynamicSourceBindings(sourceName)
   var retList = new Array();
 	//alert(sourceName);
   var sbObjs = dwscripts.getServerBehaviorsByTitle(sourceName);
-  
+
   if (sbObjs.length > 0) 
   {
     var sbObj = sbObjs[0];

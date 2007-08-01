@@ -2,6 +2,9 @@
 <HTML>
 <HEAD>
 <!--  Copyright 2001-2002 Macromedia, Inc. All rights reserved. -->
+<script language="JavaScript">
+var ISMAC=false;
+</script>
 
 <TITLE>ADODB Connection</TITLE>
 
@@ -9,6 +12,7 @@
 <SCRIPT SRC="../../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
 <SCRIPT SRC="../../../Shared/UltraDev/Scripts/connectionCmn.js"></SCRIPT>
 <SCRIPT SRC="../../../Shared/UltraDev/Scripts/sbManager.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/PHP_ADODB/Scripts/UpdateFiles.js"></SCRIPT>
 <SCRIPT SRC="../Connection_php_adodb.js"></SCRIPT>
 <SCRIPT SRC="../Connection_common.js"></SCRIPT>
 
@@ -44,6 +48,8 @@
 					<option value="firebird">Firebird</option>
           <option value="vfp">Visual Fox</option>
           <option value="fbsql">Frontbase</option>
+          <option value="informix">Informix</option>
+          <option value="db2">DB2</option>
         </select>
       </td>
     </tr>
@@ -101,8 +107,9 @@
           <option value="En">English</option>
           <option value="Fr">French</option>
           <option value="Ro">Romanian</option>
-  		  <option value="Ge">German</option>
-		  <option value="It">Italian</option>
+					<option value="Ge">German</option>
+					<option value="It">Italian</option>
+					<option value="Da">Danish</option>
         </select>
       </td>
     </tr>

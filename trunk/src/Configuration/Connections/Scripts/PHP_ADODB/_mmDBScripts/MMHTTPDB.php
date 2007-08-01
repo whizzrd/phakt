@@ -1,5 +1,5 @@
 <?php
-
+$debug_to_file = false;
 if(false && extension_loaded("mbstring"))
 {
 	$acceptCharsetHeader = "Accept-Charset: " . mb_internal_encoding();
@@ -8,45 +8,68 @@ if(false && extension_loaded("mbstring"))
 	echo( $head );
 }
 
-/*
+if ($debug_to_file){
 $f = fopen("log.txt", "a");
 fwrite($f, "\n--------------------------------\n");
 while (list($key, $value)=each($HTTP_POST_VARS)) {
-	fwrite($f, "\$HTTP_POST_VARS[\"".$key."\"] = \"".$value."\";\n");
+				@fwrite($f, "\$HTTP_POST_VARS[\"".$key."\"] = \"".$value."\";\n");
+		}
+		@fwrite($f, "\nPHP-Version: ".phpversion()."\n");
+		@fwrite($f, "PHP-OS: ".PHP_OS."\n");
+		@fwrite($f, "PHP-SAPI-NAME: ".php_sapi_name()."\n");
+		@fwrite($f, "PHP-Extensions: ".var_export(get_loaded_extensions(),true)."\n");
+		@fwrite($f, "PHP-lib-expat: ".(function_exists("utf8_decode")?"Found":"NOT FOUND")."\n");
 }
-*/
 
 
-if ($HTTP_POST_VARS['Type'] == "ADODB") {
+if (isset($HTTP_POST_VARS['Type']) && $HTTP_POST_VARS['Type'] == "ADODB") {
 	require("ADODB.php");
 	$oConn = new ADODBConnection($HTTP_POST_VARS['ConnectionString'], $HTTP_POST_VARS['Timeout'], $HTTP_POST_VARS['Host'], $HTTP_POST_VARS['Database'], $HTTP_POST_VARS['UserName'], $HTTP_POST_VARS['Password']);
 }
 
 // Process opCode
-if ($oConn) {
+if (isset($oConn) && $oConn) {
 	$oConn->Open();
 
-	if ($HTTP_POST_VARS['opCode'] == "IsOpen") {
-		echo($oConn->TestOpen());
+	if (isset($HTTP_POST_VARS['opCode']) && $HTTP_POST_VARS['opCode'] == "IsOpen") {
+		$answer = $oConn->TestOpen();
 	} elseif ($oConn->connectionId && $oConn->isOpen) {
-		if	   ($HTTP_POST_VARS['opCode'] == "GetTables")				 echo($oConn->GetTables());
-		elseif ($HTTP_POST_VARS['opCode'] == "GetColsOfTable")			 echo($oConn->GetColumnsOfTable($HTTP_POST_VARS['TableName']));
-		elseif ($HTTP_POST_VARS['opCode'] == "ExecuteSQL")				 echo($oConn->ExecuteSQL($HTTP_POST_VARS['SQL'], $HTTP_POST_VARS['MaxRows']));
-		elseif ($HTTP_POST_VARS['opCode'] == "GetODBCDSNs")				 echo($oConn->GetDatabaseList());
-		elseif ($HTTP_POST_VARS['opCode'] == "SupportsProcedure")		 echo($oConn->SupportsProcedure());
-		elseif ($HTTP_POST_VARS['opCode'] == "GetProviderTypes")		 echo($oConn->GetProviderTypes());
-		elseif ($HTTP_POST_VARS['opCode'] == "GetViews")				 echo($oConn->GetViews());
-		elseif ($HTTP_POST_VARS['opCode'] == "GetProcedures")			 echo($oConn->GetProcedures());
-		elseif ($HTTP_POST_VARS['opCode'] == "GetParametersOfProcedure") echo($oConn->GetParametersOfProcedure($HTTP_POST_VARS['ProcName']));
-		elseif ($HTTP_POST_VARS['opCode'] == "ReturnsResultset")		 echo($oConn->ReturnsResultSet($HTTP_POST_VARS['RRProcName']));
-		elseif ($HTTP_POST_VARS['opCode'] == "ExecuteSP")				 echo($oConn->ExecuteSP($HTTP_POST_VARS['ExecProcName'], 0, $HTTP_POST_VARS['ExecProcParameters']));
-		elseif ($HTTP_POST_VARS['opCode'] == "GetKeysOfTable")   		 echo($oConn->GetPrimaryKeysOfTable($HTTP_POST_VARS['TableName']));
+				switch ($HTTP_POST_VARS['opCode']===0 ? "":$HTTP_POST_VARS['opCode']){
+							case "GetTables": $answer = $oConn->GetTables();
+											break;
+							case "GetColsOfTable": $answer = $oConn->GetColumnsOfTable($HTTP_POST_VARS['TableName']);
+											break;
+							case "ExecuteSQL": $answer = $oConn->ExecuteSQL($HTTP_POST_VARS['SQL'], $HTTP_POST_VARS['MaxRows']);
+											break;
+							case "GetODBCDSNs": $answer = $oConn->GetDatabaseList();
+											break;
+							case "SupportsProcedure": $answer = $oConn->SupportsProcedure();
+											break;
+							case "GetProviderTypes": $answer = $oConn->GetProviderTypes();
+											break;
+							case "GetViews": $answer = $oConn->GetViews();
+											break;
+							case "GetProcedures": $answer = $oConn->GetProcedures();
+											break;
+							case "GetParametersOfProcedure": $answer = $oConn->GetParametersOfProcedure($HTTP_POST_VARS['ProcName']);
+											break;
+							case "ReturnsResultset": $answer = $oConn->ReturnsResultSet($HTTP_POST_VARS['RRProcName']);
+											break;
+							case "ExecuteSP": $answer = $oConn->ExecuteSP($HTTP_POST_VARS['ExecProcName'], 0, $HTTP_POST_VARS['ExecProcParameters']);
+											break;
+							case "GetKeysOfTable": $answer = $oConn->GetPrimaryKeysOfTable($HTTP_POST_VARS['TableName']);
+											break;
+							default: $answer = "<ERRORS>\n<ERROR><DESCRIPTION>The '".$HTTP_POST_VARS['opCode']."' command is not supported by the PHP-ADOdb.</DESCRIPTION></ERROR>\n</ERRORS>";
+											break;
+		}
 	}
+	echo $answer;
 
-	// if (!$oConn->isOpen)
-	// handle exception is actually called by TestOpen, so this call is not needed
-	//	echo($oConn->HandleException());
-
+	if ($debug_to_file){
+	 //		The following lines are for debug purpose only
+					@fwrite($f, "\nAnswer From The Database:\n\n\t".var_export($answer,true)."\n\n\n");
+					@fclose($f);
+	}
 	$oConn->Close();
 }
 

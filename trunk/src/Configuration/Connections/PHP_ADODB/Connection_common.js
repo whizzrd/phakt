@@ -5,14 +5,18 @@
 function installADODB(){
 	var adodbRoot = dreamweaver.getSiteRoot()+"adodb/";
 	var includesRoot = dreamweaver.getSiteRoot()+"includes/";
+	UpdateFiles.upgradeVersions('/Shared/PHP_ADODB/adodb','adodb');
+	UpdateFiles.upgradeVersions('/Shared/PHP_ADODB/includes','includes');
+	UpdateFiles.put();
+	/*
 	if(!DWfile.exists(includesRoot)) {
-		DWfile.createFolder(includesRoot);	
+		DWfile.createFolder(includesRoot);
 	}
 	if(!DWfile.exists(adodbRoot)) {
 		DWfile.createFolder(adodbRoot);	
 	}
 	if(!DWfile.exists(adodbRoot+"drivers/")) {
-		DWfile.createFolder(adodbRoot+"drivers/");	
+		DWfile.createFolder(adodbRoot+"drivers/");
 	}
   
 	//install ADODB if necessary
@@ -23,11 +27,24 @@ function installADODB(){
 	var includesKit = dreamweaver.getConfigurationPath() + "/Shared/PHP_ADODB/includes/";
 	copyNewerFiles(includesKit,includesRoot);
 
+
 	site.refresh("local");
 	site.locateInSite("local",dreamweaver.getSiteRoot() + "adodb");
 	site.put("site");
 	site.locateInSite("local",dreamweaver.getSiteRoot() + "includes");
 	site.put("site");
+	*/
+	if (ISMAC) {
+		//site.locateInSite("local",dreamweaver.getSiteRoot() + "_mmServerScripts");
+		var _mmServerScriptsRoot = dreamweaver.getSiteRoot()+"_mmServerScripts/";
+		if(!DWfile.exists(_mmServerScriptsRoot)) {
+			DWfile.createFolder(_mmServerScriptsRoot);	
+		}
+		var _mmServerScriptsKit = dreamweaver.getConfigurationPath() + "/Connections/Scripts/PHP_ADODB/_mmDBScripts/";
+		copyNewerFiles(_mmServerScriptsKit,_mmServerScriptsRoot);
+		site.put(dreamweaver.getSiteRoot() + "_mmServerScripts/ADODB.php");
+		site.put(dreamweaver.getSiteRoot() + "_mmServerScripts/MMHTTPDB.php");
+	}
 }
 
 function copyNewerFiles(adodbKit,adodbRoot){

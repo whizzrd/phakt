@@ -450,7 +450,12 @@ function initializeUI()
   // DSN_NAME_OBJ = new ListControl("dsn");
   // Add the QUB Caching checkbox if QUB is installed
 	
-	if (DWfile.exists(dreamweaver.getConfigurationPath() + "/shared/QUB/scripts/utils.js")) {
+	
+	
+	//if (DWfile.exists(dreamweaver.getConfigurationPath() + "/shared/QUB/scripts/utils.js")) {
+	var qubVer = UpdateFiles.versionTxt2Num(MM.QUB_Version);
+	var testVer = UpdateFiles.versionTxt2Num("2.7.0");
+	if (qubVer && (qubVer < testVer)) {
 		var mmParamsTag = findObject("theForm").getElementsByTagName("mmParams").item(0);
 		mmParamsTag.innerHTML = "<tr bgcolor='#999999' align='left'><td colspan='3'> <b><font color='#FFFFFF'>QUB Caching </font></b></td></tr>";
 		mmParamsTag.innerHTML += "<tr><td align='right'>QUB Caching</td><td><input type='Checkbox' name='QUBCaching'></td></tr>";
@@ -689,14 +694,14 @@ function 	testServerScripts() {
 	
 	// check if the remote file is good and copy the good one if not
 	temp = DWfile.read(serverFile);
-	if (temp.indexOf("ADODB") == -1) {
+	if ((!temp) || (temp.indexOf("ADODB") == -1)) {
 		result = DWfile.copy(configFile,serverFile);
 	}
 	// return error if copy fails
 	if (!result) return result;
 	// check if the remote file is good and copy the good one if not
 	temp = DWfile.read(localFile);
-	if (temp.indexOf("ADODB") == -1) {
+	if ((!temp) || (temp.indexOf("ADODB") == -1)) {
 		return DWfile.copy(configFile,localFile);
 	}
 	return true;

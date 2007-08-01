@@ -805,7 +805,7 @@ function getVarNameFromSubmitAsValue(value)
   if (value)
   {
     value = value.slice(5);
-    var paramInfo = dwscripts.getParameterCodeFromType(MM.LABEL_PHP_Param_Types[1], value);
+    var paramInfo = dwscripts.getParameterCodeFromType(MM.LABEL_PHP4_Param_Types[1], value);
     varName = ((paramInfo) ? paramInfo.nameVal : "");
   }
   return varName;

@@ -270,7 +270,7 @@ function populateColumnGrid()
     _ColumnNames.setAllRows(new Array(),new Array());
     return;
   }
-
+	
   var colsAndTypes = MMDB.getColumnAndTypeOfTable(_ConnectionName.getValue(), _TableName.getValue());
   ColumnTypes = new Array();  // clear the column types map
   var rowTextArr = new Array();
@@ -477,7 +477,7 @@ function getRowTextAndValue(colName, colType, rsName, uniqueColName)
     UniqueColSubmitAs = colSubmitType;
     colSubmitType = "";  
     colSubmitName = "";
-    toggleSubmitAs(false); // enable or disable Submit As Menu
+    toggleSubmitAsVisibility(colDisplayAs); // enable or disable Submit As Menu
     toggleLabelVisibility(colDisplayAs);    // enable or disable Label textfield
   }
   
@@ -918,7 +918,7 @@ function showDifferentParams(displayDefaultStr)
     var rowInfoObj = _ColumnNames.getRowValue();
     if (EDIT_OP_TYPE == "Update" && rowInfoObj.fieldName == _UniqueKeyColumn.getValue())
     {
-      toggleSubmitAs(false);
+      toggleSubmitAsVisibility(displayAs);
     }
     else
     {
@@ -1018,7 +1018,13 @@ function addGridRow()
   for (i=0;i<nCols;i++)
   {
     currCol = addedCols[i];
-    rowInfoArr = getRowTextAndValue(currCol,ColumnTypes[currCol]);
+    //rowInfoArr = getRowTextAndValue(currCol,ColumnTypes[currCol]);
+    if (EDIT_OP_TYPE == "Update") 
+    {
+			rowInfoArr = getRowTextAndValue(currCol,ColumnTypes[currCol], _RecordsetName.getValue(), _UniqueKeyColumn.getValue());
+		} else {
+			rowInfoArr = getRowTextAndValue(currCol,ColumnTypes[currCol]);
+		}
     _ColumnNames.addRow(rowInfoArr[0],rowInfoArr[1]);
     updateAdditionalColumnList('del',currCol);
   }

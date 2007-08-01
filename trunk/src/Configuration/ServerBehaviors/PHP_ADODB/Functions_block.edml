@@ -1,8 +1,8 @@
 <participant version="6.0">
 	<insertText location="aboveHTML+7"><![CDATA[<?php //Aditional Functions
-require_once('@@relpath@@includes/functions.inc.php'); ?>]]></insertText>
+require_once('@@relpath@@includes/functions.inc.php');?>]]></insertText>
 	<searchPatterns whereToSearch="directive">
-		<searchPattern paramNames="relpath" isOptional="false" limitSearch="all"><![CDATA[/(?:\/\/Aditional Functions){0,1}(?:\r\n|\r|\n){0,1}require_once\('([^\r\n]*?)includes\/functions\.inc\.php'\);\s*(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+		<searchPattern paramNames="relpath" isOptional="false" limitSearch="all"><![CDATA[/\/\/Aditional Functions(?:\r\n|\r(?!\n)|\n)[ \t]*require_once\('([^\r\n]*?)includes\/functions\.inc\.php'\);(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
 	</searchPatterns>
 	<quickSearch>includes/functions.inc.php');</quickSearch>
 </participant>

@@ -1,6 +1,6 @@
 <?php
 /* 
-V2.91 3 Jan 2003  (c) 2000-2003 John Lim (jlim@natsoft.com.my). All rights reserved.
+V4.11 27 Jan 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. 
@@ -54,7 +54,7 @@ class  ADODB_odbc_oracle extends ADODB_odbc {
 	{
 		if (!empty($this->metaColumnsSQL)) {
 		
-			$rs = $this->Execute(sprintf($this->metaColumnsSQL,($table)));
+			$rs = $this->Execute(sprintf($this->metaColumnsSQL,strtoupper($table)));
 			if ($rs === false) return false;
 
 			$retarr = array();
@@ -63,7 +63,10 @@ class  ADODB_odbc_oracle extends ADODB_odbc {
 				$fld->name = $rs->fields[0];
 				$fld->type = $rs->fields[1];
 				$fld->max_length = $rs->fields[2];
-				$retarr[($fld->name)] = $fld;	
+				
+				
+				if ($ADODB_FETCH_MODE == ADODB_FETCH_NUM) $retarr[] = $fld;	
+				else $retarr[strtoupper($fld->name)] = $fld;
 				
 				$rs->MoveNext();
 			}
@@ -104,9 +107,9 @@ class  ADORecordSet_odbc_oracle extends ADORecordSet_odbc {
 	
 	var $databaseType = 'odbc_oracle';
 	
-	function ADORecordSet_odbc_oracle($id,$locale='',$mode=false)
+	function ADORecordSet_odbc_oracle($id,$mode=false)
 	{
-		return $this->ADORecordSet_odbc($id,$locale,$mode);
+		return $this->ADORecordSet_odbc($id,$mode);
 	}
 }
 ?>

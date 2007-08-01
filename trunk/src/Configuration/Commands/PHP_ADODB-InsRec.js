@@ -400,7 +400,7 @@ function getVarNameFromFormField(value)
   var varName = "";
   if (value)
   {
-    var paramInfo = dwscripts.getParameterCodeFromType(MM.KT_LABEL_PHP_Param_Types[1], value);
+    var paramInfo = dwscripts.getParameterCodeFromType(MM.LABEL_PHP4_Param_Types[1], value);
     varName = ((paramInfo) ? paramInfo.nameVal : "");
   }
   return varName;

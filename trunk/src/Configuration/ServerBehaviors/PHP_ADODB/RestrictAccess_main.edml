@@ -1,0 +1,25 @@
+<participant version="6.0">
+	<quickSearch><![CDATA[!(isset($HTTP_SESSION_VARS["KT_userAuth"]))]]></quickSearch>
+	<insertText location="aboveHTML+10"><![CDATA[<?php
+// *** Restrict Access To Page: Grant or deny access to this page
+$KT_authorizedUsers=" @@accessLevels@@";
+$KT_authFailedURL="@@failureURL@@";
+$KT_grantAccess=0;
+@@at@@session_start();
+if (isset($HTTP_SESSION_VARS["KT_Username"])) {
+  if (@@dontUseAccessLevel@@ || !(isset($HTTP_SESSION_VARS["KT_userAuth"])) || $HTTP_SESSION_VARS["KT_userAuth"]=="" || strpos($KT_authorizedUsers, $HTTP_SESSION_VARS["KT_userAuth"])) {
+    $KT_grantAccess = 1;
+  }
+}
+if (!$KT_grantAccess) {
+  $KT_qsChar = "?";
+  if (strpos($KT_authFailedURL, "?")) $KT_qsChar = "&";
+  $KT_referrer = $HTTP_SERVER_VARS["REQUEST_URI"];
+  $KT_authFailedURL = $KT_authFailedURL . $KT_qsChar . "accessdenied=" . urlencode($KT_referrer);
+  KT_redir($KT_authFailedURL);
+}
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="accessLevels,failureURL,at,dontUseAccessLevel" isOptional="false" limitSearch="all"><![CDATA[/\/\/ \*\*\* Restrict Access To Page: Grant or deny access to this page(?:\r\n|\r(?!\n)|\n)[ \t]*\$KT_authorizedUsers=" ([^\r\n]*?)";(?:\r\n|\r(?!\n)|\n)[ \t]*\$KT_authFailedURL="([^\r\n]*?)";(?:\r\n|\r(?!\n)|\n)[ \t]*\$KT_grantAccess=0;(?:\r\n|\r(?!\n)|\n)[ \t]*([^\r\n]*?)session_start\(\);(?:\r\n|\r(?!\n)|\n)[ \t]*if \(isset\(\$HTTP_SESSION_VARS\["KT_Username"\]\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*if \(([^\r\n]*?) \|\| !\(isset\(\$HTTP_SESSION_VARS\["KT_userAuth"\]\)\) \|\| \$HTTP_SESSION_VARS\["KT_userAuth"\]=="" \|\| strpos\(\$KT_authorizedUsers, \$HTTP_SESSION_VARS\["KT_userAuth"\]\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$KT_grantAccess = 1;(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*if \(!\$KT_grantAccess\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$KT_qsChar = "\?";(?:\r\n|\r(?!\n)|\n)[ \t]*if \(strpos\(\$KT_authFailedURL, "\?"\)\) \$KT_qsChar = "&";(?:\r\n|\r(?!\n)|\n)[ \t]*\$KT_referrer = \$HTTP_SERVER_VARS\["REQUEST_URI"\];(?:\r\n|\r(?!\n)|\n)[ \t]*\$KT_authFailedURL = \$KT_authFailedURL \. \$KT_qsChar \. "accessdenied=" \. urlencode\(\$KT_referrer\);(?:\r\n|\r(?!\n)|\n)[ \t]*KT_redir\(\$KT_authFailedURL\);(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+</participant>

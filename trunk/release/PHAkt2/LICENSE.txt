@@ -1,7 +1,7 @@
 
 By Library we refer to the PHAkt library. This license also applies to all subsequent revisions of PHAkt released under this license; this library is available at http://www.interakt.ro/.
 
-This library is (c)2001 Interakt Online. All rights reserved.
+This library is (c)2001, 2003 InterAKT Online. All rights reserved.
 ------------------------------------------------------------------------------
 GNU LESSER GENERAL PUBLIC LICENSE
 Version 2.1, February 1999 

@@ -1,0 +1,8 @@
+<participant version="6.1">
+	<insertText location="nodeAttribute+href" nodeParamName="linkTag"><![CDATA[<?php echo $KT_Logout?>]]></insertText>
+	<searchPatterns whereToSearch="tag+a">
+		<searchPattern paramNames="" isOptional="false" limitSearch="attribute+href"><![CDATA[/<\?php echo \$KT_Logout\?>/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>$KT_Logout?</quickSearch>
+	<delete deleteType="tagOnly" />
+</participant>

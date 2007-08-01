@@ -187,6 +187,91 @@ function getServerSupportsCharSet( metaCharSetString )
   }
 }
 
+//--------------------------------------------------------------------
+// FUNCTION:
+//   updatePageDirective
+//
+// DESCRIPTION:
+//   This function is called when a user changes their document encoding
+//	 or the document type of their document.
+//
+// ARGUMENTS:
+//   dom - The Document DOM of the document to be opened.
+//
+// RETURNS:
+//   none
+//--------------------------------------------------------------------
+
+function updatePageDirective(dom)
+{
+  if (dom)
+  {
+		if (dom.getIsXHTMLDocument()) {
+			var outer = dom.documentElement.outerHTML;
+			outer = outer.replace(/<\?xml version="1\.0" encoding="iso-8859-1"\?>/i,"<\?php echo \"<\?xml version=\"1.0\" encoding=\"iso-8859-1\"?\".\">\"; ?>");
+			dom.documentElement.outerHTML = outer;
+		}
+		
+    encoding = dom.getCharSet();
+    if (encoding)
+    {
+      var docStr = dom.documentElement.outerHTML;
+      var pageEncodingStart = 0;
+	  var pageEncodingEnd = 0;
+	  var updateDoc = false;
+
+	 pageEncodingStart = docStr.search( /mb_http_input\(["'][\w-]*["']\)/i );
+	
+      if( pageEncodingStart > -1 )
+      {
+        pageEncodingEnd = docStr.indexOf(")", pageEncodingStart) + 1;
+
+        if(pageEncodingEnd > 1 && pageEncodingEnd > pageEncodingStart)
+        {
+          var oldLangStr = docStr.substring(pageEncodingStart, pageEncodingEnd);
+          var newLangStr = oldLangStr.replace( /(mb_http_input)\("[\w-]*"\)/i, "$1" + "(\"" + encoding + "\")" ); // double quotes
+		  var newLangStr = oldLangStr.replace( /(mb_http_input)\('[\w-]*'\)/i, "$1" + "('" + encoding + "')" );// single quotes
+          if (newLangStr != oldLangStr)
+          {
+            var newDocStr = docStr.substring(0, pageEncodingStart) +
+                            newLangStr +
+                            docStr.substring(pageEncodingEnd);
+			docStr = newDocStr;
+			updateDoc = true;
+          }
+        }
+      }
+	  
+      pageEncodingStart = docStr.search( /mb_http_output\(["'][\w-]*["']\)/i );
+
+      if( pageEncodingStart > -1 )
+      {
+        pageEncodingEnd = docStr.indexOf(")", pageEncodingStart) + 1;
+
+        if(pageEncodingEnd > 1 && pageEncodingEnd > pageEncodingStart)
+        {
+          var oldLangStr = docStr.substring(pageEncodingStart, pageEncodingEnd);
+          var newLangStr = oldLangStr.replace( /(mb_http_output)\("[\w-]*"\)/i, "$1" + "(\"" + encoding + "\")" ); // double quotes
+		  var newLangStr = oldLangStr.replace( /(mb_http_output)\('[\w-]*'\)/i, "$1" + "('" + encoding + "')" );// single quotes
+          if (newLangStr != oldLangStr)
+          {
+            var newDocStr = docStr.substring(0, pageEncodingStart) +
+                            newLangStr +
+                            docStr.substring(pageEncodingEnd);
+			docStr = newDocStr;
+			updateDoc = true;
+          }
+        }
+      }
+	  
+	  if( updateDoc )
+	  {
+	  	dom.documentElement.outerHTML = docStr;
+	  }
+    }
+  }
+}
+
 
 //*-------------------------------------------------------------------
 // FUNCTION:

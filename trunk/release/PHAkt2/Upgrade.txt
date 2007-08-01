@@ -1,5 +1,74 @@
-PHAkt 2  Upgrade Instructions
+-------------------------------------------------------------------------------
+PHAkt2 - PHP server model for Dreamweaver MX and MX 2004
+ - version 2.7.3 of 2004-03-02
+ - http://www.interakt.ro/products/PHAkt/
+ - Copyright (C) 2001, 2004  InterAKT Online -  phakt@interakt.ro
+-------------------------------------------------------------------------------
+
+PHAkt2  Upgrade Instructions
+
 ---------------------------------------
+Upgrade from 2.7.2 to 2.7.3
+---------------------------------------
+In each existing site that will be edited using the current PHAkt2 version, you MUST delete the "adodb/" and "includes/" folders and then edit a connection. PHAkt2 will recreate the folders using the updated functions. Then you have to upload the new site versions on the websever.
+
+Note:
+- When you are upgrading your PHAkt version, it is possible to be alerted to overwrite: RecordsetFind.htm and RecordsetFind.js. You should choose OK, otherwise you may encounter problems with future bug fixes etc.
+
+---------------------------------------
+Upgrade from 2.7.1 to 2.7.2
+---------------------------------------
+In each existing site that will be edited using the current PHAkt2 version, you MUST delete the "adodb/" and "includes/" folders and then edit a connection. PHAkt2 will recreate the folders using the updated functions. Then you have to upload the new site versions on the websever.
+
+Note:
+- When you are upgrading your PHAkt version, it is possible to be alerted to overwrite: RecordsetFind.htm and RecordsetFind.js. You should choose OK, otherwise you may encounter problems with future bug fixes etc.
+
+---------------------------------------
+Upgrade from 2.7.0 to 2.7.1
+---------------------------------------
+In each existing site that will be edited using the current PHAkt2 version, you MUST delete the "adodb/" and "includes/" folders and then edit a connection. PHAkt2 will recreate the folders using the updated functions. Then you have to upload the new site versions on the websever.
+
+Note:
+- When you are upgrading your PHAkt version, it is possible to be alerted to overwrite: RecordsetFind.htm and RecordsetFind.js. You should choose OK, otherwise you may encounter problems with future bug fixes etc.
+
+---------------------------------------
+Upgrade from 2.6.5 to 2.7.0
+---------------------------------------
+In each existing site that will be edited using the current PHAkt2 version, you MUST delete the "adodb/" and "includes/" folders and then edit a connection. PHAkt2 will recreate the folders using the updated functions. Then you have to upload the new site versions on the websever.
+
+Note:
+- When you are upgrading your PHAkt version, it is possible to be alerted to overwrite: RecordsetFind.htm and RecordsetFind.js. You should choose OK, otherwise you may encounter problems with future bug fixes etc.
+
+---------------------------------------
+Upgrade from 2.6.2 to 2.6.5
+---------------------------------------
+In each existing site that will be edited using the current PHAkt2 version, you MUST delete the "adodb/" and "includes/" folders and then edit a connection. PHAkt2 will recreate the folders using the updated functions. Then you have to upload the new site versions on the websever.
+
+Note:
+- When you are upgrading your PHAkt version, it is possible to be alerted to overwrite: RecordsetFind.htm and RecordsetFind.js. You should choose OK, otherwise you may encounter problems with future bug fixes etc.
+
+---------------------------------------
+Upgrade from 2.4.9 or 2.5.0 to 2.6.2
+---------------------------------------
+In each existing site that will be edited using the current PHAkt2 version, you MUST delete the "adodb/" and "includes/" folders and then edit a connection. PHAkt2 will recreate the folders using the updated functions. Then you have to upload the new site versions on the websever.
+
+Note:
+- When you are upgrading your PHAkt version, it is possible to be alerted to overwrite: RecordsetFind.htm and RecordsetFind.js. You should choose OK, otherwise you may encounter problems with future bug fixes etc.
+
+---------------------------------------
+Upgrade from 2.4.8 or 2.4.9 to 2.5.0
+---------------------------------------
+In each existing site that will be edited using the current PHAkt2 version, you MUST delete the "adodb/" and "includes/" folders and then edit a connection. PHAkt2 will recreate the folders using the updated functions. Then you have to upload the new site versions on the websever.
+
+---------------------------------------
+Upgrade from 2.4.8 to 2.4.9
+---------------------------------------
+In each existing site that will be edited using the current PHAkt2 version, you MUST delete the "adodb/" and "includes/" folders and then edit a connection. PHAkt2 will recreate the folders using the updated functions. Then you have to upload the new site versions on the websever.
+
+---------------------------------------
+Upgrade from 2.4.3 to 2.4.8
+---------------------------------------
+In each existing site that will be edited using the current PHAkt2 version, you MUST delete the "adodb/" and "includes/" folders and then edit a connection. PHAkt2 will recreate the folders using the updated functions. Then you have to upload the new site versions on the websever.
 
 ---------------------------------------
 Upgrade from 2.4.0 to 2.4.3

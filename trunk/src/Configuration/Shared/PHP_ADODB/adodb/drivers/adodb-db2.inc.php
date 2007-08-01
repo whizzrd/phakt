@@ -1,6 +1,6 @@
 <?php
 /* 
-V2.91 3 Jan 2003  (c) 2000-2003 John Lim (jlim@natsoft.com.my). All rights reserved.
+V4.11 27 Jan 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. 
@@ -56,6 +56,14 @@ library.
 So I guess this means the message [above] was related to using a 3rd party
 odbc driver.
 
+Setting SQL_CUR_USE_ODBC
+========================
+To set SQL_CUR_USE_ODBC for drivers that require it, do this:
+
+$db = NewADOConnection('db2');
+$db->curMode = SQL_CUR_USE_ODBC;
+$db->Connect($dsn, $userid, $pwd);
+
 */
 
 if (!defined('_ADODB_ODBC_LAYER')) {
@@ -66,47 +74,117 @@ define('ADODB_DB2',1);
 
 class ADODB_DB2 extends ADODB_odbc {
 	var $databaseType = "db2";	
-	var $concat_operator = 'CONCAT';
-	var $sysDate = 'CURRENT DATE';
+	var $concat_operator = '||';
+	var $sysDate = 'CURRENT_DATE';
 	var $sysTimeStamp = 'CURRENT TIMESTAMP';
+	// The complete string representation of a timestamp has the form 
+	// yyyy-mm-dd-hh.mm.ss.nnnnnn.
+	var $fmtTimeStamp = "'Y-m-d-H.i.s'";
 	var $ansiOuter = true;
-	//var $curmode = SQL_CUR_USE_ODBC;
+	var $identitySQL = 'values IDENTITY_VAL_LOCAL()';
+	var $_bindInputArray = true;
+	var $upperCase = 'upper';
+	
 	
 	function ADODB_DB2()
 	{
+		if (strncmp(PHP_OS,'WIN',3) === 0) $this->curmode = SQL_CUR_USE_ODBC;
 		$this->ADODB_odbc();
 	}
 	
-	// returns true or false
-	// curmode is not properly supported by DB2 odbc driver according to Mark Newnham
-	function _connect($argDSN, $argUsername, $argPassword, $argDatabasename)
+	function IfNull( $field, $ifNull ) 
 	{
-	global $php_errormsg;
-	
-		$php_errormsg = '';
-		$this->_connectionID = odbc_connect($argDSN,$argUsername,$argPassword);
-		$this->_errorMsg = $php_errormsg;
-
-		//if ($this->_connectionID) odbc_autocommit($this->_connectionID,true);
-		return $this->_connectionID != false;
+		return " COALESCE($field, $ifNull) "; // if DB2 UDB
 	}
 	
-	// returns true or false
-	function _pconnect($argDSN, $argUsername, $argPassword, $argDatabasename)
+	function ServerInfo()
 	{
-	global $php_errormsg;
-		$php_errormsg = '';
-		$this->_connectionID = odbc_pconnect($argDSN,$argUsername,$argPassword);
-		$this->_errorMsg = $php_errormsg;
-		
-		//if ($this->_connectionID) odbc_autocommit($this->_connectionID,true);
-		return $this->_connectionID != false;
+		//odbc_setoption($this->_connectionID,1,101 /*SQL_ATTR_ACCESS_MODE*/, 1 /*SQL_MODE_READ_ONLY*/);
+		$vers = $this->GetOne('select versionnumber from sysibm.sysversions');
+		//odbc_setoption($this->_connectionID,1,101, 0 /*SQL_MODE_READ_WRITE*/);
+		return array('description'=>'DB2 ODBC driver', 'version'=>$vers);
+	}
+	
+	function _insertid()
+	{
+		return $this->GetOne($this->identitySQL);
 	}
 	
 	function RowLock($tables,$where)
 	{
 		if ($this->_autocommit) $this->BeginTrans();
 		return $this->GetOne("select 1 as ignore from $tables where $where for update");
+	}
+	/*
+	function &MetaTables($showSchema=false)
+	{
+	global $ADODB_FETCH_MODE;
+	
+		$savem = $ADODB_FETCH_MODE;
+		$ADODB_FETCH_MODE = ADODB_FETCH_NUM;
+		$qid = odbc_tables($this->_connectionID);
+		
+		$rs = new ADORecordSet_odbc($qid);
+		
+		$ADODB_FETCH_MODE = $savem;
+		if (!$rs) return false;
+		
+		$rs->_has_stupid_odbc_fetch_api_change = $this->_has_stupid_odbc_fetch_api_change;
+		
+		//print_r($rs);
+		$arr =& $rs->GetArray();
+		$rs->Close();
+		$arr2 = array();
+		//print_r($arr);
+		for ($i=0; $i < sizeof($arr); $i++) {
+			$row = $arr[$i];
+			if ($row[2] && strncmp($row[1],'SYS',3) != 0)
+				 if ($showSchema) $arr2[] = $row[1].'.'.$row[2];
+				 else $arr2[] = $row[2];
+		}
+		return $arr2;
+	}*/
+	
+	function &MetaTables($ttype=false,$showSchema=false)
+	{
+	global $ADODB_FETCH_MODE;
+	
+		$savem = $ADODB_FETCH_MODE;
+		$ADODB_FETCH_MODE = ADODB_FETCH_NUM;
+		$qid = odbc_tables($this->_connectionID);
+		
+		$rs = new ADORecordSet_odbc($qid);
+		
+		$ADODB_FETCH_MODE = $savem;
+		if (!$rs) return false;
+		
+		$rs->_has_stupid_odbc_fetch_api_change = $this->_has_stupid_odbc_fetch_api_change;
+		
+		$arr =& $rs->GetArray();
+		//print_r($arr);
+		
+		$rs->Close();
+		$arr2 = array();
+		
+		if ($ttype) {
+			$isview = strncmp($ttype,'V',1) === 0;
+		}
+		for ($i=0; $i < sizeof($arr); $i++) {
+		
+			if (!$arr[$i][2]) continue;
+			if (strncmp($arr[$i][1],'SYS',3) === 0) continue;
+			
+			$type = $arr[$i][3];
+			
+			if ($showSchema) $arr[$i][2] = $arr[$i][1].'.'.$arr[$i][2];
+			
+			if ($ttype) { 
+				if ($isview) {
+					if (strncmp($type,'V',1) === 0) $arr2[] = $arr[$i][2];
+				} else if (strncmp($type,'T',1) === 0) $arr2[] = $arr[$i][2];
+			} else if (strncmp($type,'S',1) !== 0) $arr2[] = $arr[$i][2];
+		}
+		return $arr2;
 	}
 	
 	// Format date column in sql string given an input format that understands Y M D
@@ -118,7 +196,7 @@ class ADODB_DB2 extends ADODB_odbc {
 		
 		$len = strlen($fmt);
 		for ($i=0; $i < $len; $i++) {
-			if ($s) $s .= '+';
+			if ($s) $s .= '||';
 			$ch = $fmt[$i];
 			switch($ch) {
 			case 'Y':
@@ -126,6 +204,8 @@ class ADODB_DB2 extends ADODB_odbc {
 				$s .= "char(year($col))";
 				break;
 			case 'M':
+				$s .= "substr(monthname($col),1,3)";
+				break;
 			case 'm':
 				$s .= "right(digits(month($col)),2)";
 				break;
@@ -133,7 +213,28 @@ class ADODB_DB2 extends ADODB_odbc {
 			case 'd':
 				$s .= "right(digits(day($col)),2)";
 				break;
+			case 'H':
+			case 'h':
+				if ($col != $this->sysDate) $s .= "right(digits(hour($col)),2)";	
+				else $s .= "''";
+				break;
+			case 'i':
+			case 'I':
+				if ($col != $this->sysDate)
+					$s .= "right(digits(minute($col)),2)";
+					else $s .= "''";
+				break;
+			case 'S':
+			case 's':
+				if ($col != $this->sysDate)
+					$s .= "right(digits(second($col)),2)";
+				else $s .= "''";
+				break;
 			default:
+				if ($ch == '\\') {
+					$i++;
+					$ch = substr($fmt,$i,1);
+				}
 				$s .= $this->qstr($ch);
 			}
 		}
@@ -141,18 +242,23 @@ class ADODB_DB2 extends ADODB_odbc {
 	} 
  
 	
-	function &SelectLimit($sql,$nrows=-1,$offset=-1,$arg3=false)
-	{
-		if ($offset <= 0) {
-		// could also use " OPTIMIZE FOR $nrows ROWS "
-			$sql .=  " FETCH FIRST $nrows ROWS ONLY ";
-			return $this->Execute($sql,false,$arg3);
-		} else {
-			$nrows += $offset;
-			$sql .=  " FETCH FIRST $nrows ROWS ONLY ";
-			return ADOConnection::SelectLimit($sql,-1,$offset,$arg3);
+		function &SelectLimit($sql,$nrows=-1,$offset=-1)
+		{
+			if ($offset <= 0) {
+			// could also use " OPTIMIZE FOR $nrows ROWS "
+				if ($nrows >= 0) $sql .=  " FETCH FIRST $nrows ROWS ONLY ";
+				$rs =& $this->Execute($sql,false);
+			} else {
+				if ($offset > 0 && $nrows < 0);
+				else {
+					$nrows += $offset;
+					$sql .=  " FETCH FIRST $nrows ROWS ONLY ";
+				}
+				$rs =& ADOConnection::SelectLimit($sql,-1,$offset);
+			}
+			
+			return $rs;
 		}
-	}
 	
 };
  
@@ -161,13 +267,19 @@ class  ADORecordSet_db2 extends ADORecordSet_odbc {
 	
 	var $databaseType = "db2";		
 	
-	function ADORecordSet_db2($id,$locale='',$mode=false)
+	function ADORecordSet_db2($id,$mode=false)
 	{
-		$this->ADORecordSet_odbc($id,$locale,$mode);
+		$this->ADORecordSet_odbc($id,$mode);
 	}
 
 	function MetaType($t,$len=-1,$fieldobj=false)
 	{
+		if (is_object($t)) {
+			$fieldobj = $t;
+			$t = $fieldobj->type;
+			$len = $fieldobj->max_length;
+		}
+		
 		switch (strtoupper($t)) {
 		case 'VARCHAR':
 		case 'CHAR':

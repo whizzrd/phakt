@@ -1,6 +1,6 @@
 <?php
 /* 
-version V2.91 3 Jan 2003 (c) 2000-2003  John Lim (jlim@natsoft.com.my). All rights
+version V4.11 27 Jan 2004 (c) 2000-2004  John Lim (jlim@natsoft.com.my). All rights
 reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
@@ -153,9 +153,9 @@ if (!defined('ADODB_SYBASE_SQLANYWHERE')){
 
   var $databaseType = "sqlanywhere";		
 
- function ADORecordSet_sqlanywhere($id,$locale='',$mode=false)
+ function ADORecordSet_sqlanywhere($id,$mode=false)
  {
-  $this->ADORecordSet_odbc($id,$locale,$mode);
+  $this->ADORecordSet_odbc($id,$mode);
  }
 
 
