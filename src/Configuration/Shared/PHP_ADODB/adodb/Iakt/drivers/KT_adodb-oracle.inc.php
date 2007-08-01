@@ -4,6 +4,9 @@ class KT_ADODB_oracle extends ADODB_oracle {
 
 	function Connect($str,$user='',$pwd='',$db='',$locale='')
 	{		   
+		if (!function_exists('ora_plogon')){
+				return false;
+		}
 		$ret = parent::Connect($str,$user,$pwd,$db);
 			// Interakt
 		$this->_setLocale($locale);
@@ -54,6 +57,12 @@ class KT_ADODB_oracle extends ADODB_oracle {
 			
 		}
 	}
+	function ErrorMsg(){
+		if (!function_exists('ora_plogon')){
+					return 'Your PHP doesn\'t contain the Oracle connection module!';
+		}
+		return parent::ErrorMsg(); 
+	}	
 	
 		
 }

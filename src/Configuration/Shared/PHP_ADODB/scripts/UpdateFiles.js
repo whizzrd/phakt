@@ -1,5 +1,5 @@
 //SHARE-IN-MEMORY=true
-// Copyright 2001-2003 Interakt Online. All rights reserved.
+// Copyright 2001-2004 Interakt Online. All rights reserved.
 
 /**
 * @class
@@ -26,6 +26,8 @@ UpdateFiles.synchronized_upgradeVersions = UpdateFiles_synchronized_upgradeVersi
 UpdateFiles.copyFiles = UpdateFiles_copyFiles;
 UpdateFiles.versionTxt2Num = UpdateFiles_versionTxt2Num;
 UpdateFiles.checkVersion = UpdateFiles_checkVersion;
+UpdateFiles.versionCompare = UpdateFiles_versionCompare;
+
 UpdateFiles.lockFolder = UpdateFiles_lockFolder;
 UpdateFiles.isLocked = UpdateFiles_isLocked;
 UpdateFiles.put = UpdateFiles_put;
@@ -104,9 +106,26 @@ function UpdateFiles_removeParticle(obj, particle) {
 function UpdateFiles_getNumericVersion(dir) {
 	var remoteVerTxt = DWfile.read(dir + '/version.txt');
 	if (!remoteVerTxt) {
-		return 0;
+		return '0';
 	}
-	return UpdateFiles.versionTxt2Num(remoteVerTxt);
+	return remoteVerTxt;
+}
+
+
+function UpdateFiles_versionCompare(ver1, ver2) {
+	var arr1 = ver1.split('.');
+	var arr2 = ver2.split('.');
+	var cmp = 0;
+	var ix = 0;
+	while(cmp == 0 && (arr1.length > ix || arr2.length > ix)) {
+		if((arr1.length <=ix && arr2.length > ix) || arr1[ix] < arr2[ix]) {
+			cmp = -1;
+		} else if ((arr2.length <= ix && arr1.length > ix) || arr1[ix] > arr2[ix]) {
+			cmp = 1;
+		}
+		ix++;
+	}
+	return cmp;
 }
 
 /** 
@@ -119,16 +138,8 @@ function UpdateFiles_getNumericVersion(dir) {
  * 		numeric - version number
  */
 function UpdateFiles_versionTxt2Num(verTxt) {
-	if (!verTxt) {
-		return 0;
-	}
-	var tmArr = verTxt.split('.');
-	var idx;
-	var verNum = 0;
-	for (idx = 0;idx < tmArr.length;idx++) {
-		verNum = verNum*1000 + parseInt(tmArr[idx]);
-	}
-	return verNum;
+// old stuff - not used anymore
+	return 0;
 }
 
 /**
@@ -157,9 +168,9 @@ function UpdateFiles_synchronized_upgradeVersions(configDir, serverDir) {
 	var configVer = UpdateFiles.getNumericVersion(dw.getConfigurationPath() + configDir);
 	var siteVer = UpdateFiles.getNumericVersion(siteRoot + serverDir)
 	if (!UpdateFiles.isLocked(serverDir)) {
-		if (parseInt(configVer) > parseInt(siteVer)) {
+		if (UpdateFiles.versionCompare(configVer, siteVer) == 1) {
 			var myMessage = '';
-			if (MM.KTUPDT_Messages && MM.KTUPDT_Messages[serverDir] && siteVer != 0) {
+			if (MM.KTUPDT_Messages && MM.KTUPDT_Messages[serverDir] && UpdateFiles.versionCompare(siteVer, '2.5.0') <= 0 ) { // 2.5.0
 				myMessage = MM.KTUPDT_Messages[serverDir];
 			} else {
 				myMessage = dwscripts.sprintf('Are you sure you want to update %s?',serverDir);
@@ -320,14 +331,17 @@ function UpdateFiles_checkVersion(productName, productURL, productVersion,newMes
 			if(httpReply.statusCode == 200){
 				var remoteDom = dreamweaver.getDocumentDOM(httpReply.data);
 				var eRemoteExtensionVersion = remoteDom.getElementsByTagName('version');
-				if (eRemoteExtensionVersion[0].hasChildNodes()) {
-					var nRemoteVersionNumber = eRemoteExtensionVersion[0].childNodes[0].innerHTML;
+				if(eRemoteExtensionVersion.length > 0) {
+					if (eRemoteExtensionVersion[0].hasChildNodes()) {
+						var nRemoteVersionNumber = eRemoteExtensionVersion[0].childNodes[0].innerHTML;
+					} else {
+						var nRemoteVersionNumber = eRemoteExtensionVersion[0].innerHTML;
+					}
+					if(	UpdateFiles.versionCompare(nRemoteVersionNumber, productVersion) == 1) {
+						alert(dwscripts.sprintf(newMessage, nRemoteVersionNumber));
+					}
 				} else {
-					var nRemoteVersionNumber = eRemoteExtensionVersion[0].innerHTML;
-				}
-				if(	parseInt(UpdateFiles.versionTxt2Num(nRemoteVersionNumber)) > 
-						parseInt(UpdateFiles.versionTxt2Num(productVersion))) {
-					alert(dwscripts.sprintf(newMessage, nRemoteVersionNumber));
+					alert("Interakt Server is not richable!");
 				}
 			}
 		}
@@ -347,4 +361,5 @@ function UpdateFiles_updateConnection(file) {
 		}
 	}
 }
+
 

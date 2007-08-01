@@ -16,16 +16,17 @@ function findRs(){
 			tm.serverModel = recordsets[i].serverModel;
 			tm.type = recordsets[i].type;
 			tm.command = recordsets[i].command;
+			tm.fileExt = recordsets[i].fileExt;
+			tm.single = recordsets[i].single;
 			tm.priority = recordsets[i].priority;
 			tm.saveUI = recordsets[i].saveUI;
 			tm.preferedName = recordsets[i].preferedName;
 			tm.subTypes = getSubTypes(recordsets[i]);
+			tm.changeOnEdit = recordsets[i].changeOnEdit;
 			MM.rsTypes.push(tm);
 		}
 	}
-	//alert(MM.rsTypes.length);
 	MM.rsTypes = unifyAndSort(MM.rsTypes);
-	//alert(MM.rsTypes.length);
 }
 
 
@@ -76,9 +77,25 @@ function getSubTypes(rsNode) {
 // unify the information conatained in fields with the same type by unifying the subtypes
 // IAKT: Edited by BRI on 08/07/02
 function unifyAndSort(rsType) {
-	newTypes = new Array();
+	var newTypes = new Array();
+	var i;
 	for (i = 0;i < rsType.length;i++) {
-		position = arrayContainsElement(newTypes,rsType[i],"type", "serverModel");
+		position0 = arrayContainsElement(newTypes,rsType[i],"type", "serverModel"); // position of the element having the same type and server model
+		position = arrayContainsElement(newTypes,rsType[i],"type", "serverModel", "fileExt"); // position of the element having the same type, server model and file extension
+
+		if (position < 0 && position0 >= 0) {
+			// if the type and server model match an existing element, but the file extension is different
+			if (typeof newTypes[position0].fileExt == 'undefined') {
+				// if the matched element does not have a file extension, overwrite it
+				position = position0;
+			} else {
+				// if the matched element has a file extension
+				if (typeof rsType[i].fileExt == 'undefined') {
+					// if the current element does not have a file extension
+					continue;
+				}
+			}
+		}
 
 		if (position < 0) {
 			newTypes.push(rsType[i]);
@@ -86,6 +103,7 @@ function unifyAndSort(rsType) {
 			newTypes[position] = unifyElements(newTypes[position],rsType[i]);
 		}
 	}
+
 	for (i =0;i < newTypes.length;i++) {
 		newTypes[i].subTypes.sort(prioritySort);
 	}
@@ -107,10 +125,10 @@ function unifyAndSort(rsType) {
 //-------------------------------------------------------
 function unifyElements(e1,e2) {
 	var ii;
-	newEl = e1;
-	for (ii = 0;ii < e2.subTypes.length;ii++) {
-		if (arrayContainsElement(newEl.subTypes,e2.subTypes[ii],"name","value") < 0) {
-			newEl.subTypes.push(e2.subTypes[ii]);
+	newEl = e2;
+	for (ii = 0;ii < e1.subTypes.length;ii++) {
+		if (arrayContainsElement(newEl.subTypes,e1.subTypes[ii],"name","value") < 0) {
+			newEl.subTypes.push(e1.subTypes[ii]);
 		}
 	}
 	return newEl;

@@ -55,7 +55,7 @@
 	ADOLoadCode($MM_@@cname@@_DBTYPE);
 	$@@cname@@=&ADONewConnection($MM_@@cname@@_DBTYPE);
 
-	if($MM_@@cname@@_DBTYPE == "access" || $MM_@@cname@@_DBTYPE == "odbc"){
+	if($MM_@@cname@@_DBTYPE == "access" || $MM_@@cname@@_DBTYPE == "odbc"<@ if (@@dbtype@@ == "odbc_mssql") @> || $MM_@@cname@@_DBTYPE == "odbc_mssql"<@ endif @>){
 		if($MM_@@cname@@_CTYPE == "P"){
 			$@@cname@@->PConnect($MM_@@cname@@_DATABASE, $MM_@@cname@@_USERNAME,$MM_@@cname@@_PASSWORD, 
 			$MM_@@cname@@_LOCALE);

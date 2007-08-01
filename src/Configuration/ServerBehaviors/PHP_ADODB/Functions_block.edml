@@ -1,4 +1,4 @@
-<participant version="6.0">
+<participant version="7.0">
 	<insertText location="aboveHTML+7"><![CDATA[<?php //Aditional Functions
 require_once('@@relpath@@includes/functions.inc.php');?>]]></insertText>
 	<searchPatterns whereToSearch="directive">

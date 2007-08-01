@@ -144,6 +144,10 @@ function applyServerBehavior(priorSBRecordset)
     //   and table name values and invoke the recordset sb).  
     if (MM.recordsetSBDefaults)
     {
+		// RST: added to enable the posibility of creating fake SBs to 
+		// behave like Recordsets
+		sbObj.name = MM.RecordsetPriorRec;
+    	
       sbObj.setConnectionName(MM.recordsetSBDefaults.connectionName);
       sbObj.setDatabaseCall(MM.recordsetSBDefaults.sql, new Array());
       

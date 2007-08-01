@@ -4,5 +4,4 @@
 		<groupParticipant name="Recordset_main" partType="identifier" />
 		<groupParticipant name="Recordset_close" partType="member" />
 	</groupParticipants>
-	<TITLE>Recordset</TITLE>
 </group>

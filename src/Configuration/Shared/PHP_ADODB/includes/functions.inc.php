@@ -245,7 +245,7 @@ function KT_keepParams($paramName) {
 */
 function KT_session_register($varname, $value = null) {
 	global $$varname;
-	if ($value == null) {
+	if (is_null($value)) {
 		$value = $$varname;
 	}
 	if (version_compare(phpversion(), "4.1.0", "<")) { //if the version is smaller than php 4.1.0
@@ -255,11 +255,11 @@ function KT_session_register($varname, $value = null) {
 			}
 			session_register($varname);
 		}
-		global $HTTP_SESSION_VARS;
-		$HTTP_SESSION_VARS[$varname] = $value;
 	} else {
 		$_SESSION[$varname] = $value;
 	}
+	global $HTTP_SESSION_VARS;
+	$HTTP_SESSION_VARS[$varname] = $value;
 }
 /**
 	unregister a variable from the session taking in account the PHP version
@@ -281,13 +281,28 @@ function KT_session_unregister($varname) {
 		unset($_SESSION[$varname]);
 	}
 }
-
+/**
+	Search an level name into an array of comma separated levels
+	@params
+		$levels - allowed levels
+		$element - the element to be searched
+	@return 
+		- true if was found
+		- false otherwise
+*/
+function KT_strpos($levels, $element){
+    $to_array = explode(',', substr($levels,1)); // the first char is a white space.
+	return in_array($element, $to_array, true);	
+}
 //normalize SERVER and ENV vars
 if (!isset($HTTP_SERVER_VARS['QUERY_STRING']) && isset($HTTP_ENV_VARS['QUERY_STRING'])) {
 	$HTTP_SERVER_VARS['QUERY_STRING'] = $HTTP_ENV_VARS['QUERY_STRING'];
 }
 if (!isset($HTTP_SERVER_VARS['REQUEST_URI']) && isset($HTTP_ENV_VARS['REQUEST_URI'])) {
 	$HTTP_SERVER_VARS['REQUEST_URI'] = $HTTP_ENV_VARS['REQUEST_URI'];
+}
+if (!isset($HTTP_SERVER_VARS['REQUEST_URI'])) {
+	$HTTP_SERVER_VARS['REQUEST_URI'] = $HTTP_SERVER_VARS['SCRIPT_NAME'].(isset($HTTP_SERVER_VARS['QUERY_STRING'])?"?".$HTTP_SERVER_VARS['QUERY_STRING']:"");
 }
 if (!isset($HTTP_SERVER_VARS['HTTP_HOST']) && isset($HTTP_ENV_VARS['HTTP_HOST'])) {
 	$HTTP_SERVER_VARS['HTTP_HOST'] = $HTTP_ENV_VARS['HTTP_HOST'];

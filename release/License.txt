@@ -1,5 +1,5 @@
 
-By Library we refer to the PHAkt library. This license also applies to all subsequent revisions of PHAkt released under this license; this library is available at http://www.interakt.ro/.
+By Library we refer to the PHAkt library. This license also applies to all subsequent revisions of PHAkt released under this license; this library is available at http://www.interaktonline.com/.
 
 This library is (c)2001, 2003 InterAKT Online. All rights reserved.
 ------------------------------------------------------------------------------

@@ -120,6 +120,7 @@ function applyServerBehavior(sbObj)
   if (errMsg=="")
   {
     paramObj.MM_username = MM_USERNAME;
+		paramObj.KTprefixbc = "KT_";
     paramObj.MM_userAuthorization = MM_USERAUTHORIZATION;
 		paramObj.at = "@";
     

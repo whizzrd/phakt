@@ -70,6 +70,7 @@ function KT_dbtypeChanged(){
     switch (KT_dbtype) {
     	case "access" :
     	case "odbc" :
+	case "odbc_mssql":
     	case "ado" :
 			HOST_NAME_OBJ.disabled = true;
     		break;
@@ -205,9 +206,10 @@ function applyConnection()
       // connParams.designtimeString = buildDSNConnectionString(dsn, connParams.username, connParams.password);
     }
 
-    var part = new Participant(PARTICIPANT_FILE);
+//	var part = new Participant(PARTICIPANT_FILE);
 
-    code = part.getInsertString(connParams);
+//	code = part.getInsertText(connParams);
+	code = extPart.getInsertString("", PARTICIPANT_FILE, connParams);
   }
   
   return code;
