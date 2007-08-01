@@ -1,0 +1,126 @@
+<participant name="connection_includefile" version="5.0">
+    <quickSearch><![CDATA[Type=]]></quickSearch>
+    <insertText location="aboveHTML+2">
+<![CDATA[<?php 
+	# PHP ADODB document - made with PHAkt
+	# FileName="@@filename@@"
+	# Type="@@type@@"
+	# HTTP="@@http@@"
+	# DBTYPE="@@dbtype@@"
+	
+	$MM_@@cname@@_HOSTNAME = "@@hostname@@";
+	$MM_@@cname@@_DATABASE = "@@databasename@@";
+	$MM_@@cname@@_DBTYPE   = preg_replace("/:.*$/", "", $MM_@@cname@@_DATABASE);
+	$MM_@@cname@@_DATABASE = preg_replace("/^.*?:/", "", $MM_@@cname@@_DATABASE);
+	$MM_@@cname@@_USERNAME = "@@username@@";
+	$MM_@@cname@@_PASSWORD = "@@password@@";
+	$MM_@@cname@@_LOCALE = "@@locale@@";
+	$MM_@@cname@@_MSGLOCALE = "@@msglocale@@";
+	$MM_@@cname@@_CTYPE = "@@ctype@@";
+	$KT_locale = $MM_@@cname@@_MSGLOCALE;
+	$KT_dlocale = $MM_@@cname@@_LOCALE;
+	$KT_serverFormat = "%Y-%m-%d %H:%M:%S";
+	$QUB_Caching = "@@QUBCaching@@";
+	
+	switch (strtoupper ($MM_@@cname@@_LOCALE)) {
+		case 'EN':
+				$KT_localFormat = "%d-%m-%Y %H:%M:%S";
+		break;
+		case 'EUS':
+				$KT_localFormat = "%m-%d-%Y %H:%M:%S";
+		break;
+		case 'FR':
+				$KT_localFormat = "%d-%m-%Y %H:%M:%S";
+		break;
+		case 'RO':
+				$KT_localFormat = "%d-%m-%Y %H:%M:%S";
+		break;
+		case 'IT':
+				$KT_localFormat = "%d-%m-%Y %H:%M:%S";
+		break;
+		case 'GE':
+				$KT_localFormat = "%d.%m.%Y %H:%M:%S";
+		break;
+		case 'US':
+				$KT_localFormat = "%Y-%m-%d %H:%M:%S";
+		break;
+		default :
+				$KT_localFormat = "none";			
+	}
+
+
+	
+	if (!defined('CONN_DIR')) define('CONN_DIR',dirname(__FILE__));
+	require_once(CONN_DIR."/../adodb/adodb.inc.php");
+	ADOLoadCode($MM_@@cname@@_DBTYPE);
+	$@@cname@@=&ADONewConnection($MM_@@cname@@_DBTYPE);
+
+	if($MM_@@cname@@_DBTYPE == "access" || $MM_@@cname@@_DBTYPE == "odbc"){
+		if($MM_@@cname@@_CTYPE == "P"){
+			$@@cname@@->PConnect($MM_@@cname@@_DATABASE, $MM_@@cname@@_USERNAME,$MM_@@cname@@_PASSWORD, 
+			$MM_@@cname@@_LOCALE);
+		} else $@@cname@@->Connect($MM_@@cname@@_DATABASE, $MM_@@cname@@_USERNAME,$MM_@@cname@@_PASSWORD, 
+			$MM_@@cname@@_LOCALE);
+	} else if (($MM_@@cname@@_DBTYPE == "ibase") or ($MM_@@cname@@_DBTYPE == "firebird")) {
+		if($MM_@@cname@@_CTYPE == "P"){
+			$@@cname@@->PConnect($MM_@@cname@@_HOSTNAME.":".$MM_@@cname@@_DATABASE,$MM_@@cname@@_USERNAME,$MM_@@cname@@_PASSWORD);
+		} else $@@cname@@->Connect($MM_@@cname@@_HOSTNAME.":".$MM_@@cname@@_DATABASE,$MM_@@cname@@_USERNAME,$MM_@@cname@@_PASSWORD);
+	}else {
+		if($MM_@@cname@@_CTYPE == "P"){
+			$@@cname@@->PConnect($MM_@@cname@@_HOSTNAME,$MM_@@cname@@_USERNAME,$MM_@@cname@@_PASSWORD,
+   			$MM_@@cname@@_DATABASE,$MM_@@cname@@_LOCALE);
+		} else $@@cname@@->Connect($MM_@@cname@@_HOSTNAME,$MM_@@cname@@_USERNAME,$MM_@@cname@@_PASSWORD,
+   			$MM_@@cname@@_DATABASE,$MM_@@cname@@_LOCALE);
+   }
+
+	if (!function_exists("updateMagicQuotes")) {
+		function updateMagicQuotes($HTTP_VARS){
+			if (is_array($HTTP_VARS)) {
+				foreach ($HTTP_VARS as $name=>$value) {
+					if (!is_array($value)) {
+						$HTTP_VARS[$name] = addslashes($value);
+					} else {
+						foreach ($value as $name1=>$value1) {
+							if (!is_array($value1)) {
+								$HTTP_VARS[$name1][$value1] = addslashes($value1);
+							}
+						}
+						
+					}
+					global $$name;
+					$$name = &$HTTP_VARS[$name];
+				}
+			}
+			return $HTTP_VARS;
+		}
+		
+		if (!get_magic_quotes_gpc()) {
+			$HTTP_GET_VARS = updateMagicQuotes($HTTP_GET_VARS);
+			$HTTP_POST_VARS = updateMagicQuotes($HTTP_POST_VARS);
+			$HTTP_COOKIE_VARS = updateMagicQuotes($HTTP_COOKIE_VARS);
+		}
+	}
+	if (!isset($HTTP_SERVER_VARS['REQUEST_URI'])) {
+		$HTTP_SERVER_VARS['REQUEST_URI'] = $HTTP_SERVER_VARS['PHP_SELF'];
+	}
+?>
+]]>
+    </insertText>
+    <searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="filename"><![CDATA[/FileName="([^"]*)"/]]></searchPattern>	
+		<searchPattern paramNames="type"><![CDATA[/Type="(\w*)"/]]></searchPattern>
+		<searchPattern paramNames="http"><![CDATA[/HTTP="(\w*)"/]]></searchPattern>
+		<searchPattern paramNames="cname,hostname"><![CDATA[/MM_(\w*)_HOSTNAME\s*=\s*"([^"]*)"/]]></searchPattern>
+		<searchPattern paramNames="dbtype"><![CDATA[/DBTYPE="(\w*)"/]]></searchPattern>
+
+		<searchPattern paramNames="cname,locale"><![CDATA[/MM_(\w*)_LOCALE\s*=\s*"([^"]*)"/]]></searchPattern>
+		<searchPattern paramNames="cname,msglocale"><![CDATA[/MM_(\w*)_MSGLOCALE\s*=\s*"([^"]*)"/]]></searchPattern>
+		<searchPattern paramNames="cname,ctype"><![CDATA[/MM_(\w*)_CTYPE\s*=\s*"([^"]*)"/]]></searchPattern>
+
+		<searchPattern paramNames="cname,databasename"><![CDATA[/MM_(\w*)_DATABASE\s*=\s*"([^"]*)"/]]></searchPattern>
+		<searchPattern paramNames="cname,username"><![CDATA[/MM_(\w*)_USERNAME\s*=\s*"([^"]*)"/]]></searchPattern>
+		<searchPattern paramNames="cname,password"><![CDATA[/MM_(\w*)_PASSWORD\s*=\s*"([^"]*)"/]]></searchPattern>
+		<searchPattern paramNames="QUBCaching" isOptional="true"><![CDATA[/\$QUB_Caching\s*=\s*"([^";]*)";/]]></searchPattern>
+    </searchPatterns>
+  </implementation>
+</participant>

@@ -1,0 +1,47 @@
+<!-- This file contains all the server behavior menus for PHP. -->
+<!-- The main menu bar is located at the end of this file -->
+
+<!-- WARNING: DO NOT CHANGE ANY ID ATTRIBUTES ASSOCIATED WITH MENU ITEMS. -->
+<!-- Changing IDs will make it impossible for other developers to locate -->
+<!-- menu items for installation purposes. -->
+<menubar id="DWMenu_ServerBehaviors_PHPADODB">
+  <menuitem file="Recordset.htm" id="DWMenu_ServerBehaviors_PHPADODB"/>
+<separator />
+  <menuitem  file="RepeatedRegion.htm" id="DWMenu_ServerBehaviors_PHPADODB"/>
+  <menu name="Recordset Paging" id="DWMenu_ServerBehaviors_PHPADODB_MoveTo">
+    <menuitem file="MoveToFirst.htm" id="DWMenu_ServerBehaviors_PHPADODB_MoveFirst"/>
+    <menuitem file="MoveToPrevious.htm" id="DWMenu_ServerBehaviors_PHPADODB_MovePrevious"/>
+    <menuitem file="MoveToNext.htm" id="DWMenu_ServerBehaviors_PHPADODB_MoveNext"/>
+    <menuitem file="MoveToLast.htm" id="DWMenu_ServerBehaviors_PHPADODB_MoveLast"/>
+  </menu>
+  <menu name="Show Region" id="DWMenu_ServerBehaviors_PHPADODB_ShowRegion">
+    <menuitem file="ShowIfRSEmpty.htm" id="DWMenu_ServerBehaviors_PHPADODB_emptyRS"/>
+    <menuitem file="ShowIfRSNotEmpty.htm" id="DWMenu_ServerBehaviors_PHPADODB_notEmptyRS"/>
+    <menuitem file="ShowIfFirstPage.htm" id="DWMenu_ServerBehaviors_PHPADODB_firstPage"/>
+    <menuitem file="ShowIfNotFirstPage.htm" id="DWMenu_ServerBehaviors_PHPADODB_notFirstPage"/>
+    <menuitem file="ShowIfLastPage.htm" id="DWMenu_ServerBehaviors_PHPADODB_lastPage"/>
+    <menuitem file="ShowIfNotLastPage.htm" id="DWMenu_ServerBehaviors_PHPADODB_notLastPage"/>
+  </menu>
+  <menu name="Display Record Count" id="DWMenu_ServerBehaviors_PHPADODB_DisplayStats">
+    <menuitem file="RSStatsFirst.htm" id="DWMenu_ServerBehaviors_PHPADODB_RSStatsFirst"/>
+    <menuitem file="RSStatsLast.htm" id="DWMenu_ServerBehaviors_PHPADODB_RSStatsLast"/>
+    <menuitem file="RSStatsTotal.htm" id="DWMenu_ServerBehaviors_PHPADODB_RSStatsTotal"/>
+    <menuitem file="RSStatsAll.htm" id="DWMenu_ServerBehaviors_PHPADODB_RSStatsAll"/>
+  </menu>
+  <menuitem file="DynamicText.htm" id="DWMenu_ServerBehaviors_PHPADODB_DynamicData"/>
+<separator />
+  <menuitem file="InsertRecord.htm" id="DWMenu_ServerBehaviors_PHPADODB_Insert"/>
+  <menuitem file="UpdateRecord.htm" id="DWMenu_ServerBehaviors_PHPADODB_Update"/>
+  <menuitem file="DeleteRecord.htm" id="DWMenu_ServerBehaviors_PHPADODB_Delete"/>
+  <menu name="Dynamic Form Elements" id="DWMenu_ServerBehaviors_PHPADODB_DynamicElements">
+    <menuitem file="DynamicTextField.htm" id="DWMenu_ServerBehaviors_PHPADODB_DynamicTextField"  />
+    <menuitem file="DynamicCheckbox.htm" id="DWMenu_ServerBehaviors_PHPADODB_DynamicCheckBox"  />
+    <menuitem file="DynRadioGroup.htm" id="DWMenu_ServerBehaviors_PHPADODB_DynamicRadio"  />
+    <menuitem file="DynamicSelectList.htm" id="DWMenu_ServerBehaviors_PHPADODB_DynamicSelectList"/>
+  </menu>
+  <menu name="User Authentication" id="DWMenu_ServerBehaviors_PHPADODB_UserAuthentication">
+    <menuitem file="LoginUser.htm" id="DWMenu_ServerBehaviors_PHPADODB_LoginUser" />
+    <menuitem file="RestrictAccess.htm" id="DWMenu_ServerBehaviors_PHPADODB_RestrictPage" />
+    <menuitem file="LogoutUser.htm" id="DWMenu_ServerBehaviors_PHPADODB_LogoutUser" />
+  </menu>
+</menubar>
