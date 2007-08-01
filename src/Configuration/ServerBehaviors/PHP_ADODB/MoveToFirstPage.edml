@@ -1,4 +1,4 @@
-<group name="MoveToFirstPage" version="6.0" serverBehavior="MoveToFirstPage.htm" dataSource="Recordset.htm">
+<group name="MoveToFirstPage" version="6.1" serverBehavior="MoveToFirst.htm" dataSource="Recordset.htm">
 	<groupParticipants selectParticipant="MoveToFirstPage_link">
 		<groupParticipant name="MoveToFirstPage_link" partType="identifier" />
 		<groupParticipant name="MoveTo_queryString" partType="member" />

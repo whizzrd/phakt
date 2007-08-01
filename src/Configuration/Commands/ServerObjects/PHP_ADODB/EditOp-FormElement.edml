@@ -15,7 +15,8 @@
 <tr valign="baseline">
 	<td nowrap align="right" valign="top">@@ElementLabel@@</td>
 	<td>
-		<textarea name="@@ElementName@@" cols="50" rows="5">@@ElementValue@@</textarea>
+		<textarea name="@@ElementName@@" cols="50" rows="5">
+@@ElementValue@@</textarea>
 	</td>
 </tr>
 <@ elseif (@@ElementType@@ == "text") @>
@@ -69,7 +70,6 @@
 			<@ loop (@@FieldLabel@@, @@FieldValue@@,@@FieldChecked@@) @>
 			<tr>
 				<td><input type="radio" name="@@ElementName@@" value="@@FieldValue@@" @@FieldChecked@@>@@FieldLabel@@</td>
-				<td>
 			</tr>
 			<@ endloop @>
 		</table>

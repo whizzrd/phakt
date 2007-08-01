@@ -1,6 +1,6 @@
 <?php
 /* 
-V2.91 3 Jan 2003  (c) 2000-2003 John Lim (jlim@natsoft.com.my). All rights reserved.
+V4.11 27 Jan 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. 
@@ -34,6 +34,7 @@ class ADODB_ado extends ADOConnection {
 		
 	function ADODB_ado() 
 	{ 	
+		$this->_affectedRows = new VARIANT;
 	}
 
 	function ServerInfo()
@@ -44,7 +45,7 @@ class ADODB_ado extends ADOConnection {
 	
 	function _affectedrows()
 	{
-			return $this->_affectedRows;
+			return $this->_affectedRows->value;
 	}
 	
 	// you can also pass a connection string like this:
@@ -139,7 +140,7 @@ class ADODB_ado extends ADOConnection {
 
 */
 	
-	function MetaTables()
+	function &MetaTables()
 	{
 		$arr= array();
 		$dbc = $this->_connectionID;
@@ -161,9 +162,9 @@ class ADODB_ado extends ADOConnection {
 		return $arr;
 	}
 	
-	function MetaColumns($table)
+	function &MetaColumns($table)
 	{
-		$table = ($table);
+		$table = strtoupper($table);
 		$arr= array();
 		$dbc = $this->_connectionID;
 		
@@ -174,14 +175,14 @@ class ADODB_ado extends ADOConnection {
 			while (!$adors->EOF){
 				
 				
-				if (($t->Value) == $table) {
+				if (strtoupper($t->Value) == $table) {
 				
 					$fld = new ADOFieldObject();
 					$c = $adors->Fields(3);
 					$fld->name = $c->Value;
 					$fld->type = 'CHAR'; // cannot discover type in ADO!
 					$fld->max_length = -1;
-					$arr[($fld->name)]=$fld;
+					$arr[strtoupper($fld->name)]=$fld;
 				}
 		
 				$adors->MoveNext();
@@ -191,6 +192,9 @@ class ADODB_ado extends ADOConnection {
 		
 		return $arr;
 	}
+	
+
+
 	
 	/* returns queryID or false */
 	function &_query($sql,$inputarr=false) 
@@ -312,14 +316,14 @@ class ADORecordSet_ado extends ADORecordSet {
 	var $canSeek = true;
   	var $hideErrors = true;
 		  
-	function ADORecordSet_ado($id,$locale='',$mode=false)
+	function ADORecordSet_ado($id,$mode=false)
 	{
 		if ($mode === false) { 
 			global $ADODB_FETCH_MODE;
 			$mode = $ADODB_FETCH_MODE;
 		}
 		$this->fetchMode = $mode;
-		return $this->ADORecordSet($id,$locale,$mode);
+		return $this->ADORecordSet($id,$mode);
 	}
 
 
@@ -344,16 +348,16 @@ class ADORecordSet_ado extends ADORecordSet {
 	/* Use associative array to get fields array */
 	function Fields($colname)
 	{
-		if ($this->fetchMode & ADODB_FETCH_ASSOC) return unescapeQuotes($this->fields[$colname]);
+		if ($this->fetchMode & ADODB_FETCH_ASSOC) return $this->fields[$colname];
 		if (!$this->bind) {
 			$this->bind = array();
 			for ($i=0; $i < $this->_numOfFields; $i++) {
 				$o = $this->FetchField($i);
-				$this->bind[($o->name)] = $i;
+				$this->bind[strtoupper($o->name)] = $i;
 			}
 		}
 		
-		 return unescapeQuotes($this->fields[$this->bind[($colname)]]);
+		 return $this->fields[$this->bind[strtoupper($colname)]];
 	}
 
 		
@@ -516,7 +520,10 @@ class ADORecordSet_ado extends ADORecordSet {
 	function _fetch()
 	{	
 		$rs = $this->_queryID;
-		if (!$rs or $rs->EOF) return false;
+		if (!$rs or $rs->EOF) {
+			$this->fields = false;
+			return false;
+		}
 		$this->fields = array();
 	
 		if (!$this->_tarr) {
@@ -539,15 +546,18 @@ class ADORecordSet_ado extends ADORecordSet {
 
 			switch($t) {
 			case 135: // timestamp
-				$this->fields[] = date('Y-m-d H:i:s',(integer)$f->value);
-				break;
-				
+				if (!strlen((string)$f->value)) $this->fields[] = false;
+				else $this->fields[] = adodb_date('Y-m-d H:i:s',(float)$f->value);
+				break;			
 			case 133:// A date value (yyyymmdd) 
-				$val = $f->value;
-				$this->fields[] = substr($val,0,4).'-'.substr($val,4,2).'-'.substr($val,6,2);
+				if ($val = $f->value) {
+					$this->fields[] = substr($val,0,4).'-'.substr($val,4,2).'-'.substr($val,6,2);
+				} else
+					$this->fields[] = false;
 				break;
 			case 7: // adDate
-				$this->fields[] = date('Y-m-d',(integer)$f->value);
+				if (!strlen((string)$f->value)) $this->fields[] = false;
+				else $this->fields[] = adodb_date('Y-m-d',(float)$f->value);
 				break;
 			case 1: // null
 				$this->fields[] = false;
@@ -568,12 +578,30 @@ class ADORecordSet_ado extends ADORecordSet {
 		@$rs->MoveNext(); // @ needed for some versions of PHP!
 		
 		if ($this->fetchMode & ADODB_FETCH_ASSOC) {
-			$this->fields = $this->GetRowAssoc(ADODB_ASSOC_CASE);
+			$this->fields = &$this->GetRowAssoc(ADODB_ASSOC_CASE);
 		}
 		return true;
 	}
 	
-	
+		function NextRecordSet()
+		{
+			$rs = $this->_queryID;
+			$this->_queryID = $rs->NextRecordSet();
+			//$this->_queryID = $this->_QueryId->NextRecordSet();
+			if ($this->_queryID == null) return false;
+			
+			$this->_currentRow = -1;
+			$this->_currentPage = -1;
+			$this->bind = false;
+			$this->fields = false;
+			$this->_flds = false;
+			$this->_tarr = false;
+			
+			$this->_inited = false;
+			$this->Init();
+			return true;
+		}
+
 	function _close() {
 		$this->_flds = false;
 		@$this->_queryID->Close();// by Pete Dishman (peterd@telephonetics.co.uk)
@@ -582,81 +610,4 @@ class ADORecordSet_ado extends ADORecordSet {
 
 }
 
-/*
-ID:			   18253
- Updated by:	   mkools@euronet.nl
- Reported By:	  mkools@euronet.nl
- Status:		   Bogus
- Bug Type:		 COM related
- Operating System: Windows 2000 Pro SP2
- PHP Version:	  4.2.1
- New Comment:
-
-You were right, my code was wrong indeed. I did $VRows = new VARIANT();
-and then called the Execute function with &$VRows .. and that did work.
-But when I searched for a solution on the web, no site suggested this
-solution. Is it perhaps because of it's changed in version 4.2.1? Or is
-all the other code wrong too then?
-But many thanks!
-
-
-Previous Comments:
-------------------------------------------------------------------------
-
-[2002-07-17 18:48:01] phanto@php.net
-
-your code is wrong, try 
-
-$Vrows = new VARIANT();
-<..>
-
-$Vrows->value will most likely -1 then as almost no ADODB provider
-returns the right count.
-
-alternatively you can try using $this->QueryResult->RecordCount
-
-harald
-
-------------------------------------------------------------------------
-
-[2002-07-09 19:11:13] mkools@euronet.nl
-
-Forgot this in the original post: The queries itself do seem to work
-fine, so it's only the affectedrows which isn't working.
-
-------------------------------------------------------------------------
-
-[2002-07-09 19:09:42] mkools@euronet.nl
-
-I'm currently in the process of writing a wrapper class to connect
-through ADO with an MS Access database. The whole class works, except
-for one thing: I can't get the amound of affected records of an insert,
-update or delete statement.
-What I have now is this:
-	$Vrows = new VARIANT( 0, VT_I4|VT_BYREF);
-	$this->QueryResult = @$this->Link->Execute( $inQuery, $Vrows);
-	$this->AffectedRows = $Vrows->value;
-
-Explaination: QueryResult will be my RecordSet, Link is the ADO
-Connection object, inQuery is the query itself and AffectedRows will
-hold the amount of affected records by the query.
-But this seems to return the value 7779424 in all cases (even with
-select statements).
-The second things I've tried is:
-	$this->QueryResult = @$this->Link->Execute( $inQuery,
-&$this->AffectedRows);
-
-But that doesn't do anything with the AffectedRows variable. It keeps
-holding the value of what I put in it previously (I default it to -1).
-Is this a bug, or am I doing things totally wrong? I found the latter
-syntax on some other places on the web, so either those aren't working
-either or I'm forgetting something...
-
-------------------------------------------------------------------------
-
-
--- 
-Edit this bug report at http://bugs.php.net/?id=18253&edit=1
-
-*/
 ?>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="iso-8859-1" ?>
-<info>
-	<infoitem key="UD_rsUsers" value="name:id_usr;datatype:int4,name:username_usr;datatype:varchar,name:password_usr;datatype:varchar,name:level_usr;datatype:int2" />
-</info>

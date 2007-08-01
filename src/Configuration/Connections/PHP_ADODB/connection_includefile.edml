@@ -39,7 +39,7 @@
 				$KT_localFormat = "%d-%m-%Y %H:%M:%S";
 		break;
 		case 'GE':
-				$KT_localFormat = "%d-%m-%Y %H:%M:%S";
+				$KT_localFormat = "%d.%m.%Y %H:%M:%S";
 		break;
 		case 'US':
 				$KT_localFormat = "%Y-%m-%d %H:%M:%S";
@@ -101,7 +101,7 @@
 		}
 	}
 	if (!isset($HTTP_SERVER_VARS['REQUEST_URI'])) {
-		$HTTP_SERVER_VARS['REQUEST_URI'] = $PHP_SELF;
+		$HTTP_SERVER_VARS['REQUEST_URI'] = $HTTP_SERVER_VARS['PHP_SELF'];
 	}
 ?>
 ]]>

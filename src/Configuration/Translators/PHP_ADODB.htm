@@ -102,7 +102,7 @@ function translateMarkup(docNameStr, siteRootStr, inStr)
     inStr=inStr.replace(/^\s*/, "");
     tmpStrArr = inStr.split(/<html>/i);
     inStr=tmpStrArr[0];
-    inStr=inStr.replace(/\?>\s*<\?php/g, "?>\n<?php");
+    inStr=inStr.replace(/\?>\s*<\?php/g, "?>\n<?php"); //"
     for(i=1;i<tmpStrArr.length;i++){
       inStr = inStr + "<html>" + tmpStrArr[i];
     }
@@ -148,6 +148,8 @@ function translateMarkup(docNameStr, siteRootStr, inStr)
   }
 
 	if (!outStr) outStr = inStr;
+	//writeAttr(outStr,"traslator.out");
+	//alert('Here');
   return outStr;
 }
 

@@ -1,7 +1,0 @@
-<group serverBehavior="Restrict Access To Page.htm" hideFromBuilder="false" version="6.0">
-	<groupParticipants selectParticipant="RestrictAccess_main">
-		<groupParticipant name="RestrictAccess_main" partType="identifier" />
-		<groupParticipant name="Functions_block" partType="member" />
-	</groupParticipants>
-	<TITLE>Restrict Access (@@failureURL@@)</TITLE>
-</group>

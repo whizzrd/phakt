@@ -45,7 +45,7 @@ function findServerBehaviors()
 {
   var sbArray = new Array();
 
-  sbArray = dwscripts.findSBs(MM.LABEL_DynamicTextTitle);
+	sbArray = dwscripts.findSBs(MM.LABEL_DynamicTextTitle);
   
   for (var i=0; i < sbArray.length; i++)
   {

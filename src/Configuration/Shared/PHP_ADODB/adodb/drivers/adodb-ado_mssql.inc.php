@@ -1,6 +1,6 @@
 <?php
 /* 
-V2.91 3 Jan 2003  (c) 2000-2003 John Lim (jlim@natsoft.com.my). All rights reserved.
+V4.11 27 Jan 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. 
@@ -27,11 +27,15 @@ class  ADODB_ado_mssql extends ADODB_ado {
 	var $leftOuter = '*=';
 	var $rightOuter = '=*';
 	var $ansiOuter = true; // for mssql7 or later
+	var $substr = "substring";
+	var $length = 'len';
+	var $upperCase = 'upper';
 	
 	//var $_inTransaction = 1; // always open recordsets, so no transaction problems.
 	
 	function ADODB_ado_mssql()
 	{
+		$this->ADODB_ado();
 	}
 	
 	function _insertid()
@@ -50,9 +54,9 @@ class  ADORecordSet_ado_mssql extends ADORecordSet_ado {
 	
 	var $databaseType = 'ado_mssql';
 	
-	function ADORecordSet_ado_mssql($id,$locale='',$mode=false)
+	function ADORecordSet_ado_mssql($id,$mode=false)
 	{
-		return $this->ADORecordSet_ado($id,$locale,$mode);
+		return $this->ADORecordSet_ado($id,$mode);
 	}
 }
 ?>

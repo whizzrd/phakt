@@ -1,10 +1,8 @@
-This is PHAkt 2 MX final version.
-
 -------------------------------------------------------------------------------
-PHAkt 2 MX - PHP server model for Dreamweaver MX
-Copyright (C) 2001,2003  InterAKT Online - phakt@interakt.ro
------ version 2.4.3 ------
-http://www.interakt.ro/products/PHAkt/
+PHAkt2 - PHP server model for Dreamweaver MX and MX 2004
+ - version 2.7.3 of 2004-03-02
+ - http://www.interakt.ro/products/PHAkt/
+ - Copyright (C) 2001, 2004  InterAKT Online -  phakt@interakt.ro
 -------------------------------------------------------------------------------
 
 LICENSE
@@ -25,18 +23,16 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 -------------------------------------------------------------------------------
 
-README.txt              				- this file
-phakt-2_4_3.mxp         				- the Macromedia extension file
-LICENSE.txt              				- the GPL license
-ChangeLog.txt           				- List of fixes, additions
+README.txt                      - this file
+phakt-2_7_3.mxp                 - the Macromedia extension file
+LICENSE.txt                     - the GPL license
+ChangeLog.txt                   - List of fixes, additions
 Install.txt                     - the install guide
 Update.txt                      - the updade guide
 
 -------------------------------------------------------------------------------
 
-PHAkt2 is a free and complex implementation of PHP server model for the Dreamweaver 
-MX environment. It adds a lot of improvements over the PHP_MySQL server model that ships
-with Dreamweaver:
+PHAkt2 is a free and complex implementation of PHP server model for the Dreamweaver MX environment. It adds a lot of improvements over the PHP_MySQL server model that ships with Dreamweaver:
 - Support for multiple databases in a transparent way
 - Support for MySQL, PostgreSQL and MsSQL date locales
 - User authentication Server Behaviors
@@ -46,35 +42,34 @@ with Dreamweaver:
 - Multiple and extensible recordset support.
 - IIS and Apache 2 support by using absolute redirects.
 
-The release numbering convention we're using is major.minor.micro.
-Major indicates a large change in the core package, minor a significant
-amount of feature addition/modification(even - stable version, odd - unstable), 
-micro mostly for bug fixes.
+The release numbering convention we're using is major.minor.micro. Major indicates a large change in the core package, minor a significant amount of feature addition/modification(even - stable version, odd - unstable), micro mostly for bug fixes.
 
 We'd appreciate an email letting us know if you find this extensions useful.
+
 We also design and sell a suite of commercial products based on PHAkt, that are
-created to increase web developer's productivity. Find more about our products at:
-http://www.interakt.ro/products/
+created to increase web developer's productivity. Find more about our products at: http://www.interakt.ro/products/
 
 We're open to suggestions for improvement in the generated code or design.
 
 Credits:
 ---------
-Mihai Pricope      - mpricope@interakt.ro	  - mantainer, programming
-Bogdan Ripa        - bripa@interakt.ro	    - programming, QA
-Alexandru Costin   - acostin@interakt.ro	  - architecture, documentation
+Mihai PRICOPE      - mpricope@interakt.r    - mantainer, programming
+Bogdan RIPA        - bripa@interakt.ro	    - programming, QA
+Alexandru COSTIN   - acostin@interakt.ro    - architecture, documentation
+Ionut MOICIANU     - imoicianu@interakt.ro  - testing
+Cristian MARIN     - cmarin@interakt.ro     - support
 
 Links:
-WWWBoard
-	http://www.interakt.ro/products/bbs/index.php?prodId=0
+Forums:
+	http://www.interakt.ro/products/bbs/index_0.html
 
-Bugtracker
+Bugtracker:
 	http://www.interakt.ro/products/bt/
 
 InterAKT Website
 	http://www.interakt.ro/
 
-Interakt Software Development Products
+InterAKT Software Development Products
 	http://www.interakt.ro/products/
 
 PHP resources on DMXZone

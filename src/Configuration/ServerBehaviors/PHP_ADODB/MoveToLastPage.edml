@@ -1,4 +1,4 @@
-<group name="MoveToLastPage" version="6.0" serverBehavior="MoveToLastPage.htm" dataSource="Recordset.htm">
+<group name="MoveToLastPage" version="6.0" serverBehavior="MoveToLast.htm" dataSource="Recordset.htm">
 	<groupParticipants selectParticipant="MoveToLastPage_link">
 		<groupParticipant name="MoveToLastPage_link" partType="identifier" />
 		<groupParticipant name="MoveTo_queryString" partType="member" />

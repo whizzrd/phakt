@@ -1,7 +1,7 @@
 <participant version="6.0">
 	<insertText location="aboveHTML+99"><![CDATA[<?php //PHP ADODB document - made with PHAkt @@version@@?>]]></insertText>
 	<searchPatterns whereToSearch="directive">
-		<searchPattern paramNames="version" isOptional="false" limitSearch="all"><![CDATA[/PHP ADODB document - made with PHAkt ([^\r\n]*?)(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+		<searchPattern paramNames="version" isOptional="false" limitSearch="all"><![CDATA[/\/\/PHP ADODB document - made with PHAkt ([^\r\n]*?)(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
 	</searchPatterns>
 	<quickSearch>document</quickSearch>
 	<delete deleteType="none" />

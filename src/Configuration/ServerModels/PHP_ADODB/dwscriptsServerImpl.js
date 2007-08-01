@@ -150,7 +150,7 @@ function decodeDynamicExpression(expression)
     }
     else
     {
-      retVal = "<?php " + expression + " ?>";
+      retVal = "<?php echo " + expression + " ?>";
     }
   }
 
@@ -571,9 +571,9 @@ function getParameterTypeArray(bRemoveEnteredVal)
   // Make a copy of MM.LABEL_PHP_Param_Types. We may need to alter it and we
   //   don't want to affect the original array.
   var paramTypes = new Array();
-  for (var i = 0; i < MM.KT_LABEL_PHP_Param_Types.length; ++i)
+  for (var i = 0; i < MM.LABEL_PHP4_Param_Types.length; ++i)
   {
-    paramTypes.push(MM.KT_LABEL_PHP_Param_Types[i]);
+    paramTypes.push(MM.LABEL_PHP4_Param_Types[i]);
   }
 
   if (bRemoveEnteredVal)
@@ -604,38 +604,38 @@ function getParameterCodeFromType(paramType, paramNameOrValue, paramDefault)
 {
   var runtimeVal = dwscripts.sprintf(MM.MSG_UnknownParamType, paramType);
   var nameVal = "";
-  var defaultVal = "1";
+  var defaultVal = "-1";
 
   switch(paramType)
   {
-    case MM.KT_LABEL_PHP_Param_Types[0]:
+    case MM.LABEL_PHP4_Param_Types[0]:
       runtimeVal = "$HTTP_GET_VARS['" + paramNameOrValue + "']";
       nameVal = runtimeVal;
       break;
-    case MM.KT_LABEL_PHP_Param_Types[1]:
+    case MM.LABEL_PHP4_Param_Types[1]:
       runtimeVal = "$HTTP_POST_VARS['" + paramNameOrValue + "']";
       nameVal = runtimeVal;
       break;
-    case MM.KT_LABEL_PHP_Param_Types[2]:
+    case MM.LABEL_PHP4_Param_Types[2]:
       runtimeVal = "$HTTP_COOKIE_VARS['" + paramNameOrValue + "']";
       nameVal = runtimeVal;
       break;
-    case MM.KT_LABEL_PHP_Param_Types[3]:
+    case MM.LABEL_PHP4_Param_Types[3]:
       runtimeVal = "$HTTP_SESSION_VARS['" + paramNameOrValue + "']";
       nameVal = runtimeVal;
       break;
-    case MM.KT_LABEL_PHP_Param_Types[4]:
+    case MM.LABEL_PHP4_Param_Types[4]:
       runtimeVal = "$HTTP_SERVER_VARS['" + paramNameOrValue + "']";
       nameVal = runtimeVal;
       break;
-    case MM.KT_LABEL_PHP_Param_Types[5]:
+    case MM.LABEL_PHP4_Param_Types[5]:
       runtimeVal = paramNameOrValue;
       nameVal = runtimeVal;
       break;
   }
 
   var outObj = new Object();
-  if (paramType == MM.LABEL_CF_Param_Types[5])
+  if (paramType == MM.LABEL_PHP4_Param_Types[6])
   {
     outObj = null;
   }
@@ -676,30 +676,33 @@ function getParameterTypeFromCode(runtimeValue)
 
   if (runtimeVal.search(/\s*\$HTTP_GET_VARS\['([^']*)'\]\s*/) != -1)
   {
-    paramType = MM.LABEL_PHP_Param_Types[0];
+    paramType = MM.LABEL_PHP4_Param_Types[0];
   }
   else if (runtimeVal.search(/\s*\$HTTP_POST_VARS\['([^']*)'\]\s*/) != -1)
   {
-    paramType = MM.LABEL_PHP_Param_Types[1];
+    paramType = MM.LABEL_PHP4_Param_Types[1];
   }
   else if (runtimeVal.search(/\s*\$HTTP_COOKIE_VARS\['([^']*)'\]\s*/) != -1)
   {
-    paramType = MM.LABEL_PHP_Param_Types[2];
+    paramType = MM.LABEL_PHP4_Param_Types[2];
   }
   else if (runtimeVal.search(/\s*\$HTTP_SESSION_VARS\['([^']*)'\]\s*/) != -1)
   {
-    paramType = MM.LABEL_PHP_Param_Types[3];
+    paramType = MM.LABEL_PHP4_Param_Types[3];
   }
   else if (runtimeVal.search(/\s*\$HTTP_SERVER_VARS\['([^']*)'\]\s*/) != -1)
   {
-    paramType = MM.LABEL_PHP_Param_Types[4];
+    paramType = MM.LABEL_PHP4_Param_Types[4];
   }
-  else
+  else if (runtimeVal.search(/^\s*\$/) != -1)
   {
-    paramType = MM.LABEL_PHP_Param_Types[5];
-  }
+    paramType = MM.LABEL_PHP4_Param_Types[5];
+  } else {
+    paramType = MM.LABEL_PHP4_Param_Types[6];
+	}
 
-  if (paramType == MM.LABEL_PHP_Param_Types[5])
+  if ((paramType == MM.LABEL_PHP4_Param_Types[5]) ||
+			(paramType == MM.LABEL_PHP4_Param_Types[6]))
   {
     paramName = runtimeValue;
   }
@@ -920,3 +923,191 @@ function decodeSQLColumnRef(theRef)
 }
 
 
+function getDBColumnTypeEnum(columnType) {
+
+	// Set the default to 129 to work around a bug, where the "text"
+	//  data type for SQL Server was returning blank.
+	var retVal = 129;
+
+	columnType = String(columnType);
+	if (dwscripts.isNumber(columnType) && dwscripts.getNumber(columnType) >= 0)
+	{
+		retVal = dwscripts.getNumber(columnType);
+	}
+	else
+	{
+		if (dwscripts.DB_COLUMN_ENUM_MAP == null)
+		{
+			// TODO: read in from a configuration file
+			var a = new Array();
+
+			//from the ASP book
+			a["empty"] = 0;
+			a["smallint"] = 2;
+			a["integer"] = 3;
+			a["single"] = 4;
+			a["double"] = 5;
+			a["currency"] = 6;
+			a["date"] = 7;
+			a["bstr"] = 8;
+			a["idispatch"] = 9;
+			a["error"] = 10;
+			a["boolean"] = 11;
+			a["variant"] = 12;
+			a["iunknown"] = 13;
+			a["decimal"] = 14;
+			a["tinyint"] = 16;
+			a["unsignedtinyint"] = 17;
+			a["unsignedsmallint"] = 18;
+			a["unsignedint"] = 19;
+			a["bigint"] = 20;
+			a["ebigint"] = 20; // matched to bigint
+			a["unsignedbigint"] = 21;
+			a["guid"] = 72;
+			a["binary"] = 128;
+			a["char"] = 129;
+			a["wchar"] = 130;
+			a["numeric"] = 131;
+			a["varnumeric"] = 131;
+			a["userdefined"] = 132;
+			a["dbdate"] = 133;
+			a["dbtime"] = 134;
+			a["dbtimestamp"] = 135;
+			a["varchar"] = 200;
+			a["longchar"] = 201;
+			a["longvarchar"] = 201;
+			a["memo"] = 201;
+			a["varwchar"] = 202;
+			a["string"]=201;
+			a["longvarwchar"] = 203;
+			a["varbinary"] = 204;
+			a["longvarbinary"] = 204; 
+			a["longbinary"] = 205; // matched to longvarbinary
+
+			//others
+			a["money"] = 6;
+			a["int"] = 3; //integer
+			a["counter"] = 131; //numeric
+			a["logical"] = 901; //bit
+			a["byte"] = 16; //tinyint
+
+			// firebird 
+			a["varying"] = 200; //varchar
+
+			//oracle
+			a["varchar2"] = 200;
+			a["smalldatetime"] = 135;
+			a["datetime"] = 135;
+			a["number"] = 5; //double
+			a["ref cursor"] = 900; //Arbitrary ID Val
+			a["refcursor"] = 900;
+			a["bit"] = 901; //Arbitrary ID Val;
+			a["long raw"] = 20; // Match it to BigInt
+			a["clob"] = 129; //char
+			a["long"] = 20; // bigint
+			a["double precision"] = 131; //numeric
+			a["raw"]  = 204;// Match it to Binary
+			a["nclob"]  = 204;//Match it to Binary
+			a["bfile"]  = 204;//Match it to Binary
+			a["rowid"]  = 129 ;//Match it to Hexadecimal String 
+			a["urowid"] = 129 ;//Match it to Hexadecimal String
+
+			//odbc
+			a["empid"] = 129; //char
+			a["tid"] = 129;
+			a["bit"] = 901; 
+			a["id"] = 200; //varchar
+
+			// SQL Server 7
+			a["smallmoney"] = 6; //currency
+			a["float"] = 5; //double
+			a["nchar"] = 200; //varchar
+			a["real"] = 131; //numeric
+			a["text"] = 200; //varchar
+			a["blob"] = 200       // matched to text
+			a["tinyblob"] = 200   // matched to text
+			a["mediumblob"] = 200 // matched to text
+			a["longblob"]  = 200  // matched to text
+			a["timestamp"] = 135; //numeric
+			a["sysname"] = 129;
+			a["int identity"] = 131; //numeric counter
+			a["smallint identity"] = 131; //numeric counter
+			a["tinyint identity"] = 131; //numeric counter
+			a["bigint identity"] = 131; //numeric counter
+			a["decimal() identity"] = 131; //numeric counter
+			a["numeric() identity"] = 131; //numeric counter
+			a["uniqueidentifier"] = 131;//numeric
+			a["ntext"]  = 200; //varchar
+			a["nvarchar"] = 200; //varchar
+			a["nvarchar2"] = 200; //varchar
+			a["image"]  =  204 ;// binary
+
+			// DB2
+			a["time"] = 135; // needs '
+			a["character () for bit data"] = 129;
+			// the following entries are already defined to 200 for SQL Server
+			//a["blob"] = 128; //binary
+			//a["tinyblob"] = 128; //binary
+			//a["mediumblob"] = 128; //binary
+			//a["longblob"] = 128; //binary
+			a["long varchar for bit data"] = 200; //varchar
+			a["varchar () for bit data"] = 200; //varchar
+			a["long varchar"] = 131; //numeric
+			a["character"] = 129; //char
+
+			//JDBC Specifc constants
+			a["-8"] = 200; //JDBC varchar
+			a["-9"] = 200; //JDBC varchar
+			a["-10"] = 200; //JDBC varchar
+			a["other"] = 200; //JDBC varchar
+
+			//MySQL
+			a["year"] = 133; //dbdate
+			a["tinytext"] = 200; //varchar
+			a["mediumtext"] = 200; //varchar
+			a["longtext"] = 201; //longvarchar
+			a["mediumint"] = 3; //integer
+			a["enum"] = 200; //var char
+			a["int unsigned"] = 19;
+			a["tinyint unsigned"] = 19;
+			
+			//PostgreSQL
+			a["int8"] = 3; //integer
+			a["int4"] = 3; //integer
+			a["int2"] = 2; //small int
+			a["timestamptz"] = 135;
+			a["bool"] = 200; //varchar
+			a["bpchar"] = 200; //varchar
+			
+
+			a["set"] = 132; //userdefined
+			a["double unsigned zerofill"] = 5; //double
+			a["float unsigned zerofill"] = 5; //double
+			
+			//Access
+			a["i"] = 3;
+			a["c"] = 200;
+			a["d"] = 7;
+			a["L"] = 3;
+			a["X"] = 200;
+
+			dwscripts.DB_COLUMN_ENUM_MAP = a;
+		}
+
+		if (dwscripts.DB_COLUMN_ENUM_MAP != null)
+		{
+			var cType = columnType.toLowerCase();
+			cType = cType.replace(/\s*unsigned/i,"");
+			cType = cType.replace(/\s*zerofill/i,"");
+			retVal = dwscripts.DB_COLUMN_ENUM_MAP[cType];
+
+			if (retVal == null)
+			{
+				alert(dwscripts.sprintf(MM.MSG_SQLTypeAsNumNotInMap,columnType));
+				retVal = 0;
+			}
+		}
+	}
+	
+	return retVal;
+}

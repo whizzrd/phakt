@@ -43,25 +43,44 @@ function findServerBehaviors()
   for (var i=0; i < sbList.length; i++) {
     var rsName = sbList[i].getParameter("RecordsetName");
 		if (rsName) {
-			sbList[i].setTitle(MM.LABEL_TitleRecordset + " (" + rsName + ")");
+			sbList[i].setTitle(sbList[i].name + " (" + rsName + ")");
+			if(!sbList[i].getParameter('MM_subType') && sbList[i].subType) {
+				sbList[i].setParameter('MM_subType', sbList[i].subType);
+			}
 		}
 		//fill specific parameters for every rsType
 		for (var j = 0;j < MM.rsTypes.length;j++) {
-	    domCommand = dw.getDocumentDOM(dw.getConfigurationPath() + "/Commands/" + MM.rsTypes[j].command); 
-			if (domCommand) {
-				windowCommand = domCommand.parentWindow;
-				if (windowCommand.fillAditionalParameters) {
-					windowCommand.fillAditionalParameters(sbList[i]);
-					//writeAttr(sbList[i],"Record.out" + i);
-				}			}
+			if (MM.rsTypes[j].serverModel == dw.getDocumentDOM().serverModel.getServerName()) {
+				domCommand = dw.getDocumentDOM(dw.getConfigurationPath() + "/Commands/" + MM.rsTypes[j].command); 
+				if (domCommand) {
+					windowCommand = domCommand.parentWindow;
+					if (windowCommand.fillAditionalParameters) {
+						windowCommand.fillAditionalParameters(sbList[i]);
+						//writeAttr(sbList[i],"Record.out" + i);
+					}				}
+			}
 		}
   }
+	if (sbList.length > 0) {
+		UpdateFiles.upgradeVersions('/Connections/Scripts/PHP_ADODB/_mmDBScripts','_mmServerScripts');
+		UpdateFiles.upgradeVersions('/Shared/PHP_ADODB/adodb','adodb');
+		UpdateFiles.upgradeVersions('/Shared/PHP_ADODB/includes','includes');
+	}
 	//writeAttr(sbList,"Record.out");
   return sbList;
 }
 
 
 
+function findInArray(myArray,myEntry) {
+	var idx;
+	for (idx =0;idx < myArray.length;idx++) {
+		if (myArray[idx] == myEntry) {
+			return true;
+		}
+	}
+	return false;
+}
 
 //--------------------------------------------------------------------
 // FUNCTION:
@@ -214,7 +233,7 @@ function deleteServerBehavior(sbObj)
 //--------------------------------------------------------------------
 function analyzeServerBehavior(sbObj, allRecs)
 {
-  
+  UpdateFiles.put();
    sbObj.analyze()
 }
 

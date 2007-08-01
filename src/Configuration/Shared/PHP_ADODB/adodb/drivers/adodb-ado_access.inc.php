@@ -1,6 +1,6 @@
 <?php
 /* 
-V2.91 3 Jan 2003  (c) 2000-2003 John Lim (jlim@natsoft.com.my). All rights reserved.
+V4.11 27 Jan 2004  (c) 2000-2004 John Lim (jlim@natsoft.com.my). All rights reserved.
 Released under both BSD license and Lesser GPL library license. 
 Whenever there is any discrepancy between the two licenses, 
 the BSD license will take precedence. See License.txt. 
@@ -26,6 +26,7 @@ class  ADODB_ado_access extends ADODB_ado {
 	
 	function ADODB_ado_access()
 	{
+		$this->ADODB_ado();
 	}
 	
 	function BeginTrans() { return false;}
@@ -37,9 +38,9 @@ class  ADORecordSet_ado_access extends ADORecordSet_ado {
 	
 	var $databaseType = "ado_access";		
 	
-	function ADORecordSet_ado_access($id,$locale='',$mode=false)
+	function ADORecordSet_ado_access($id,$mode=false)
 	{
-		return $this->ADORecordSet_ado($id,$locale,$mode);
+		return $this->ADORecordSet_ado($id,$mode);
 	}
 }
 ?>

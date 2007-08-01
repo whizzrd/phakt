@@ -9,10 +9,10 @@
 <separator />
   <menuitem  file="RepeatedRegion.htm" id="DWMenu_ServerBehaviors_PHPADODB"/>
   <menu name="Recordset Paging" id="DWMenu_ServerBehaviors_PHPADODB_MoveTo">
-    <menuitem file="MoveToFirstPage.htm" id="DWMenu_ServerBehaviors_PHPADODB_MoveFirst"/>
-    <menuitem file="MoveToPrevPage.htm" id="DWMenu_ServerBehaviors_PHPADODB_MovePrevious"/>
-    <menuitem file="MoveToNextPage.htm" id="DWMenu_ServerBehaviors_PHPADODB_MoveNext"/>
-    <menuitem file="MoveToLastPage.htm" id="DWMenu_ServerBehaviors_PHPADODB_MoveLast"/>
+    <menuitem file="MoveToFirst.htm" id="DWMenu_ServerBehaviors_PHPADODB_MoveFirst"/>
+    <menuitem file="MoveToPrevious.htm" id="DWMenu_ServerBehaviors_PHPADODB_MovePrevious"/>
+    <menuitem file="MoveToNext.htm" id="DWMenu_ServerBehaviors_PHPADODB_MoveNext"/>
+    <menuitem file="MoveToLast.htm" id="DWMenu_ServerBehaviors_PHPADODB_MoveLast"/>
   </menu>
   <menu name="Show Region" id="DWMenu_ServerBehaviors_PHPADODB_ShowRegion">
     <menuitem file="ShowIfRSEmpty.htm" id="DWMenu_ServerBehaviors_PHPADODB_emptyRS"/>
@@ -34,9 +34,14 @@
   <menuitem file="UpdateRecord.htm" id="DWMenu_ServerBehaviors_PHPADODB_Update"/>
   <menuitem file="DeleteRecord.htm" id="DWMenu_ServerBehaviors_PHPADODB_Delete"/>
   <menu name="Dynamic Form Elements" id="DWMenu_ServerBehaviors_PHPADODB_DynamicElements">
-    <menuitem file="DynTextField.htm" id="DWMenu_ServerBehaviors_PHPADODB_DynamicTextField"  />
-    <menuitem file="Dynamic Checkbox.htm" id="DWMenu_ServerBehaviors_PHPADODB_DynamicCheckBox"  />
+    <menuitem file="DynamicTextField.htm" id="DWMenu_ServerBehaviors_PHPADODB_DynamicTextField"  />
+    <menuitem file="DynamicCheckbox.htm" id="DWMenu_ServerBehaviors_PHPADODB_DynamicCheckBox"  />
     <menuitem file="DynRadioGroup.htm" id="DWMenu_ServerBehaviors_PHPADODB_DynamicRadio"  />
     <menuitem file="DynamicSelectList.htm" id="DWMenu_ServerBehaviors_PHPADODB_DynamicSelectList"/>
+  </menu>
+  <menu name="User Authentication" id="DWMenu_ServerBehaviors_PHPADODB_UserAuthentication">
+    <menuitem file="LoginUser.htm" id="DWMenu_ServerBehaviors_PHPADODB_LoginUser" />
+    <menuitem file="RestrictAccess.htm" id="DWMenu_ServerBehaviors_PHPADODB_RestrictPage" />
+    <menuitem file="LogoutUser.htm" id="DWMenu_ServerBehaviors_PHPADODB_LogoutUser" />
   </menu>
 </menubar>

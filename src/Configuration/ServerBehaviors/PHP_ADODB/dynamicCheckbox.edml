@@ -1,4 +1,4 @@
-<group serverBehavior="Dynamic Checkbox.htm" hideFromBuilder="true">
+<group serverBehavior="DynamicCheckbox.htm" hideFromBuilder="true">
   <groupParticipants selectParticipant="dynamicCheckbox_attrib">
     <groupParticipant name="dynamicCheckbox_attrib" /> 
   </groupParticipants>
