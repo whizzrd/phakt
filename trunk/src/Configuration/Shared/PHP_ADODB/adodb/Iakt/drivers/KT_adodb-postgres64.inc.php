@@ -125,6 +125,87 @@ class KT_ADODB_postgres64 extends ADODB_postgres64 {
 		return false;
 	}
 
+	function ErrorMsg(){
+		if (!function_exists('pg_connect')){
+				return 'Your PHP doesn\'t contain the PostgreSQL connection module!';
+		}
+		return parent::ErrorMsg();
+	}
+	function getProcedureList($schema='all_schema'){
+			$KT_sql = "SELECT DISTINCT ON (p.proname) p.proname,p.prosrc AS definition,  pg_catalog.format_type(p.prorettype, NULL) AS return_type, n.nspname AS schema FROM  pg_catalog.pg_proc p LEFT JOIN pg_catalog.pg_namespace n ON n.oid = p.pronamespace WHERE ".($schema=='all_schema' || $schema==''?"":(($schema=='without_system')?"n.nspname != 'pg_catalog' AND ":"n.nspname = '".$schema."' AND "))."p.prorettype <> 'pg_catalog.cstring'::pg_catalog.regtype AND p.proargtypes[0] <> 'pg_catalog.cstring'::pg_catalog.regtype AND NOT p.proisagg AND pg_catalog.pg_function_is_visible(p.oid) ORDER BY p.proname, return_type";
+
+			$rs=parent::Execute($KT_sql);
+			$list=false;
+			if ($rs && is_object($rs)){
+				$i=0;
+				while (!$rs->EOF){
+					$i++;
+					$list[$i]['procedure_catalog'] = '';
+					$list[$i]['procedure_schema'] = $rs->Fields('schema');
+					$list[$i]['procedure_name'] = $rs->Fields('proname');
+					$list[$i]['procedure_type'] = $rs->Fields('return_type');
+					$list[$i]['procedure_definition'] = $rs->Fields('definition');
+					$list[$i]['procedure_description'] = '';
+					$list[$i]['procedure_date_created'] = '';
+					$list[$i]['procedure_date_modified'] = '';
+					$rs->MoveNext();
+				}
+			}
+			return $list;
+	}	
+	
+	function getProcedureParameters($ProcedureName, $schema='all_schema'){
+						$result = false;
+						$KT_sql = "SELECT DISTINCT ON (p.proname) p.proname,p.prosrc AS definition, pg_catalog.oidvectortypes(p.proargtypes) AS arguments, pg_catalog.format_type(p.prorettype, NULL) AS return_type, n.nspname AS schema FROM  pg_catalog.pg_proc p LEFT JOIN pg_catalog.pg_namespace n ON n.oid = p.pronamespace WHERE ".($schema=='all_schema' || $schema==''?"":(($schema=='without_system')?"n.nspname != 'pg_catalog' AND ":"n.nspname = '".$schema."' AND "))."p.prorettype <> 'pg_catalog.cstring'::pg_catalog.regtype AND p.proargtypes[0] <> 'pg_catalog.cstring'::pg_catalog.regtype AND NOT p.proisagg AND pg_catalog.pg_function_is_visible(p.oid) AND p.proname='".$ProcedureName."' ORDER BY p.proname, return_type";
+						$rs = parent::Execute($KT_sql);
+						if ($rs && is_object($rs) && !$rs->EOF){
+								$i=0;
+								while (!$rs->EOF){
+											$arguments = explode(',',$rs->Fields('arguments'));
+											if (is_array($arguments)){
+													// let's try to get their names from trigger description
+													$matches=preg_replace("/DECLARE(.*?)BEGIN.*/ims","$1",$rs->Fields('definition'));
+													if (isset($matches)){
+															$temp = explode(';',$matches);
+													}
+													if (isset($temp) && is_array($temp)){
+																foreach($temp as $index=>$value){
+																		preg_match("/([^\s]+) alias for \\$([0-9]+)/i",$value, $match);
+																		if (isset($match[2])){
+																				$name[(int)$match[2]-1] = $match[1];
+																		}
+																}
+													}
+
+													foreach($arguments as $key=>$value){
+																$i++;
+																$result[$i]['procedure_catalog']="";
+																$result[$i]['procedure_schema']=$rs->Fields('schema');
+																$result[$i]['procedure_name']=$rs->Fields('proname');
+																$result[$i]['parameter_name']=((isset($name[$key]) && $name[$key]!='')?$name[$key]:"unknown_".$i);
+																$result[$i]['ordinal_position']=$i;
+																$result[$i]['parameter_type']="null";
+																$result[$i]['parameter_hasdefault']="";
+																$result[$i]['parameter_default']="";
+																$result[$i]['is_nullable']="";
+																$result[$i]['data_type']="";
+																$result[$i]['character_maximum_length']="";
+																$result[$i]['character_octet_legth']="";
+																$result[$i]['numeric_precision']="";
+																$result[$i]['numeric_scale']="";
+																$result[$i]['description']="";
+																$result[$i]['type_name']="";
+																$result[$i]['local_type_name']=trim($value);
+																$result[$i]['ss_data_type']="";
+													}
+											}
+											$rs->MoveNext();
+								}
+						}
+						
+						return $result;
+					}
+
 }
 
 

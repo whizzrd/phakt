@@ -1,6 +1,15 @@
 <?php
 // Copyright 2001-2003 Interakt Online. All rights reserved.
 
+class KT_ADODB_odbc extends ADODB_odbc{
+			function ErrorMsg(){
+					if (!function_exists('odbc_connect')){
+							return 'Your PHP doesn\'t contain the ODBC connection module!';
+					}
+					return parent::ErrorMsg();
+			}
+	
+}
 /*
 	by InterAKT
 	extends base class to implement FieldHasChange method

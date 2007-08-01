@@ -1,4 +1,4 @@
-<?php //PHP ADODB document - made with PHAkt 2.7.3?>
+<?php //PHP ADODB document - made with PHAkt 2.8.2?>
 <html>
 <head>
 <!-- TemplateBeginEditable name="doctitle" -->

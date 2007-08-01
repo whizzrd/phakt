@@ -67,7 +67,12 @@ class KT_ADODB_mssqlpo extends ADODB_mssqlpo {
 			default :
 		}
 	}
-	
+	function ErrorMsg(){
+		if (!function_exists('mssql_pconnect')){
+				return 'Your PHP doesn\'t contain the MsSQL connection module!';
+		}
+		return parent::ErrorMsg();
+	} 	
 		
 }
 

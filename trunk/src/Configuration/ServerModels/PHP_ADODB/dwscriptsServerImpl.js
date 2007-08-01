@@ -1072,23 +1072,39 @@ function getDBColumnTypeEnum(columnType) {
 			a["tinyint unsigned"] = 19;
 			
 			//PostgreSQL
+			a["abstime"] = 135; //
+			a["aclitem"] = 132; //userdefined
+			a["box"] = 	200; //varchar
+			a["bytea"] = 3;		//integer
+			a["varbit"] = 3;	//integer
+			a["float8"] = 5; //double
+			a["float4"] = 5; //double
+			a["real"] = 5; //double
 			a["int8"] = 3; //integer
 			a["int4"] = 3; //integer
+			a["int2vector"] = 3; //integer
 			a["int2"] = 2; //small int
 			a["timestamptz"] = 135;
 			a["bool"] = 200; //varchar
 			a["bpchar"] = 200; //varchar
+			a["serial"] = 2; //small int
+			a["character_data"] = 200; //varchar
+			a["cardinal_number"] = 3; //varchar
 			
-
 			a["set"] = 132; //userdefined
 			a["double unsigned zerofill"] = 5; //double
 			a["float unsigned zerofill"] = 5; //double
 			
 			//Access
-			a["i"] = 3;
-			a["c"] = 200;
+			a["i"] = 4;
+			a['I'] = 4;
+			a["c"] = 8;
+			a["C"] = 8;
+			a["N"] = 16;
+			a["n"] = 200;
 			a["d"] = 7;
 			a["L"] = 3;
+			a["x"] = 200;
 			a["X"] = 200;
 
 			dwscripts.DB_COLUMN_ENUM_MAP = a;

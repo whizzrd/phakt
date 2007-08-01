@@ -31,6 +31,26 @@ if (! defined("_ADODB_MYSQL_LAYER2")) {
 			}
 			return $rs;
 		}
+	  
+		// This corrects a bug in multiple concurent permanent connections
+		function _query($sql,$inputarr){
+			if ($this->SelectDB($this->databaseName)){
+				return parent::_query($sql,$inputarr);
+			}else{
+				return false;
+			}
+		}	
+
+		// parameters use PostgreSQL convention, not MySQL
+		function &SelectLimit($sql,$nrows=-1,$offset=-1,$inputarr=false,$secs=0)
+		{	//Let's see first if the query don't contain a limit already
+			if (preg_match('/^(\s|\n|\r)*select.*limit\s+-?[0-9]+(\s|\n|\r)*(,(\s|\n|\r)*-{0,1}[0-9]+){0,1}(\s|\n|\r)*$/ims', $sql, $matches)){
+				return $this->Execute($sql);
+			}else{
+				$to_return = parent::SelectLimit($sql,$nrows,$offset,$inputarr,$secs);
+				return $to_return;
+			}
+		}
 		
 		//This corrects a bug in reporting types like enum('a','b') , float('a','b') .. set .. etc
 		function &MetaColumns($table) 
@@ -83,6 +103,12 @@ if (! defined("_ADODB_MYSQL_LAYER2")) {
 			}
 			return false;
 		}
+		function ErrorMsg(){
+			if (!function_exists('mysql_connect')){
+					return 'Your PHP doesn\'t contain the MySQL connection module!';
+			}
+			return parent::ErrorMsg();
+		} 	 
 	
 	}
 	

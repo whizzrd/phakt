@@ -51,9 +51,13 @@ function commandButtons()
 		MM.BTN_OK,       "clickedOK()", 
         MM.BTN_Cancel,   "clickedCancel()", 
         MM.BTN_Test,     "clickedTest()");
+	var sm = dw.getDocumentDOM().serverModel.getServerName();
 	// add a button for each different rs type
 	for (i = 0;i < MM.rsTypes.length;i++) {
-    	if (dw.getDocumentDOM().serverModel.getServerName() == MM.rsTypes[i].serverModel) {
+		if(MM.rsTypes[i].single == "true") {
+			continue;
+		}
+		if (sm == MM.rsTypes[i].serverModel) {
     		if (RECORDSET_TYPE.toLowerCase() != MM.rsTypes[i].type.toLowerCase()) {
 				btnArray.push(MM.rsTypes[i].type+"..");
 				btnArray.push("clickedChange(" + i + ")");

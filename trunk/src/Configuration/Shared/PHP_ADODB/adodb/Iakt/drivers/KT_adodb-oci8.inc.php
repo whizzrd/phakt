@@ -1,6 +1,13 @@
 <?php
 // Copyright 2001-2003 Interakt Online. All rights reserved.
-
+class KT_ADODB_oci8 extends ADODB_oci8{
+	function ErrorMsg(){
+		if (!function_exists('OCIPLogon')){
+					return 'Your PHP doesn\'t contain the Oracle oci8 connection module!';
+		}
+		return parent::ErrorMsg(); 
+	}	
+}
 /*
 	by InterAKT
 	extends base class to implement FieldHasChange method

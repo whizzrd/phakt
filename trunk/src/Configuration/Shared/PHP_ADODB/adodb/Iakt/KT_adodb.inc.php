@@ -10,12 +10,15 @@ $ADODB_NEWCONNECTION = 'KTNEWConnection';
 
 function &KTNEWConnection($db='') {
 	GLOBAL $ADODB_LASTDB;
-	if (!defined('ADODB_ASSOC_CASE')) define('ADODB_ASSOC_CASE',2);
+	if (!defined('ADODB_ASSOC_CASE')){
+			define('ADODB_ASSOC_CASE',2);
+	}
 	$errorfn = (defined('ADODB_ERROR_HANDLER')) ? ADODB_ERROR_HANDLER : false;
-	
 	$rez = true;
 	if ($db) {
-		if ($ADODB_LASTDB != $db) ADOLoadCode($db);
+		if ($ADODB_LASTDB != $db){
+				ADOLoadCode($db);
+		}
 	} else { 
 		if (!empty($ADODB_LASTDB)) {
 			ADOLoadCode($ADODB_LASTDB);
@@ -28,11 +31,11 @@ function &KTNEWConnection($db='') {
 		 if ($errorfn) {
 			// raise an error
 			$errorfn('ADONewConnection', 'ADONewConnection', -998,
-					 "could not load the database driver for '$db",
+					 "Could not load the database driver for $db",
 					 $dbtype);
-		} else
-			 ADOConnection::outp( "<p>ADONewConnection: Unable to load database driver '$db'</p>",false);
-			
+		} else{
+			 ADOConnection::outp( "<p>ADONewConnection: Unable to load database driver for '$db'</p>",false);
+		}
 		return false;
 	}
 	
@@ -40,7 +43,7 @@ function &KTNEWConnection($db='') {
 	$cls = 'ADODB_'.$ADODB_LASTDB;
 	
 	//check clases
-	$KT_Derived_Conn = array('mysql','postgres7','ibase','mssql','mysqlt','oracle','postgres64');
+	$KT_Derived_Conn = array('mysql','postgres7','ibase','mssql','mysqlt','oracle','postgres64', 'sybase_ase', 'sybase');
 	if (in_array($ADODB_LASTDB,$KT_Derived_Conn)) {
 		$cls = 'KT_' . $cls;
 		include_once(ADODB_DIR."/Iakt/drivers/KT_adodb-".$ADODB_LASTDB.".inc.php");
@@ -55,7 +58,9 @@ function &KTNEWConnection($db='') {
 		$obj->rsPrefix = "KT_ADORecordSet_";
 	}
 	
-	if ($errorfn) $obj->raiseErrorFn = $errorfn;
+	if ($errorfn){
+                         $obj->raiseErrorFn = $errorfn;
+	}
 	
 	return $obj;
 }

@@ -1,6 +1,6 @@
 <macromedia-extension
 	 name="PHAkt"
-	 version="2.7.3"
+	 version="2.8.3"
 	 type="ServerModel"
 	 requires-restart="true">
 
@@ -24,7 +24,7 @@ PHAkt is an open-source extension for Macromedia Dreamweaver MX and MX 2004, off
 	<![CDATA[
 	This extension is a complete implementation of a Server Model, containing Commands, Translators and Server Behaviors. You can access the Server Behaviors from the Server Behaviors Menu in the Application Panel and the Commands from the Application tab in the Insert panel. In order to use this extension you have to define first a site with the PHP_ADODB Server Model.<br>
 <br>
-For further information and the latest version, please visit the product page at http://www.interakt.ro/products/PHAkt/
+For further information and the latest version, please visit the product page at http://www.interaktonline.com/products/PHAkt/
 	]]>
 	</ui-access>
 
@@ -292,6 +292,10 @@ For further information and the latest version, please visit the product page at
 		<file source="ServerBehaviors/PHP_ADODB/LoginUser.htm" destination="$dreamweaver/configuration/ServerBehaviors/PHP_ADODB" />
 		<file source="ServerBehaviors/PHP_ADODB/LoginUser_methodAttr.edml" destination="$dreamweaver/configuration/ServerBehaviors/PHP_ADODB" />
 		<file source="ServerBehaviors/PHP_ADODB/AccessControlCmn.js" destination="$dreamweaver/configuration/ServerBehaviors/PHP_ADODB" />
+		<file source="ServerBehaviors/PHP_ADODB/CheckNewUsername.edml" destination="$dreamweaver/configuration/ServerBehaviors/PHP_ADODB" />
+		<file source="ServerBehaviors/PHP_ADODB/CheckNewUsername.htm" destination="$dreamweaver/configuration/ServerBehaviors/PHP_ADODB" />
+		<file source="ServerBehaviors/PHP_ADODB/CheckNewUsername.js" destination="$dreamweaver/configuration/ServerBehaviors/PHP_ADODB" />
+		<file source="ServerBehaviors/PHP_ADODB/CheckNewUsername_main.edml" destination="$dreamweaver/configuration/ServerBehaviors/PHP_ADODB" />
 		<file source="ServerBehaviors/PHP_ADODB/Logout User.js" destination="$dreamweaver/configuration/ServerBehaviors/PHP_ADODB" />
 		<file source="ServerBehaviors/PHP_ADODB/LogoutUser.edml" destination="$dreamweaver/configuration/ServerBehaviors/PHP_ADODB" />
 		<file source="ServerBehaviors/PHP_ADODB/Restrict Access To Page.js" destination="$dreamweaver/configuration/ServerBehaviors/PHP_ADODB" />
@@ -313,11 +317,16 @@ For further information and the latest version, please visit the product page at
 		<file source="ServerModels/PHP_ADODB/dwscriptsServerImpl.htm" destination="$dreamweaver/configuration/ServerModels/PHP_ADODB" />
 		<file source="ServerModels/PHP_ADODB/dwscriptsServerImpl.js" destination="$dreamweaver/configuration/ServerModels/PHP_ADODB" />
 		<file source="Shared/PHP_ADODB/PHAkt.gif" destination="$dreamweaver/configuration/Shared/PHP_ADODB" />
+		<file source="Shared/PHP_ADODB/adodb/adodb.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
+		<file source="Shared/PHP_ADODB/adodb/adodb-csvlib.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
+		<file source="Shared/PHP_ADODB/adodb/adodb-error.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
+		<file source="Shared/PHP_ADODB/adodb/adodb-errorhandler.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
+		<file source="Shared/PHP_ADODB/adodb/adodb-exceptions.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
+		<file source="Shared/PHP_ADODB/adodb/adodb-iterator.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
 		<file source="Shared/PHP_ADODB/adodb/adodb-lib.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
 		<file source="Shared/PHP_ADODB/adodb/adodb-perf.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
 		<file source="Shared/PHP_ADODB/adodb/adodb-php4.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
 		<file source="Shared/PHP_ADODB/adodb/adodb-time.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
-		<file source="Shared/PHP_ADODB/adodb/adodb.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
 		<file source="Shared/PHP_ADODB/adodb/version.txt" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-access.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-ado.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
@@ -331,29 +340,38 @@ For further information and the latest version, please visit the product page at
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-ibase.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-informix.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-informix72.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
+		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-ldap.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-mssql.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-mssqlpo.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-mysql.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-mysqli.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-mysqlt.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
+		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-netezza.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-oci8.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-oci805.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-oci8po.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-odbc.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-odbc_mssql.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-odbc_oracle.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
+		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-odbtp.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
+		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-odbtp_unicode.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-oracle.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
+		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-pdo.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-postgres.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-postgres64.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-postgres7.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-proxy.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-sapdb.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-sqlanywhere.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
+		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-sqlitepo.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-sqlite.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-sybase.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
+		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-sybase_ase.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/drivers/adodb-vfp.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/Iakt/KT_adodb.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/Iakt" />
 		<file source="Shared/PHP_ADODB/adodb/Iakt/drivers/KT_adodb-ibase.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/Iakt/drivers" />
+		<file source="Shared/PHP_ADODB/adodb/Iakt/drivers/KT_adodb-sybase.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/Iakt/drivers" />
+		<file source="Shared/PHP_ADODB/adodb/Iakt/drivers/KT_adodb-sybase_ase.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/Iakt/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/Iakt/drivers/KT_adodb-mssql.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/Iakt/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/Iakt/drivers/KT_adodb-mssqlpo.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/Iakt/drivers" />
 		<file source="Shared/PHP_ADODB/adodb/Iakt/drivers/KT_adodb-mysql.inc.php" destination="$dreamweaver/configuration/Shared/PHP_ADODB/adodb/Iakt/drivers" />

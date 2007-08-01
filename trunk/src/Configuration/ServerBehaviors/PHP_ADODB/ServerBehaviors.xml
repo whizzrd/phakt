@@ -42,6 +42,7 @@
   <menu name="User Authentication" id="DWMenu_ServerBehaviors_PHPADODB_UserAuthentication">
     <menuitem file="LoginUser.htm" id="DWMenu_ServerBehaviors_PHPADODB_LoginUser" />
     <menuitem file="RestrictAccess.htm" id="DWMenu_ServerBehaviors_PHPADODB_RestrictPage" />
-    <menuitem file="LogoutUser.htm" id="DWMenu_ServerBehaviors_PHPADODB_LogoutUser" />
-  </menu>
+		<menuitem file="LogoutUser.htm" id="DWMenu_ServerBehaviors_PHPADODB_LogoutUser" />
+ 		<menuitem file="CheckNewUsername.htm" id="DWMenu_ServerBehaviors_PHPADODB_CheckNewUsername" />
+ </menu>
 </menubar>

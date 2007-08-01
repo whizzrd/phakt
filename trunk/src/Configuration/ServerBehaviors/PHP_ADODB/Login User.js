@@ -171,7 +171,7 @@ function applyServerBehavior(sbObj)
     paramObj.fldAuthorization = fldAuthorization;
     paramObj.redirectSuccess = TEXTGOTOURLONSUCCESS.value;
     paramObj.redirectFailed = TEXTGOTOURLONFAILURE.value;
-	paramObj.connection = connName;
+		paramObj.connection = connName;
   	paramObj.ConnectionPath = dwscripts.getConnectionURL(connName);
     paramObj.fldUsername = LIST_RSUSERNAME.getValue();
     paramObj.fldPassword = LIST_RSPASSWORD.getValue();
@@ -201,6 +201,15 @@ function applyServerBehavior(sbObj)
     
     dwscripts.applySB(paramObj, sbObj);
     MMDB.refreshCache(true);
+		// adding the variables into the Bindings
+		if (errMsg == "") {
+	    var siteURL = dw.getSiteRoot();
+    	addValueToNotes(siteURL, "Session", 'KT_Username');
+			if (useAccessList){
+    			addValueToNotes(siteURL, "Session", 'KT_userAuth');   
+			}
+		}
+
     
     // Set the security method in a design note for other behaviors to use
     var securityMethod = useAccessList ? "useAccessList" : "dontUseAccessList";
@@ -208,6 +217,35 @@ function applyServerBehavior(sbObj)
   }
   
   return errMsg;
+}
+
+/**
+ * 	Adds a Variable to notes. Check if there ins't inserted before.
+ * 	
+ * 	@params
+ *	siteURl - path to notes
+ * 	varType - variable type (Session , Form, URL ..etc)
+ * 	varName - variable name
+ * 	
+ * 	@return
+ * 		- none
+ * 
+ */
+function addValueToNotes(siteURL, varType, varName) {
+	var bindingsArray = dwscripts.getListValuesFromNote(siteURL, varType);
+	if (findIntoArray(bindingsArray, varName) == -1) {
+		dwscripts.addListValueToNote(siteURL, varType, varName);   
+	}
+}
+
+function findIntoArray(arrayObject, searchObject) {
+	var idxArray;
+	for (idxArray = 0;idxArray < arrayObject.length;idxArray++) {
+		if (arrayObject[idxArray] == searchObject) {
+			return idxArray;
+		}
+	}
+	return -1;
 }
 
 

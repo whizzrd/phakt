@@ -55,6 +55,11 @@ class KT_ADODB_ibase extends ADODB_ibase {
 		}
 	}
 	
+	function ErrorMsg(){
+		if (!function_exists('ibase_pconnect')){
+				return 'Your PHP doesn\'t contain the Interbase connection module!';
+		}
+	} 
 		
 }
 ?>
