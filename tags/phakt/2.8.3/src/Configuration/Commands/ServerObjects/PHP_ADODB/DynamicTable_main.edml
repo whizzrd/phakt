@@ -1,0 +1,23 @@
+<participant version="5.0">
+<insertText location="afterSelection">
+<![CDATA[
+<table <@if (@@Border@@) @> border="@@Border@@"<@endif@><@if (@@CellPadding@@) @> cellpadding="@@CellPadding@@"<@endif@><@if (@@CellSpacing@@) @> cellspacing="@@CellSpacing@@"<@endif@>>
+<tr>
+<@ loop (@@FieldNameArray@@) @>
+<td>@@FieldNameArray@@</td>
+<@ endloop @>
+</tr>
+<?php
+  while (!$@@RecordsetName@@->EOF) {
+?>
+<tr>
+<@ loop (@@FieldNameArray@@) @>
+<td><?php echo $@@RecordsetName@@->Fields('@@FieldNameArray@@'); ?></td>
+<@ endloop @>
+</tr>
+  <?php
+    $@@RecordsetName@@->MoveNext();
+  }
+?></table>
+]]></insertText>
+</participant>

@@ -1,0 +1,87 @@
+<!doctype html system "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+
+<html>
+<head>
+
+<!-- Copyright 2002 Macromedia, Inc. All rights reserved. -->
+
+<!-- Common Functions-->
+<script src="../../Shared/Common/Scripts/dwscripts.js"></script>
+<script src="../../Shared/Common/Scripts/dwscriptsServer.js"></script>
+
+<!-- Server Behavior Classes -->
+<script src="../../Shared/Common/Scripts/dwScriptsExtData.js"></script>
+<script src="../../Shared/Common/Scripts/ServerBehaviorClass.js"></script>
+<script src="../../Shared/Common/Scripts/TagEditClass.js"></script>
+<script src="../../Shared/Common/Scripts/SQLStatementClass.js"></script>
+
+<!-- Control Classes -->
+<SCRIPT SRC="../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ConnectionTableMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ListMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/TextField.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/CheckBox.js"></SCRIPT>
+<script src="../../Shared/Controls/Scripts/ConnectionMenu.js"></script>
+<script src="../../Shared/Controls/Scripts/RecordsetMenu.js"></script>
+
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/ssCmnElements.js"></SCRIPT>
+
+<script src="DeleteRecord.js"></script>
+
+<title>Delete Record</title>
+</head>
+<BODY onload="initializeUI();">
+<FORM name="theForm">
+  <TABLE border="0">
+    <tr valign="baseline" nowrap>
+      <td align="right" nowrap>First Check If Variable Is Defined: </td>
+      <td align="left" nowrap>
+        <select name="DeleteIfDefinedParameter" style="width:180;" onChange="updateUI('DeleteIfDefinedParameter','onChange')">
+         </select> <input type="text" name="DeleteIfDefinedParameterValue" style="width:100;" value="" disabled="true">
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr valign="baseline">
+      <td align="right" nowrap>Connection:</td>
+      <td nowrap>
+        <select name="ConnectionName" style="width:180px" wrap="virtual" onChange="updateUI('ConnectionName','onChange')">
+          <option selected></option>
+        </select>
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr valign="baseline">
+      <td align="right">Table:</td>
+      <td>
+        <select name="TableName" style="width:180px;" wrap="virtual" onChange="updateUI('TableName','onChange')">
+        </select>
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr valign="baseline">
+      <td align="right">Primary Key Column:</td>
+      <td nowrap>
+        <select name="ColumnList" style="width:180px;" wrap="virtual" onChange="updateUI('ColumnList','onChange')">
+        </select>
+        <input type="checkbox" name="IsNumeric" onClick="updateUI('IsNumeric','onClick')" checked> Numeric
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr valign="baseline">
+      <td align="right" nowrap>Primary Key Value:</td>
+      <td nowrap>
+        <select name="PrimaryKeyParameter" style="width:180;" onChange="updateUI('PrimaryKeyParameter', 'onChange')">
+        </select> <input type="text" name="PrimaryKeyParameterValue" style="width:100;" onBlur="updateUI('PrimaryKeyParameterValue', 'onBlur')">
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr>
+      <td align="right" valign="baseline" nowrap>After Deleting, Go To:</td>
+      <td valign="baseline" nowrap>
+        <input name="Redirect_url" type="text" style="width:220px"> <input type="button" value="Browse..." onClick="updateUI('Redirect_url');focus(this)">
+      </td>
+    </tr>
+  </TABLE>
+</FORM>
+</BODY>
+</html>

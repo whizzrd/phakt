@@ -1,0 +1,8 @@
+<group serverBehavior="Go To Detail Page.htm" dataSource="Recordset.htm" hideFromBuilder="false" version="6.0">
+	<groupParticipants selectParticipant="goToDetailPage_attr">
+		<groupParticipant name="Functions_block" partType="member" />
+		<groupParticipant name="moveTo_keepParams" partType="member" />
+		<groupParticipant name="goToDetailPage_attr" partType="identifier" />
+	</groupParticipants>
+	<TITLE>goToDetailPage</TITLE>
+</group>

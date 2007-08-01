@@ -1,0 +1,129 @@
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+
+<HTML>
+<HEAD>
+<TITLE>Log In User</TITLE>
+<SCRIPT>
+// Copyright 2001-2002 Macromedia, Inc. All rights reserved.
+var HELP_DOC = MM.HELP_sbLoginUser;
+</SCRIPT>
+
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/RadioGroupClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/accessControlCmn.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/ssCmnElements.js"></SCRIPT>
+<SCRIPT SRC="AccessControlCmn.js"></SCRIPT>
+<SCRIPT SRC="Login User.js"></SCRIPT>
+
+</HEAD>
+
+<BODY onLoad="initializeUI()">
+  <FORM NAME="theForm" ACTION="">
+    <table border="0">
+      <tr valign="baseline">
+        <td nowrap align="right">Get Input From Form:</td>
+        <td nowrap>
+          <select name="listForm" style="width:180px" onChange="onChangeForm()">
+          </select>
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right">Username Field:</td>
+        <td nowrap>
+          <select name="listFormUsername" style="width:180px">
+          </select>
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right">Password Field:</td>
+        <td nowrap>
+          <select name="listFormPassword" style="width:180px">
+          </select>
+        </td>
+      </tr>
+      <tr valign="baseline"><td colspan="3" nowrap><hr></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right">Validate Using Connection:</td>
+        <td nowrap>
+          <select name="listConnection" style="width:180px" onChange="onChangeConnection()">
+          </select>
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right">Table:</td>
+        <td nowrap>
+          <select name="listTable" style="width:180px" onChange="onChangeTable()">
+          </select>
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right">Username Column:</td>
+        <td nowrap>
+          <select name="listRsUsername" style="width:180px">
+          </select>
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right">Password Column:</td>
+        <td nowrap>
+          <select name="listRsPassword" style="width:180px">
+          </select>
+        </td>
+      </tr>
+      <tr valign="baseline"><td colspan="3" nowrap><hr></td></tr>
+      <tr valign="baseline">
+        <td align="right" nowrap>If Login Succeeds, Go To:</td>
+        <td nowrap>
+          <input name="textGoToURLOnSuccess" type="text" style="width:180px">
+          <input name="btnFileBrowserOnSuccess" type="button" value="Browse..." onClick="onClickBtnFileBrowserOnSuccess();focus(this)">
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap>&nbsp;</td>
+        <td nowrap>
+          <input name="cbGoToReferrerURL" type="checkbox" >
+          Go To Previous URL (if it exists)</td>
+      </tr>
+      <tr valign="baseline">
+        <td nowrap align="right">If Login Fails, Go To:</td>
+        <td nowrap>
+          <input name="textGoToURLOnFailure" type="text" style="width:180px">
+          <input name="btnFileBrowserOnFailure" type="button" value="Browse..." onClick="onClickBtnFileBrowserOnFailure();focus(this)">
+        </td>
+      </tr>
+      <tr valign="baseline"><td colspan="3" nowrap><hr></td></tr>
+      <tr valign="baseline">
+        <td align="right" nowrap>Restrict Access Based On: </td>
+        <td nowrap>
+          <input type="radio" name="securityMethod" value="securityMethodUP" onClick="onClickSecurityMethodUP()" checked>
+          Username and Password</td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td align="right" nowrap>&nbsp;</td>
+        <td nowrap>
+          <input type="radio" name="securityMethod" value="securityMethodUPA" onClick="onClickSecurityMethodUPA()">
+          Username, Password, and Access Level</td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td align="right" nowrap>&nbsp;</td>
+        <td nowrap> Get Level From:
+          <select name="listRsAuthorization" style="width:150px">
+          </select>
+        </td>
+      </tr>
+    </table>
+  </FORM>
+</BODY>
+</HTML>
