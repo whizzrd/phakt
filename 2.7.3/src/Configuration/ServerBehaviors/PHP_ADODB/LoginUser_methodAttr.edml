@@ -1,0 +1,8 @@
+<participant version="6.1">
+	<insertText location="nodeAttribute+METHOD" nodeParamName="formNode"><![CDATA[POST]]></insertText>
+	<searchPatterns whereToSearch="tag+FORM">
+		<searchPattern paramNames="" isOptional="false" limitSearch="attribute+METHOD"><![CDATA[/POST/i]]></searchPattern>
+	</searchPatterns>
+	<delete deleteType="none" />
+	<quickSearch>POST</quickSearch>
+</participant>

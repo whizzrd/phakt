@@ -1,0 +1,8 @@
+<group serverBehavior="LogoutUser.htm" hideFromBuilder="false" version="6.1">
+	<groupParticipants selectParticipant="LogoutUser_link">
+		<groupParticipant name="LogoutUser_main" partType="identifier" />
+		<groupParticipant name="LogoutUser_link" />
+		<groupParticipant name="Functions_block" partType="member" />
+	</groupParticipants>
+	<TITLE>Logout User (@@redirectPage@@)</TITLE>
+</group>

@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------
+PHAkt2 - PHP server model for Dreamweaver MX and MX 2004
+ - version 2.7.3 of 2004-03-02
+ - http://www.interakt.ro/products/PHAkt/
+ - Copyright (C) 2001, 2004  InterAKT Online -  phakt@interakt.ro
+-------------------------------------------------------------------------------
+
+2.7.3 is the latest PHAkt2 distribution for Windows and MAC.
+
+Warning!
+--------
+If you are upgrading PHAkt from the 2.7.2 or older version, please also read Upgrade.txt
+
+To install PHAkt on your computer you must :
+ - Have Dreamweaver MX or MX 2004 on a Windows or Mac machine.
+ - Have Macromedia Dreamweaver MX 6.1 Updater Installed (not for MX 2004)
+ - Have access to a PHP 4 application server (Windows, Linux, whatever)
+ 	PHAkt does not work with PHP 3!
+ - Have database access to use the full Dreamweaver MX potential
+
+Install steps:
+- Install the PHAkt-2_7_3.mxp with Macromedia Extension Manager
+- If you are using a MAC you also have to install the macPatch extension from http://www.interakt.ro/products/bbs/view.php?prodId=0&id_brd=4316
+
+Note:
+- When you are installing your PHAkt version, it is possible to be alerted to overwrite: RecordsetFind.htm and RecordsetFind.js. You should choose OK, otherwise you may encounter problems with future bug fixes etc.
+- If you are using a MAC and you have problems installing PHAkt on a G3, we will provide an separate archive to you. This is a known bug and we are working to correct it.
+
+- The ADOdb library is automatically installed and copied to your site root folder now.
+
+To uninstall PHAkt on your computer, you must :
+- Uninstall the PHAkt-2_7_3.mxp with Macromedia Extension Manager

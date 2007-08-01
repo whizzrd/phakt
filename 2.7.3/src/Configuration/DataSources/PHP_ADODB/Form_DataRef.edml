@@ -1,0 +1,7 @@
+<participant>
+   <quickSearch><![CDATA[$HTTP_POST_VARS]]></quickSearch>
+   <insertText location="replaceSelection"><![CDATA[<?php echo $HTTP_POST_VARS['@@bindingName@@']; ?>]]></insertText>
+   <searchPatterns whereToSearch="directive">
+     <searchPattern paramNames="bindingName"><![CDATA[/\$HTTP_POST_VARS\['([^\r\n]*)'\]/i]]></searchPattern>
+   </searchPatterns>  
+</participant>
