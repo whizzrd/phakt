@@ -1,0 +1,18 @@
+<participant>
+<!-- PHP_ADODB ---------------------------------------------------------->
+  <implementation serverModel="PHP_ADODB">
+     <insertText location="afterSelection">
+<![CDATA[
+<table border="0" width="50%" align="center">
+  <tr>
+    <td width="23%" align="center">@@hideLinksFirstBegin@@<a href="@@moveFirstHref@@">@@firstStr@@</a>@@hideLinksFirstEnd@@</td>
+    <td width="31%" align="center">@@hideLinksFirstBegin@@<a href="@@movePrevHref@@">@@prevStr@@</a>@@hideLinksFirstEnd@@</td>
+    <td width="23%" align="center">@@hideLinksLastBegin@@<a href="@@moveNextHref@@">@@nextStr@@</a>@@hideLinksLastEnd@@</td>
+    <td width="23%" align="center">@@hideLinksLastBegin@@<a href="@@moveLastHref@@">@@lastStr@@</a>@@hideLinksLastEnd@@</td>
+  </tr>
+</table>
+]]>
+     </insertText>
+  </implementation>
+
+</participant>

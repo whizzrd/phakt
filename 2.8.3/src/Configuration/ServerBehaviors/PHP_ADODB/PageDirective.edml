@@ -1,0 +1,6 @@
+<group name="PageDirective" version="6.0" serverBehavior="PageDirective.htm">
+	<groupParticipants>
+		<groupParticipant name="PageDirective_lang" partType="identifier" />
+	</groupParticipants>
+	<TITLE>PageDirective (@@version@@)</TITLE>
+</group>

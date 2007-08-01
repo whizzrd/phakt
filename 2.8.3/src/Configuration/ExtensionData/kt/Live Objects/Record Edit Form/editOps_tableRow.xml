@@ -1,0 +1,13 @@
+<participant>
+<!-- PHP_ADODB ---------------------------------------------------------->
+  <implementation serverModel="PHP_ADODB">
+     <insertText location="afterSelection">
+<![CDATA[
+  <tr valign="baseline">
+    <td nowrap align="right">@@leftCol@@</td>
+    <td>@@rightCol@@</td>
+  </tr>
+]]>
+     </insertText>
+  </implementation>
+</participant>

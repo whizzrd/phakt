@@ -1,0 +1,11 @@
+<participant version="6.0">
+	<insertText location="aboveHTML+60"><![CDATA[<?php
+// rebuild the query string by replacing pageNum and totalRows with the new values
+$queryString_@@RecordsetName@@ = KT_removeParam("&" . <@if (1) @>@<@ endif @>$HTTP_SERVER_VARS['QUERY_STRING'], "pageNum_@@RecordsetName@@");
+$queryString_@@RecordsetName@@ = KT_replaceParam($queryString_@@RecordsetName@@, "totalRows_@@RecordsetName@@", $totalRows_@@RecordsetName@@);
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="RecordsetName" isOptional="false" limitSearch="all"><![CDATA[/\/\/ rebuild the query string by replacing pageNum and totalRows with the new values(?:\r\n|\r(?!\n)|\n)[ \t]*\$queryString_([^\r\n]*?) = KT_removeParam\("&" \. (?:@)?\$HTTP_SERVER_VARS\['QUERY_STRING'\], "pageNum_[^\r\n]*?"\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$queryString_[^\r\n]*? = KT_replaceParam\(\$queryString_[^\r\n]*?, "totalRows_[^\r\n]*?", \$totalRows_[^\r\n]*?\);(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch><![CDATA[$HTTP_SERVER_VARS['QUERY_STRING'],]]></quickSearch>
+</participant>

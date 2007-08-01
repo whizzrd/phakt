@@ -1,0 +1,22 @@
+
+<formats id="DWMenu_ServerFormatDef_PHPMySQL">
+	<menu id="DWMenu_ServerFormatDef_PHPMySQL_ALPHACASE" name="AlphaCase">
+		<format title="AlphaCase - Lower" file="AlphaCase" expression="&lt;\?\s*php\s*echo\s*strtolower\([^\r\n]*\);?\s*\?&gt;" func="strtolower" id="DWMenu_ServerFormatDef_PHPMySQL_CASELOWER" />
+		<format title="AlphaCase - Upper" file="AlphaCase" expression="&lt;\?\s*php\s*echo\s*strtoupper\([^\r\n]*\);?\s*\?&gt;" func="strtoupper" id="DWMenu_ServerFormatDef_PHPMySQL_CASEUPPER" />
+		<format title="AlphaCase - First Letter Upper" file="AlphaCase" expression="&lt;\?\s*php\s*echo\s*ucfirst\([^\r\n]*\);?\s*\?&gt;" func="ucfirst" id="DWMenu_ServerFormatDef_PHPMySQL_FIRST_LETTER_UPPER" />
+		<format title="AlphaCase - Capitalize" file="AlphaCase" expression="&lt;\?\s*php\s*echo\s*ucwords\([^\r\n]*\);?\s*\?&gt;" func="ucwords" id="DWMenu_ServerFormatDef_PHPMySQL_CAPITALIZE" />
+	</menu>
+	<menu id="DWMenu_ServerFormatDef_PHPMySQL_TRIM" name="Trim">
+		<format title="Trim - Left" file="Trim" expression="&lt;\?\s*php\s*echo\s*ltrim\([^\r\n]*\);?\s*\?&gt;" func="ltrim" id="DWMenu_ServerFormatDef_PHPMySQL_TRIMLEFT" />
+		<format title="Trim - Right" file="Trim" expression="&lt;\?\s*php\s*echo\s*chop\([^\r\n]*\);?\s*\?&gt;" func="chop" id="DWMenu_ServerFormatDef_PHPMySQL_TRIMRIGHT" />
+		<format title="Trim - Both" file="Trim" expression="&lt;\?\s*php\s*echo\s*trim\([^\r\n]*\);?\s*\?&gt;" func="trim" id="DWMenu_ServerFormatDef_PHPMySQL_TRIMBOTH" />
+	</menu>
+	<separator />
+	<format title="Encode - HTML Encode" file="Simple" expression="&lt;\?\s*php\s*echo\s*htmlentities\([^\r\n]*\);?\s*\?&gt;" func="htmlentities" id="DWMenu_ServerFormatDef_PHPMySQL_URLENCODE" />
+	<format title="Encode - URL Encode" file="Simple" expression="&lt;\?\s*php\s*echo\s*urlencode\([^\r\n]*\);?\s*\?&gt;" func="urlencode" id="DWMenu_ServerFormatDef_PHPMySQL_URLENCODE" />
+	<format title="Encode - Raw URL Encode" file="Simple" expression="&lt;\?\s*php\s*echo\s*rawurlencode\([^\r\n]*\);?\s*\?&gt;" func="rawurlencode" id="DWMenu_ServerFormatDef_PHPMySQL_RAWURLENCODE" />
+	<format title="Encode - URL Decode" file="Simple" expression="&lt;\?\s*php\s*echo\s*urldecode\([^\r\n]*\);?\s*\?&gt;" func="urldecode" id="DWMenu_ServerFormatDef_PHPMySQL_URLDECODE" />
+	<format title="Encode - Raw URL Decode" file="Simple" expression="&lt;\?\s*php\s*echo\s*rawurldecode\([^\r\n]*\);?\s*\?&gt;" func="rawurldecode" id="DWMenu_ServerFormatDef_PHPMySQL_RAWURLDECODE" />
+	<separator references="TCNString" />
+	<format title="Encode - subStr" file="NxtExtra" expression="&lt;\?\s*php\s*echo\s*htmsubstr\([^\r\n]*,0,(.*)\);?\s*\?&gt;" id="TCNMenu_ServerFormatDef_PHPMySQL_NXTEXTRA" />
+</formats>

@@ -1,0 +1,26 @@
+<participant version="5.0">
+<insertText location="afterSelection">
+
+<![CDATA[
+<table border="1" align="center">
+  <tr>
+  <@loop (@@MasterPageFields@@) @>
+    <th>@@MasterPageFields@@</th>
+  <@endloop@>
+  </tr>
+  <?php
+    while (!$@@RecordsetName@@->EOF) {
+  ?>
+  <tr>
+  <@loop (@@MasterPageFields@@) @>
+    <td><@ if (@@MasterPageFields@@ == @@LinkToField@@) @><a href="@@DetailPageName@@?<?php echo $MM_keepURL . (($MM_keepURL!="")?"&":"") . "recordID=" . urlencode($@@RecordsetName@@->Fields('@@UniqueIDField@@')) ?>"><@endif@><?php echo $@@RecordsetName@@->Fields('@@MasterPageFields@@')?> <@ if (@@MasterPageFields@@ == @@LinkToField@@) @></a><@endif@></td>
+  <@endloop@>
+  </tr>
+  <?php
+    $@@RecordsetName@@->MoveNext();
+  }
+?>
+</table><br>
+]]>
+</insertText>
+</participant>

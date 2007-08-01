@@ -1,0 +1,9 @@
+<participant version="6.1">
+	<insertText location="belowHTML+50"><![CDATA[<?php
+$@@RecordsetName@@->Close();
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="RecordsetName" isOptional="false" limitSearch="all"><![CDATA[/\$([^\r\n]*?)->\s*Close\(\);(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>Close();</quickSearch>
+</participant>

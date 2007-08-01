@@ -1,0 +1,10 @@
+<participant>
+  <implementation serverModel="PHP_ADODB">
+    <insertText location="afterSelection">
+<![CDATA[
+@@beforeFirst@@ @@firstStatistics@@ @@beforeLast@@ @@lastStatistics@@ @@beforeTotal@@ @@totalStatistics@@ @@afterTotal@@
+]]>
+    </insertText>
+  </implementation>
+</participant>
+

@@ -1,0 +1,1713 @@
+<codehints xmlns:MMString="http://www.macromedia.com/schemes/data/string/">
+
+<menugroup name="Tag Names" enabled="true" id="CodeHints_Tag_Names">
+  <description>
+  <![CDATA[To add or remove tags and attributes, use the <a href="javascript:dw.tagLibrary.showTagLibraryEditor()">Tag Library Editor</a>.]]>
+  </description>
+  <!-- The menu is generated from Configuration/TagLibraries -->
+</menugroup>
+
+<menugroup name="Attribute Names" enabled="true" id="CodeHints_Attribute_Names">
+  <description>
+    <![CDATA[To add or remove tags and attributes, use the <a href="javascript:dw.tagLibrary.showTagLibraryEditor()">Tag Library Editor</a>.]]>
+  </description>
+  <!-- The menu is generated from Configuration/TagLibraries -->
+</menugroup>
+
+<menugroup name="Attribute Values" enabled="true" id="CodeHints_Attribute_Values">
+  <description>
+  <![CDATA[To add or remove tags and attributes, use the <a href="javascript:dw.tagLibrary.showTagLibraryEditor()">Tag Library Editor</a>.]]>
+  </description>
+  <!-- The menu is generated from Configuration/TagLibraries -->
+</menugroup>
+
+<menugroup name="Function Arguments" enabled="true" id="CodeHints_Function_Arguments">
+  <description>
+  <![CDATA[To add or remove tags and attributes, use the <a href="javascript:dw.tagLibrary.showTagLibraryEditor()">Tag Library Editor</a>.]]>
+  </description>
+
+  <function pattern="abs(mixed number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="accept_connect(int socket)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="acos(float arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="addcslashes(string str, string charlist)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="addslashes(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="apache_lookup_uri(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="apache_note(string note_name, string note_value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array(mixed ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_count_values(array input)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_diff(array array1, array array2, array ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_flip(array trans)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_intersect(array array1, array array2, array ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_keys(array input, mixed search_value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_merge(array array1, array array2, array ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_merge_recursive(array array1, array array2, array ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_multisort(array ar1, mixed arg, mixed ..., array ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_pad(array input, int pad_size, mixed pad_value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_pop(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_push(array array, mixed var, mixed ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_rand(array input, int num_req)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_reverse(array array, bool preserve_keys)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_shift(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_slice(array array, int offset, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_splice(array input, int offset, int length, array replacement)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_unique(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_unshift(array array, mixed var, mixed ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_values(array input)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="array_walk(array arr, string func, mixed userdata)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="arsort(array array, int sort_flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ascii2ebcdic(string ascii_str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="asin(float arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="asort(array array, int sort_flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="aspell_check(int dictionary_link, string word)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="aspell_check_raw(int dictionary_link, string word)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="aspell_new(string master, string personal)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="aspell_suggest(int dictionary_link, string word)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="assert(string|bool assertion)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="assert_options(int what, mixed value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="atan(float arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="atan2(float y, float x)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="base64_decode(string encoded_data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="base64_encode(string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="base_convert(string number, int frombase, int tobase)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="basename(string path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bcadd(string left operand, string right operand, int scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bccomp(string left operand, string right operand, int scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bcdiv(string left operand, string right operand, int scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bcmod(string left operand, string modulus)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bcmul(string left operand, string right operand, int scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bcpow(string x, string y, int scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bcscale(int scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bcsqrt(string operand, int scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bcsub(string left operand, string right operand, int scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bin2hex(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bind(int socket, string address, int port)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bindec(string binary_string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="bindtextdomain(string domain, string directory)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="call_user_func(string function_name, mixed parameter, mixed ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="call_user_method(string method_name, object obj, mixed parameter, mixed ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ceil(float number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="chdir(string directory)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="checkdate(int month, int day, int year)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="checkdnsrr(string host, string type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="chgrp(string filename, mixed group)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="chmod(string filename, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="chop(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="chown(string filename, mixed user)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="chr(int ascii)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="chunk_split(string string, int chunklen, string end)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="class_exists(string class_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="clearstatcache()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="close(int socket)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="closedir(int dir_handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="closelog()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="com_get(resource com_object, string property)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="com_invoke(resource com_object, string function_name, mixed function parameters, ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="com_load(string module name, string server name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="com_propget(resource com_object, string property)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="com_propput(resource com_object, string property, mixed value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="com_propset(resource com_object, string property, mixed value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="com_set(resource com_object, string property, mixed value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="compact(mixed varname, mixed ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="connect(int socket, string address, int port)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="connection_aborted(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="connection_status(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="connection_timeout(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="convert_cyr_string(string str, string from, string to)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="copy(string source, string dest)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cos(float arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="count(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="count_chars(string string, mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_add_annotation(int pdf document, double llx, double lly, double urx, double ury, string title, string content, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_add_outline(int pdf document, string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_arc(int pdf document, double x-coor, double y-coor, double radius, double start, double end, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_begin_text(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_circle(int pdf document, double x-coor, double y-coor, double radius, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_clip(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_close(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_closepath(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_closepath_fill_stroke(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_closepath_stroke(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_continue_text(int pdf document, string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_curveto(int pdf document, double x1, double y1, double x2, double y2, double x3, double y3, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_end_text(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_fill(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_fill_stroke(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_finalize(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_finalize_page(int pdf document, int page number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_global_set_document_limits(int maxpages, int maxfonts, int maximages, int maxannotations, int maxobjects)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_import_jpeg(int pdf document, string file name, double x-coor, double y-coor, double angle, double width, double height, double x-scale, double y-scale, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_lineto(int pdf document, double x-coor, double y-coor, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_moveto(int pdf document, double x-coor, double y-coor, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_newpath(int pdf_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_open(int compression, string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_output_buffer(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_page_init(int pdf document, int page number, int orientation, double height, double width, double unit)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_place_inline_image(int pdf document, int image, double x-coor, double y-coor, double angle, double width, double height, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_rect(int pdf document, double x-coor, double y-coor, double width, double height, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_restore(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_rlineto(int pdf document, double x-coor, double y-coor, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_rmoveto(int pdf document, double x-coor, double y-coor, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_rotate(int pdf document, double angle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_save(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_save_to_file(int pdf document, string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_scale(int pdf document, double x-scale, double y-scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set leading(int pdf document, double distance)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_char_spacing(int pdf document, double space)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_creator(string creator)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_current_page(int pdf document, int page number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_font(int pdf document, string font name, double size, string encoding)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_horiz_scaling(int pdf document, double scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_keywords(string keywords)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_page_animation(int pdf document, int transition, double duration)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_subject(string subject)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_text_matrix(int pdf document, array matrix)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_text_pos(int pdf document, double x-coor, double y-coor, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_text_rendering(int pdf document, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_text_rise(int pdf document, double value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_title(string title)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_set_word_spacing(int pdf document, double space)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setdash(int pdf document, double white, double black)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setflat(int pdf document, double value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setgray(int pdf document, double gray value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setgray_fill(int pdf document, double value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setgray_stroke(int pdf document, double gray value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setlinecap(int pdf document, int value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setlinejoin(int pdf document, long value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setlinewidth(int pdf document, double width)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setmiterlimit(int pdf document, double value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setrgbcolor(int pdf document, double red value, double green value, double blue value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setrgbcolor_fill(int pdf document, double red value, double green value, double blue value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_setrgbcolor_stroke(int pdf document, double red value, double green value, double blue value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_show(int pdf document, string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_show_xy(int pdf document, string text, double x-coor, double y-coor, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_stringwidth(int pdf document, string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_stroke(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_text(int pdf document, string text, double x-coor, double y-coor, int mode, double orientation, int alignmode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cpdf_translate(int pdf document, double x-coor, double y-coor, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="crc32(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="create_function(string args, string code)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="crypt(string str, string salt)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="curl_close(int ch)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="curl_exec(int ch)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="curl_init(string url)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="curl_setopt(int ch, string option, mixed value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="curl_version()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="current(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cybercash_base64_decode(string inbuff)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cybercash_base64_encode(string inbuff)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cybercash_decr(string wmk, string sk, string inbuff)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="cybercash_encr(string wmk, string sk, string inbuff)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="date(string format, int timestamp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_close(int handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_delete(string key, int handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_exists(string key, int handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_fetch(string key, int handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_firstkey(int handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_insert(string key, string value, int handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_nextkey(int handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_open(string path, string mode, string handler, ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_optimize(int handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_popen(string path, string mode, string handler, ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_replace(string key, string value, int handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dba_sync(int handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbase_add_record(int dbase_identifier, array record)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbase_close(int dbase_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbase_create(string filename, array fields)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbase_delete_record(int dbase_identifier, int record)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbase_get_record(int dbase_identifier, int record)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbase_get_record_with_names(int dbase_identifier, int record)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbase_numfields(int dbase_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbase_numrecords(int dbase_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbase_open(string filename, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbase_pack(int dbase_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbase_replace_record(int dbase_identifier, array record, int dbase_record_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dblist(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbmclose(int dbm_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbmdelete(int dbm_identifier, string key)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbmexists(int dbm_identifier, string key)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbmfetch(int dbm_identifier, string key)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbmfirstkey(int dbm_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbminsert(int dbm_identifier, string key, string value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbmnextkey(int dbm_identifier, string key)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbmopen(string filename, string flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dbmreplace(int dbm_identifier, string key, string value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dcgettext(string domain, string message, int category)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="debugger_off()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="debugger_on(string address)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="decbin(int number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dechex(int number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="decoct(int number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="define(string name, mixed value, int case_insensitive)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="define_syslog_varaibles(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="defined(string name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="deg2rad(double number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="delete(string file)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dgettext(string domain, string message)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="die(string message)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dir(string directory)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dirname(string path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="diskfreespace(string directory)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dl(string library)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="dl(string library)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="doubleval(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="each(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="easter_date(int year)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="easter_days(int year)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ebcdic2ascii(string ebcdic_str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="echo(string arg1, string argn...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="empty(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="end(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="EOF" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ereg(string pattern, string string, array regs)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ereg_replace(string pattern, string replacement, string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="eregi(string pattern, string string, array regs)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="eregi_replace(string pattern, string replacement, string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="error_log(string message, int message_type, string destination, string extra_headers)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="error_reporting(int level)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="escapeshellarg(string arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="escapeshellcmd(string command)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="eval(string code_str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="exec(string command, string array, int return_var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="exit()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="exp(float arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="explode(string separator, string string, int limit)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="extension_loaded(string name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="extract(array var_array, int extract_type, string prefixmixed needle, array haystack, bool strict)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ezmlm_hash(string addr)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fclose(int fp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_close(int fdf_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_create(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_get_file(int fdf_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_get_status(int fdf_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_get_value(int fdf_document, string fieldname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_next_field_name(int fdf_document, string fieldname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_open(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_save(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_set_ap(int fdf_document, string field_name, int face, string filename, int page_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_set_file(int fdf_document, string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_set_flags(int fdf_document, string fieldname, int whichFlags, int newFlags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_set_javascript_action(int fdf_document, string fieldname, int trigger, string script)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_set_opt(int fdf_document, string fieldname, int element, string str1, string str2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_set_status(int fdf_document, string status)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_set_submit_form_action(int fdf_document, string fieldname, int trigger, string script, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fdf_set_value(int fdf_document, string fieldname, string value, int isName)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="feof(int fp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fflush(int fp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fgetc(int fp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fgetcsv(int fp, int length, string delimiter)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fgets(int fp, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fgetss(int fp, int length, string allowable_tags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="file(string filename, int use_include_path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="file_exists(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fileatime(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filectime(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filegroup(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fileinode(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filemtime(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fileowner(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fileperms(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filepro(string directory)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filepro_fieldcount()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filepro_fieldname(int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filepro_fieldtype(int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filepro_fieldwidth(int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filepro_retrieve(int row_number, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filepro_rowcount()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filesize(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="filetype(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="flock(int fp, int operation, int wouldblock)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="floor(float number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="flush()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fopen(string filename, string mode, int use_include_path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fpassthru(int fp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fputs(int fp, string str, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fread(int fp, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="frenchtojd(int month, int day, int year)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fscanf(int handle, string format, string var1... )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fseek(int fp, int offset, int whence)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fsockopen(string udp://, hostname, int port, int errno, string errstr, double timeout)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fstat(int fp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftell(int fp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_cdup(int ftp_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_chdir(int ftp_stream, string directory)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_connect(string host, int port)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_delete(int ftp_stream, string path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_fget(int ftp_stream, int fp, string remote_file, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_fput(int ftp_stream, string remote_file, int fp, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_get(int ftp_stream, string local_file, string remote_file, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_login(int ftp_stream, string username, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_mdtm(int ftp_stream, string remote_file)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_mkdir(int ftp_stream, string directory)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_nlist(int ftp_stream, string directory)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_pasv(int ftp_stream, int pasv)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_put(int ftp_stream, string remote_file, string local_file, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_pwd(int ftp_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_quit(int ftp_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_rawlist(int ftp_stream, string directory)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_rename(int ftp_stream, string from, string to)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_rmdir(int ftp_stream, string directory)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_site(int ftp_stream, string cmd)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_size(int ftp_stream, string remote_file)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftp_systype(int ftp_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ftruncate(int fp, int size)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="func_get_arg(int arg_num)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="func_get_args(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="func_num_args(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="function_exists(string function_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="fwrite(int fp, string string, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_browser(string user_agent)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_cfg_var(string varname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_class(object obj)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_class_methods(string class_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_class_vars(string class_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_current_user(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_declared_classes(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_extension_funcs(string module_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_html_translation_table(int table, int quote_style)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_included_files(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_loaded_extensions(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_magic_quotes_gpc(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_magic_quotes_runtime(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_meta_tags(string filename, int use_include_path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_object_vars(object obj)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_parent_class(object obj)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="get_required_files(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getallheaders(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getcwd()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getdate(int timestamp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getenv(string varname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gethostbyaddr(string ip_address)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gethostbyname(string hostname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gethostbynamel(string hostname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getimagesize(string filename, array imageinfo)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getlastmod(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getmxrr(string hostname, array mxhosts, array weight)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getmyinode(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getmypid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getmyuid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getprotobyname(string name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getprotobynumber(int number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getrandmax(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getrusage(int who)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getservbyname(string service, string protocol)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="getservbyport(int port, string protocol)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gettext(string message)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gettimeofday(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gettype(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmdate(string format, int timestamp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmmktime(int hour, int minute, int second, int month, int day, int year, int is_dst)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_abs(resource a)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_add(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_and(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_clrbit(resource &amp;a, int index)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_cmp(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_div_q(resource a, resource b, int round)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_div_qr(resource n, resource d, int round)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_div_r(resource n, resource d, int round)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_divexact(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_divexact(resource n, resource d)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_fact(int a)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_gcd(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_gcdext(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_hamdist(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_init(mixed number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_intval(resource gmpnumber)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_invert(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_jacobi(resource a, resource p)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_legendre(resource a, resource p)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_mod(resource n, resource d)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_mul(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_neg(resource a)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_or(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_perfect_square(resource a)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_popcount(resource a)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_pow(resource base, int exp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_powm(resource base, resource exp, resource mod)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_prob_prime(resource a, int reps)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_random(int limiter)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_scan0(resource a, int start)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_scan1(resource a, int start)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_setbit(resource &amp;a, int index, bool set_clear)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_sign(resource a)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_sqrt(resource a)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_sqrtrm(resource a)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_strval(resource gmpnumber, int base)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_sub(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmp_xor(resource a, resource b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gmstrftime(string format, int timestamp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gregoriantojd(int month, int day, int year)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzclose(int zp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzcompress(string data, int level)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzeof(int zp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzfile(string filename, int use_include_path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzgetc(int zp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzgets(int zp, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzgetss(int zp, int length, string allowable_tags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzopen(string filename, string mode, int use_include_path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzpassthru(int zp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzputs(int zp, string str, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzread(int zp, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzrewind(int zp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzseek(int zp, int offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gztell(int zp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzuncompress(string data, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="gzwrite(int zp, string string, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="header(string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="headers_sent(void)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hebrev(string hebrew_text, int max_chars_per_line)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hebrevc(string hebrew_text, int max_chars_per_line)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hexdec(string hex_string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="highlight_file(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="highlight_string(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="htmlentities(string string, int quote_style)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="htmlspecialchars(string string, int quote_style)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_array2objrec(array object_array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_children(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_childrenobj(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_close(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_connect(string host, int port, string username, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_cp(int connection, array object_id_array, int destination id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_deleteobject(int connection, int object_to_delete)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_docbyanchor(int connection, int anchorID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_docbyanchorobj(int connection, int anchorID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_document_attributes(int hw_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_document_bodytag(int hw_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_document_content(int hw_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_document_setcontent(int hw_document, string content)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_document_size(int hw_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_edittext(int connection, int hw_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_error(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_errormsg(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_free_document(int hw_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getanchors(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getanchorsobj(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getandlock(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getchildcoll(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getchildcollobj(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getchilddoccoll(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getchilddoccollobj(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getobject(int connection, [int|array] objectID, string query)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getobjectbyquery(int connection, string query, int max_hits)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getobjectbyquerycoll(int connection, int objectID, string query, int max_hits)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getobjectbyquerycollobj(int connection, int objectID, string query, int max_hits)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getobjectbyqueryobj(int connection, string query, int max_hits)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getparents(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getparentsobj(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getremote(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getremotechildren(int connection, string object record)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getsrcbydestobj(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_gettext(int connection, int objectID, mixed rootID/prefix)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_getusername(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_identify(string username, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_incollections(int connection, array object_id_array, array collection_id_array, int return_collections)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_info(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_inscoll(int connection, int objectID, array object_array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_insdoc(int connection, int parentID, string object_record, string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_insertdocument(int connection, int parent_id, int hw_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_insertobject(int connection, string object rec, string parameter)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_mapid(int connection, int server id, int object id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_modifyobject(int connection, int object_to_change, array remove, array add, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_mv(int connection, array object id array, int source id, int destination id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_new_document(string object_record, string document_data, int document_size)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_objrec2array(string object_record, array format)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_output_document(int hw_document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_pconnect(string host, int port, string username, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_pipedocument(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_root()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_unlock(int connection, int objectID)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="hw_who(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_close(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_commit(int link_identifier, int trans_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_connect(string database, string username, string password, string charset, int buffers, int dialect, string role)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_errmsg(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_execute(int query, int bind_args)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_fetch_object(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_fetch_row(int result_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_field_info(int result, int field number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_free_query(int query)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_free_result(int result_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_num_fields(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_pconnect(string database, string username, string password, string charset, int buffers, int dialect, string role)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_prepare(int link_identifier, string query)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_query(int link_identifier, string query, int bind_args)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_rollback(int link_identifier, int trans_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_timefmt(string format, int columntype)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ibase_trans(int trans_args, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="icap_close(int icap_stream, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="icap_delete_event(int sream_id, int uid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="icap_fetch_event(int stream_id, int event_id, int options)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="icap_list_alarms(int stream_id, array date, array time)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="icap_list_events(int stream_id, int begin_date, int end_date)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="icap_open(string calendar, string username, string password, string options)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="icap_snooze(int stream_id, int uid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="icap_store_event(int stream_id, object event)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_affected_rows(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_blobinfile_mode(int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_byteasvarchar(int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_close(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_connect(string database, string userid, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_copy_blob(int bid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_create_blob(int type, int mode, string param)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_create_char(string param)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_do(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_error()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_errormsg(int errorcode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_fetch_row(int result_id, mixed positionposition, )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_fieldproperties(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_fieldtypes(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_free_blob(int bid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_free_char(int bid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_free_result(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_get_blob(int bid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_get_char(int bid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_getsqlca(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_htmltbl_result(int result_id, string html_table_options)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_nullformat(int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_num_fields(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_num_rows(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_pconnect(string database, string userid, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_prepare(string query, int conn_id, int cursor_def, mixed blobidarray)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_query(string query, int link_identifier, int cursor_type, mixed blobidarray)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_textasvarchar(int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_update_blob(int bid, string content)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifx_update_char(int bid, string content)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifxus_close_slob(int bid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifxus_create_slob(int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifxus_free_slob(int bid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifxus_open_slob(long bid, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifxus_read_slob(long bid, long nbytes)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifxus_seek_blob(long bid, int mode, long offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifxus_tell_slob(long bid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ifxus_write_slob(long bid, string content)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ignore_user_abort(int setting)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagearc(int im, int cx, int cy, int w, int h, int s, int e, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagechar(int im, int font, int x, int y, string c, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecharup(int im, int font, int x, int y, string c, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecolorallocate(int im, int red, int green, int blue)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecolorat(int im, int x, int y)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecolorclosest(int im, int red, int green, int blue)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecolordeallocate(int im, int index)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecolorexact(int im, int red, int green, int blue)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecolorresolve(int im, int red, int green, int blue)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecolorset(int im, int index, int red, int green, int blue)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecolorsforindex(int im, int index)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecolorstotal(int im)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecolortransparent(int im, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ImageCopy(int dst_im, int src_im, int dst_x, int dst_y, int src_x, int src_y, int src_w, int src_h)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecopyresized(int dst_im, int src_im, int dstX, int dstY, int srcX, int srcY, int dstW, int dstH, int srcW, int srcH)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecreate(int x_size, int y_size)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecreatefromgif(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecreatefromjpeg(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecreatefrompng(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecreatefromstring(string image)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagecreatefromwbmp(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagedashedline(int im, int x1, int y1, int x2, int y2, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagedestroy(int im)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagefill(int im, int x, int y, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagefilledpolygon(int im, array points, int num_points, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagefilledrectangle(int im, int x1, int y1, int x2, int y2, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagefilltoborder(int im, int x, int y, int border, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagefontheight(int font)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagefontwidth(int font)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagegammacorrect(int im, double inputgamma, double outputgamma)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagegif(int im, string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imageinterlace(int im, int interlace)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagejpeg(int im, string filename, int quality)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imageline(int im, int x1, int y1, int x2, int y2, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imageloadfont(string file)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagepng(int im, string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagepolygon(int im, array points, int num_points, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagepsbbox(string text, int font, int size, int space, int tightness, float angle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagepsencodefont(int font_index, string encodingfile)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagepsextendfont(int font_index, double extend)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagepsfreefont(int fontindex)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagepsloadfont(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagepsslantfont(int font_index, double slant)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagepstext(int image, string text, int font, int size, int foreground, int background, int x, int y, int space, int tightness, float angle, int antialias_steps)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagerectangle(int im, int x1, int y1, int x2, int y2, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagesetpixel(int im, int x, int y, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagestring(int im, int font, int x, int y, string s, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagestringup(int im, int font, int x, int y, string s, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagesx(int im)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagesy(int im)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagettfbbox(int size, int angle, string fontfile, string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagettftext(int im, int size, int angle, int x, int y, int col, string fontfile, string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imagetypes()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imageWBMP(int im, string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_8bit(string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_alerts(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_append(int imap_stream, string mbox, string message, string flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_base64(string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_binary(string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_body(int imap_stream, int msg_number, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_check(int imap_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_clearflag_full(int stream, string sequence, string flag, string options)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_close(int imap_stream, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_createmailbox(int imap_stream, string mbox)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_delete(int imap_stream, int msg_number, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_deletemailbox(int imap_stream, string mbox)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_errors(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_expunge(int imap_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_fetch_overview(int imap_stream, string sequence, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_fetchbody(int imap_stream, int msg_number, string part_number, flags flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_fetchheader(int imap_stream, int msgno, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_fetchstructure(int imap_stream, int msg_number, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_getmailboxes(int imap_stream, string ref, string pattern)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_getsubscribed(int imap_stream, string ref, string pattern)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_header(int imap_stream, int msg_number, int fromlength, int subjectlength, string defaulthost)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_header_decode(string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_headerinfo(int imap_stream, int msg_number, int fromlength, int subjectlength, string defaulthost)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_headers(int imap_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_last_error(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_listmailbox(int imap_stream, string ref, string pattern)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_listsubscribed(int imap_stream, string ref, string pattern)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_mail(string to, string subject, string message, string additional_headers, string cc, string bcc, string rpath)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_mail_compose(array envelope, array body)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_mail_copy(int imap_stream, string msglist, string mbox, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_mail_move(int imap_stream, string msglist, string mbox, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_mailboxmsginfo(int imap_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_msgno(int imap_stream, int uid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_num_msg(int imap_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_num_recent(int imap_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_open(string mailbox, string username, string password, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_ping(int imap_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_qprint(string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_renamemailbox(int imap_stream, string old_mbox, string new_mbox)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_reopen(int imap_stream, string mailbox, string flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_rfc822_parse_adrlist(string address, string default_host)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_rfc822_parse_headers(string headers, string defaulthost)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_rfc822_write_address(string mailbox, string host, string personal)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_scanmailbox(int imap_stream, string ref, string pattern, string content)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_search(int imap_stream, string criteria, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_setflag_full(int stream, string sequence, string flag, string options)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_sort(int stream, int criteria, int reverse, int options)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_status(int imap_stream, string mailbox, int options)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_subscribe(int imap_stream, string mbox)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_uid(int imap_stream, int msgno)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_undelete(int imap_stream, int msg_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_unsubscribe(int imap_stream, string mbox)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_utf7_decode(string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_utf7_encode(string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="imap_utf8(string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="implode(string glue, array pieces)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="include(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="include_once(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_autocommit(resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_close(resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_commit(resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_connect(string database, string username, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_fetch_array(int result_type, resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_fetch_object(int result_type, resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_fetch_row(resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_field_length(int index, resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_field_name(int index, resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_field_nullable(int index, resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_field_precision(int index, resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_field_scale(int index, resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_field_type(int index, resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_num_fields(resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_num_rows(resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_pconnect(string database, string username, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_query(string query, resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ingres_rollback(resource link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ini_alter(string varname, string newvalue)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ini_get(string varname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ini_restore(string varname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ini_set(string varname, string newvalue)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="intval(mixed var, int base)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ip2long(string ip_address)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="iptcparse(string iptcblock)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_array(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_bool(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_dir(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_double(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_executable(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_file(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_float(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_int(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_integer(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_link(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_long(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_numeric(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_object(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_readable(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_real(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_resource(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_string(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_subclass_of(object obj, string superclass)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_uploaded_file(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="is_writable(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="isset(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="jddayofweek(int julianday, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="jdmonthname(int julianday, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="jdtofrench(int juliandaycount)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="jdtogregorian(int julianday)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="jdtojewish(int julianday)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="jdtojulian(int julianday)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="jdtounix(int jday)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="jewishtojd(int month, int day, int year)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="join(string glue, array pieces)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="juliantojd(int month, int day, int year)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="key(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="krsort(array array, int sort_flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ksort(array array, int sort_flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="lcg_value()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_add(int link_identifier, string dn, array entry)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_bind(int link_identifier, string bind_rdn, string bind_password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_close(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_compare(int link_identifier, string dn, string attribute, string value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_connect(string hostname, int port)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_count_entries(int link_identifier, int result_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_delete(int link_identifier, string dn)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_dn2ufn(string dn)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_err2str(int errno)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_errno(int link_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_error(int link_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_explode_dn(string dn, int with_attrib)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_first_attribute(int link_identifier, int result_entry_identifier, int ber_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_first_entry(int link_identifier, int result_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_free_result(int result_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_get_attributes(int link_identifier, int result_entry_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_get_dn(int link_identifier, int result_entry_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_get_entries(int link_identifier, int result_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_get_option(int link_identifier, int option, mixed retval)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_get_values(int link_identifier, int result_entry_identifier, string attribute)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_get_values_len(int link_identifier, int result_entry_identifier, string attribute)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_list(int link_identifier, string base_dn, string filter, array attributes, int attrsonly, int sizelimit, int timelimit, int deref)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_mod_add(int link_identifier, string dn, array entry)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_mod_del(int link_identifier, string dn, array entry)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_mod_replace(int link_identifier, string dn, array entry)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_modify(int link_identifier, string dn, array entry)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_next_attribute(int link_identifier, int result_entry_identifier, int ber_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_next_entry(int link_identifier, int result_entry_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_read(int link_identifier, string base_dn, string filter, array attributes, int attrsonly, int sizelimit, int timelimit, int deref)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_search(int link_identifier, string base_dn, string filter, array attributes, int attrsonly, int sizelimit, int timelimit, int deref)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_set_option(int link_identifier, int option, mixed newval)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ldap_unbind(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="leak(int bytes)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="levenshtein(string str1, string str2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="levenshtein(string str1, string str2, function cost)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="levenshtein(string str1, string str2, int cost_ins, int cost_rep, int cost_del)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="link(string target, string link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="linkinfo(string path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="list()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="listen(int socket, int backlog)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="localeconv()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="localtime(int timestamp, bool is_associative)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="log(float arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="log10(float arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="long2ip(int proper_address)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="lstat(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ltrim(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mail(string to, string subject, string message, string additional_headers)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="max(mixed arg1, mixed arg2, mixed argn)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_(int year, int month, int day)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_(int year, int month, int day)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_append_event(int mcal_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_close(int mcal_stream, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_create_calendar(int stream, string calendar)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_date_compare(int a_year, int a_month, int a_day, int b_year, int b_month, int b_day)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_date_valid(int year, int month, int day)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_days_in_month(int month, int leap year)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_delete_calendar(int stream, string calendar)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_delete_event(int mcal_stream, int event_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_add_attribute(int stream, string attribute, string value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_init(int stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_alarm(int stream, int alarm)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_category(int stream, string category)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_class(int stream, int class)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_description(int stream, string description)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_end(int stream, int year, int month, int day, int hour, int min, int sec)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_recur_daily(int stream, int year, int month, int day, int interval)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_recur_monthly_mday(int stream, int year, int month, int day, int interval)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_recur_monthly_wday(int stream, int year, int month, int day, int interval)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_recur_none(int stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_recur_weekly(int stream, int year, int month, int day, int interval, int weekdays)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_recur_yearly(int stream, int year, int month, int day, int interval)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_start(int stream, int year, int month, int day, int hour, int min, int sec)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_event_set_title(int stream, string title)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_expunge(int stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_fetch_current_stream_event(int stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_fetch_event(int mcal_stream, int event_id, int options)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_is_leap_year(int year)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_list_alarms(int mcal_stream, int begin_year, int begin_month, int begin_day, int end_year, int end_month, int end_day)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_list_events(int mcal_stream, object begin_date, object end_date)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_next_recurrence(int stream, int weekstart, array next)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_open(string calendar, string username, string password, int options)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_popen(string calendar, string username, string password, int options)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_rename_calendar(int stream, string old_name, string new_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_reopen(string calendar, int options)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_snooze(int id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_store_event(int mcal_stream)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcal_time_valid(int hour, int minutes, int seconds)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_cbc(int cipher, string key, string data, int mode, string iv)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_cbc(string cipher, string key, string data, int mode, string iv)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_cfb(int cipher, string key, string data, int mode, string iv)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_cfb(string cipher, string key, string data, int mode, string iv)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_create_iv(int size, int source)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_decrypt(string cipher, string key, string data, string mode, string iv)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_ecb(int cipher, string key, string data, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_ecb(string cipher, string key, string data, int mode, string iv)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_enc_get_algorithms_name(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_enc_get_block_size(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_enc_get_iv_size(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_enc_get_key_size(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_enc_get_modes_name(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_enc_get_supported_key_sizes(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_enc_is_block_algorithm(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_enc_is_block_algorithm_mode(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_enc_is_block_mode(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_enc_self_test(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_encrypt(string cipher, string key, string data, string mode, string iv)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_generic(resource td, string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_generic_end(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_generic_init(resource td, string key, string iv)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_get_block_size(int cipher)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_get_block_size(string cipher, string module)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_get_cipher_name(int cipher)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_get_cipher_name(string cipher)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_get_iv_size(resource td)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_get_iv_size(string cipher, string mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_get_key_size(int cipher)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_get_key_size(string cipher, string module)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_list_algorithms(string lib_dir)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_list_modes(string lib_dir)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_module_enc_get_algo_supported_key_sizes(string algorithm, string lib_dir)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_module_get_algo_block_size(string algorithm, string lib_dir)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_module_get_algo_key_size(string algorithm, string lib_dir)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_module_is_block_algorithm(string algorithm, string lib_dir)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_module_is_block_algorithm_mode(string mode, string lib_dir)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_module_is_block_mode(string mode, string lib_dir)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_module_open(string algorithm, string algorithm_directory, string mode, string mode_directory)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_module_self_test(string algorithm, string lib_dir)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_ofb(int cipher, string key, string data, int mode, string iv)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mcrypt_ofb(string cipher, string key, string data, int mode, string iv)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="md5(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mdecrypt_generic(resource td, string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="metaphone(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="method_exists(object object, string method_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mhash(int hash, string data, string [ key ])" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mhash_count(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mhash_get_block_size(int hash)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mhash_get_hash_name(int hash)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mhash_keygen_s2k(int hash, string password, string salt, int bytes)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="microtime()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="min(mixed arg1, mixed arg2, mixed argn)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mkdir(string pathname, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mktime(int hour, int minute, int second, int month, int day, int year, int is_dst)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="move_uploaded_file(string filename, string destination)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_close(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_connect(string servername, string username, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_data_seek(int result_identifier, int row_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_fetch_array(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_fetch_field(int result, int field_offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_fetch_object(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_fetch_row(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_field_length(int result, int offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_field_name(int result, int offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_field_seek(int result, int field_offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_field_type(int result, int offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_free_result(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_get_last_message(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_min_error_severity(int severity)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_min_message_severity(int severity)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_num_fields(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_num_rows(string result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_pconnect(string servername, string username, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_query(string query, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_result(int result, int i, mixed field)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mssql_select_db(string database_name, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mt_getrandmax(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mt_rand(int min, int max)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mt_srand(int seed)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_affected_rows(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_change_user(string user, string password, string database, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_close(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_connect(string hostname:port:/path/to/socket, string username, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_create_db(string database name, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_data_seek(int result_identifier, int row_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_db_name(int result, int row, mixed field)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_db_query(string database, string query, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_drop_db(string database_name, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_errno(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_error(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_fetch_array(int result, int result_type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_fetch_assoc(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_fetch_field(int result, int field_offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_fetch_lengths(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_fetch_object(int result, int result_type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_fetch_row(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_field_flags(int result, int field_offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_field_len(int result, int field_offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_field_name(int result, int field_index)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_field_seek(int result, int field_offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_field_table(int result, int field_offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_field_type(int result, int field_offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_free_result(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_insert_id(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_list_dbs(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_list_fields(string database_name, string table_name, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_list_tables(string database, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_num_fields(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_num_rows(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_pconnect(string hostname:port:/path/to/socket, string username, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_query(string query, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_result(int result, int row, mixed field)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_select_db(string database_name, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="mysql_tablename(int result, int i)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="natcasesort(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="natsort(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="next(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="nl2br(string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="number_format(float number, int decimals, string dec_point, string thousands_sep)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ob_end_clean()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ob_end_flush()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ob_get_contents()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ob_get_length()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ob_implicit_flush(int flag)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ob_start(string output_callback)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIBindByName(int stmt, string ph_name, mixed &amp; variable, int length, int type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIColumnIsNULL(int stmt, mixed column)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIColumnName(int stmt, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIColumnSize(int stmt, mixed column)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIColumnType(int stmt, int col)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCICommit(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIDefineByName(int stmt, string Column-Name, mixed variable, int type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIError(int stmt|conn|global)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIExecute(int statement, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIFetch(int statement)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIFetchInto(int stmt, array &amp; result, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIFetchStatement(int stmt, array &amp; variable)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIFreeCursor(int stmt)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIFreeDesc(object lob)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIFreeStatement(int stmt)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIInternalDebug(int onoff)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCILogOff(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCILogon(string username, string password, string db)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCINewCursor(int conn)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCINewDescriptor(int connection, int type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCINLogon(string username, string password, string db)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCINumCols(int stmt)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIParse(int conn, strint query)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIPLogon(string username, string password, string db)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIResult(int statement, mixed column)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIRollback(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIRowCount(int statement)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIServerVersion(int conn)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OCIStatementType(int stmt)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="octdec(string octal_string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_autocommit(int connection_id, int OnOff)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_binmode(int result_id, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_close(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_close_all()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_columnprivileges(int connection_id, string qualifier, string owner, string table_name, string column_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_columns(int connection_id, string qualifier, string owner, string table_name, string column_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_commit(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_connect(string dsn, string user, string password, int cursor_type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_cursor(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_do(int conn_id, string query)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_error(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_errormsg(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_exec(int connection_id, string query_string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_execute(int result_id, array parameters_array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_fetch_into(int result_id, int rownumber, array result_array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_fetch_row(int result_id, int row_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_field_len(int result_id, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_field_name(int result_id, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_field_num(int result_id, string field_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_field_precision(int result_id, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_field_scale(int result_id, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_field_type(int result_id, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_foreignkeys(int connection_id, string pk_qualifier, string pk_owner, string pk_table, string fk_qualifier, string fk_owner, string fk_table)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_free_result(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_gettypeinfo(int connection_id, int data_type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_longreadlen(int result_id, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_num_fields(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_num_rows(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_pconnect(string dsn, string user, string password, int cursor_type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_prepare(int connection_id, string query_string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_primarykeys(int connection_id, string qualifier, string owner, string table)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_procedurecolumns(int connection_id, string qualifier, string owner, string proc, string column)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_procedures(int connection_id, string qualifier, string owner, string name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_result(int result_id, mixed field)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_result_all(int result_id, string format)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_rollback(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_setoption(int id, int function, int option, int param)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_specialcolumns(int connection_id, int type, string qualifier, string owner, string table, int scope, int nullable)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_statistics(int connection_id, string qualifier, string owner, string table_name, int unique, int accuracy)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_tableprivileges(int connection_id, string qualifier, string owner, string name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="odbc_tables(int connection_id, string qualifier, string owner, string name, string types)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="opendir(string path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="openlog(string ident, int option, int facility)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="openssl_free_key(int key_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="openssl_get_privatekey(string key, string passphrase)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="openssl_get_publickey(string certificate)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="openssl_open(string sealed_data, string open_data, string env_key, int priv_key_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="openssl_seal(string data, string sealed_data, array env_keys, array pub_key_ids)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="openssl_sign(string data, string signature, int priv_key_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="openssl_verify(string data, string signature, int pub_key_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_bind(int cursor, string PHP variable name, string SQL parameter name, int length, int type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_close(int cursor)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="Ora_ColumnName(int cursor, int column)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="Ora_ColumnSize(int cursor, int column)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="Ora_ColumnType(int cursor, int column)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_commit(int conn)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_commitoff(int conn)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_commiton(int conn)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_do(int conn, string query)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="Ora_Error(int cursor_or_connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="Ora_ErrorCode(int cursor_or_connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_exec(int cursor)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_fetch(int cursor)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_fetch_into(int cursor, array result, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_getcolumn(int cursor, mixed column)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_logoff(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_logon(string user, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_numcols(int cursor_ind)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_numrows(int cursor_ind)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_open(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_parse(int cursor_ind, string sql_statement, int defer)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_plogon(string user, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ora_rollback(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OrbitEnum(string id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OrbitObject(string ior)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="OrbitStruct(string id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ord(string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_close(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_close_all(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_commit(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_connect(string host, string db, string user, string password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_cursor(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_exec(int connection_id, string query)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_execute(int result_id, array parameters_array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_fetch_into(int result_id, array result_array, string how, int rownumber)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_fetch_row(int result_id, int how, int row_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_field_len(int result_id, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_field_name(int result_id, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_field_num(int result_id, string field_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_field_type(int result_id, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_free_result(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_longreadlen(int result_id, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_num_fields(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_num_rows(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_prepare(int connection_id, string query)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_result(int result_id, mixed field)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_result_all(int result_id, string format)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ovrimos_rollback(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pack(string format, mixed args... )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="parse_str(string str, array arr)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="parse_url(string url)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="passthru(string command, int return_var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pclose(int fp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_add_annotation(int pdf document, double llx, double lly, double urx, double ury, string title, string content)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_add_outline(int pdf document, string text, int parent, int open)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_arc(int pdf document, double x-coor, double y-coor, double radius, double start, double end)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_begin_page(int pdf document, double width, double height)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_circle(int pdf document, double x-coor, double y-coor, double radius)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_clip(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_close(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_close_image(int image)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_closepath(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_closepath_fill_stroke(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_closepath_stroke(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_continue_text(int pdf document, string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_curveto(int pdf document, double x1, double y1, double x2, double y2, double x3, double y3)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_end_page(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_endpath(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_execute_image(int pdf document, int image, double x-coor, double y-coor, double scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_fill(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_fill_stroke(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_get_image_height(int pdf document, int image)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_get_image_width(int pdf document, int image)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_get_parameter(int pdf document, string name, double modifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_get_value(int pdf document, string name, double modifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_lineto(int pdf document, double x-coor, double y-coor)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_moveto(int pdf document, double x-coor, double y-coor)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_open(int file)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_open_gif(int pdf document, string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_open_image_file(int PDF-document, string format, string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_open_jpeg(int pdf document, string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_open_memory_image(int pdf document, int image)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_open_png(int pdf, string png_file)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_open_tiff(int PDF-document, string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_place_image(int pdf document, int image, double x-coor, double y-coor, double scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_put_image(int pdf document, int image)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_rect(int pdf document, double x-coor, double y-coor, double width, double height)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_restore(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_rotate(int pdf document, double angle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_save(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_scale(int pdf document, double x-scale, double y-scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_border_color(int pdf document, double red, double green, double blue)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_border_dash(int pdf document, double black, double white)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_border_style(int pdf document, string style, double width)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_char_spacing(int pdf document, double space)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_duration(int pdf document, double duration)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_font(int pdf document, string font name, double size, string encoding, int embed)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_horiz_scaling(int pdf document, double scale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_info(int pdf document, string fieldname, string value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_leading(int pdf document, double distance)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_parameter(int pdf document, string name, string value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_text_matrix(int pdf document, array matrix)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_text_pos(int pdf document, double x-coor, double y-coor)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_text_rendering(int pdf document, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_text_rise(int pdf document, double rise)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_transition(int pdf document, int transition)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_value(int pdf document, string name, double value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_set_word_spacing(int pdf document, double space)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setdash(int pdf document, double white, double black)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setflat(int pdf document, double value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setgray(int pdf document, double gray value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setgray_fill(int pdf document, double gray value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setgray_stroke(int pdf document, double gray value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setlinecap(int pdf document, int value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setlinejoin(int pdf document, long value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setlinewidth(int pdf document, double width)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setmiterlimit(int pdf document, double value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setrgbcolor(int pdf document, double red value, double green value, double blue value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setrgbcolor_fill(int pdf document, double red value, double green value, double blue value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_setrgbcolor_stroke(int pdf document, double red value, double green value, double blue value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_show(int pdf document, string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_show_boxed(int pdf document, string text, double x-coor, double y-coor, double width, double height, string mode, string feature)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_show_xy(int pdf document, string text, double x-coor, double y-coor)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_skew(int pdf document, double alpha, double beta)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_stringwidth(int pdf document, string text)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_stroke(int pdf document)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pdf_translate(int pdf document, double x-coor, double y-coor)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pfpro_cleanup()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pfpro_init()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pfpro_process(array parameters, string address, int port, int timeout, string proxy address, int proxy port, string proxy logon, string proxy password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pfpro_process_raw(string parameters, string address, int port, int timeout, string proxy address, int proxy port, string proxy logon, string proxy password)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pfpro_version()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pfsockopen(string hostname, int port, int errno, string errstr, int timeout)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_client_encoding(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_close(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_cmdtuples(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_connect(string conn_string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_dbname(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_end_copy(resource connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_errormessage(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_exec(int connection, string query)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_fetch_array(int result, int row, int result_type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_fetch_object(int result, int row, int result_type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_fetch_row(int result, int row)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_fieldisnull(int result_id, int row, mixed field)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_fieldname(int result_id, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_fieldnum(int result_id, string field_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_fieldprtlen(int result_id, int row_number, string field_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_fieldsize(int result_id, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_fieldtype(int result_id, int field_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_freeresult(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_getlastoid(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_host(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_loclose(int fd)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_locreate(int conn)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_loexport(int oid, int file, int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_loimport(int file, int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_loopen(int conn, int objoid, string mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_loread(int fd, int len)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_loreadall(int fd)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_lounlink(int conn, int lobjid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_lowrite(int fd, string buf)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_numfields(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_numrows(int result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_options(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_pconnect(string conn_string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_port(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_put_line(resource connection_id, string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_result(int result_id, int row_number, mixed fieldname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_set_client_encoding(int connection, string encoding)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_trace(string filename, string mode, int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_tty(int connection_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pg_untrace(int connection)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="php_logo_guid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="php_sapi_name()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="php_uname()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="phpcredits(int flag)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="phpinfo(int what)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="phpversion(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pi(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="popen(string command, string mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pos(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_ctermid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getcwd(string pathname, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getcwd(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getegid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_geteuid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getgid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getgrgid(int gid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getgrnam(string name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getgroups(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getlogin(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getpgid(int pid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getpgrp(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getpid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getppid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getpwnam(string username)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getpwuid(int uid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getrlimit(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getsid(int pid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_getuid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_isatty(int fd)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_kill(int pid, int sig)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_setgid(int gid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_setpgid(int pid, int pgid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_setsid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_setuid(int uid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_times(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_ttyname(int fd)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="posix_uname(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pow(float base, float exp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="preg_grep(string pattern, array input)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="preg_match(string pattern, string subject, array matches)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="preg_match_all(string pattern, string subject, array matches, int order)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="preg_quote(string str, string delimiter)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="preg_replace(mixed pattern, mixed replacement, mixed subject, int limitstring pattern, string subject, int limit, int flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="prev(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="print(string arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="print_r(mixed expression)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="printf(string format, mixed args... )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_add_to_personal(int dictionary_link, string word)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_add_to_session(int dictionary_link, string word)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_check(int dictionary_link, string word)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_clear_session(int dictionary_link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_config_create(string language, string spelling, string jargon, string encoding)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_config_ignore(int dictionary_link, int n)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_config_mode(int dictionary_link, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_config_personal(int dictionary_link, string file)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_config_repl(int dictionary_link, string file)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_config_runtogether(int dictionary_link, boolean flag)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_config_save_repl(int dictionary_link, boolean flag)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_new(string language, string spelling, string jargon, string encoding, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_new_config(int config)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_new_personal(string personal, string language, string spelling, string jargon, string encoding, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_save_wordlist(int dictionary_link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_store_replacement(int dictionary_link, string misspelled, string correct)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="pspell_suggest(int dictionary_link, string word)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="putenv(string setting)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="quoted_printable_decode(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="quotemeta(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="rad2deg(double number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="rand(int min, int max)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="range(int low, int high)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="rawurldecode(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="rawurlencode(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="read(int socket_des, string &amp;buffer, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="read_exif_data(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readdir(int dir_handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readfile(string filename, int use_include_path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readgzfile(string filename, int use_include_path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readline(string prompt)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readline_add_history(string line)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readline_clear_history(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readline_completion_function(string line)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readline_info(string varname, string newvalue)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readline_list_history(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readline_read_history(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readline_write_history(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="readlink(string path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="realpath(string path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="recode_file(string request, resource input, resource output)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="recode_string(string request, string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="recode_string(string request, string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="register_shutdown_function(string func)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="rename(string oldname, string newname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="require(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="require_once(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="reset(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="restore_error_handler(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="rewind(int fp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="rewinddir(int dir_handle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="rmdir(string dirname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="round(double val, int precision)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="rsort(array array, int sort_flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="rtrim(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="satellite_caught_exception()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="satellite_exception_id()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="satellite_exception_value()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sem_acquire(int sem_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sem_get(int key, int max_acquire, int perm)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sem_release(int sem_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="serialize(mixed value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_affected_rows(string result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_commit()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_connect(string catalog, string schema, string user)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_diagnostic()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_disconnect()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_errormsg()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_execimm(string query)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_fetch_array(string result_id, int whence, int offsetwhence, offset, )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_fetch_result(string result_id, int max_rows)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_fetch_row(string result_id, int whence, int offsetwhence, whence, whence, offset, whence, )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_field_array(string result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_field_name(string result_id, int index)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_free_result(string result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_num_fields(string result_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_query(string query, boolean scrollable)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_rollback()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_seek_row(string result_id, int whence, int offsetoffset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sesam_settransaction(int isolation_level, int read_only)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_cache_limiter(string cache_limiter)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_decode(string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_destroy()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_encode()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_get_cookie_params()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_id(string id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_is_registered(string name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_module_name(string module)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_name(string name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_register(mixed name, mixed ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_save_path(string path)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_set_cookie_params(int lifetime, string path, string domain)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_set_save_handler(string open, string close, string read, string write, string destroy, string gc)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_start()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_unregister(string name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="session_unset()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="set_error_handler(string error_handler)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="set_file_buffer(int fp, int buffer)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="set_magic_quotes_runtime(int new_setting)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="set_time_limit(int seconds)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="setcookie(string name, string value, int expire, string path, string domain, int secure)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="setlocale(string category, string locale)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="settype(string var, string type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shm_attach(int key, int memsize, int perm)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shm_detach(int shm_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shm_get_var(int id, int variable_key)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shm_put_var(int shm_identifier, int variable_key, mixed variable)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shm_remove(int shm_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shm_remove_var(int id, int variable_key)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shmop_close(int shmid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shmop_delete(int shmid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shmop_open(int key, string flags, int mode, int size)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shmop_read(int shmid, int start, int count)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shmop_size(int shmid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shmop_write(int shmid, string data, int offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="show_source(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="shuffle(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="similar_text(string first, string second, double percent)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sin(float arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sizeof(array array)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sleep(int seconds)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="snmp_get_quick_print(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="snmp_set_quick_print(boolean quick_print)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="snmpget(string hostname, string community, string object_id, int timeout, int retries)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="snmpset(string hostname, string community, string object_id, string type, mixed value, int timeout, int retries)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="snmpwalk(string hostname, string community, string object_id, int timeout, int retries)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="snmpwalkoid(string hostname, string community, string object_id, int timeout, int retries)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="socket(int domain, int type, int protocol)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="socket_get_status(resource socket_get_status)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="socket_set_blocking(int socket descriptor, int mode)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="socket_set_timeout(int socket descriptor, int seconds, int microseconds)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sort(array array, int sort_flags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="soundex(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="split(string pattern, string string, int limit)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="split(string pattern, string string, int limit)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sprintf(string format, mixed args... )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sql_regcase(string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sqrt(float arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="srand(int seed)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sscanf(string str, string format, string var1... )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="stat(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="str_pad(string input, int pad_length, string pad_string, int pad_type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="str_repeat(string input, int multiplier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="str_replace(mixed search, mixed replace, mixed subject)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strcasecmp(string str1, string str2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strchr(string haystack, string needle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strcmp(string str1, string str2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strcoll(string str1, string str2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strcspn(string str1, string str2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strerror(int errno)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strftime(string format, int timestamp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strip_tags(string str, string allowable_tags)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="stripcslashes(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="stripslashes(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="stristr(string haystack, string needle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strlen(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strnatcasecmp(string str1, string str2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strnatcmp(string str1, string str2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strncasecmp(string str1, string str2, int len)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strncmp(string str1, string str2, int len)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strpos(string haystack, string needle, int offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strrchr(string haystack, string needle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strrev(string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strrpos(string haystack, char needle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strspn(string str1, string str2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strstr(string haystack, string needle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strtok(string arg1, string arg2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strtolower(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strtotime(string time, int now)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strtoupper(string string)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strtr(string str, string from, string to)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="strval(mixed var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="substr(string string, int start, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="substr_count(string haystrack, string needle)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="substr_replace(string string, string replacement, int start, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_actiongeturl(string url, string target)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_actiongotoframe(int framenumber)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_actiongotolabel(string label)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_actionnextframe()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_actionplay()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_actionprevframe()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_actionsettarget(string target)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_actionstop()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_actiontogglequality()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_actionwaitforframe(int framenumber, int skipcount)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_addbuttonrecord(int states, int shapeid, int depth)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_addcolor(float r, float g, float b, float a)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_closefile(int return_file)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_definebitmap(int objid, string image_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_definefont(int fontid, string fontname)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_defineline(int objid, float x1, float y1, float x2, float y2, float width)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_definepoly(int objid, array coords, int npoints, float width)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_definerect(int objid, float x1, float y1, float x2, float y2, float width)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_definetext(int objid, string str, int docenter)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_endbutton()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_enddoaction()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_endshape()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_endsymbol()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_fontsize(float size)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_fontslant(float slant)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_fonttracking(float tracking)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_getbitmapinfo(int bitmapid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_getfontinfo()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_getframe()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_labelframe(string name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_lookat(double view_x, double view_y, double view_z, double reference_x, double reference_y, double reference_z, double twist)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_modifyobject(int depth, int how)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_mulcolor(float r, float g, float b, float a)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_nextid()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_oncondition(int transition)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_openfile(string filename, float width, float height, float framerate, float r, float g, float b)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_ortho(double xmin, double xmax, double ymin, double ymax, double zmin, double zmax)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_ortho2(double xmin, double xmax, double ymin, double ymax)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_perspective(double fovy, double aspect, double near, double far)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_placeobject(int objid, int depth)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_polarview(double dist, double azimuth, double incidence, double twist)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_popmatrix()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_posround(int round)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_pushmatrix()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_removeobject(int depth)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_rotate(double angle, string axis)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_scale(double x, double y, double z)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_setfont(int fontid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_setframe(int framenumber)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_shapearc(float x, float y, float r, float ang1, float ang2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_shapecurveto(float x1, float y1, float x2, float y2)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_shapecurveto3(float x1, float y1, float x2, float y2, float x3, float y3)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_shapefillbitmapclip(int bitmapid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_shapefillbitmaptile(int bitmapid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_shapefilloff()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_shapefillsolid(float r, float g, float b, float a)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_shapelinesolid(float r, float g, float b, float a, float width)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_shapelineto(float x, float y)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_shapemoveto(float x, float y)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_showframe()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_startbutton(int objid, int type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_startdoaction()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_startshape(int objid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_startsymbol(int objid)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_textwidth(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_translate(double x, double y, double z)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="swf_viewport(double xmin, double xmax, double ymin, double ymax)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_affected_rows(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_close(int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_connect(string servername, string username, string password, string charset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_data_seek(int result_identifier, int row_number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_fetch_array(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_fetch_field(int result, int field_offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_fetch_object(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_fetch_row(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_field_seek(int result, int field_offset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_free_result(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_get_last_message(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_min_client_severity(int severity)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_min_error_severity(int severity)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_min_message_severity(int severity)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_min_server_severity(int severity)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_num_fields(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_num_rows(int result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_pconnect(string servername, string username, string password, string charset)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_query(string query, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_result(int result, int row, mixed field)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="sybase_select_db(string database_name, int link_identifier)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="symlink(string target, string link)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="syslog(int priority, string message)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="system(string command, int return_var)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="tan(float arg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="tempnam(string dir, string prefix)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="textdomain(string text_domain)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="time()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="tmpfile(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="touch(string filename, int time)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="trigger_error(string error_msg, int error_type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="trim(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="uasort(array array, function cmp_function)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ucfirst(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="ucwords(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="uksort(array array, function cmp_function)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="umask(int mask)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="uniqid(string prefix, boolean lcg)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="unixtojd(int timestamp)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="unlink(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="unpack(string format, string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="unserialize(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="unset(mixed var, mixed var, ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="urldecode(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="urlencode(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="user_error(string error_msg, int error_type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="usleep(int micro_seconds)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="usort(array array, string cmp_function)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="utf8_decode(string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="utf8_encode(string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="var_dump(mixed expression)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="virtual(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="wddx_add_vars(int packet_id, mixed name_var, mixed ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="wddx_deserialize(string packet)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="wddx_packet_end(int packet_id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="wddx_packet_start(string comment)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="wddx_serialize_value(mixed var, string comment)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="wddx_serialize_vars(mixed var_name, mixed ...)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="wordwrap(string str, int width, string break, int cut)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="write(int socket_des, string &amp;buffer, int length)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_error_string(int code)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_get_current_byte_index(int parser)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_get_current_column_number(int parser)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_get_current_line_number(int parser)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_get_error_code(int parser)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_parse(int parser, string data, int isFinal)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_parse_into_struct(int parser, string data, array &amp;values, array &amp;index)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_parser_create(string encoding)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_parser_free(int parser)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_parser_get_option(int parser, int option)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_parser_set_option(int parser, int option, mixed value)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_set_character_data_handler(int parser, string handlerint parser, string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_set_default_handler(int parser, string handlerint parser, string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_set_element_handler(int parser, string startElementHandler, string endElementHandlerint parser, string name, array attribsint parser, string name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_set_external_entity_ref_handler(int parser, string handlerint parser, string openEntityNames, string base, string systemId, string publicId)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_set_notation_decl_handler(int parser, string handlerint parser, string notationName, string base, string systemId, string publicId)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_set_object(int parser, object &amp;object)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_set_processing_instruction_handler(int parser, string handlerint parser, string target, string data)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xml_set_unparsed_entity_decl_handler(int parser, string handlerint parser, string entityName, string base, string systemId, string publicId, string notationName)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xmldoc(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xmldocfile(string filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xmltree(string str)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_closelog(resource xh)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_create()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_errno(int xh)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_error(int xh)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_fetch_result(int xhstring result_name)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_free(resource xh)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_openlog(resource xhstring logfileint loglevel)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_output_begintransform(string xslt_filename)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_output_endtransform()" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_process(string xsl_datastring xml_datastring result)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_run(resource xhstring xslt_filestring xml_data_filestring resultarray xslt_paramsarray xslt_args)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_set_sax_handler(resource xharray handlers)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="xslt_transform(string xslstring xmlstring resultstring paramsstring argsstring resultBuffer)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yaz_addinfo(int id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yaz_close(int id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yaz_connect(string zurl)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yaz_errno(int id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yaz_error(int id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yaz_hits(int id)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yaz_range(int id, int start, int number)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yaz_record(int id, int pos, string type)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yaz_search(int id, string type, string query)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yaz_syntax(int id, string syntax)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yaz_wait(int id, string syntax)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yp_first(string domain, string map)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yp_get_default_domain(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yp_master(string domain, string map)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yp_match(string domain, string map, string key)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yp_next(string domain, string map, string key)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="yp_order(string domain, string map)" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  <function pattern="zend_logo_guid(void )" DOCTYPES="PHP_ADODB" caseSensitive="true" />
+  
+  <MENU pattern="$_" DOCTYPES="PHP_ADODB">
+  	<MENUITEM label="COOKIE" value ="COOKIE[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="ENV" VALUE="ENV[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="FILES" VALUE="FILES[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="GET" VALUE="GET[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="POST" VALUE="POST[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="REQUEST" VALUE="REQUEST[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="SESSION" VALUE="SESSION[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="SERVER" VALUE="SERVER[" icon="shared/mm/images/hintMisc.gif" />
+  </MENU>
+  <MENU pattern="$HTTP_" DOCTYPES="PHP_ADODB">
+  	<MENUITEM label="COOKIE_VARS" value ="COOKIE_VARS[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="ENV_VARS" VALUE="ENV_VARS[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="FILES_VARS" VALUE="FILES_VARS[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="GET_VARS" VALUE="GET_VARS[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="POST_VARS" VALUE="POST_VARS[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="REQUEST_VARS" VALUE="REQUEST_VARS[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="SESSION_VARS" VALUE="SESSION_VARS[" icon="shared/mm/images/hintMisc.gif" />
+    <MENUITEM label="SERVER_VARS" VALUE="SERVER_VARS[" icon="shared/mm/images/hintMisc.gif" />
+  </MENU>
+  <MENU pattern="$_SERVER[" DOCTYPES="PHP_ADODB">
+  	<MENUITEM label="DOCUMENT_ROOT" VALUE="'DOCUMENT_ROOT']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="GATEWAY_INTERFACE" VALUE="'GATEWAY_INTERFACE']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_ACCEPT" VALUE="'HTTP_ACCEPT']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_ACCEPT_CHARSET" VALUE="'HTTP_ACCEPT_CHARSET']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_ACCEPT_ENCODING" VALUE="'HTTP_ACCEPT_ENCODING']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_ACCEPT_LANGUAGE" VALUE="'HTTP_ACCEPT_LANGUAGE']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_CONNECTION" VALUE="'HTTP_CONNECTION']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_HOST" VALUE="'HTTP_HOST']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_REFERER" VALUE="'HTTP_REFERRER']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_USER_AGENT" VALUE="'HTTP_USER_AGENT']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="PATH_TRANSLATED" VALUE="'PATH_TRANSLATED']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="PHP_SELF" VALUE="'PHP_SELF']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="QUERY_STRING" VALUE="'QUERY_STRING']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="REMOTE_ADDR" VALUE="'REMOTE_ADDR']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="REMOTE_PORT" VALUE="'REMOTE_PORT']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="REQUEST_METHOD" VALUE="'REQUEST_METHOD']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="REQUEST_URI" VALUE="'REQUEST_URI']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SCRIPT_FILENAME" VALUE="'SCRIPT_FILENAME']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SCRIPT_NAME" VALUE="'SCRIPT_NAME']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_ADMIN" VALUE="'SERVER_ADMIN']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_NAME" VALUE="'SERVER_NAME']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_PORT" VALUE="'SERVER_PORT']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_PROTOCOL" VALUE="'SERVER_PROTOCOL']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_SIGNATURE" VALUE="'SERVER_SIGNATURE']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_SOFTWARE" VALUE="'SERVER_SOFTWARE']" icon="shared/mm/images/hintMisc.gif" />
+  </MENU>
+  <MENU pattern="$HTTP_SERVER_VARS[" DOCTYPES="PHP_ADODB">
+  	<MENUITEM label="DOCUMENT_ROOT" VALUE="'DOCUMENT_ROOT']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="GATEWAY_INTERFACE" VALUE="'GATEWAY_INTERFACE']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_ACCEPT" VALUE="'HTTP_ACCEPT']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_ACCEPT_CHARSET" VALUE="'HTTP_ACCEPT_CHARSET']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_ACCEPT_ENCODING" VALUE="'HTTP_ACCEPT_ENCODING']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_ACCEPT_LANGUAGE" VALUE="'HTTP_ACCEPT_LANGUAGE']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_CONNECTION" VALUE="'HTTP_CONNECTION']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_HOST" VALUE="'HTTP_HOST']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_REFERER" VALUE="'HTTP_REFERRER']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="HTTP_USER_AGENT" VALUE="'HTTP_USER_AGENT']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="PATH_TRANSLATED" VALUE="'PATH_TRANSLATED']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="PHP_SELF" VALUE="'PHP_SELF']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="QUERY_STRING" VALUE="'QUERY_STRING']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="REMOTE_ADDR" VALUE="'REMOTE_ADDR']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="REMOTE_PORT" VALUE="'REMOTE_PORT']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="REQUEST_METHOD" VALUE="'REQUEST_METHOD']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="REQUEST_URI" VALUE="'REQUEST_URI']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SCRIPT_FILENAME" VALUE="'SCRIPT_FILENAME']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SCRIPT_NAME" VALUE="'SCRIPT_NAME']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_ADMIN" VALUE="'SERVER_ADMIN']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_NAME" VALUE="'SERVER_NAME']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_PORT" VALUE="'SERVER_PORT']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_PROTOCOL" VALUE="'SERVER_PROTOCOL']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_SIGNATURE" VALUE="'SERVER_SIGNATURE']" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SERVER_SOFTWARE" VALUE="'SERVER_SOFTWARE']" icon="shared/mm/images/hintMisc.gif" />
+  </MENU>
+
+  <MENU pattern="->" DOCTYPES="PHP_ADODB">
+  	<MENUITEM label="Fields" VALUE="Fields('fieldName');" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="RecordCount" VALUE="RecordCount();" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="MoveNext" VALUE="MoveNext();" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="MoveFirst" VALUE="MoveFirst();" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="MovePrevious" VALUE="MovePrevious();" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="MoveLast" VALUE="MoveLast();" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="EOF" VALUE="EOF" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="Execute" VALUE="Execute('SELECT * FROM table') or DIE();" icon="shared/mm/images/hintMisc.gif" />
+  	<MENUITEM label="SelectLimit" VALUE="SelectLimit('SELECT * FROM table', limit, offset) or DIE();" icon="shared/mm/images/hintMisc.gif" />
+  </MENU>
+
+</menugroup>
+</codehints>

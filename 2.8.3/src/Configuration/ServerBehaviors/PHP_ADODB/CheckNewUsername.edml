@@ -1,0 +1,6 @@
+<group name="CheckNewUsername" version="7.0.1" serverBehavior="CheckNewUsername.htm">
+	<TITLE>Check New Username</TITLE>
+	<groupParticipants selectParticipant="CheckNewUsername_main">
+		<groupParticipant name="CheckNewUsername_main" partType="identifier" />
+	</groupParticipants>
+</group>
