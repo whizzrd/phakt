@@ -1,0 +1,8 @@
+<participant>
+<!-- PHP_ADODB ---------------------------------------------------------->
+  <implementation serverModel="PHP_ADODB">
+     <insertText location="replaceSelection">
+<![CDATA[<a href="@@hrefParam@@">@@linkParam@@</a>]]>
+     </insertText>
+  </implementation>
+</participant>
