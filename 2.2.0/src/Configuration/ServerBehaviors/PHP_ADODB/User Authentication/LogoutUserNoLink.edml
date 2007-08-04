@@ -1,0 +1,7 @@
+<group serverBehavior="Logout User.htm" subType="NoLink" hideFromBuilder="false" version="6.0">
+	<groupParticipants selectParticipant="LogoutUser_noLink">
+		<groupParticipant name="LogoutUser_noLink" partType="identifier" />
+		<groupParticipant name="Functions_block" partType="member" />
+	</groupParticipants>
+	<TITLE>LogoutUserNoLink (@@redirectPage@@)</TITLE>
+</group>

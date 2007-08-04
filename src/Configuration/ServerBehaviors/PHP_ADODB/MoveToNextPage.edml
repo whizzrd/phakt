@@ -1,8 +1,0 @@
-<group name="MoveToNextPage" version="6.0" serverBehavior="MoveToNext.htm" dataSource="Recordset.htm">
-	<groupParticipants selectParticipant="MoveToNextPage_link">
-		<groupParticipant name="MoveToNextPage_link" partType="identifier" />
-		<groupParticipant name="MoveTo_queryString" partType="member" />
-		<groupParticipant name="Functions_block" partType="member" />
-	</groupParticipants>
-	<TITLE>MoveToNextPage</TITLE>
-</group>

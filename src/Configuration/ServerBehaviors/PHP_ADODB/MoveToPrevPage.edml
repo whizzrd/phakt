@@ -1,8 +1,0 @@
-<group name="MoveToPrevPage" version="6.0" serverBehavior="MoveToPrevious.htm" dataSource="Recordset.htm">
-	<groupParticipants selectParticipant="MoveToPrevPage_link">
-		<groupParticipant name="MoveToPrevPage_link" partType="identifier" />
-		<groupParticipant name="MoveTo_queryString" partType="member" />
-		<groupParticipant name="Functions_block" partType="member" />
-	</groupParticipants>
-	<TITLE>MoveToPrevPage</TITLE>
-</group>

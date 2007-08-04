@@ -1,9 +1,0 @@
-<participant version="6.1">
-	<insertText location="aboveHTML+5"><![CDATA[<?php //Connection statement
-require_once('@@ConnectionPath@@');?>]]></insertText>
-	<searchPatterns whereToSearch="directive">
-		<searchPattern paramNames="ConnectionPath" isOptional="false" limitSearch="all"><![CDATA[/\/\/Connection statement(?:\r\n|\r(?!\n)|\n)[ \t]*require_once\('([^\r\n]*?)'\);(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
-	    <searchPattern paramNames=",ConnectionName," isOptional="true" limitSearch="all"><![CDATA[/'([^']*)Connections\/(\w+)\.(\w+)'/i]]></searchPattern>  
-	</searchPatterns>
-	<quickSearch>require_once('</quickSearch>
-</participant>
