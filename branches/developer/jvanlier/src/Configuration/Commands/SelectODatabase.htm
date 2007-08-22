@@ -1,0 +1,37 @@
+<!-- MENU-LOCATION=NONE -->
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<HTML>
+<HEAD>
+<!--  Copyright 2001-2002 Macromedia, Inc. All rights reserved. -->
+
+<TITLE>Select Database</TITLE>
+
+<SCRIPT SRC="../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT src="SelectODatabase.js"></SCRIPT>
+
+</HEAD>
+
+<BODY onload="initializeUI()">
+
+<form name="theForm">
+  <input type="hidden" name="DBType" style="width:200">
+  <table>
+    <tr>
+      <td align="right" valign="top" nowrap>Select Database:</td>
+      <td align="left">
+        <select name="Database" size="10" style="width:200">
+          <option>Loading...</option>
+        </select>
+      </td>
+    </tr>
+  </table>  
+	 <input type="hidden" name="HostName" value="" style="width:200">
+     <input type="hidden" name="UserName" style="width:200">
+     <input type="hidden" name="Password" style="width:200">
+
+
+</form>
+
+</BODY>
+</HTML>

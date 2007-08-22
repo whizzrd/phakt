@@ -1,0 +1,23 @@
+<participant version="6.0">
+	<insertText location="aboveHTML+30"><![CDATA[<?php
+if ((isset($HTTP_POST_VARS["MM_insert"])) && ($HTTP_POST_VARS["MM_insert"] == "@@FormName@@")) {
+  $insertSQL = sprintf("@@SQLStatement@@",
+                       @@SQLVariableList@@);
+
+  $Result1 = $@@ConnectionName@@->Execute($insertSQL) or die($@@ConnectionName@@->ErrorMsg());
+<@ if (@@Redirect_url@@) @>
+
+  $insertGoTo = "@@Redirect_url@@";
+  if (isset($HTTP_SERVER_VARS['QUERY_STRING'])) {
+    $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
+    $insertGoTo .= $HTTP_SERVER_VARS['QUERY_STRING'];
+  }
+  KT_redir($insertGoTo);
+<@ endif @>
+}
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="FormName,SQLStatement,SQLVariableList,ConnectionName,Redirect_url" isOptional="false" limitSearch="all"><![CDATA[/if \(\(isset\(\$HTTP_POST_VARS\["MM_insert"\]\)\) && \(\$HTTP_POST_VARS\["MM_insert"\] == "([^\r\n]*?)"\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$insertSQL = sprintf\("([^\r\n]*?)",(?:\r\n|\r(?!\n)|\n)[ \t]*([\s\S]*?)\);(?:\r\n|\r(?!\n)|\n)[ \t]*(?:\r\n|\r(?!\n)|\n)[ \t]*\$Result1 = \$([^\r\n]*?)->\s*Execute\(\$insertSQL\) or die\(\$[^\r\n]*?->\s*ErrorMsg\(\)\);(?:\r\n|\r(?!\n)|\n)[ \t]*(?:(?:\r\n|\r(?!\n)|\n)[ \t]*\$insertGoTo = "([^\r\n]*?)";(?:\r\n|\r(?!\n)|\n)[ \t]*if \(isset\(\$HTTP_SERVER_VARS\['QUERY_STRING'\]\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*\$insertGoTo \.= \(strpos\(\$insertGoTo, '\?'\)\) \? "&" : "\?";(?:\r\n|\r(?!\n)|\n)[ \t]*\$insertGoTo \.= \$HTTP_SERVER_VARS\['QUERY_STRING'\];(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*KT_redir\(\$insertGoTo\);(?:\r\n|\r(?!\n)|\n)[ \t]*)?\}(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>((isset($HTTP_POST_VARS["MM_insert"]))</quickSearch>
+</participant>

@@ -1,0 +1,10 @@
+<recordsets>
+	<recordset serverModel="PHP4" type="Advanced" command="ServerBeh-PHP4-AdvRS.htm" priority="2" saveUI="true">
+		<subType name="Standard" value="Standard" priority="1"/>
+		<subType name="Safe" value="Safe" priority="2"/>
+	</recordset>
+	<recordset serverModel="PHP4" type="Simple" command="ServerBeh-PHP4-SimpRS.htm" priority="1" saveUI="true">
+		<subType name="Standard" value="Standard" priority="1"/>
+		<subType name="Safe" value="Safe" priority="2"/>
+	</recordset>
+</recordsets>

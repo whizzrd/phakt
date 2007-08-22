@@ -1,0 +1,5 @@
+<group name="RSStatsAll" version="5.0" serverBehavior="RSStatsAll.htm" dataSource="Recordset.htm">
+	<groupParticipants selectParticipant="RSStatsAll_main">
+		<groupParticipant name="RSStatsAll_main" partType="identifier" />
+	</groupParticipants>
+</group>
