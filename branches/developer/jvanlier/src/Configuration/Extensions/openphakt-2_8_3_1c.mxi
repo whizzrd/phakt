@@ -1,5 +1,5 @@
 <macromedia-extension
-	 name="PHAkt"
+	 name="OpenPHAkt"
 	 version="2.8.3"
 	 type="ServerModel"
 	 requires-restart="true">
@@ -7,7 +7,11 @@
 	<author name="InterAKT Online" />
 
 	<products>
-		<product name="Dreamweaver" version="6" primary="true" />
+		<product name="Dreamweaver" version="6" />
+		<!-- EXPERIMENTAL: For compatibility Testing -->
+		<product name="Dreamweaver" version="7" />
+		<product name="Dreamweaver" version="8" />
+		<product name="Dreamweaver" version="9" />
 	</products>
 
 	<description>
